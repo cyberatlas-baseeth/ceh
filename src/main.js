@@ -865,7 +865,43 @@ window._quizCount = 20;
 
 window.toggleTopicComplete = function(moduleId, topicIndex) {
   storage.toggleTopicRead(moduleId, topicIndex);
-  renderApp(); // re-render to update UI and progress bar
+  
+  const isCompleted = storage.getProgress().readTopics[moduleId][topicIndex];
+  
+  // Update button state
+  const btn = document.querySelector(`#topic-${topicIndex} .btn-complete`);
+  if (btn) {
+    if (isCompleted) {
+      btn.classList.add('completed');
+      btn.innerHTML = icon('check-circle', 18) + ' Completed';
+    } else {
+      btn.classList.remove('completed');
+      btn.innerHTML = icon('circle', 18) + ' Mark as Completed';
+    }
+  }
+
+  // Update checkmark in title
+  const titleContainer = document.querySelector(`#topic-${topicIndex} .topic-content > div:first-child`);
+  if (titleContainer) {
+    const existingCheck = titleContainer.querySelector('.text-success');
+    if (isCompleted && !existingCheck) {
+      titleContainer.innerHTML += `<span class="text-success" style="color:var(--success);">${icon('check-circle', 16)}</span>`;
+    } else if (!isCompleted && existingCheck) {
+      existingCheck.remove();
+    }
+  }
+
+  // Update progress bar
+  const tStats = storage.getTopicStats(moduleId);
+  const percent = tStats.total ? (tStats.readCount / tStats.total) * 100 : 0;
+  const progressBar = document.querySelector('.progress-bar-fill');
+  if (progressBar) progressBar.style.width = percent + '%';
+  
+  // Update progress text
+  const progressText = document.querySelector('.main-content > div:nth-child(2) > div > span');
+  if (progressText && progressText.innerText.includes('completed')) {
+    progressText.innerText = `${tStats.readCount} of ${tStats.total} completed`;
+  }
 };
 
 window.startQuiz = function() {
