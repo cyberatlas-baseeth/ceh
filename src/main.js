@@ -84,7 +84,8 @@ function navigate(path) {
 
 function getRoute() {
   const hash = window.location.hash.slice(1) || '/';
-  const parts = hash.split('/').filter(Boolean);
+  const pathPart = hash.split('?')[0];
+  const parts = pathPart.split('/').filter(Boolean);
   return { path: hash, parts };
 }
 
