@@ -1,0 +1,414 @@
+[
+  {
+    "id": 6,
+    "title": "System Hacking",
+    "domainId": 3,
+    "icon": "lock",
+    "description": "Covers the core techniques for compromising systems including password cracking, privilege escalation, maintaining persistent access, steganography, and covering tracks.",
+    "objectives": [
+      "Understand password cracking techniques and tools",
+      "Perform horizontal and vertical privilege escalation",
+      "Establish persistent access using backdoors and rootkits",
+      "Hide data using steganography and alternate data streams",
+      "Clear tracks by modifying logs and timestamps"
+    ],
+    "topics": [
+      {
+        "title": "Password Cracking Techniques",
+        "content": "<p>Password cracking is a fundamental phase in system hacking aimed at recovering plain-text passwords from stored hashes or intercepted network traffic.</p><ul><li><strong>Offline Password Cracking:</strong> Attackers often prefer offline cracking because it does not generate network traffic or trigger account lockouts. A prime tool for this is <strong>John the Ripper</strong>, which tests captured password hashes against wordlists and applies mangling rules.</li><li><strong>Brute Force vs. Dictionary Attacks:</strong> A <em>brute force attack</em> systematically attempts every possible combination of characters until the correct password is found. While guaranteed to work eventually, it is extremely slow. A <em>dictionary attack</em> relies on a precompiled list of common words and passwords.</li><li><strong>Windows SAM Database:</strong> In Windows environments, local user credentials are stored as NTLM hashes in the Security Account Manager (SAM) database (<code>C:\\Windows\\System32\\config\\SAM</code>). Accessing this database is a primary goal for attackers.</li><li><strong>Pass-the-Hash (PtH):</strong> Instead of cracking the hash, attackers can use the NTLM hash directly to authenticate to other Windows systems on the network. This powerful technique bypasses the need to know the plaintext password altogether.</li></ul>",
+        "keyTerms": [
+          "John the Ripper",
+          "Brute Force Attack",
+          "Dictionary Attack",
+          "SAM Database",
+          "NTLM Hash",
+          "Pass-the-Hash"
+        ]
+      },
+      {
+        "title": "Privilege Escalation",
+        "content": "<p>Once initial access is gained, an attacker often finds themselves with limited privileges. <strong>Privilege escalation</strong> is the process of exploiting vulnerabilities, misconfigurations, or design flaws to gain higher-level access.</p><ul><li><strong>Vertical vs. Horizontal Escalation:</strong> <em>Vertical escalation</em> involves elevating a lower-privileged account to administrative or root rights. <em>Horizontal escalation</em> involves accessing another user's account and resources at the same privilege level.</li><li><strong>SUID Binaries in Linux:</strong> A critical misconfiguration in Linux involves SUID (Set User ID) binaries owned by root. When an SUID binary has a vulnerability, such as a buffer overflow, exploiting it will spawn a shell or process running with the file owner's privileges (root), granting full system control.</li><li><strong>/etc/passwd Vulnerability:</strong> In modern Linux systems, password hashes should be safely stored in <code>/etc/shadow</code>. If a penetration tester finds actual hashed passwords in <code>/etc/passwd</code> instead of the expected 'x' placeholder, it indicates that shadow passwords are not enabled. Since <code>/etc/passwd</code> is world-readable, this is a significant security weakness that allows any local user to perform offline cracking.</li></ul>",
+        "keyTerms": [
+          "Privilege Escalation",
+          "Vertical Escalation",
+          "Horizontal Escalation",
+          "SUID",
+          "Buffer Overflow",
+          "/etc/passwd"
+        ]
+      },
+      {
+        "title": "Maintaining Access",
+        "content": "<p>After successfully elevating privileges, attackers strive to establish persistent access. This ensures that even if the system is rebooted or the compromised credentials are changed, the attacker can seamlessly reconnect.</p><ul><li><strong>Backdoors and Trojans:</strong> Attackers deploy malicious software that listens on hidden ports, providing remote command execution without requiring traditional authentication.</li><li><strong>Rootkits:</strong> These are sophisticated malware designed to hide the existence of processes, files, or network connections from the operating system, operating either in user-mode or kernel-mode.</li><li><strong>Alternative Access Mechanisms:</strong> Attackers frequently create hidden administrator accounts, configure scheduled tasks, or modify registry run keys to guarantee their payloads are executed automatically upon system startup.</li></ul>",
+        "keyTerms": [
+          "Backdoor",
+          "Rootkit",
+          "Persistence",
+          "Scheduled Tasks",
+          "Registry Run Keys"
+        ]
+      },
+      {
+        "title": "Steganography",
+        "content": "<p><strong>Steganography</strong> is the practice of concealing secret data within ordinary, non-secret files or messages (carrier files) to avoid detection.</p><ul><li><strong>Concept:</strong> Unlike cryptography, which scrambles data to make it unreadable, steganography hides the very existence of the data. To an observer, the file simply looks like a normal image or audio track.</li><li><strong>Techniques and Tools:</strong> Data can be hidden in images, audio, video, or even whitespace in text documents. Common techniques include Least Significant Bit (LSB) insertion. Tools widely used for this purpose include OpenStego, Steghide, and Snow.</li></ul>",
+        "keyTerms": [
+          "Steganography",
+          "Cryptography",
+          "Carrier File",
+          "OpenStego",
+          "Steghide",
+          "LSB Insertion"
+        ]
+      },
+      {
+        "title": "Covering Tracks",
+        "content": "<p>The final phase of system hacking involves removing evidence of the unauthorized access to evade detection by security teams and hinder forensic investigations.</p><ul><li><strong>Clearing Windows Event Logs:</strong> Attackers routinely clear the Security, System, and Application event logs to destroy records of failed logins, process creations, and privilege changes. This can be achieved using commands like <code>wevtutil cl Security</code> or the Meterpreter command <code>clearev</code>.</li><li><strong>Deleting Volume Shadow Copies:</strong> On Windows systems, attackers (and notably ransomware operators) use commands like <code>wmic shadowcopy delete</code> to delete Volume Shadow Copies. This prevents system recovery and removes forensic evidence stored in those backup snapshots.</li><li><strong>Other Methods:</strong> Attackers also clear bash history on Linux systems, modify file timestamps (Timestomping), and disable auditing policies.</li></ul>",
+        "keyTerms": [
+          "Covering Tracks",
+          "Event Logs",
+          "wevtutil",
+          "clearev",
+          "Volume Shadow Copies",
+          "wmic shadowcopy delete"
+        ]
+      }
+    ],
+    "tools": [
+      "John the Ripper",
+      "Hashcat",
+      "Mimikatz",
+      "wevtutil",
+      "OpenStego"
+    ],
+    "v13Updates": [
+      "AI-driven credential stuffing",
+      "Machine learning-based password guessing"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Malware Threats",
+    "domainId": 3,
+    "icon": "virus",
+    "description": "Examines types of malware including viruses, worms, Trojans, ransomware, and APTs. Covers malware analysis techniques and evasion strategies.",
+    "objectives": [
+      "Classify different types of malware and their characteristics",
+      "Understand Advanced Persistent Threats (APTs) and their lifecycle",
+      "Explain fileless malware techniques and evasion methods",
+      "Perform basic static and dynamic malware analysis",
+      "Identify anti-malware countermeasures and solutions"
+    ],
+    "topics": [
+      {
+        "title": "Types of Malware",
+        "content": "<p>Understanding the fundamental behavior of different malicious software is critical for threat detection and response.</p><ul><li><strong>Trojan:</strong> Named after the Trojan Horse, this malware disguises itself as legitimate or desirable software to trick users into installing it. Unlike viruses, Trojans do not self-replicate. They typically open backdoors for remote access.</li><li><strong>Worm vs. Virus:</strong> A <strong>virus</strong> attaches itself to legitimate files and requires user interaction (like executing a program) to spread. A <strong>worm</strong>, however, is standalone malware that can self-replicate and spread rapidly across networks automatically, requiring no user interaction.</li><li><strong>Ransomware:</strong> This malicious software encrypts the victim's files and demands payment (usually in cryptocurrency) for the decryption key. Modern variants often use <em>double extortion</em>\u2014encrypting the data and threatening to leak sensitive information publicly if the ransom is not paid.</li><li><strong>Dropper:</strong> Often delivered via phishing, a dropper is a preliminary piece of malware (like a malicious document with a macro) designed solely to connect to a remote server, download, and install a more destructive second-stage payload.</li></ul>",
+        "keyTerms": [
+          "Trojan",
+          "Worm",
+          "Virus",
+          "Ransomware",
+          "Double Extortion",
+          "Dropper"
+        ]
+      },
+      {
+        "title": "Advanced Persistent Threats (APTs)",
+        "content": "<p><strong>Advanced Persistent Threats (APTs)</strong> are sophisticated, targeted, and prolonged cyberattacks typically orchestrated by well-funded groups, such as nation-states.</p><ul><li><strong>Characteristics:</strong> APTs are characterized by a long dwell time\u2014meaning the attackers remain patient and operate stealthily inside a corporate network for months or even years without detection.</li><li><strong>Objectives:</strong> Rather than causing immediate disruption, APTs focus on specific targets to systematically exfiltrate highly sensitive data, intellectual property, or strategic intelligence.</li></ul>",
+        "keyTerms": [
+          "APT",
+          "Dwell Time",
+          "Nation-State Actors",
+          "Data Exfiltration",
+          "Stealth"
+        ]
+      },
+      {
+        "title": "Fileless Malware",
+        "content": "<p><strong>Fileless malware</strong> is an advanced memory-based attack technique that leaves little to no footprint on the hard drive.</p><ul><li><strong>Mechanism:</strong> Instead of writing executable files to disk, fileless malware operates entirely in RAM. It leverages legitimate, built-in system administration tools\u2014often referred to as Living-off-the-Land Binaries (LOLBins)\u2014such as PowerShell, WMI, or the Windows Registry to execute its malicious code.</li><li><strong>Evasion:</strong> Because there are no traditional malicious files to scan, fileless malware easily evades signature-based antivirus detection. Combating it requires advanced behavioral analysis and Endpoint Detection and Response (EDR) solutions.</li></ul>",
+        "keyTerms": [
+          "Fileless Malware",
+          "RAM",
+          "LOLBins",
+          "PowerShell",
+          "WMI",
+          "Memory-based Execution"
+        ]
+      },
+      {
+        "title": "Malware Analysis Techniques",
+        "content": "<p>Malware analysis is essential for understanding how a specific threat operates and how to defend against it.</p><ul><li><strong>Static Analysis:</strong> Examining the malicious file without executing it. This involves reviewing file hashes, extracting strings, inspecting PE headers, and reverse-engineering the code.</li><li><strong>Dynamic (Behavioral) Analysis:</strong> This involves executing the malware in a controlled, isolated virtual environment (a sandbox, such as Cuckoo Sandbox) to observe its real-time behavior. Analysts monitor file system changes, registry modifications, process creation, and network connections.</li></ul>",
+        "keyTerms": [
+          "Static Analysis",
+          "Dynamic Analysis",
+          "Behavioral Analysis",
+          "Sandbox",
+          "Cuckoo Sandbox"
+        ]
+      },
+      {
+        "title": "Malware Evasion and Countermeasures",
+        "content": "<p>Malware authors continuously develop sophisticated techniques to bypass security controls and analysis environments.</p><ul><li><strong>Polymorphic Malware:</strong> This type of malware changes its underlying code, encryption, or appearance with each replication or infection. While its core function remains the same, its unique signature changes every time, rendering traditional signature-based antivirus completely ineffective.</li><li><strong>Sandbox Evasion / Anti-Analysis:</strong> Advanced malware checks its environment before executing the payload. If it detects virtual machine artifacts (like specific MAC addresses or driver names), debugging tools, or sandbox environments, it will remain dormant or terminate itself to avoid behavioral detection.</li><li><strong>Kernel-Level Rootkits:</strong> These operate deep within the OS kernel by hooking system calls. This allows them to effectively hide malicious processes, files, and network activity from user-space security tools, making them notoriously difficult to detect and remove.</li></ul>",
+        "keyTerms": [
+          "Polymorphism",
+          "Sandbox Evasion",
+          "Anti-Analysis",
+          "Kernel-Level Rootkit",
+          "System Call Hooking"
+        ]
+      }
+    ],
+    "tools": [
+      "Cuckoo Sandbox",
+      "Wireshark",
+      "Process Monitor",
+      "chkrootkit"
+    ],
+    "v13Updates": [
+      "AI-generated malware",
+      "Deepfake-enhanced delivery mechanisms"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Sniffing",
+    "domainId": 4,
+    "icon": "wifi",
+    "description": "Covers packet sniffing concepts, network traffic analysis, and attacks on network infrastructure including MAC flooding, ARP spoofing, DHCP starvation, and DNS spoofing.",
+    "objectives": [
+      "Understand active and passive sniffing concepts",
+      "Perform network traffic analysis using Wireshark and tcpdump",
+      "Execute MAC flooding and CAM table exhaustion attacks",
+      "Perform ARP spoofing, DHCP starvation, and DNS poisoning",
+      "Implement network sniffing countermeasures"
+    ],
+    "topics": [
+      {
+        "title": "Packet Sniffing Concepts",
+        "content": "<p>Sniffing involves capturing and analyzing network traffic as it flows across a network. It can be categorized into two main types:</p><ul><li><strong>Passive Sniffing:</strong> Used in networks utilizing hubs (which broadcast traffic to all ports). The attacker simply places their Network Interface Card (NIC) in <strong>promiscuous mode</strong> to capture all traffic on the collision domain without sending any additional packets.</li><li><strong>Active Sniffing:</strong> Required in switched networks (which only send traffic to the specific destination port). To capture traffic intended for others, the attacker must actively inject packets into the network to manipulate the switch's behavior (e.g., via ARP spoofing or MAC flooding).</li><li><strong>SPAN/Mirror Ports:</strong> In enterprise environments, security tools (like an IDS) are connected to a Switch Port Analyzer (SPAN) or mirror port to passively monitor a copy of all network traffic.</li></ul>",
+        "keyTerms": [
+          "Active Sniffing",
+          "Passive Sniffing",
+          "Promiscuous Mode",
+          "SPAN Port",
+          "Mirror Port"
+        ]
+      },
+      {
+        "title": "Network Traffic Analysis Tools",
+        "content": "<p>Effective traffic analysis requires specialized tools to capture and dissect packets.</p><ul><li><strong>Wireshark:</strong> The industry-standard graphical network protocol analyzer. It allows users to capture traffic in real-time or read from PCAP (Packet Capture) files. Wireshark utilizes powerful <strong>display filters</strong> (e.g., <code>tcp.port == 80</code>) to isolate specific traffic of interest.</li><li><strong>tcpdump:</strong> A robust command-line packet analyzer used widely in Unix/Linux environments. It uses <strong>capture filters</strong> (BPF syntax) to restrict which packets are saved to disk or displayed, minimizing resource usage during high-volume captures.</li></ul>",
+        "keyTerms": [
+          "Wireshark",
+          "tcpdump",
+          "PCAP",
+          "Display Filters",
+          "Capture Filters"
+        ]
+      },
+      {
+        "title": "MAC Attacks and Switch Exploitation",
+        "content": "<p>Switches maintain a Content Addressable Memory (CAM) table to map MAC addresses to physical ports.</p><ul><li><strong>MAC Flooding (CAM Table Exhaustion):</strong> An attacker floods the switch with thousands of forged Ethernet frames, each with a different fake source MAC address. This rapidly fills the CAM table. Once full, most switches fail-open and revert to behaving like a hub, broadcasting all incoming traffic out of every port. This allows the attacker to passively sniff traffic meant for other hosts. Tools like <strong>macof</strong> are commonly used for this.</li><li><strong>Switch Spoofing (VLAN Hopping):</strong> Attackers negotiate a trunk link with the switch (e.g., by exploiting DTP) to gain access to traffic from all VLANs.</li></ul>",
+        "keyTerms": [
+          "MAC Flooding",
+          "CAM Table",
+          "Fail-open",
+          "macof",
+          "VLAN Hopping"
+        ]
+      },
+      {
+        "title": "ARP, DHCP, and DNS Spoofing",
+        "content": "<p>These attacks manipulate fundamental network protocols to intercept traffic.</p><ul><li><strong>ARP Spoofing/Poisoning:</strong> Address Resolution Protocol (ARP) lacks authentication. An attacker sends spoofed ARP replies to a target and the default gateway, associating the attacker's MAC address with the gateway's IP address. This successfully establishes a <strong>Man-in-the-Middle (MitM)</strong> position.</li><li><strong>DHCP Starvation and Rogue DHCP:</strong> An attacker broadcasts thousands of DHCP requests with spoofed MAC addresses, exhausting the legitimate DHCP server's IP pool (starvation). They then introduce a <strong>Rogue DHCP server</strong> to assign IP addresses to clients, configuring the attacker's machine as the default gateway or DNS server.</li><li><strong>DNS Spoofing/Poisoning:</strong> The attacker intercepts DNS requests and replies with a spoofed IP address, redirecting the victim's traffic from a legitimate site (e.g., a bank) to an attacker-controlled malicious site.</li></ul>",
+        "keyTerms": [
+          "ARP Spoofing",
+          "Man-in-the-Middle",
+          "DHCP Starvation",
+          "Rogue DHCP",
+          "DNS Spoofing"
+        ]
+      },
+      {
+        "title": "Sniffing Countermeasures",
+        "content": "<p>Defending against sniffing and active network manipulation requires network infrastructure security.</p><ul><li><strong>Dynamic ARP Inspection (DAI):</strong> Validates ARP packets in a network by intercepting, logging, and discarding ARP packets with invalid IP-to-MAC address bindings.</li><li><strong>Port Security:</strong> Mitigates MAC flooding by limiting the number of valid MAC addresses allowed on a specific switch port.</li><li><strong>DHCP Snooping:</strong> Prevents rogue DHCP servers by designating specific ports as 'trusted' (allowed to send DHCP replies) and all others as 'untrusted'.</li><li><strong>Encryption:</strong> Ensuring all network communication utilizes strong encryption (e.g., HTTPS, SSH, VPNs) renders captured packets unreadable to the attacker.</li></ul>",
+        "keyTerms": [
+          "Dynamic ARP Inspection",
+          "Port Security",
+          "DHCP Snooping",
+          "Encryption"
+        ]
+      }
+    ],
+    "tools": [
+      "Wireshark",
+      "tcpdump",
+      "Ettercap",
+      "Bettercap",
+      "macof"
+    ],
+    "v13Updates": [
+      "Advanced PCAP analysis with AI tools",
+      "IoT network sniffing techniques"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Social Engineering",
+    "domainId": 4,
+    "icon": "users",
+    "description": "Explores the psychological manipulation of people to extract sensitive information, covering various attack vectors including phishing, deepfakes, physical techniques, and effective countermeasures.",
+    "objectives": [
+      "Understand the psychological principles of influence",
+      "Identify common social engineering attack vectors",
+      "Recognize the role of AI and deepfakes in modern attacks",
+      "Describe physical social engineering techniques",
+      "Implement comprehensive security awareness training"
+    ],
+    "topics": [
+      {
+        "title": "Social Engineering Concepts and Vectors",
+        "content": "<p>Social engineering relies on manipulating human psychology rather than exploiting technical flaws.</p><ul><li><strong>Phishing:</strong> The most common vector, involving mass fraudulent emails designed to trick users into revealing credentials or installing malware.</li><li><strong>Spear Phishing and Whaling:</strong> <em>Spear phishing</em> is highly targeted at specific individuals or organizations using customized information. <em>Whaling</em> is a specialized form of spear phishing that specifically targets high-profile executives (C-level).</li><li><strong>Vishing and Smishing:</strong> <em>Vishing</em> (voice phishing) leverages phone calls to deceive victims, often spoofing caller ID. <em>Smishing</em> uses SMS text messages containing malicious links.</li><li><strong>Pretexting:</strong> The attacker creates a fabricated scenario (the pretext) to compel the victim to divulge information or perform an action.</li></ul>",
+        "keyTerms": [
+          "Phishing",
+          "Spear Phishing",
+          "Whaling",
+          "Vishing",
+          "Smishing",
+          "Pretexting"
+        ]
+      },
+      {
+        "title": "Psychological Principles of Influence",
+        "content": "<p>Effective social engineers exploit human nature using core psychological principles.</p><ul><li><strong>Authority:</strong> People are conditioned to obey authority figures. An attacker might impersonate a CEO, IT Director, or law enforcement officer to force compliance.</li><li><strong>Urgency and Scarcity:</strong> Creating a false sense of urgency (e.g., 'Your account will be suspended in 24 hours') prevents the victim from thinking critically and forces immediate action.</li><li><strong>Consensus (Social Proof):</strong> Influencing a target by suggesting that others in the organization have already complied with the request.</li><li><strong>Familiarity (Liking):</strong> People are more likely to comply with requests from people they know or like. Attackers use compromised accounts of colleagues to leverage this trust.</li></ul>",
+        "keyTerms": [
+          "Authority",
+          "Urgency",
+          "Scarcity",
+          "Consensus",
+          "Familiarity"
+        ]
+      },
+      {
+        "title": "Deepfakes and AI in Social Engineering",
+        "content": "<p>The integration of Artificial Intelligence has dramatically elevated the sophistication of social engineering.</p><ul><li><strong>Synthetic Media (Deepfakes):</strong> Attackers use deep learning algorithms to create highly convincing, fake audio or video of real people.</li><li><strong>AI Impersonation (Vishing 2.0):</strong> Attackers can clone a CEO's voice using a small sample of public audio and use it in real-time phone calls to authorize fraudulent wire transfers (Business Email Compromise or BEC attacks). Real-world incidents have demonstrated multi-million dollar losses from deepfake-enabled social engineering.</li><li><strong>AI-Generated Phishing:</strong> LLMs are now used to rapidly generate flawless, highly personalized spear-phishing emails devoid of the traditional spelling and grammar errors that previously served as red flags.</li></ul>",
+        "keyTerms": [
+          "Deepfakes",
+          "Business Email Compromise (BEC)",
+          "AI Impersonation",
+          "Synthetic Media"
+        ]
+      },
+      {
+        "title": "Physical Social Engineering",
+        "content": "<p>Attackers also leverage physical access to bypass technical security perimeters.</p><ul><li><strong>Tailgating and Piggybacking:</strong> <em>Tailgating</em> occurs when an unauthorized person closely follows an authorized person into a secure area without their knowledge. <em>Piggybacking</em> is similar but typically implies the authorized person is aware and holds the door out of courtesy.</li><li><strong>Dumpster Diving:</strong> Searching through organizational trash for sensitive documents, organizational charts, hardware manuals, or old storage media. It is a critical information gathering technique.</li><li><strong>Shoulder Surfing:</strong> Directly observing a target entering passwords or viewing sensitive information on a screen.</li></ul>",
+        "keyTerms": [
+          "Tailgating",
+          "Piggybacking",
+          "Dumpster Diving",
+          "Shoulder Surfing"
+        ]
+      },
+      {
+        "title": "Social Engineering Countermeasures",
+        "content": "<p>Because social engineering targets human psychology rather than software flaws, defense requires a combination of education, testing, and strict policies.</p><ul><li><strong>Primary Defenses:</strong> The most effective countermeasures include comprehensive, regular <strong>security awareness training</strong> and conducting periodic <strong>phishing simulations</strong> to test and educate the workforce on identifying modern threats.</li><li><strong>Verification Procedures:</strong> For highly targeted attacks like BEC and deepfake impersonations, organizations must implement strict, <strong>out-of-band verification procedures</strong> (like requiring a separate phone call to an established, known internal number) for any significant financial transactions or sensitive data transfers.</li><li><strong>Zero Trust Architecture:</strong> Enforcing a 'never trust, always verify' model minimizes the blast radius if an employee's account is compromised via social engineering.</li></ul>",
+        "keyTerms": [
+          "Security Awareness Training",
+          "Phishing Simulations",
+          "Out-of-band Verification",
+          "Zero Trust"
+        ]
+      }
+    ],
+    "tools": [
+      "Social Engineering Toolkit (SET)",
+      "GoPhish",
+      "Deepfake Generation Tools",
+      "Maltego"
+    ],
+    "v13Updates": [
+      "AI-generated phishing at scale",
+      "Deepfake social engineering attacks"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Denial-of-Service",
+    "domainId": 4,
+    "icon": "zap",
+    "description": "Covers DoS and DDoS attack concepts, techniques, and tools including volumetric, protocol, and application-layer attacks, along with mitigation strategies.",
+    "objectives": [
+      "Differentiate between DoS and DDoS attacks",
+      "Classify attack types: volumetric, protocol, and application-layer",
+      "Understand botnet architecture and amplification techniques",
+      "Explain specific attacks like SYN flood, UDP flood, and Slowloris",
+      "Implement DoS/DDoS detection and countermeasures"
+    ],
+    "topics": [
+      {
+        "title": "DoS vs. DDoS and Botnets",
+        "content": "<p>Denial-of-Service attacks aim to render a target system, network, or application unavailable to its legitimate users.</p><ul><li><strong>DoS vs. DDoS:</strong> A Denial-of-Service (DoS) attack originates from a single source system. In contrast, a Distributed Denial-of-Service (DDoS) attack leverages multiple distributed, compromised systems to simultaneously flood the target, making it vastly more powerful and difficult to block using simple IP blacklists.</li><li><strong>Botnets:</strong> DDoS attacks are typically executed using a botnet\u2014a massive network of compromised computers or IoT devices (zombies) controlled remotely by a botmaster through a Command and Control (C2) infrastructure. The infamous <strong>Mirai botnet</strong> notoriously targeted Linux-based IoT devices (like cameras and routers) by exploiting factory-default credentials over open Telnet ports.</li></ul>",
+        "keyTerms": [
+          "DoS",
+          "DDoS",
+          "Botnet",
+          "Zombie",
+          "Mirai Botnet",
+          "IoT Devices"
+        ]
+      },
+      {
+        "title": "Volumetric and Protocol Attacks",
+        "content": "<p>These attacks focus on exhausting network bandwidth or the processing capacity of network infrastructure.</p><ul><li><strong>SYN Flood:</strong> A classic protocol attack that exploits the TCP three-way handshake. The attacker sends a massive volume of SYN requests but intentionally never completes the final ACK. The server allocates connection state resources for these half-open connections, eventually exhausting its connection table and crashing.</li><li><strong>Smurf Attack:</strong> An attacker sends ICMP echo requests (pings) to a network's broadcast address, but spoofs the source IP address to be that of the victim. Every host on the broadcast network replies to the victim, creating a massive amplification of traffic.</li></ul>",
+        "keyTerms": [
+          "SYN Flood",
+          "Smurf Attack",
+          "Half-open Connections",
+          "ICMP Broadcast"
+        ]
+      },
+      {
+        "title": "Amplification and Reflection Attacks",
+        "content": "<p>Amplification attacks exploit vulnerabilities in UDP-based protocols to reflect a large volume of traffic onto a victim using a very small initial request.</p><ul><li><strong>DNS Amplification:</strong> The attacker sends small DNS queries to open recursive resolvers with the victim's IP spoofed as the source. Because DNS responses (especially with DNSSEC or ANY queries) are significantly larger than the queries (often 28-54 times larger), the resolvers flood the victim with massive responses. High volumes of UDP packets targeting port 53 with large response sizes characterize a DNS amplification attack.</li><li><strong>NTP Amplification:</strong> Exploits the <code>monlist</code> command in older NTP servers to return a large list of recently connected hosts, achieving an amplification factor of up to 556x.</li></ul>",
+        "keyTerms": [
+          "Amplification Attack",
+          "Reflection Attack",
+          "DNS Amplification",
+          "Spoofed Source IP",
+          "UDP Port 53",
+          "NTP Amplification"
+        ]
+      },
+      {
+        "title": "Application Layer Attacks",
+        "content": "<p>Layer 7 (Application Layer) attacks are designed to exhaust the resources of specific applications or web servers rather than raw network bandwidth. They can be highly effective with relatively low volumes of traffic.</p><ul><li><strong>HTTP Floods:</strong> These attacks send seemingly legitimate HTTP requests that consume server resources, blending in with legitimate traffic.</li><li><strong>Slowloris:</strong> This attack operates by sending partial HTTP requests very slowly to keep numerous connections open on the web server. By never completing the request, it eventually exhausts the server's concurrent connection pool without requiring high attacker bandwidth.</li><li><strong>RUDY (R-U-Dead-Yet):</strong> Similar to Slowloris, but works by sending an HTTP POST request with a very large <code>Content-Length</code> header, and then sending the actual data at an extremely slow rate (e.g., one byte at a time).</li></ul>",
+        "keyTerms": [
+          "Application Layer",
+          "Layer 7",
+          "HTTP Flood",
+          "Slowloris",
+          "RUDY"
+        ]
+      },
+      {
+        "title": "DoS/DDoS Countermeasures",
+        "content": "<p>Mitigating modern DDoS attacks requires robust infrastructure and specialized techniques.</p><ul><li><strong>Content Delivery Networks (CDNs):</strong> Deploying a CDN (like Cloudflare or Akamai) is a highly effective defense against DDoS. CDNs distribute web traffic across massive global networks of edge servers, successfully absorbing volumetric attacks and filtering out malicious requests before they can ever reach the origin server.</li><li><strong>SYN Cookies:</strong> To defend specifically against SYN floods, servers can implement SYN cookies. Instead of allocating memory for every incoming SYN request, the server encodes the connection state into the TCP sequence number of the SYN-ACK response. It only allocates resources if a valid final ACK is received, neutralizing the resource exhaustion vector.</li><li><strong>Ingress Filtering (BCP38):</strong> ISPs implement ingress filtering to drop packets with spoofed source IPs that don't belong to the transmitting network, fundamentally stopping reflection and amplification attacks.</li></ul>",
+        "keyTerms": [
+          "CDN",
+          "Traffic Filtering",
+          "SYN Cookies",
+          "Ingress Filtering",
+          "BCP38"
+        ]
+      }
+    ],
+    "tools": [
+      "LOIC",
+      "HOIC",
+      "Slowloris",
+      "hping3",
+      "RUDY"
+    ],
+    "v13Updates": [
+      "AI-driven adaptive DDoS attacks",
+      "Cloud-based DDoS mitigation"
+    ]
+  }
+]

@@ -41,7 +41,9 @@ const storage = {
     localStorage.setItem(`ceh_${key}`, JSON.stringify(val));
   },
   getProgress() {
-    return this.get('progress') || { completed: {}, quizResults: [], moduleProgress: {} };
+    const p = this.get('progress') || { completed: {}, quizResults: [], moduleProgress: {} };
+    if (!p.readTopics) p.readTopics = {};
+    return p;
   },
   saveQuizResult(result) {
     const progress = this.getProgress();
@@ -52,6 +54,20 @@ const storage = {
       progress.completed[a.questionId] = { correct: a.correct, date: new Date().toISOString() };
     });
     this.set('progress', progress);
+  },
+  toggleTopicRead(moduleId, topicIndex) {
+    const p = this.getProgress();
+    if (!p.readTopics[moduleId]) p.readTopics[moduleId] = {};
+    p.readTopics[moduleId][topicIndex] = !p.readTopics[moduleId][topicIndex];
+    this.set('progress', p);
+  },
+  getTopicStats(moduleId) {
+    const p = this.getProgress();
+    const read = p.readTopics[moduleId] || {};
+    const readCount = Object.values(read).filter(Boolean).length;
+    const mod = modulesData.modules.find(m => m.id === parseInt(moduleId));
+    const total = mod ? mod.topics.length : 0;
+    return { readCount, total };
   },
   getModuleStats(moduleId) {
     const progress = this.getProgress();
@@ -456,138 +472,118 @@ function filterModules() {
 // ==============================
 // Module Detail Page
 // ==============================
+
 function renderModuleDetail(moduleId) {
   const m = modulesData.modules.find(mod => mod.id === parseInt(moduleId));
-  if (!m) return `<div class="main-content"><div class="empty-state"><div class="empty-state-icon">📚</div><div class="empty-state-text">Module not found</div></div></div>`;
+  if (!m) return `<div class="main-content"><div class="empty-state">Module not found</div></div>`;
 
-  const stats = storage.getModuleStats(m.id);
+  const qStats = storage.getModuleStats(m.id);
+  const tStats = storage.getTopicStats(m.id);
   const domain = modulesData.domains.find(d => d.modules.includes(m.id));
-  const moduleIcons = {
-    shield: 'shield', footprints: 'footprints', radar: 'radar', list: 'list',
-    bug: 'bug', lock: 'lock', virus: 'virus', wifi: 'wifi', users: 'users',
-    zap: 'zap', link: 'link', 'eye-off': 'eye-off', server: 'server',
-    globe: 'globe', database: 'database', radio: 'radio', smartphone: 'smartphone',
-    cpu: 'cpu', cloud: 'cloud', key: 'key'
-  };
-  const iconName = moduleIcons[m.icon] || 'shield';
-
+  
   return `
     <div class="main-content">
       <a class="back-link" href="#/modules">
         ${icon('arrow-left', 16)} Back to Modules
       </a>
-
-      <!-- Module Header -->
-      <div class="module-detail-header">
-        <div class="module-detail-top">
-          <div class="module-detail-icon">${icon(iconName, 32)}</div>
-          <div style="flex:1">
-            <div class="module-card-number" style="margin-bottom:4px">Module ${m.id}</div>
-            <h1 style="font-family:var(--font-serif);font-size:1.8rem;font-weight:700;margin-bottom:var(--space-sm)">${m.title}</h1>
-            <p style="color:var(--text-secondary);line-height:1.6">${m.description}</p>
-
-            <div class="module-detail-meta" style="margin-top:var(--space-md)">
-              ${domain ? `<span class="module-meta-item">${icon('target', 16)} ${domain.name}</span>` : ''}
-              <span class="module-meta-item">${icon('file-text', 16)} ${m.topics.length} Topics</span>
-              <span class="module-meta-item">${icon('help-circle', 16)} ${stats.total} Questions</span>
-              <span class="module-meta-item">${icon('tool', 16)} ${(m.tools || []).length} Tools</span>
-            </div>
-
-            <div class="module-detail-actions">
-              <a class="btn btn-primary" href="#/quiz?module=${m.id}">
-                ${icon('play', 16)} Practice Questions
-              </a>
-              <a class="btn btn-outline" href="#/modules">
-                ${icon('book', 16)} Browse Modules
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Progress -->
-        <div style="margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:1px solid var(--border-light)">
-          <div style="display:flex;justify-content:space-between;margin-bottom:var(--space-sm);font-size:0.85rem">
-            <span style="color:var(--text-secondary)">Progress</span>
-            <span style="color:var(--text-tertiary)">${stats.answered}/${stats.total} answered · ${stats.correct} correct</span>
-          </div>
-          <div class="progress-bar-container" style="height:8px">
-            <div class="progress-bar green" style="width:${stats.total ? Math.round((stats.answered / stats.total) * 100) : 0}%"></div>
-          </div>
+      
+      <div class="module-detail-header" style="text-align:center; padding: var(--space-2xl) 0;">
+        <h1 style="font-family:var(--font-serif);font-size:2rem;font-weight:700;">Module ${m.id}: ${m.title}</h1>
+        <p style="color:var(--text-secondary);max-width:600px;margin:var(--space-md) auto;">${m.description}</p>
+        <div class="module-detail-meta" style="justify-content:center;margin-top:var(--space-md)">
+          ${domain ? `<span class="module-meta-item">${icon('target', 16)} ${domain.name}</span>` : ''}
         </div>
       </div>
 
-      <!-- Learning Objectives -->
-      ${m.objectives && m.objectives.length > 0 ? `
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Learning Objectives</div>
-        </div>
-        <div class="card" style="cursor:default">
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-sm)">
-            ${m.objectives.map(obj => `
-              <li style="display:flex;align-items:flex-start;gap:var(--space-sm);color:var(--text-secondary)">
-                <span style="color:var(--success);flex-shrink:0;margin-top:2px">${icon('check-circle', 16)}</span>
-                ${obj}
-              </li>
-            `).join('')}
-          </ul>
+      <div class="module-split-container">
+        <!-- Study Material Card -->
+        <a class="module-choice-card" href="#/study/${m.id}" style="text-decoration:none;">
+          <div class="icon-wrapper">${icon('book-open', 32)}</div>
+          <h3>Study Topics</h3>
+          <p>Read detailed, textbook-level explanations covering all concepts for this module.</p>
+          <div style="width:100%;margin-top:var(--space-lg);">
+            <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--space-xs)">
+              <span>Reading Progress</span>
+              <span>${tStats.readCount} / ${tStats.total} topics</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width:${tStats.total ? (tStats.readCount/tStats.total)*100 : 0}%"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Practice Quiz Card -->
+        <a class="module-choice-card" href="#/quiz?module=${m.id}" style="text-decoration:none;">
+          <div class="icon-wrapper" style="background:rgba(239,68,68,0.1);color:#ef4444;">${icon('play', 32)}</div>
+          <h3 style="color:var(--text-primary)">Practice Quiz</h3>
+          <p>Test your knowledge with scenario-based CEH practice questions.</p>
+          <div style="width:100%;margin-top:var(--space-lg);">
+            <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--space-xs)">
+              <span>Quiz Progress</span>
+              <span>${qStats.answered} / ${qStats.total} answered (${qStats.correct} correct)</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="background:#ef4444;width:${qStats.total ? (qStats.answered/qStats.total)*100 : 0}%"></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function renderStudyModule(moduleId) {
+  const m = modulesData.modules.find(mod => mod.id === parseInt(moduleId));
+  if (!m) return '';
+  const p = storage.getProgress().readTopics[m.id] || {};
+  const tStats = storage.getTopicStats(m.id);
+
+  return `
+    <div class="main-content">
+      <a class="back-link" href="#/module/${m.id}">
+        ${icon('arrow-left', 16)} Back to Module ${m.id}
+      </a>
+      
+      <div style="margin-bottom: var(--space-xl)">
+        <h1 style="font-family:var(--font-serif);font-size:2rem;margin-bottom:var(--space-sm)">${m.title} - Study Topics</h1>
+        <div style="display:flex;align-items:center;gap:var(--space-md)">
+          <div class="progress-bar-container" style="flex:1;max-width:300px;">
+            <div class="progress-bar-fill" style="width:${tStats.total ? (tStats.readCount/tStats.total)*100 : 0}%"></div>
+          </div>
+          <span style="color:var(--text-secondary);font-size:0.9rem">${tStats.readCount} of ${tStats.total} completed</span>
         </div>
       </div>
-      ` : ''}
 
-      <!-- Topics -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Topics</div>
-          <div class="section-subtitle">${m.topics.length} topics to study</div>
-        </div>
-        <div class="topic-list">
-          ${m.topics.map((t, i) => `
-            <div class="topic-item ${i === 0 ? 'open' : ''}" data-topic="${i}">
-              <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
-                <div class="topic-title">
-                  <span style="color:var(--accent-primary);font-size:0.82rem;font-weight:700;min-width:24px">${i + 1}.</span>
-                  ${t.title}
+      <div class="topic-container">
+        ${m.topics.map((t, i) => {
+          const isCompleted = !!p[i];
+          return `
+            <div class="topic-card" id="topic-${i}">
+              <div class="topic-content">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                  <span style="background:var(--accent-primary);color:var(--bg-base);padding:2px 8px;border-radius:12px;font-size:0.8rem;font-weight:bold;">Topic ${i + 1}</span>
+                  ${isCompleted ? `<span style="color:var(--success);">${icon('check-circle', 16)}</span>` : ''}
                 </div>
-                <span class="topic-toggle">${icon('chevron-down', 18)}</span>
-              </div>
-              <div class="topic-body">
-                <div class="topic-content">${t.content}</div>
+                <h3>${t.title}</h3>
+                <div>${t.content}</div>
                 ${t.keyTerms && t.keyTerms.length > 0 ? `
-                  <div style="margin-top:var(--space-md)">
-                    <div style="font-size:0.78rem;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:var(--space-sm)">Key Terms</div>
-                    <div class="key-terms">
-                      ${t.keyTerms.map(kt => `<span class="key-term">${kt}</span>`).join('')}
+                  <div style="margin-top:var(--space-md);background:var(--bg-secondary);padding:var(--space-md);border-radius:var(--radius-md);">
+                    <strong style="display:block;margin-bottom:var(--space-xs);font-size:0.85rem;color:var(--text-tertiary);text-transform:uppercase;">Key Terms</strong>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                      ${t.keyTerms.map(kt => `<span style="background:var(--bg-card);border:1px solid var(--border-light);padding:4px 8px;border-radius:4px;font-size:0.85rem;">${kt}</span>`).join('')}
                     </div>
                   </div>
                 ` : ''}
               </div>
+              <div class="topic-actions">
+                <button class="btn-complete ${isCompleted ? 'completed' : ''}" onclick="window.toggleTopicComplete(${m.id}, ${i})">
+                  ${isCompleted ? icon('check-circle', 18) + ' Completed' : icon('circle', 18) + ' Mark as Completed'}
+                </button>
+              </div>
             </div>
-          `).join('')}
-        </div>
+          `;
+        }).join('')}
       </div>
-
-      <!-- Tools -->
-      ${m.tools && m.tools.length > 0 ? `
-      <div class="section tools-section">
-        <div class="section-header">
-          <div class="section-title">Related Tools & Technologies</div>
-        </div>
-        <div class="tools-grid">
-          ${m.tools.map(t => `<span class="tool-badge">${icon('tool', 14)} ${t}</span>`).join('')}
-        </div>
-      </div>
-      ` : ''}
-
-      <!-- v13 Updates -->
-      ${m.v13Updates && m.v13Updates.length > 0 ? `
-      <div class="v13-updates">
-        <div class="v13-updates-title">New in CEH v13</div>
-        <ul class="v13-updates-list">
-          ${m.v13Updates.map(u => `<li>${u}</li>`).join('')}
-        </ul>
-      </div>
-      ` : ''}
     </div>
   `;
 }
@@ -833,6 +829,11 @@ window.selectCount = function(el, count) {
 
 window._quizMode = 'module';
 window._quizCount = 20;
+
+window.toggleTopicComplete = function(moduleId, topicIndex) {
+  storage.toggleTopicRead(moduleId, topicIndex);
+  renderApp(); // re-render to update UI and progress bar
+};
 
 window.startQuiz = function() {
   const mode = window._quizMode || 'module';
@@ -1112,6 +1113,9 @@ async function renderApp() {
   if (parts[0] === 'modules' && !parts[1]) {
     pageContent = renderModules();
   } else if (parts[0] === 'module' && parts[1]) {
+    pageContent = renderModuleDetail(parts[1]);
+  } else if (parts[0] === 'study' && parts[1]) {
+    pageContent = renderStudyModule(parts[1]);
     pageContent = renderModuleDetail(parts[1]);
   } else if (parts[0] === 'quiz') {
     pageContent = renderQuiz();
