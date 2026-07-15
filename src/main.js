@@ -1116,7 +1116,6 @@ async function renderApp() {
     pageContent = renderModuleDetail(parts[1]);
   } else if (parts[0] === 'study' && parts[1]) {
     pageContent = renderStudyModule(parts[1]);
-    pageContent = renderModuleDetail(parts[1]);
   } else if (parts[0] === 'quiz') {
     pageContent = renderQuiz();
   } else if (parts[0] === 'results') {
