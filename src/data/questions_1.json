@@ -1,0 +1,904 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "moduleId": 1,
+      "question": "Which element of the CIA triad ensures that information is accessible to authorized users when needed?",
+      "options": ["Confidentiality", "Integrity", "Availability", "Authentication"],
+      "correctAnswer": 2,
+      "explanation": "Availability ensures that information and resources are accessible to authorized users whenever they are needed. It involves maintaining hardware, performing repairs, and keeping systems running to prevent disruptions. Denial-of-service attacks are a direct threat to availability.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "question": "During which phase of the hacking methodology does an attacker gather information about the target without directly interacting with it?",
+      "options": ["Scanning", "Gaining Access", "Reconnaissance", "Maintaining Access"],
+      "correctAnswer": 2,
+      "explanation": "Reconnaissance (also called footprinting) is the first phase where the attacker gathers information about the target. Passive reconnaissance involves collecting data without direct interaction, such as searching public records, social media, and WHOIS data. This phase is critical for planning subsequent attack vectors.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "question": "What type of hacker breaks into systems without authorization and with malicious intent for personal gain?",
+      "options": ["White Hat", "Gray Hat", "Black Hat", "Script Kiddie"],
+      "correctAnswer": 2,
+      "explanation": "Black Hat hackers are individuals who violate computer security for personal gain, malicious intent, or other harmful purposes without authorization. They operate illegally and are distinguished from White Hat hackers (ethical) and Gray Hat hackers (who may violate laws but without malicious intent).",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "moduleId": 1,
+      "question": "A security professional has been hired to test an organization's defenses. They have been given no prior information about the network infrastructure. What type of testing is being performed?",
+      "options": ["White Box Testing", "Gray Box Testing", "Black Box Testing", "Regression Testing"],
+      "correctAnswer": 2,
+      "explanation": "Black Box Testing (also known as zero-knowledge testing) is performed when the tester has no prior knowledge of the target infrastructure. This simulates a real-world external attacker scenario. White Box testing provides full knowledge, while Gray Box provides partial knowledge of the target environment.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "moduleId": 1,
+      "question": "Which U.S. federal law specifically addresses unauthorized access to computer systems and data, making it illegal to access a protected computer without authorization?",
+      "options": ["SOX Act", "HIPAA", "Computer Fraud and Abuse Act (CFAA)", "GDPR"],
+      "correctAnswer": 2,
+      "explanation": "The Computer Fraud and Abuse Act (CFAA) is the primary U.S. federal law that criminalizes unauthorized access to computer systems. Enacted in 1986, it covers offenses including unauthorized access to protected computers, fraud, and damage to computing infrastructure. SOX covers financial reporting, HIPAA covers healthcare data, and GDPR is a European regulation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 6,
+      "moduleId": 1,
+      "question": "An organization implements firewalls, intrusion detection systems, and access control lists. These measures are examples of which type of security control?",
+      "options": ["Administrative Controls", "Physical Controls", "Technical Controls", "Compensating Controls"],
+      "correctAnswer": 2,
+      "explanation": "Technical controls (also called logical controls) use technology to protect information systems. Firewalls, IDS/IPS, encryption, and access control lists are all technical controls. Administrative controls involve policies and procedures, while physical controls include locks, guards, and security cameras.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 7,
+      "moduleId": 1,
+      "question": "Which of the following best describes the concept of 'defense in depth'?",
+      "options": ["Using the strongest single security measure available", "Implementing multiple layers of security controls throughout an IT system", "Focusing all security resources on perimeter defense", "Encrypting all data at rest with the strongest algorithm"],
+      "correctAnswer": 1,
+      "explanation": "Defense in depth is a security strategy that employs multiple layers of security controls placed throughout an information technology system. The idea is that if one layer fails, the next layer will stop the threat. This layered approach addresses security at the network, host, application, and data levels.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 8,
+      "moduleId": 1,
+      "question": "A company hires an external security consultant who signs a contract defining the scope, rules of engagement, and liability limitations before testing. This document is commonly referred to as:",
+      "options": ["Service Level Agreement (SLA)", "Non-Disclosure Agreement (NDA)", "Rules of Engagement (ROE) / Penetration Testing Agreement", "Acceptable Use Policy (AUP)"],
+      "correctAnswer": 2,
+      "explanation": "The Rules of Engagement (ROE) document, often part of a formal penetration testing agreement, defines the scope, boundaries, methods, timelines, and legal protections for a penetration test. It is a critical legal document that protects both the tester and the organization by clearly defining what is authorized.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 9,
+      "moduleId": 1,
+      "question": "An attacker has gained access to a system and is now installing a rootkit to ensure they can return later undetected. Which phase of the Cyber Kill Chain does this best represent?",
+      "options": ["Exploitation", "Installation", "Command and Control", "Actions on Objectives"],
+      "correctAnswer": 1,
+      "explanation": "The Installation phase of the Cyber Kill Chain involves the attacker installing persistent backdoors or rootkits on the compromised system to maintain access. This follows the Exploitation phase (where the vulnerability is leveraged) and precedes the Command and Control (C2) phase where the attacker establishes remote communication.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 10,
+      "moduleId": 1,
+      "question": "According to the NIST Cybersecurity Framework, which function focuses on developing and implementing appropriate activities to identify the occurrence of a cybersecurity event?",
+      "options": ["Identify", "Protect", "Detect", "Respond"],
+      "correctAnswer": 2,
+      "explanation": "The Detect function in the NIST Cybersecurity Framework focuses on developing and implementing appropriate activities to identify the occurrence of a cybersecurity event in a timely manner. It includes continuous monitoring, anomaly detection, and security event analysis. The five core functions are Identify, Protect, Detect, Respond, and Recover.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 11,
+      "moduleId": 2,
+      "question": "Which command-line tool is used to query DNS records, such as MX, NS, and A records, for a target domain?",
+      "options": ["traceroute", "nslookup", "netstat", "arp"],
+      "correctAnswer": 1,
+      "explanation": "nslookup is a command-line tool used to query DNS servers for various record types including A (address), MX (mail exchange), NS (name server), CNAME (canonical name), and SOA (start of authority) records. It is one of the fundamental tools used during the footprinting and reconnaissance phase.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "moduleId": 2,
+      "question": "What does the WHOIS lookup provide to an attacker during reconnaissance?",
+      "options": ["Open ports on the target server", "Domain registration details including registrant name, contact info, and name servers", "Active vulnerabilities on the web server", "A list of all subdomains"],
+      "correctAnswer": 1,
+      "explanation": "WHOIS is a query and response protocol used to look up domain registration information, including the registrant's name, organization, email address, phone number, registration and expiration dates, and name servers. This information is valuable during footprinting as it can reveal organizational details and potential targets.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "moduleId": 2,
+      "question": "Which of the following is an example of passive reconnaissance?",
+      "options": ["Running Nmap against a target IP", "Performing a vulnerability scan on the web server", "Searching for the target company on LinkedIn and Glassdoor", "Sending phishing emails to employees"],
+      "correctAnswer": 2,
+      "explanation": "Passive reconnaissance involves gathering information about a target without directly interacting with their systems. Searching social media platforms like LinkedIn and Glassdoor is passive because the attacker is using publicly available information. Active reconnaissance (Nmap, vulnerability scanning) involves direct interaction with the target.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "moduleId": 2,
+      "question": "A penetration tester wants to discover all subdomains associated with a target domain to expand the attack surface. Which technique is most appropriate?",
+      "options": ["ARP scanning", "DNS enumeration and subdomain brute-forcing", "MAC address spoofing", "Packet sniffing on the local network"],
+      "correctAnswer": 1,
+      "explanation": "DNS enumeration and subdomain brute-forcing are techniques used to discover subdomains of a target domain. Tools like Sublist3r, Amass, and dnsrecon automate this process by querying DNS servers, search engines, and certificate transparency logs. Discovering subdomains can reveal hidden services, development servers, and additional attack surfaces.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 15,
+      "moduleId": 2,
+      "question": "During a reconnaissance engagement, you use the Wayback Machine (web.archive.org) to view old versions of a target's website. What type of intelligence gathering is this?",
+      "options": ["Active Footprinting", "Passive Footprinting", "Network Scanning", "Social Engineering"],
+      "correctAnswer": 1,
+      "explanation": "Using the Wayback Machine is a form of passive footprinting because you are accessing archived public data without directly interacting with the target's current systems. The Wayback Machine stores historical snapshots of websites, which can reveal previously published content, employee information, deprecated technologies, and other sensitive details.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 16,
+      "moduleId": 2,
+      "question": "Which Google hacking (dorking) operator would you use to find PDF files hosted on a specific domain?",
+      "options": ["inurl:pdf site:target.com", "site:target.com filetype:pdf", "intitle:pdf target.com", "link:target.com/pdf"],
+      "correctAnswer": 1,
+      "explanation": "The Google dork 'site:target.com filetype:pdf' combines two operators: 'site:' restricts results to a specific domain, and 'filetype:' filters for a specific file extension. Google dorking is a powerful passive reconnaissance technique used to find sensitive files, directories, and information inadvertently exposed on public-facing web servers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "moduleId": 2,
+      "question": "Which tool is specifically designed for harvesting email addresses, subdomains, and employee names from public sources during OSINT gathering?",
+      "options": ["Metasploit", "theHarvester", "Burp Suite", "John the Ripper"],
+      "correctAnswer": 1,
+      "explanation": "theHarvester is an OSINT tool designed to gather email addresses, subdomains, hosts, employee names, open ports, and banners from public sources such as search engines, PGP key servers, and the SHODAN database. It is commonly used during the reconnaissance phase to build a profile of the target organization.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 18,
+      "moduleId": 2,
+      "question": "An attacker uses Maltego to map out relationships between people, companies, domains, and IP addresses associated with a target. What is this process called?",
+      "options": ["Vulnerability Assessment", "Threat Modeling", "OSINT and Link Analysis", "Penetration Testing"],
+      "correctAnswer": 2,
+      "explanation": "Maltego is a powerful OSINT and link analysis tool that provides graphical visualization of relationships between entities such as people, companies, domains, IP addresses, and infrastructure. This process of mapping connections and relationships is central to intelligence gathering and helps attackers understand the target's ecosystem.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 19,
+      "moduleId": 2,
+      "question": "A penetration tester discovers that a target company's DNS server allows zone transfers to any requesting host. Which command would successfully perform this zone transfer?",
+      "options": ["nslookup -type=AXFR target.com dns-server", "dig axfr target.com @dns-server", "host -l target.com dns-server", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "All three commands can perform DNS zone transfers. 'dig axfr', 'nslookup -type=AXFR', and 'host -l' are all valid methods to request a full zone transfer (AXFR) from a DNS server. A misconfigured DNS server allowing zone transfers to any host exposes the complete list of DNS records, including internal hostnames and IP addresses.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 20,
+      "moduleId": 2,
+      "question": "During a footprinting exercise, you find that a target organization's web server response headers reveal 'X-Powered-By: PHP/7.4.3' and 'Server: Apache/2.4.41 (Ubuntu)'. An attacker could use this information to:",
+      "options": ["Launch a DDoS attack against the server", "Search for known vulnerabilities specific to those software versions", "Perform ARP spoofing on the network", "Crack the administrator password"],
+      "correctAnswer": 1,
+      "explanation": "HTTP response headers that reveal specific software versions (banner grabbing) allow attackers to search vulnerability databases like CVE and NVD for known exploits targeting those exact versions. This is why security hardening best practices recommend removing or obscuring server version information from HTTP headers to prevent information disclosure.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 21,
+      "moduleId": 3,
+      "question": "Which Nmap flag is used to perform a SYN stealth scan?",
+      "options": ["-sT", "-sS", "-sU", "-sA"],
+      "correctAnswer": 1,
+      "explanation": "The -sS flag in Nmap performs a SYN stealth scan (also called half-open scan). It sends SYN packets and analyzes the response without completing the TCP three-way handshake. This is stealthier than a full connect scan (-sT) because the connection is never fully established, making it less likely to be logged by the target system.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 22,
+      "moduleId": 3,
+      "question": "What does a closed port respond with when probed with a TCP SYN packet?",
+      "options": ["SYN-ACK", "RST-ACK", "No response", "FIN-ACK"],
+      "correctAnswer": 1,
+      "explanation": "When a closed port receives a TCP SYN packet, it responds with a RST-ACK (Reset-Acknowledge) packet. An open port responds with SYN-ACK (indicating willingness to establish a connection), while a filtered port typically sends no response or an ICMP unreachable message. Understanding these responses is fundamental to port scanning.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 23,
+      "moduleId": 3,
+      "question": "Which well-known port number is associated with the HTTPS service?",
+      "options": ["80", "443", "8080", "22"],
+      "correctAnswer": 1,
+      "explanation": "Port 443 is the well-known port for HTTPS (HTTP over TLS/SSL). Port 80 is used for HTTP, port 8080 is a common alternative HTTP port, and port 22 is used for SSH. Knowledge of common port numbers is essential for interpreting scan results and understanding network service configurations.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 24,
+      "moduleId": 3,
+      "question": "A penetration tester runs the command 'nmap -O 192.168.1.1'. What is the purpose of the -O flag?",
+      "options": ["Output results to a file", "OS fingerprinting and detection", "Perform an XMAS scan", "Enable script scanning"],
+      "correctAnswer": 1,
+      "explanation": "The -O flag in Nmap enables OS detection (fingerprinting). Nmap analyzes responses to specially crafted TCP/IP probes to determine the target's operating system. It examines TCP ISN sampling, IP ID sequences, and other stack characteristics. OS detection helps attackers identify platform-specific vulnerabilities.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 25,
+      "moduleId": 3,
+      "question": "During a network scan, you discover that a host responds to a SYN packet with no response on most ports but returns ICMP Type 3, Code 13 (Administratively Prohibited) on some ports. What does this indicate?",
+      "options": ["The ports are open and running services", "A firewall is filtering traffic and actively rejecting specific packets", "The host is down and not responding", "The ports are closed and not in use"],
+      "correctAnswer": 1,
+      "explanation": "ICMP Type 3, Code 13 (Communication Administratively Prohibited) indicates that a firewall or packet filtering device is actively blocking the traffic. This differs from a simple drop (no response) because the firewall is configured to send an explicit rejection message, revealing its presence and filtering rules to the scanner.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "moduleId": 3,
+      "question": "Which Nmap scan technique sends packets with the FIN, PSH, and URG flags set, and is used to evade certain firewalls?",
+      "options": ["NULL scan", "FIN scan", "XMAS scan", "ACK scan"],
+      "correctAnswer": 2,
+      "explanation": "The XMAS scan (-sX) sends TCP packets with the FIN, PSH, and URG flags set (lit up like a Christmas tree). According to RFC 793, closed ports should respond with RST, while open/filtered ports should not respond. This scan can bypass some stateless firewalls that only filter SYN packets.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "moduleId": 3,
+      "question": "What is the primary purpose of banner grabbing during the scanning phase?",
+      "options": ["To crash the target service", "To identify the service, version, and operating system running on an open port", "To perform a denial-of-service attack", "To encrypt the network traffic"],
+      "correctAnswer": 1,
+      "explanation": "Banner grabbing is a technique used to identify the service name, version number, and sometimes the operating system of a remote target by connecting to an open port and reading the service banner. Tools like Nmap (-sV), Netcat, and Telnet can be used to grab banners, which helps in identifying vulnerable software versions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 28,
+      "moduleId": 3,
+      "question": "A penetration tester needs to scan a target without sending any packets to the target directly. Which Nmap technique accomplishes this?",
+      "options": ["SYN scan", "Connect scan", "Idle scan (-sI)", "UDP scan"],
+      "correctAnswer": 2,
+      "explanation": "The Idle scan (-sI) uses a zombie host as a proxy to scan the target. The attacker sends spoofed packets to the target using the zombie's IP address and then monitors changes in the zombie's IP ID sequence to determine port states. This is the stealthiest Nmap scan because no packets are sent directly from the attacker to the target.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 29,
+      "moduleId": 3,
+      "question": "You run 'nmap -sV -p 1-1000 --script=vuln 192.168.1.50' against a target. The scan returns the following for port 445: 'smb-vuln-ms17-010: VULNERABLE'. What does this finding indicate?",
+      "options": ["The SMB service is properly patched and secure", "The target is vulnerable to EternalBlue, a critical SMB remote code execution exploit", "The SMB port is closed and not accessible", "The target is running a Linux operating system"],
+      "correctAnswer": 1,
+      "explanation": "The Nmap script smb-vuln-ms17-010 checks for the EternalBlue vulnerability (CVE-2017-0144), a critical SMB v1 remote code execution vulnerability in Windows. This vulnerability was exploited by the WannaCry ransomware and NotPetya attacks. A 'VULNERABLE' result means the system is missing the MS17-010 security patch.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 30,
+      "moduleId": 3,
+      "question": "Which Nmap timing template provides the fastest scan speed but is also the most likely to be detected by IDS/IPS?",
+      "options": ["-T0 (Paranoid)", "-T1 (Sneaky)", "-T3 (Normal)", "-T5 (Insane)"],
+      "correctAnswer": 3,
+      "explanation": "The -T5 (Insane) timing template is the fastest Nmap scan option, sending probes at maximum speed with very short timeouts. While it significantly reduces scan time, the high volume of rapid traffic makes it extremely easy for intrusion detection systems to identify. -T0 and -T1 are designed for IDS evasion with very slow scan rates.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "moduleId": 4,
+      "question": "Which protocol uses UDP port 161 and can reveal system information, network configurations, and running processes when improperly configured?",
+      "options": ["LDAP", "SNMP", "NetBIOS", "SMB"],
+      "correctAnswer": 1,
+      "explanation": "Simple Network Management Protocol (SNMP) uses UDP port 161 for queries and port 162 for traps. When using default community strings like 'public' (read) and 'private' (read-write), SNMP can expose extensive system information including network interfaces, routing tables, ARP caches, running processes, and installed software.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 32,
+      "moduleId": 4,
+      "question": "What is the primary purpose of enumeration in the context of ethical hacking?",
+      "options": ["To exploit vulnerabilities on the target system", "To actively extract usernames, shares, services, and other detailed information from a target", "To passively gather public information about the target", "To install backdoors on the compromised system"],
+      "correctAnswer": 1,
+      "explanation": "Enumeration is the process of actively connecting to a target system and extracting detailed information such as usernames, group names, network shares, services, DNS details, and application banners. Unlike reconnaissance which can be passive, enumeration involves direct and active interaction with the target and typically requires some level of access.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 33,
+      "moduleId": 4,
+      "question": "Which NetBIOS name suffix code identifies the Workstation Service?",
+      "options": ["<00>", "<20>", "<1B>", "<03>"],
+      "correctAnswer": 0,
+      "explanation": "The NetBIOS suffix code <00> identifies the Workstation Service, which is registered by the Workstation service when it starts. <20> represents the Server (File Sharing) service, <1B> is the Domain Master Browser, and <03> is the Messenger Service. Understanding these codes helps in interpreting NetBIOS enumeration results.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 34,
+      "moduleId": 4,
+      "question": "During an internal penetration test, you attempt a null session connection to a Windows machine using the command 'net use \\\\target\\IPC$ \"\" /u:\"\"'. What is the purpose of this technique?",
+      "options": ["To mount a remote file share with admin privileges", "To establish an anonymous connection to enumerate users, shares, and groups without credentials", "To perform a man-in-the-middle attack on the network", "To install a remote access trojan on the target"],
+      "correctAnswer": 1,
+      "explanation": "A null session connection uses the IPC$ (Inter-Process Communication) share with empty credentials to establish an anonymous session. If the target allows null sessions, the attacker can enumerate user accounts, share names, group memberships, and security policies. Modern Windows systems restrict null sessions by default, but misconfigurations still occur.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "moduleId": 4,
+      "question": "An attacker successfully performs a DNS zone transfer and obtains a complete list of all DNS records for a target domain. Which DNS record type maps a hostname to an IPv6 address?",
+      "options": ["A", "AAAA", "CNAME", "PTR"],
+      "correctAnswer": 1,
+      "explanation": "The AAAA (quad-A) record maps a hostname to a 128-bit IPv6 address. The A record maps to a 32-bit IPv4 address, CNAME creates an alias pointing to another domain name, and PTR records provide reverse DNS lookups (IP to hostname). Zone transfers exposing AAAA records can reveal IPv6 infrastructure that may have different security controls.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 36,
+      "moduleId": 4,
+      "question": "Which tool is commonly used for LDAP enumeration to extract information about users, groups, and organizational units from Active Directory?",
+      "options": ["Nikto", "ldapsearch", "Aircrack-ng", "Hydra"],
+      "correctAnswer": 1,
+      "explanation": "ldapsearch is a command-line utility used to query LDAP (Lightweight Directory Access Protocol) directories. In Active Directory environments, it can extract detailed information about users, groups, organizational units, computer accounts, and group policies. LDAP typically runs on ports 389 (unencrypted) and 636 (LDAPS/encrypted).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 37,
+      "moduleId": 4,
+      "question": "During SMB enumeration, you discover that the target server has the 'C$' share accessible. What does this share represent?",
+      "options": ["A user-created shared folder", "The default administrative share for the C: drive", "A printer share", "The public documents folder"],
+      "correctAnswer": 1,
+      "explanation": "C$ is a default administrative share in Windows that provides remote access to the root of the C: drive. Administrative shares (C$, D$, ADMIN$, IPC$) are hidden shares created automatically by Windows and are typically accessible only to administrators. Their presence and accessibility can indicate security misconfigurations.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "moduleId": 4,
+      "question": "Which SNMP community string, if left at its default value, allows an attacker to read and modify device configurations?",
+      "options": ["public", "private", "community", "admin"],
+      "correctAnswer": 1,
+      "explanation": "The default SNMP read-write community string 'private' allows both reading and writing (modifying) device configurations. The default read-only community string 'public' only allows reading information. Leaving these default community strings unchanged is a critical security vulnerability, as attackers can modify network device configurations remotely.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "moduleId": 4,
+      "question": "You are using enum4linux to enumerate a target Windows system and receive output showing 'RID cycling' results with usernames like Administrator (RID 500), Guest (RID 501), and krbtgt (RID 502). What protocol is enum4linux primarily leveraging for this enumeration?",
+      "options": ["SNMP", "LDAP", "SMB/CIFS (via RPC calls over named pipes)", "HTTP"],
+      "correctAnswer": 2,
+      "explanation": "enum4linux is a tool written for enumerating Windows and Samba systems that primarily leverages SMB/CIFS protocol through RPC (Remote Procedure Call) calls over named pipes. RID cycling exploits the Security Identifier (SID) structure by incrementing the Relative Identifier (RID) portion to enumerate user accounts. Well-known RIDs include 500 (Administrator) and 501 (Guest).",
+      "difficulty": "hard"
+    },
+    {
+      "id": 40,
+      "moduleId": 4,
+      "question": "During an engagement, you discover an NFS (Network File System) export that allows mounting by any host ('*' in the exports list). Which command would you use to list available NFS shares on the target, and what is the primary security concern?",
+      "options": ["smbclient -L target — concern is SMB relay attacks", "showmount -e target — concern is unauthorized access to sensitive files", "snmpwalk -v2c target — concern is MIB data exposure", "rpcclient target — concern is RPC buffer overflows"],
+      "correctAnswer": 1,
+      "explanation": "The 'showmount -e target' command lists NFS exports available on a remote server. When NFS exports are configured with '*' (wildcard), any host can mount the shared filesystem, potentially providing unauthorized access to sensitive files, configuration data, and even SSH keys. NFS misconfigurations are a common finding in internal penetration tests.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 41,
+      "moduleId": 5,
+      "question": "What does CVSS stand for, and what is its purpose?",
+      "options": ["Common Vulnerability Scanning System — used to scan for vulnerabilities", "Common Vulnerability Scoring System — used to rate the severity of vulnerabilities", "Central Vulnerability Security Standard — a security certification standard", "Cyber Vulnerability Support Service — a government vulnerability database"],
+      "correctAnswer": 1,
+      "explanation": "CVSS stands for Common Vulnerability Scoring System, an open framework for rating the severity of software vulnerabilities on a scale of 0.0 to 10.0. It considers factors like attack vector, complexity, privileges required, and impact on confidentiality, integrity, and availability. CVSS scores help organizations prioritize vulnerability remediation efforts.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 42,
+      "moduleId": 5,
+      "question": "Which of the following tools is a widely-used commercial vulnerability scanner that identifies vulnerabilities, misconfigurations, and compliance issues?",
+      "options": ["Wireshark", "Nessus", "Metasploit", "Burp Suite"],
+      "correctAnswer": 1,
+      "explanation": "Nessus, developed by Tenable, is one of the most widely-used vulnerability scanners in the industry. It can detect vulnerabilities, misconfigurations, default credentials, and compliance violations across network devices, operating systems, and applications. While Metasploit is an exploitation framework and Wireshark is a packet analyzer, Nessus focuses specifically on vulnerability assessment.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 43,
+      "moduleId": 5,
+      "question": "What is the difference between a vulnerability assessment and a penetration test?",
+      "options": ["There is no difference; they are the same thing", "A vulnerability assessment identifies and reports vulnerabilities, while a penetration test actively exploits them to demonstrate real-world impact", "A penetration test only scans for open ports, while a vulnerability assessment exploits them", "A vulnerability assessment is illegal, while a penetration test is always legal"],
+      "correctAnswer": 1,
+      "explanation": "A vulnerability assessment identifies, quantifies, and prioritizes vulnerabilities in a system but stops short of exploitation. A penetration test goes further by actively exploiting discovered vulnerabilities to determine the real-world impact of a breach. Both are complementary and often performed together in a comprehensive security evaluation.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 44,
+      "moduleId": 5,
+      "question": "A vulnerability scan report shows a finding with a CVSS v3.1 base score of 9.8. How is this severity classified?",
+      "options": ["Medium", "High", "Critical", "Low"],
+      "correctAnswer": 2,
+      "explanation": "In CVSS v3.1, scores are classified as: None (0.0), Low (0.1-3.9), Medium (4.0-6.9), High (7.0-8.9), and Critical (9.0-10.0). A score of 9.8 falls in the Critical category, indicating a severe vulnerability that should be prioritized for immediate remediation. Critical vulnerabilities typically require no authentication and can be exploited remotely.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "moduleId": 5,
+      "question": "During a vulnerability assessment, the scanner reports a vulnerability that does not actually exist on the target system. This type of result is known as:",
+      "options": ["True Positive", "False Positive", "True Negative", "False Negative"],
+      "correctAnswer": 1,
+      "explanation": "A false positive occurs when a vulnerability scanner incorrectly reports a vulnerability that does not actually exist on the target system. False positives waste time and resources during remediation. Security analysts must validate scanner findings through manual testing to distinguish true positives from false positives before reporting to stakeholders.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "moduleId": 5,
+      "question": "Which CVSS v3.1 metric group measures characteristics of a vulnerability that change over time, such as the availability of exploit code or patches?",
+      "options": ["Base Metrics", "Temporal Metrics", "Environmental Metrics", "Impact Metrics"],
+      "correctAnswer": 1,
+      "explanation": "Temporal Metrics in CVSS v3.1 capture characteristics that change over time, including Exploit Code Maturity (whether a working exploit exists), Remediation Level (whether an official fix is available), and Report Confidence (how verified the vulnerability is). These modify the Base Score to reflect the current threat landscape.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 47,
+      "moduleId": 5,
+      "question": "An organization wants to continuously monitor their network for new vulnerabilities rather than performing periodic scans. Which approach best describes this strategy?",
+      "options": ["One-time vulnerability assessment", "Continuous vulnerability management", "Annual penetration testing", "Incident response planning"],
+      "correctAnswer": 1,
+      "explanation": "Continuous vulnerability management involves ongoing, automated scanning and monitoring of systems and applications for new vulnerabilities. Unlike periodic assessments, this approach provides real-time visibility into the organization's security posture. It integrates with asset inventory, threat intelligence, and patch management to enable rapid response to emerging threats.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "moduleId": 5,
+      "question": "Which of the following is an open-source vulnerability scanner that can be used as an alternative to commercial solutions like Nessus?",
+      "options": ["Qualys", "OpenVAS (Greenbone)", "Rapid7 InsightVM", "Acunetix"],
+      "correctAnswer": 1,
+      "explanation": "OpenVAS (Open Vulnerability Assessment Scanner), now part of the Greenbone Vulnerability Management (GVM) framework, is an open-source vulnerability scanner. It provides capabilities similar to commercial tools like Nessus, including network vulnerability scanning, compliance checking, and reporting. Qualys, Rapid7 InsightVM, and Acunetix are all commercial products.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "moduleId": 5,
+      "question": "A security analyst reviewing Nessus scan results notices that plugin output for a critical finding contains the text 'The remote host is running OpenSSL 1.0.1e, which is affected by the Heartbleed bug (CVE-2014-0160).' What is the most appropriate next step?",
+      "options": ["Immediately delete OpenSSL from all systems", "Verify the finding manually, then prioritize patching to the latest secure OpenSSL version and revoke/reissue affected SSL certificates", "Ignore the finding because it is from 2014", "Run another scan using a different scanner to confirm"],
+      "correctAnswer": 1,
+      "explanation": "The Heartbleed vulnerability (CVE-2014-0160) in OpenSSL allows attackers to read sensitive memory contents including private keys and credentials. The correct response is to verify the finding, patch OpenSSL immediately, and then revoke and reissue all SSL/TLS certificates as the private keys may have been compromised. Old CVEs remain dangerous if systems are unpatched.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 50,
+      "moduleId": 5,
+      "question": "When performing a credentialed vulnerability scan versus a non-credentialed scan, which statement is true?",
+      "options": ["Non-credentialed scans produce more accurate results because they simulate external attackers", "Credentialed scans can detect missing patches, local misconfigurations, and installed software that non-credentialed scans would miss", "There is no difference in results between credentialed and non-credentialed scans", "Credentialed scans are faster but less thorough than non-credentialed scans"],
+      "correctAnswer": 1,
+      "explanation": "Credentialed (authenticated) scans log into the target system and can inspect local configurations, installed patches, registry settings, file permissions, and installed software versions. This produces significantly more accurate and comprehensive results compared to non-credentialed scans, which can only assess externally visible services and are more prone to false positives and false negatives.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 51,
+      "moduleId": 6,
+      "question": "Which of the following tools is commonly used for offline password cracking by testing password hashes against wordlists?",
+      "options": ["Wireshark", "Nmap", "John the Ripper", "Netcat"],
+      "correctAnswer": 2,
+      "explanation": "John the Ripper is a widely-used offline password cracking tool that tests password hashes against wordlists, applies mangling rules, and supports various hash formats including MD5, SHA, NTLM, and bcrypt. Offline cracking works against stolen hash files without interacting with the target system, making it undetectable.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 52,
+      "moduleId": 6,
+      "question": "What is privilege escalation in the context of system hacking?",
+      "options": ["Gaining initial access to a system through phishing", "Elevating a lower-privileged account to gain higher-level access or administrative rights", "Scanning a network for open ports", "Encrypting files on the target system"],
+      "correctAnswer": 1,
+      "explanation": "Privilege escalation is the act of exploiting a vulnerability, design flaw, or misconfiguration to gain elevated access to resources that are normally restricted. Vertical escalation involves moving from a lower privilege level to a higher one (e.g., user to admin), while horizontal escalation involves accessing another user's resources at the same privilege level.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 53,
+      "moduleId": 6,
+      "question": "Which technique involves hiding secret data within an ordinary image, audio, or video file?",
+      "options": ["Cryptography", "Steganography", "Obfuscation", "Tokenization"],
+      "correctAnswer": 1,
+      "explanation": "Steganography is the practice of concealing secret data within an ordinary, non-secret file or message to avoid detection. Unlike cryptography, which makes data unreadable, steganography hides the existence of the data entirely. Common tools include OpenStego, Steghide, and Snow, which can embed data in images, audio, and text files.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 54,
+      "moduleId": 6,
+      "question": "During a penetration test, you gain access to the SAM database on a Windows machine. What critical information does this database contain?",
+      "options": ["Firewall rules and network configurations", "User account password hashes (NTLM hashes)", "Installed software licenses", "SSL/TLS certificates and private keys"],
+      "correctAnswer": 1,
+      "explanation": "The Security Account Manager (SAM) database in Windows stores user account credentials as NTLM password hashes. The SAM file is located at C:\\Windows\\System32\\config\\SAM and is locked while Windows is running. Attackers who obtain SAM hashes can perform offline cracking or pass-the-hash attacks to authenticate as those users.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 55,
+      "moduleId": 6,
+      "question": "An attacker uses the 'wmic shadowcopy delete' command on a compromised Windows system. What is the purpose of this action?",
+      "options": ["To create a new backup of the system", "To delete Volume Shadow Copies to prevent system recovery and cover tracks", "To enumerate running processes", "To escalate privileges to SYSTEM"],
+      "correctAnswer": 1,
+      "explanation": "Deleting Volume Shadow Copies removes backup snapshots that could be used to recover files or restore the system to a previous state. This is a common track-covering technique used by attackers and ransomware operators to prevent victims from restoring their data without paying the ransom. It eliminates forensic evidence stored in shadow copies.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "moduleId": 6,
+      "question": "Which password attack method tries every possible combination of characters until the correct password is found?",
+      "options": ["Dictionary Attack", "Brute Force Attack", "Rainbow Table Attack", "Phishing"],
+      "correctAnswer": 1,
+      "explanation": "A brute force attack systematically tries every possible combination of characters (letters, numbers, symbols) until the correct password is discovered. While guaranteed to eventually succeed, it is the slowest method and becomes impractical as password length and complexity increase. Dictionary attacks use wordlists, while rainbow tables use precomputed hash chains.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 57,
+      "moduleId": 6,
+      "question": "What is the purpose of clearing Windows Event Logs during the 'Covering Tracks' phase of system hacking?",
+      "options": ["To speed up the system performance", "To remove evidence of unauthorized access and activities from security, system, and application logs", "To free up disk space for malware installation", "To prevent other attackers from accessing the system"],
+      "correctAnswer": 1,
+      "explanation": "Clearing Windows Event Logs (Security, System, Application) removes recorded evidence of the attacker's activities such as failed/successful logins, process creation, and privilege changes. Attackers use commands like 'wevtutil cl Security' or tools like Meterpreter's 'clearev' to erase logs. This is why log forwarding to a SIEM is critical for forensic preservation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 58,
+      "moduleId": 6,
+      "question": "A penetration tester discovers a Linux system where the /etc/passwd file contains hashed passwords instead of the expected 'x' placeholder. What does this indicate?",
+      "options": ["The system is using NIS authentication", "Shadow passwords are not enabled, and password hashes are world-readable — a significant security weakness", "The system is running the latest security patches", "The passwords are encrypted with AES-256"],
+      "correctAnswer": 1,
+      "explanation": "In modern Linux systems, the 'x' in /etc/passwd indicates that password hashes are stored in /etc/shadow (readable only by root). If actual hashes appear in /etc/passwd, shadow passwords are not enabled, meaning any user can read the password hashes. This is a critical misconfiguration that allows any local user to perform offline password cracking.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 59,
+      "moduleId": 6,
+      "question": "An attacker captures NTLM hashes from a Windows network and uses them directly to authenticate to other systems without cracking the actual password. What is this technique called?",
+      "options": ["Credential Stuffing", "Password Spraying", "Pass-the-Hash (PtH)", "Kerberoasting"],
+      "correctAnswer": 2,
+      "explanation": "Pass-the-Hash (PtH) is a technique where an attacker uses captured NTLM password hashes to authenticate to remote systems without knowing the plaintext password. This is possible because Windows NTLM authentication uses the hash directly for verification. Tools like Mimikatz, PsExec, and CrackMapExec facilitate PtH attacks across Windows networks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 60,
+      "moduleId": 6,
+      "question": "During post-exploitation on a Linux system, you discover a SUID binary owned by root that is vulnerable to a buffer overflow. Why is this finding particularly significant for privilege escalation?",
+      "options": ["SUID binaries cannot be exploited for privilege escalation", "When a SUID binary is exploited, the resulting shell or process runs with the file owner's privileges (root), granting full system control", "SUID binaries are only found on Windows systems", "Buffer overflows in SUID binaries can only cause denial of service"],
+      "correctAnswer": 1,
+      "explanation": "SUID (Set User ID) binaries execute with the permissions of the file owner rather than the executing user. When a root-owned SUID binary has a buffer overflow vulnerability, exploiting it spawns a process with root privileges. Tools like 'find / -perm -4000' locate SUID binaries, and sites like GTFOBins catalog known SUID exploitation techniques.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 61,
+      "moduleId": 7,
+      "question": "What type of malware disguises itself as legitimate software but contains malicious code that executes without the user's knowledge?",
+      "options": ["Worm", "Trojan", "Adware", "Rootkit"],
+      "correctAnswer": 1,
+      "explanation": "A Trojan (named after the Trojan Horse) is malware that disguises itself as legitimate software to trick users into installing it. Unlike viruses, Trojans do not self-replicate. They may provide backdoor access, steal data, or download additional malware. Common types include RATs (Remote Access Trojans), banking Trojans, and dropper Trojans.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 62,
+      "moduleId": 7,
+      "question": "Which type of malware encrypts a victim's files and demands payment in cryptocurrency for the decryption key?",
+      "options": ["Spyware", "Ransomware", "Adware", "Worm"],
+      "correctAnswer": 1,
+      "explanation": "Ransomware is a type of malware that encrypts files on the victim's system and demands a ransom payment (typically in cryptocurrency like Bitcoin) in exchange for the decryption key. Notable examples include WannaCry, REvil, and LockBit. Modern ransomware often employs double extortion — encrypting data and threatening to leak it publicly.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 63,
+      "moduleId": 7,
+      "question": "What distinguishes a worm from a virus?",
+      "options": ["Worms require user interaction to spread, while viruses do not", "Worms can self-replicate and spread across networks without user interaction, while viruses need a host file", "Viruses are more dangerous than worms", "Worms only affect mobile devices"],
+      "correctAnswer": 1,
+      "explanation": "Worms are standalone malware that can self-replicate and spread across networks without requiring user interaction or a host file. In contrast, viruses attach themselves to legitimate programs or files and require user action (like opening a file) to spread. Worms like Conficker and Stuxnet demonstrate the ability to propagate rapidly across networks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 64,
+      "moduleId": 7,
+      "question": "An Advanced Persistent Threat (APT) group has been operating inside a corporate network for six months, slowly exfiltrating sensitive data. Which characteristic of APTs does this scenario best demonstrate?",
+      "options": ["Use of simple, publicly available tools", "Long dwell time with patient, stealthy operations focused on specific targets", "Rapid, indiscriminate attacks against random targets", "Exclusive use of phishing as the only attack vector"],
+      "correctAnswer": 1,
+      "explanation": "APTs are characterized by their persistence, sophistication, and targeted nature. They typically maintain long-term presence (long dwell time) in victim networks, using advanced techniques to avoid detection while pursuing specific intelligence or data theft objectives. APT groups are often state-sponsored or well-funded criminal organizations with significant resources.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "moduleId": 7,
+      "question": "What is fileless malware, and why is it particularly difficult to detect?",
+      "options": ["Malware that only infects file servers", "Malware that operates entirely in memory without writing files to disk, evading traditional file-based antivirus detection", "Malware that deletes all files on the system", "Malware that uses zero-day exploits exclusively"],
+      "correctAnswer": 1,
+      "explanation": "Fileless malware resides entirely in RAM and leverages legitimate system tools (like PowerShell, WMI, or the Windows registry) to execute malicious actions without writing traditional files to disk. This makes it extremely difficult for signature-based antivirus solutions to detect, as there are no malicious files to scan. Behavioral analysis and EDR solutions are more effective against fileless threats.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 66,
+      "moduleId": 7,
+      "question": "During malware analysis, you execute a suspicious sample in an isolated virtual environment and monitor its behavior, including file system changes, registry modifications, and network connections. What type of analysis is this?",
+      "options": ["Static Analysis", "Dynamic Analysis", "Code Review", "Vulnerability Assessment"],
+      "correctAnswer": 1,
+      "explanation": "Dynamic analysis (behavioral analysis) involves executing malware in a controlled, isolated environment (sandbox) and observing its runtime behavior. This includes monitoring file system changes, registry modifications, network communications, and process creation. Tools like Cuckoo Sandbox, Any.Run, and Process Monitor are commonly used for dynamic malware analysis.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "moduleId": 7,
+      "question": "Which evasion technique involves malware checking for the presence of virtual machine artifacts, debugging tools, or sandbox environments before executing its payload?",
+      "options": ["Polymorphism", "Anti-analysis / Sandbox evasion", "Code obfuscation", "Rootkit installation"],
+      "correctAnswer": 1,
+      "explanation": "Anti-analysis and sandbox evasion techniques allow malware to detect if it is running in a virtualized or monitored environment. Malware may check for VM-specific registry keys, MAC address prefixes, process names (like vmtoolsd), or artificially low resource configurations. If analysis is detected, the malware may remain dormant or terminate to avoid behavioral detection.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 68,
+      "moduleId": 7,
+      "question": "A security analyst discovers a rootkit on a compromised Linux system that hooks system calls in the kernel to hide malicious processes and files. What type of rootkit is this?",
+      "options": ["Application-level rootkit", "Library-level rootkit", "Kernel-level rootkit", "Bootloader-level rootkit"],
+      "correctAnswer": 2,
+      "explanation": "Kernel-level rootkits operate at the operating system kernel level by modifying or hooking system calls to hide malicious processes, files, and network connections from user-space tools. They are extremely difficult to detect because they control the core of the OS. Tools like chkrootkit and rkhunter can help detect kernel-level rootkits, but compromised kernels may require full reinstallation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 69,
+      "moduleId": 7,
+      "question": "A newly discovered malware sample uses polymorphic techniques. What does this mean, and how does it affect detection?",
+      "options": ["The malware uses the same code every time it replicates", "The malware changes its code (encryption/mutation) with each replication while maintaining its functionality, making signature-based detection ineffective", "The malware can only infect one type of operating system", "The malware requires manual installation by the attacker each time"],
+      "correctAnswer": 1,
+      "explanation": "Polymorphic malware changes its underlying code or appearance (through encryption, code transposition, or mutation engines) each time it replicates or infects a new system. This means the malware has a different signature each time, rendering traditional signature-based antivirus detection ineffective. Heuristic and behavioral analysis are needed to detect polymorphic threats.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 70,
+      "moduleId": 7,
+      "question": "You are analyzing a malicious document and discover it contains a macro that downloads a second-stage payload from a remote server using PowerShell. The initial document functions as a:",
+      "options": ["Keylogger", "Dropper", "Rootkit", "Logic Bomb"],
+      "correctAnswer": 1,
+      "explanation": "A dropper is a type of malware designed to install (drop) other malware onto the target system. In this case, the malicious document with a macro acts as a dropper by downloading a second-stage payload. Droppers are commonly used in multi-stage attacks where the initial infection vector delivers a lightweight component that then retrieves the primary malware.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 71,
+      "moduleId": 8,
+      "question": "Which tool is most commonly used for capturing and analyzing network packets in real-time?",
+      "options": ["Nmap", "Wireshark", "Metasploit", "Burp Suite"],
+      "correctAnswer": 1,
+      "explanation": "Wireshark is the world's most widely used network protocol analyzer. It captures network packets in real-time and provides detailed inspection of hundreds of protocols. It supports deep packet inspection, display filters, and can reconstruct TCP streams. Wireshark uses libpcap (Linux) or Npcap (Windows) for packet capture.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 72,
+      "moduleId": 8,
+      "question": "What is ARP spoofing (ARP poisoning)?",
+      "options": ["Encrypting ARP packets to protect network traffic", "Sending forged ARP replies to associate the attacker's MAC address with a legitimate IP address, enabling traffic interception", "Blocking all ARP requests on the network", "A method to speed up ARP resolution"],
+      "correctAnswer": 1,
+      "explanation": "ARP spoofing involves sending falsified ARP (Address Resolution Protocol) messages onto a local network to link the attacker's MAC address with the IP address of a legitimate host (such as the default gateway). This causes traffic meant for that IP address to be sent to the attacker instead, enabling man-in-the-middle attacks and traffic interception.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 73,
+      "moduleId": 8,
+      "question": "What is the primary difference between a hub and a switch that makes sniffing easier on a hub-based network?",
+      "options": ["Hubs are faster than switches", "Hubs broadcast all traffic to every port, while switches forward traffic only to the destination port based on MAC address tables", "Switches do not support Ethernet", "Hubs encrypt traffic while switches do not"],
+      "correctAnswer": 1,
+      "explanation": "Hubs operate at the physical layer and broadcast all incoming traffic to every connected port, making it trivial to sniff all network traffic. Switches operate at the data link layer and maintain MAC address tables to forward frames only to the specific port associated with the destination MAC address, limiting passive sniffing capabilities.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 74,
+      "moduleId": 8,
+      "question": "A penetration tester notices unusual ARP replies on the network where multiple IP addresses are resolving to the same MAC address. What type of attack is likely occurring?",
+      "options": ["DNS amplification attack", "ARP spoofing / ARP poisoning attack", "SYN flood attack", "Brute force attack"],
+      "correctAnswer": 1,
+      "explanation": "When multiple IP addresses in the ARP cache resolve to the same MAC address, it is a strong indicator of ARP spoofing. The attacker is sending gratuitous ARP replies to associate their MAC address with multiple legitimate IP addresses (typically the gateway and target). This enables the attacker to intercept traffic between the victims in a man-in-the-middle position.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 75,
+      "moduleId": 8,
+      "question": "What is MAC flooding, and what is its intended effect on a network switch?",
+      "options": ["Changing the MAC address of an interface to impersonate another device", "Sending a large number of frames with random source MAC addresses to overflow the switch's CAM table, forcing it to behave like a hub", "Filtering traffic based on MAC addresses", "Encrypting all traffic at the MAC layer"],
+      "correctAnswer": 1,
+      "explanation": "MAC flooding attacks overwhelm a switch's Content Addressable Memory (CAM) table by sending thousands of Ethernet frames with random, spoofed source MAC addresses. When the CAM table is full, the switch can no longer learn new MAC-to-port mappings and enters a fail-open mode, broadcasting all traffic to all ports like a hub, enabling the attacker to sniff all network traffic.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 76,
+      "moduleId": 8,
+      "question": "Which countermeasure can prevent ARP spoofing attacks on a managed switch?",
+      "options": ["Enabling DHCP on all hosts", "Configuring Dynamic ARP Inspection (DAI) on the switch", "Increasing the switch's CAM table size", "Disabling all unused physical ports"],
+      "correctAnswer": 1,
+      "explanation": "Dynamic ARP Inspection (DAI) is a security feature on managed switches that validates ARP packets against the DHCP snooping binding table. It drops ARP packets with invalid IP-to-MAC address bindings, preventing ARP spoofing attacks. DAI works in conjunction with DHCP snooping to ensure only legitimate ARP communications are permitted on the network.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 77,
+      "moduleId": 8,
+      "question": "An attacker sets up a rogue DHCP server on the network to provide clients with a malicious DNS server address. What type of attack is this?",
+      "options": ["DHCP starvation", "DHCP spoofing", "DNS zone transfer", "ARP spoofing"],
+      "correctAnswer": 1,
+      "explanation": "DHCP spoofing involves setting up a rogue DHCP server that responds to DHCP requests before the legitimate server, providing clients with attacker-controlled network parameters such as a malicious DNS server or gateway address. This can redirect victim traffic through the attacker's system. DHCP snooping on managed switches is the primary countermeasure.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 78,
+      "moduleId": 8,
+      "question": "Which Wireshark display filter would you use to show only HTTP GET requests in a packet capture?",
+      "options": ["tcp.port == 80", "http.request.method == \"GET\"", "ip.proto == http", "filter.http.get"],
+      "correctAnswer": 1,
+      "explanation": "The Wireshark display filter 'http.request.method == \"GET\"' specifically filters for HTTP GET requests. Wireshark's display filter syntax uses protocol-specific fields for precise filtering. While 'tcp.port == 80' would show all traffic on port 80, it wouldn't distinguish between request methods or other HTTP traffic like POST requests.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 79,
+      "moduleId": 8,
+      "question": "During a penetration test, you use the tool Ettercap to perform a man-in-the-middle attack between a client and the gateway. The attack succeeds, and you can see the client's unencrypted HTTP traffic but cannot read HTTPS traffic. Why?",
+      "options": ["Ettercap cannot capture HTTPS packets", "HTTPS traffic uses TLS/SSL encryption, so even with MITM positioning, the content is encrypted unless SSL stripping or certificate spoofing is also performed", "The switch is blocking HTTPS interception", "HTTPS uses a different network layer that bypasses ARP"],
+      "correctAnswer": 1,
+      "explanation": "HTTPS encrypts data using TLS/SSL between the client and server. Even when an attacker is in a man-in-the-middle position via ARP spoofing, the encrypted content remains unreadable without additional techniques like SSL stripping (downgrading HTTPS to HTTP), certificate spoofing, or exploiting TLS vulnerabilities. Tools like sslstrip can attempt HTTPS downgrade attacks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 80,
+      "moduleId": 8,
+      "question": "A network administrator discovers DNS cache poisoning has occurred on their recursive DNS resolver. An attacker has inserted a fraudulent record mapping 'bank.com' to a malicious IP address. How does this attack work, and what is the impact?",
+      "options": ["The attacker modifies the bank's authoritative DNS server directly", "The attacker sends forged DNS responses to the resolver, injecting false records into its cache so that all users querying that resolver for 'bank.com' are directed to the attacker's server", "The attacker intercepts DNS queries over encrypted channels", "The attacker exploits a buffer overflow in the DNS software"],
+      "correctAnswer": 1,
+      "explanation": "DNS cache poisoning works by sending spoofed DNS responses to a recursive resolver before the legitimate response arrives, inserting fraudulent records into the cache. Once poisoned, all users relying on that resolver are directed to the attacker's server when requesting the poisoned domain. DNSSEC (DNS Security Extensions) and randomized source ports help prevent this attack.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 81,
+      "moduleId": 9,
+      "question": "Which social engineering technique involves an attacker physically following an authorized employee through a secured door or entrance without using their own credentials?",
+      "options": ["Phishing", "Pretexting", "Tailgating", "Baiting"],
+      "correctAnswer": 2,
+      "explanation": "Tailgating (also called piggybacking) is a physical social engineering technique where an unauthorized person follows an authorized employee through a secured entry point. The attacker may carry items to appear as if they need help opening the door or simply walk closely behind. Mantraps, security guards, and badge-required access controls help prevent tailgating.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 82,
+      "moduleId": 9,
+      "question": "What type of social engineering attack sends fraudulent emails designed to appear as if they come from a trusted source to trick victims into revealing sensitive information?",
+      "options": ["Vishing", "Phishing", "Smishing", "Whaling"],
+      "correctAnswer": 1,
+      "explanation": "Phishing is a social engineering attack that uses fraudulent emails, websites, or messages designed to look like they come from legitimate, trusted sources to trick recipients into revealing sensitive information such as credentials, credit card numbers, or personal data. Vishing uses voice calls, smishing uses SMS, and whaling targets high-profile executives.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 83,
+      "moduleId": 9,
+      "question": "What is pretexting in the context of social engineering?",
+      "options": ["Sending text messages with malicious links", "Creating a fabricated scenario or identity to manipulate the victim into providing information or performing actions", "Testing email filters for phishing detection", "Encrypting communications between two parties"],
+      "correctAnswer": 1,
+      "explanation": "Pretexting involves creating a fabricated scenario (pretext) to engage the victim and manipulate them into divulging information or performing actions. The attacker assumes a false identity, such as an IT support technician, bank employee, or auditor, and builds trust through the constructed narrative. Effective pretexting requires research and social skills.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 84,
+      "moduleId": 9,
+      "question": "A company's CEO receives a highly targeted email that references a recent board meeting and appears to come from the CFO, requesting an urgent wire transfer. What type of attack is this?",
+      "options": ["Mass phishing campaign", "Spear phishing / Whaling (Business Email Compromise)", "Smishing", "Tailgating"],
+      "correctAnswer": 1,
+      "explanation": "This is a spear phishing or whaling attack, specifically a Business Email Compromise (BEC). Whaling targets high-profile individuals like C-suite executives with highly personalized emails using researched details like recent meetings. BEC attacks are among the most financially damaging cybercrimes, with the FBI reporting billions in losses annually.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 85,
+      "moduleId": 9,
+      "question": "An attacker leaves USB drives labeled 'Employee Salary Information Q4' in the company parking lot, hoping employees will plug them into their work computers. What social engineering technique is this?",
+      "options": ["Phishing", "Baiting", "Pretexting", "Quid Pro Quo"],
+      "correctAnswer": 1,
+      "explanation": "Baiting exploits human curiosity or greed by leaving physical media (USB drives, CDs) or digital downloads in places where targets will find them. The bait typically has an enticing label to encourage the victim to use it. Once plugged in, the malicious USB can execute payloads, install malware, or establish a reverse shell to the attacker.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 86,
+      "moduleId": 9,
+      "question": "Which psychological principle does a social engineer exploit when they impersonate a senior executive or law enforcement officer to pressure a victim into compliance?",
+      "options": ["Reciprocity", "Authority", "Scarcity", "Social Proof"],
+      "correctAnswer": 1,
+      "explanation": "The principle of authority, identified by Robert Cialdini, states that people tend to comply with requests from perceived authority figures. Social engineers exploit this by impersonating executives, IT administrators, law enforcement, or other authoritative roles. Victims are less likely to question requests when they believe they come from someone in a position of power.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 87,
+      "moduleId": 9,
+      "question": "What is the primary difference between phishing and spear phishing?",
+      "options": ["Phishing uses email while spear phishing uses phone calls", "Phishing is broad and untargeted, while spear phishing is customized and directed at specific individuals or organizations", "Spear phishing is legal while phishing is illegal", "There is no difference between them"],
+      "correctAnswer": 1,
+      "explanation": "Phishing casts a wide net, sending generic messages to large numbers of people hoping some will fall victim. Spear phishing is highly targeted, using researched personal information about specific individuals to create convincing, customized messages. Spear phishing has a much higher success rate due to its personalized nature and is commonly used in APT campaigns.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 88,
+      "moduleId": 9,
+      "question": "An organization implements regular security awareness training, phishing simulations, and strict verification procedures for financial transactions. These are examples of countermeasures against:",
+      "options": ["DDoS attacks", "SQL injection attacks", "Social engineering attacks", "Buffer overflow attacks"],
+      "correctAnswer": 2,
+      "explanation": "Security awareness training, phishing simulations, and verification procedures are the primary countermeasures against social engineering attacks. Since social engineering exploits human psychology rather than technical vulnerabilities, the most effective defenses focus on educating employees, testing their awareness through simulations, and implementing procedural safeguards for sensitive operations.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 89,
+      "moduleId": 9,
+      "question": "An attacker uses AI-generated deepfake technology to create a realistic video call impersonating a company's CEO, instructing the finance department to transfer $25 million. This emerging threat combines which social engineering concepts?",
+      "options": ["Baiting and Tailgating", "Deepfake technology, Authority principle, and Impersonation", "Dumpster diving and Shoulder surfing", "Phishing and DNS poisoning"],
+      "correctAnswer": 1,
+      "explanation": "This attack combines deepfake technology (AI-generated realistic video/audio) with the authority principle (impersonating the CEO) and impersonation (pretending to be a trusted figure). Real-world incidents have demonstrated multi-million dollar losses from deepfake-enabled social engineering, highlighting the need for out-of-band verification procedures for financial transactions.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 90,
+      "moduleId": 9,
+      "question": "During a social engineering engagement, you successfully extract credentials from an employee using a vishing (voice phishing) call by posing as IT helpdesk support. Which combination of influence principles were most likely leveraged?",
+      "options": ["Scarcity and Consensus only", "Authority (posing as IT support), Urgency (implying an immediate security issue), and Helpfulness (the victim's desire to cooperate with support staff)", "Physical intimidation and bribery", "Reciprocity and Commitment only"],
+      "correctAnswer": 1,
+      "explanation": "Vishing attacks typically leverage multiple psychological principles simultaneously. Authority is established by impersonating IT support, urgency is created by suggesting an immediate security concern, and the victim's natural desire to be helpful and cooperative with support staff is exploited. Effective social engineering combines multiple principles to maximize compliance and minimize suspicion.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 91,
+      "moduleId": 10,
+      "question": "What type of attack floods a target server with TCP SYN requests without completing the three-way handshake, exhausting server resources?",
+      "options": ["Ping of Death", "SYN Flood", "Smurf Attack", "Teardrop Attack"],
+      "correctAnswer": 1,
+      "explanation": "A SYN flood attack exploits the TCP three-way handshake by sending a massive number of SYN requests to a target without completing the handshake (never sending the final ACK). The server allocates resources for each half-open connection, eventually exhausting its connection table and becoming unable to serve legitimate requests. SYN cookies are a common mitigation.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 92,
+      "moduleId": 10,
+      "question": "What is the primary difference between a DoS attack and a DDoS attack?",
+      "options": ["DoS attacks are illegal while DDoS attacks are legal", "A DoS attack originates from a single source, while a DDoS attack uses multiple distributed sources (often a botnet)", "DDoS attacks only target web servers", "DoS attacks are more powerful than DDoS attacks"],
+      "correctAnswer": 1,
+      "explanation": "A Denial-of-Service (DoS) attack originates from a single source, while a Distributed Denial-of-Service (DDoS) attack uses multiple compromised systems (typically a botnet) to simultaneously flood the target. DDoS attacks are harder to mitigate because the traffic comes from many different IP addresses, making simple IP-based blocking ineffective.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 93,
+      "moduleId": 10,
+      "question": "Which term describes a network of compromised computers (zombies) controlled by an attacker to launch coordinated attacks?",
+      "options": ["Honeypot", "Botnet", "Darknet", "Sandbox"],
+      "correctAnswer": 1,
+      "explanation": "A botnet is a network of compromised computers (called bots or zombies) that are remotely controlled by an attacker (botmaster) through a Command and Control (C2) infrastructure. Botnets are commonly used to launch DDoS attacks, send spam, mine cryptocurrency, and perform credential stuffing. Notable botnets include Mirai, Emotet, and Zeus.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 94,
+      "moduleId": 10,
+      "question": "In a DNS amplification attack, the attacker sends DNS queries with a spoofed source IP address to open DNS resolvers. Why is this effective as a DDoS technique?",
+      "options": ["DNS queries are encrypted and cannot be filtered", "The DNS response is significantly larger than the query (amplification factor), and the spoofed source IP causes responses to flood the victim rather than the attacker", "DNS servers always forward queries to the victim's server", "DNS amplification only works on encrypted networks"],
+      "correctAnswer": 1,
+      "explanation": "DNS amplification exploits the fact that DNS responses can be 28-54 times larger than queries (especially with ANY or DNSSEC queries). By spoofing the victim's IP as the source address, the attacker causes multiple DNS resolvers to send large responses to the victim. This amplification effect allows attackers to generate massive traffic volumes from relatively small queries.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 95,
+      "moduleId": 10,
+      "question": "Which DDoS attack targets the application layer (Layer 7) by sending seemingly legitimate HTTP requests to overwhelm a web server's ability to process them?",
+      "options": ["SYN Flood", "ICMP Flood", "HTTP Flood (Slowloris, RUDY)", "UDP Flood"],
+      "correctAnswer": 2,
+      "explanation": "HTTP Flood attacks (including Slowloris and RUDY) are Layer 7 (application layer) DDoS attacks that target web servers with seemingly legitimate HTTP requests. Slowloris sends partial HTTP headers to keep connections open, while RUDY (R-U-Dead-Yet) sends HTTP POST requests with extremely slow data transmission. These attacks consume server resources with minimal bandwidth.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 96,
+      "moduleId": 10,
+      "question": "What is the primary purpose of a Smurf attack?",
+      "options": ["To intercept network traffic between two hosts", "To amplify traffic by sending ICMP echo requests to a broadcast address with the victim's spoofed source IP, causing all hosts to reply to the victim", "To crack passwords using brute force", "To inject malicious DNS records"],
+      "correctAnswer": 1,
+      "explanation": "A Smurf attack sends ICMP echo requests (pings) to a network's broadcast address with the victim's IP spoofed as the source. All hosts on that network respond to the victim with ICMP echo replies, creating an amplification effect. Modern networks mitigate this by disabling directed broadcast forwarding and implementing ingress filtering (BCP38).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 97,
+      "moduleId": 10,
+      "question": "An organization deploys a Content Delivery Network (CDN) with DDoS mitigation capabilities to protect their web application. How does this help defend against DDoS attacks?",
+      "options": ["CDNs encrypt all traffic to prevent DDoS", "CDNs distribute traffic across multiple global edge servers, absorb attack traffic, and filter malicious requests before they reach the origin server", "CDNs block all incoming traffic during an attack", "CDNs only protect against physical attacks"],
+      "correctAnswer": 1,
+      "explanation": "CDNs with DDoS protection (like Cloudflare, Akamai, and AWS Shield) distribute content across globally distributed edge servers, absorbing volumetric attacks across their massive infrastructure. They can filter malicious traffic, challenge suspicious requests with CAPTCHAs, and rate-limit connections, allowing legitimate traffic through while blocking attack traffic before it reaches the origin server.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 98,
+      "moduleId": 10,
+      "question": "Which technique helps mitigate SYN flood attacks by eliminating the need to store connection state for half-open connections on the server?",
+      "options": ["IP blacklisting", "SYN cookies", "MAC filtering", "Port knocking"],
+      "correctAnswer": 1,
+      "explanation": "SYN cookies are a technique where the server encodes connection state information into the TCP sequence number of the SYN-ACK response instead of allocating memory for half-open connections. When the client completes the handshake with a valid ACK, the server reconstructs the connection state from the cookie. This eliminates the resource exhaustion vector of SYN flood attacks.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 99,
+      "moduleId": 10,
+      "question": "A massive DDoS attack uses IoT devices (cameras, routers, DVRs) with default credentials as attack vectors. This attack pattern is most associated with which famous botnet?",
+      "options": ["Zeus", "Emotet", "Mirai", "Conficker"],
+      "correctAnswer": 2,
+      "explanation": "The Mirai botnet, first discovered in 2016, specifically targets IoT devices running Linux with factory-default credentials. It scans for devices with open Telnet ports and attempts login with a table of 62+ common default username/password combinations. Mirai was responsible for the massive DDoS attack against Dyn DNS in October 2016, which disrupted major internet services.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 100,
+      "moduleId": 10,
+      "question": "During a DDoS incident, a security team observes that the attack traffic consists of 500 Gbps of UDP packets with spoofed source IPs targeting port 53, with response packets averaging 50x the size of request packets. The team identifies the attack as NTP amplification. However, the traffic targets port 53. What is the most accurate classification of this attack?",
+      "options": ["NTP amplification attack because the team initially identified it as such", "DNS amplification attack because the targeted port and amplification ratio align with DNS reflection characteristics", "SYN flood attack because of the high volume", "Application layer attack because DNS is involved"],
+      "correctAnswer": 1,
+      "explanation": "Despite the initial classification as NTP amplification, the evidence points to DNS amplification: the traffic targets UDP port 53 (DNS), uses spoofed source IPs (reflection), and has a high amplification ratio consistent with DNS (which can achieve 28-54x amplification). Accurate attack classification is essential for effective mitigation, as different amplification attacks require different response strategies.",
+      "difficulty": "hard"
+    }
+  ]
+}
