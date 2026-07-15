@@ -1,0 +1,1404 @@
+{
+  "questions": [
+    {
+      "id": 401,
+      "moduleId": 14,
+      "question": "Which HTTP header is commonly used to defend against Clickjacking?",
+      "options": [
+        "X-XSS-Protection",
+        "Content-Security-Policy",
+        "X-Frame-Options",
+        "Strict-Transport-Security"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The X-Frame-Options header (or the frame-ancestors directive in CSP) prevents a web page from being rendered in a <frame>, <iframe>, or <object>, protecting the site against clickjacking attacks.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 402,
+      "moduleId": 14,
+      "question": "What is the primary function of a Content Security Policy (CSP)?",
+      "options": [
+        "To encrypt all data at rest",
+        "To prevent XSS and data injection attacks by restricting the sources from which content can be loaded",
+        "To block SQL injection attempts",
+        "To provide anti-CSRF tokens"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CSP is an HTTP header that allows site administrators to declare approved sources of content (scripts, images, etc.) that the browser may load, significantly reducing the risk of XSS and other data injection attacks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 403,
+      "moduleId": 14,
+      "question": "Which vulnerability allows an attacker to execute OS commands on the server through a web application?",
+      "options": [
+        "Command Injection",
+        "SQL Injection",
+        "Cross-Site Scripting",
+        "XML External Entity (XXE)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Command Injection occurs when an application passes unsafe user-supplied data (forms, cookies, HTTP headers) to a system shell. The attacker can then execute arbitrary operating system commands.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 404,
+      "moduleId": 14,
+      "question": "What is 'Parameter Tampering' in web applications?",
+      "options": [
+        "Injecting SQL commands into a parameter",
+        "Modifying parameters exchanged between the client and server (e.g., price, quantity) to manipulate application logic",
+        "Sending too many parameters to cause a buffer overflow",
+        "Encrypting parameters to hide data from the WAF"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Parameter tampering involves manipulating the data (parameters) exchanged between client and server, often modifying hidden fields or URL parameters to alter business logic, such as changing the price of an item in a shopping cart.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 405,
+      "moduleId": 15,
+      "question": "What is the primary goal of an SQL Injection (SQLi) attack?",
+      "options": [
+        "To crash the web server",
+        "To execute malicious scripts in the user's browser",
+        "To manipulate the backend database by injecting arbitrary SQL commands",
+        "To steal the user's session token"
+      ],
+      "correctAnswer": 2,
+      "explanation": "SQL Injection occurs when user input is improperly sanitized and used to construct database queries, allowing the attacker to inject and execute arbitrary SQL commands to view, modify, or delete data.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 406,
+      "moduleId": 15,
+      "question": "Which SQL Injection technique uses the UNION operator to combine the results of a vulnerable query with the results of an injected query?",
+      "options": [
+        "Error-based SQLi",
+        "Blind SQLi",
+        "UNION-based SQLi",
+        "Time-based SQLi"
+      ],
+      "correctAnswer": 2,
+      "explanation": "UNION-based SQLi leverages the UNION operator to append the results of an injected query to the results of the original query, allowing the attacker to extract data from other tables.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 407,
+      "moduleId": 15,
+      "question": "In a Blind SQL Injection attack, how does the attacker determine if the payload was successful?",
+      "options": [
+        "By analyzing the database error messages displayed on the page",
+        "By observing the application's response (e.g., changes in page content or response time) to true/false queries",
+        "By using the UNION operator to extract data directly",
+        "By executing operating system commands"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In Blind SQLi, the application does not return database errors or data directly to the user. The attacker infers the success of the injection by observing differences in the application's response, such as page content (Boolean-based) or response time (Time-based).",
+      "difficulty": "hard"
+    },
+    {
+      "id": 408,
+      "moduleId": 15,
+      "question": "Which type of Blind SQLi relies on the attacker observing how long the database takes to process a query?",
+      "options": [
+        "Boolean-based Blind SQLi",
+        "Error-based SQLi",
+        "Time-based Blind SQLi",
+        "Out-of-band SQLi"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Time-based Blind SQLi involves injecting SQL commands that cause the database to wait for a specified period (e.g., using WAITFOR DELAY or SLEEP). The attacker measures the response time to infer information.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 409,
+      "moduleId": 15,
+      "question": "What is the most effective defense against SQL Injection?",
+      "options": [
+        "Escaping all user input",
+        "Using parameterized queries (prepared statements)",
+        "Implementing a Web Application Firewall (WAF)",
+        "Using stored procedures for everything"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Parameterized queries (prepared statements) ensure that the database treats user input strictly as data (parameters) rather than executable code, effectively preventing SQL injection.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 410,
+      "moduleId": 15,
+      "question": "Which character is most commonly used by attackers to test for basic SQL Injection vulnerabilities by attempting to break a string literal?",
+      "options": [
+        "#",
+        ";",
+        "' (single quote)",
+        "--"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The single quote (') is commonly used to prematurely terminate a string literal in a SQL query. If the input is not sanitized, this can cause a syntax error or allow the attacker to append additional SQL commands.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 411,
+      "moduleId": 15,
+      "question": "What is the purpose of the '--' sequence in an SQL Injection attack?",
+      "options": [
+        "To act as a wildcard character",
+        "To comment out the remainder of the legitimate SQL query",
+        "To terminate a SQL statement",
+        "To concatenate two strings"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In many SQL databases, '--' (followed by a space) indicates the start of a comment. Attackers use this to ignore the rest of the original query after their injected payload.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 412,
+      "moduleId": 15,
+      "question": "Which SQL injection technique occurs when the attacker exploits the database's ability to make out-of-band network connections, such as DNS or HTTP requests?",
+      "options": [
+        "In-band SQLi",
+        "Out-of-band SQLi",
+        "Error-based SQLi",
+        "Boolean-based SQLi"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Out-of-band SQLi is used when the attacker cannot receive responses directly or the time-based method is too slow. The attacker uses database features (like xp_dirtree in SQL Server) to send the extracted data over a different channel (e.g., a DNS request).",
+      "difficulty": "hard"
+    },
+    {
+      "id": 413,
+      "moduleId": 15,
+      "question": "Which automated tool is widely used by security professionals and attackers to detect and exploit SQL injection vulnerabilities?",
+      "options": [
+        "Nmap",
+        "Wireshark",
+        "sqlmap",
+        "Metasploit"
+      ],
+      "correctAnswer": 2,
+      "explanation": "sqlmap is a powerful open-source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over database servers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 414,
+      "moduleId": 15,
+      "question": "What is an 'Error-based' SQL Injection?",
+      "options": [
+        "An attack that causes the database server to crash",
+        "An attack that relies on forcing the database to generate an error message containing the extracted data",
+        "An attack that uses boolean logic to infer data",
+        "An attack that measures the response time of the server"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Error-based SQLi involves crafting queries that intentionally cause the database to generate error messages. The attacker structures the query so that the error message includes the data they wish to extract.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 415,
+      "moduleId": 15,
+      "question": "Which SQL command is often targeted in a first-order SQL injection attack?",
+      "options": [
+        "SELECT",
+        "INSERT",
+        "UPDATE",
+        "DELETE"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A first-order SQL injection attack typically targets a SELECT statement where the user input is immediately executed, such as a login form or a search query.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 416,
+      "moduleId": 15,
+      "question": "What characterizes a Second-Order SQL Injection?",
+      "options": [
+        "It requires two attackers working together.",
+        "The injected payload is executed immediately in the first request.",
+        "The injected payload is stored in the database and executed later when retrieved by another query.",
+        "It uses secondary channels like DNS to extract data."
+      ],
+      "correctAnswer": 2,
+      "explanation": "In Second-Order SQLi (or Stored SQLi), the injected payload is initially stored in the database without being executed. The payload is later retrieved and executed unsafely in a different part of the application.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 417,
+      "moduleId": 15,
+      "question": "Which database function or procedure is notoriously dangerous in Microsoft SQL Server and often exploited in SQLi to execute OS commands?",
+      "options": [
+        "sys_exec",
+        "xp_cmdshell",
+        "exec_cmd",
+        "db_execute"
+      ],
+      "correctAnswer": 1,
+      "explanation": "xp_cmdshell is an extended stored procedure in Microsoft SQL Server that allows users to execute operating system commands. If enabled, it is a prime target for attackers who have achieved SQL injection.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 418,
+      "moduleId": 15,
+      "question": "Why might an attacker use the 'CHAR()' or 'CHR()' function in an SQL Injection payload?",
+      "options": [
+        "To encrypt the payload",
+        "To convert strings into character codes to evade simple WAF filters or quote escaping",
+        "To concatenate strings",
+        "To increase the execution time of the query"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Attackers use functions like CHAR() to represent strings without using quotes. This helps evade basic input validation or WAFs that simply look for or escape single or double quotes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 419,
+      "moduleId": 15,
+      "question": "In a MySQL environment, which table is commonly targeted to gather metadata about other tables and columns during an SQL injection?",
+      "options": [
+        "sys.objects",
+        "pg_catalog.pg_tables",
+        "information_schema.tables",
+        "v$database"
+      ],
+      "correctAnswer": 2,
+      "explanation": "In MySQL (and many other DBMSs), the 'information_schema' database contains metadata. Attackers query 'information_schema.tables' and 'information_schema.columns' to understand the database structure.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 420,
+      "moduleId": 15,
+      "question": "Which of the following describes 'Tautology' in the context of SQL Injection?",
+      "options": [
+        "Injecting a query that always evaluates to true (e.g., OR 1=1)",
+        "Using multiple UNION statements",
+        "Delaying the database response using SLEEP()",
+        "Extracting data through DNS requests"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A tautology is a statement that is always true. In SQLi, attackers often use tautologies (like ' OR 1=1) to bypass authentication or force the query to return all records in a table.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 421,
+      "moduleId": 16,
+      "question": "Which of the following is a primary weakness of the WEP encryption protocol?",
+      "options": [
+        "It uses a 24-bit Initialization Vector (IV) which is vulnerable to reuse.",
+        "It uses AES encryption which is easily reversible.",
+        "It does not support MAC address filtering.",
+        "It requires a RADIUS server for authentication."
+      ],
+      "correctAnswer": 0,
+      "explanation": "WEP uses a 24-bit IV, leading to rapid IV reuse under heavy traffic. Attackers can capture these reused IVs to crack the WEP key.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 422,
+      "moduleId": 16,
+      "question": "What encryption algorithm is heavily utilized in WPA2 to provide strong security?",
+      "options": [
+        "RC4",
+        "AES-CCMP",
+        "TKIP",
+        "DES"
+      ],
+      "correctAnswer": 1,
+      "explanation": "WPA2 uses the Advanced Encryption Standard (AES) with Counter Mode Cipher Block Chaining Message Authentication Code Protocol (CCMP) for robust encryption.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 423,
+      "moduleId": 16,
+      "question": "The KRACK attack specifically targets which component of wireless network security?",
+      "options": [
+        "The WPS PIN authentication mechanism.",
+        "The 4-way handshake in WPA2.",
+        "The WEP initialization vector.",
+        "The SAE protocol in WPA3."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Key Reinstallation Attacks (KRACK) exploit vulnerabilities in the WPA2 4-way handshake, allowing attackers to intercept and manipulate encrypted traffic.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 424,
+      "moduleId": 16,
+      "question": "An attacker sets up a rogue access point with the same SSID as a legitimate corporate network to trick users into connecting. What type of attack is this?",
+      "options": [
+        "Evil Twin",
+        "MAC Spoofing",
+        "Wardriving",
+        "Bluejacking"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An Evil Twin attack involves setting up a malicious access point with the same SSID as a legitimate one to eavesdrop on user communications.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 425,
+      "moduleId": 16,
+      "question": "Which of the following accurately describes the difference between Bluejacking and Bluesnarfing?",
+      "options": [
+        "Bluejacking steals data; Bluesnarfing sends unsolicited messages.",
+        "Bluejacking sends unsolicited messages; Bluesnarfing steals data from the device.",
+        "Bluejacking targets Wi-Fi; Bluesnarfing targets Bluetooth.",
+        "Bluejacking takes full control of the device; Bluesnarfing only tracks location."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bluejacking is the harmless sending of unsolicited messages to Bluetooth devices. Bluesnarfing is the malicious theft of data (contacts, emails) from a Bluetooth-enabled device.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 426,
+      "moduleId": 16,
+      "question": "How can an administrator detect the presence of a rogue access point on their corporate network?",
+      "options": [
+        "By analyzing SQL injection logs on the web server.",
+        "By performing regular physical site surveys and using wireless intrusion detection systems (WIDS).",
+        "By monitoring the switch's CAM table for broadcast storms.",
+        "By changing the default SSID of the corporate routers."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Detecting rogue APs often requires physical site surveys using tools like NetStumbler or deploying a WIDS to monitor wireless spectrum anomalies.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 427,
+      "moduleId": 16,
+      "question": "In the Aircrack-ng suite, which tool is used specifically for generating wireless traffic, such as deauthentication packets, to accelerate WEP cracking or capture handshakes?",
+      "options": [
+        "airodump-ng",
+        "aircrack-ng",
+        "aireplay-ng",
+        "airbase-ng"
+      ],
+      "correctAnswer": 2,
+      "explanation": "aireplay-ng is used to inject frames and generate traffic (such as deauthentication attacks) which is necessary to force a client to reauthenticate and capture the handshake.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 428,
+      "moduleId": 16,
+      "question": "Which tool operates primarily as a passive wireless network detector, sniffer, and intrusion detection system?",
+      "options": [
+        "Nmap",
+        "Kismet",
+        "Burp Suite",
+        "Metasploit"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Kismet is a widely used 802.11 layer2 wireless network detector, sniffer, and WIDS that works entirely passively, making it undetectable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 429,
+      "moduleId": 16,
+      "question": "What authentication protocol was introduced in WPA3 to replace Pre-Shared Key (PSK) and protect against dictionary attacks?",
+      "options": [
+        "Extensible Authentication Protocol (EAP)",
+        "Simultaneous Authentication of Equals (SAE)",
+        "Temporal Key Integrity Protocol (TKIP)",
+        "Wi-Fi Protected Setup (WPS)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SAE (Simultaneous Authentication of Equals) is a secure key establishment protocol in WPA3 that resists offline dictionary attacks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 430,
+      "moduleId": 16,
+      "question": "A penetration tester needs to bypass a wireless network that only allows authorized MAC addresses. What technique should they use?",
+      "options": [
+        "ARP Poisoning",
+        "MAC Spoofing",
+        "DNS Spoofing",
+        "Port Forwarding"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MAC Spoofing involves changing the attacker's wireless card MAC address to match an authorized client's MAC address to bypass filtering.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 431,
+      "moduleId": 16,
+      "question": "An attacker is sending spoofed management frames to a client indicating that they have been disconnected from the AP. What attack is this?",
+      "options": [
+        "Deauthentication Attack",
+        "Fragmentation Attack",
+        "Chopchop Attack",
+        "Replay Attack"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A Deauthentication Attack involves sending spoofed IEEE 802.11 deauthentication frames from the AP to the client, forcing a disconnect.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 432,
+      "moduleId": 16,
+      "question": "Which term describes the act of searching for Wi-Fi wireless networks by a person in a moving vehicle using a portable computer or smartphone?",
+      "options": [
+        "War dialing",
+        "Wardriving",
+        "Piggybacking",
+        "Shoulder surfing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Wardriving involves moving around an area (typically in a vehicle) to map and log open or vulnerable wireless networks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 433,
+      "moduleId": 16,
+      "question": "Does disabling SSID broadcasting provide strong security for a wireless network?",
+      "options": [
+        "Yes, because clients cannot connect without knowing the SSID.",
+        "Yes, because it encrypts the beacon frames.",
+        "No, it is security through obscurity; the SSID is still transmitted in client probe requests.",
+        "No, because it disables WPA2 encryption by default."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Hiding the SSID is 'security through obscurity'. The SSID is still transmitted in plaintext within probe requests and responses when legitimate clients connect.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 434,
+      "moduleId": 16,
+      "question": "Which Bluetooth attack gives the attacker full control over the target's device, allowing them to make calls, send texts, and listen to conversations?",
+      "options": [
+        "Bluejacking",
+        "Bluesnarfing",
+        "Bluebugging",
+        "Bluesmacking"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Bluebugging exploits vulnerabilities to gain full backdoor access to a Bluetooth device, enabling the attacker to control it entirely.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 435,
+      "moduleId": 16,
+      "question": "What is the common marketing name for the IEEE 802.11ax wireless standard?",
+      "options": [
+        "Wi-Fi 4",
+        "Wi-Fi 5",
+        "Wi-Fi 6",
+        "Wi-Fi 7"
+      ],
+      "correctAnswer": 2,
+      "explanation": "IEEE 802.11ax is commercially known as Wi-Fi 6, offering better efficiency, capacity, and performance over older standards.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 436,
+      "moduleId": 16,
+      "question": "A hacker is using the tool 'Reaver'. What specific vulnerability are they most likely targeting?",
+      "options": [
+        "WPA3 SAE downgrade",
+        "WEP IV reuse",
+        "WPS PIN brute-force",
+        "Bluetooth pairing weaknesses"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Reaver is designed to perform a brute-force attack against Wi-Fi Protected Setup (WPS) registrar PINs to recover WPA/WPA2 passphrases.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 437,
+      "moduleId": 16,
+      "question": "WPA introduced which protocol to fix the immediate security issues of WEP without requiring hardware replacements?",
+      "options": [
+        "CCMP",
+        "TKIP",
+        "AES",
+        "EAP"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Temporal Key Integrity Protocol (TKIP) was introduced in WPA to provide per-packet key mixing and replace the weak WEP mechanism while being compatible with legacy hardware.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 438,
+      "moduleId": 16,
+      "question": "Which type of antenna focuses a wireless signal in a specific direction to achieve greater distance?",
+      "options": [
+        "Omnidirectional",
+        "Dipole",
+        "Yagi",
+        "Isotropic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A Yagi antenna is a highly directional antenna used in wireless networking to focus the signal over long distances in one specific direction.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 439,
+      "moduleId": 16,
+      "question": "How can an attacker easily bypass a captive portal on a hotel Wi-Fi network that requires payment?",
+      "options": [
+        "By performing an evil twin attack.",
+        "By changing their MAC address to match a user who has already authenticated.",
+        "By exploiting a buffer overflow in the AP firmware.",
+        "By brute-forcing the WPA2 handshake."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Captive portals often track authenticated users by their MAC addresses. Spoofing the MAC of an authenticated user allows bypassing the portal.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 440,
+      "moduleId": 16,
+      "question": "Which technology is primarily targeted by cloning attacks to gain unauthorized physical access to secure buildings?",
+      "options": [
+        "Bluetooth",
+        "Zigbee",
+        "RFID",
+        "Li-Fi"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Radio Frequency Identification (RFID) badges are commonly used for physical access control. Attackers use tools like the Proxmark3 to clone these badges.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 441,
+      "moduleId": 17,
+      "question": "When using Nmap, which flag is used to spoof the source IP address by adding decoy addresses to evade IDS detection?",
+      "options": [
+        "-S",
+        "-D",
+        "-f",
+        "--spoof-mac"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The -D flag in Nmap is used for decoy scanning. It sends packets with spoofed source IPs alongside the attacker's real IP to confuse the IDS.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 442,
+      "moduleId": 17,
+      "question": "What is the primary purpose of 'Firewalking'?",
+      "options": [
+        "To bypass a firewall by walking physically into the data center.",
+        "To map out the ACLs of a packet-filtering router or firewall by manipulating TTL values.",
+        "To flood a firewall with SYN packets until it crashes.",
+        "To exploit a vulnerability in a web application firewall (WAF)."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Firewalking uses a traceroute-like IP packet analysis technique with modified TTL values to determine which ports are open on a target firewall.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 443,
+      "moduleId": 17,
+      "question": "How does packet fragmentation help evade an Intrusion Detection System (IDS)?",
+      "options": [
+        "It changes the source IP of the packets.",
+        "It splits malicious payloads into smaller packets that the IDS may not reassemble properly to inspect.",
+        "It encrypts the payload using a pre-shared key.",
+        "It drops packets selectively to reduce the overall bandwidth usage."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Fragmentation breaks down the payload. If an IDS cannot correctly reassemble the fragments, the malicious signature goes undetected.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 444,
+      "moduleId": 17,
+      "question": "What is the key difference between a low-interaction and a high-interaction honeypot?",
+      "options": [
+        "Low-interaction honeypots simulate services; high-interaction honeypots run actual vulnerable operating systems.",
+        "Low-interaction honeypots are used for internal networks; high-interaction honeypots are for DMZs.",
+        "Low-interaction honeypots are easier to hack; high-interaction honeypots are unhackable.",
+        "Low-interaction honeypots capture malware; high-interaction honeypots only capture IP addresses."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Low-interaction honeypots emulate services and protocols, whereas high-interaction honeypots provide real systems for attackers to interact with, capturing more detailed behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 445,
+      "moduleId": 17,
+      "question": "Which evasion technique allows an attacker to dictate the specific path a packet takes through the network, potentially bypassing a firewall?",
+      "options": [
+        "MAC spoofing",
+        "Session splicing",
+        "Source routing",
+        "Traffic shaping"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Source routing allows the sender to specify the route a packet should take, potentially directing it around security monitoring devices.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 446,
+      "moduleId": 17,
+      "question": "An attacker uses URL encoding (e.g., %2e%2e%2f) to represent directory traversal characters. What IDS evasion technique is this?",
+      "options": [
+        "Fragmentation",
+        "Obfuscation",
+        "Encryption",
+        "Polymorphism"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Obfuscation involves masking the malicious payload (like using hex or URL encoding) so it does not match standard IDS string signatures.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 447,
+      "moduleId": 17,
+      "question": "Which evasion technique involves sending packets with a fake TTL or bad checksums that the IDS processes but the target host drops?",
+      "options": [
+        "TCP Chaffing",
+        "Session Hijacking",
+        "ARP Poisoning",
+        "DNS Spoofing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "TCP Chaffing (or insertion attacks) involves sending garbage packets that the IDS accepts and inspects, while the actual target system drops them, causing a desynchronization in state.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 448,
+      "moduleId": 17,
+      "question": "Why might an attacker perform a very slow port scan (e.g., one packet every 5 minutes)?",
+      "options": [
+        "To ensure reliable data transmission over lossy networks.",
+        "To evade IDS threshold and time-based detection rules.",
+        "To increase the speed of a denial of service attack.",
+        "To bypass physical security controls."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Many IDS rules use time thresholds (e.g., X packets per second). A very slow scan stays below these thresholds and evades detection.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 449,
+      "moduleId": 17,
+      "question": "In a Snort IDS rule, what are the two primary sections?",
+      "options": [
+        "Header and Body",
+        "Rule Header and Rule Options",
+        "Condition and Action",
+        "Signature and Payload"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Snort rule consists of a Rule Header (action, protocol, source/dest IP and port) and Rule Options (alert messages, payload signatures to inspect).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 450,
+      "moduleId": 17,
+      "question": "Which firewall architecture utilizes two firewalls to create a Demilitarized Zone (DMZ) separating the internal network from the internet?",
+      "options": [
+        "Bastion host",
+        "Screened host",
+        "Screened subnet",
+        "Dual-homed gateway"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A screened subnet architecture uses an external firewall to protect the DMZ and an internal firewall to protect the internal network from the DMZ.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 451,
+      "moduleId": 18,
+      "question": "A company uses computing resources exclusively for its own organization, managed either internally or by a third party. What deployment model is this?",
+      "options": [
+        "Public Cloud",
+        "Hybrid Cloud",
+        "Private Cloud",
+        "Community Cloud"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A Private Cloud is dedicated solely to a single organization, providing greater control and security.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 452,
+      "moduleId": 18,
+      "question": "Which cloud service model provides developers with a framework and environment to build applications without managing underlying OS or hardware?",
+      "options": [
+        "IaaS",
+        "PaaS",
+        "SaaS",
+        "MaaS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Platform as a Service (PaaS) provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining infrastructure.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 453,
+      "moduleId": 18,
+      "question": "In a SaaS (Software as a Service) environment, who is typically responsible for securing the application data and user access?",
+      "options": [
+        "The Cloud Service Provider (CSP)",
+        "The Cloud Customer",
+        "The ISP",
+        "The End-User's Device Manufacturer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Under the shared responsibility model, even in SaaS, the customer is generally responsible for managing their own data, user access, and IAM policies.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 454,
+      "moduleId": 18,
+      "question": "An attacker exploits a vulnerability in a Docker container to gain access to the underlying host operating system. What is this attack called?",
+      "options": [
+        "VM Sprawl",
+        "Container Escape",
+        "Cloud Hopping",
+        "Hyperjacking"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A container escape occurs when an attacker breaks out of the isolated container environment to interact with and compromise the host OS.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 455,
+      "moduleId": 18,
+      "question": "Which of the following is one of the most common causes of data breaches in cloud environments?",
+      "options": [
+        "Brute-forcing 256-bit AES encryption keys.",
+        "Zero-day exploits in hypervisors.",
+        "Misconfigured cloud storage buckets (e.g., public AWS S3 buckets).",
+        "Physical theft of cloud provider servers."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Misconfigured cloud storage, such as leaving Amazon S3 buckets publicly readable, is a leading cause of massive cloud data leaks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 456,
+      "moduleId": 18,
+      "question": "What is the primary goal of a Cryptojacking attack in a cloud environment?",
+      "options": [
+        "To steal sensitive customer PII.",
+        "To encrypt data for ransom.",
+        "To utilize stolen compute resources to mine cryptocurrency.",
+        "To disrupt cloud services permanently."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Cryptojacking involves stealing computing resources (like CPU and memory in the cloud) to illicitly mine cryptocurrency for the attacker's benefit.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 457,
+      "moduleId": 18,
+      "question": "An attacker exploits an SSRF vulnerability in a web app hosted on AWS EC2 to query the IP address 169.254.169.254. What are they trying to achieve?",
+      "options": [
+        "Ping the local gateway.",
+        "Access the instance metadata service to steal IAM credentials.",
+        "Perform a loopback reflection attack.",
+        "Bypass the Web Application Firewall."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The IP 169.254.169.254 is a non-routable IP used by cloud providers (like AWS, Azure, GCP) to serve instance metadata. SSRF is used to extract sensitive temporary IAM credentials from it.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 458,
+      "moduleId": 18,
+      "question": "What does IAM stand for in the context of cloud security?",
+      "options": [
+        "Identity and Access Management",
+        "Internal Attack Mitigation",
+        "Internet Application Monitoring",
+        "Intrusion and Alert Mechanism"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Identity and Access Management (IAM) is the framework of policies and technologies to ensure the right users have appropriate access to technology resources.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 459,
+      "moduleId": 18,
+      "question": "What tool or service sits between cloud service consumers and providers to enforce security, compliance, and governance policies?",
+      "options": [
+        "SIEM",
+        "CASB (Cloud Access Security Broker)",
+        "IDS",
+        "VPN"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Cloud Access Security Broker (CASB) acts as a gatekeeper to extend an organization's security policies to cloud services.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 460,
+      "moduleId": 18,
+      "question": "In a Serverless computing architecture (e.g., AWS Lambda), which of the following attack vectors remains a significant risk for developers?",
+      "options": [
+        "Hypervisor compromise",
+        "Insecure application code (e.g., injection flaws)",
+        "Operating System unpatched vulnerabilities",
+        "Hardware theft"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In Serverless environments, the cloud provider manages the OS and hardware. The primary risk shifts entirely to the application layer, such as insecure code and logic flaws.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 461,
+      "moduleId": 19,
+      "question": "Which of the following best describes symmetric encryption?",
+      "options": [
+        "It uses a public key for encryption and a private key for decryption.",
+        "It uses the same key for both encryption and decryption.",
+        "It only provides data integrity, not confidentiality.",
+        "It uses mathematical problems like prime factorization."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Symmetric encryption uses a single shared secret key for both encrypting the plaintext and decrypting the ciphertext.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 462,
+      "moduleId": 19,
+      "question": "The security of the RSA algorithm relies primarily on the mathematical difficulty of which operation?",
+      "options": [
+        "Calculating discrete logarithms",
+        "Factoring the product of two large prime numbers",
+        "Solving elliptic curve equations",
+        "Generating hash collisions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "RSA's security is based on the integer factorization problem, specifically the difficulty of factoring a very large number into its original prime components.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 463,
+      "moduleId": 19,
+      "question": "What is the block size used by the Advanced Encryption Standard (AES)?",
+      "options": [
+        "64 bits",
+        "128 bits",
+        "256 bits",
+        "512 bits"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AES always operates on a fixed block size of 128 bits, regardless of the key size (which can be 128, 192, or 256 bits).",
+      "difficulty": "hard"
+    },
+    {
+      "id": 464,
+      "moduleId": 19,
+      "question": "Which of the following algorithms is used to ensure data integrity rather than confidentiality?",
+      "options": [
+        "AES",
+        "RSA",
+        "SHA-256",
+        "RC4"
+      ],
+      "correctAnswer": 2,
+      "explanation": "SHA-256 is a hashing algorithm used to verify data integrity by generating a fixed-size digest. It cannot be 'decrypted' to provide confidentiality.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 465,
+      "moduleId": 19,
+      "question": "What is the primary purpose of the Diffie-Hellman algorithm?",
+      "options": [
+        "To securely exchange cryptographic keys over an insecure channel.",
+        "To digitally sign electronic documents.",
+        "To encrypt bulk data efficiently.",
+        "To hash passwords securely."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Diffie-Hellman is a key agreement protocol that allows two parties to mutually generate a shared secret key over an untrusted network.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 466,
+      "moduleId": 19,
+      "question": "Digital signatures provide which of the following security services?",
+      "options": [
+        "Confidentiality and Availability",
+        "Authentication, Integrity, and Non-repudiation",
+        "Authorization and Encryption",
+        "Anonymity and Availability"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A digital signature ensures the sender's identity (Authentication), guarantees the message wasn't altered (Integrity), and prevents the sender from denying they sent it (Non-repudiation).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 467,
+      "moduleId": 19,
+      "question": "In a Public Key Infrastructure (PKI), what is the role of the Certificate Authority (CA)?",
+      "options": [
+        "To securely store private keys for users.",
+        "To verify identities and issue digital certificates.",
+        "To perform bulk encryption of network traffic.",
+        "To revoke IP addresses of malicious users."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The CA is the trusted third party in a PKI responsible for verifying identities and issuing, managing, and revoking digital certificates.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 468,
+      "moduleId": 19,
+      "question": "An attacker has access to both a plaintext message and its corresponding ciphertext. They use this to deduce the encryption key. What type of attack is this?",
+      "options": [
+        "Ciphertext-only attack",
+        "Chosen-plaintext attack",
+        "Known-plaintext attack",
+        "Meet-in-the-middle attack"
+      ],
+      "correctAnswer": 2,
+      "explanation": "In a known-plaintext attack, the cryptanalyst possesses a sample of both the plaintext and the ciphertext and attempts to find the key.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 469,
+      "moduleId": 19,
+      "question": "The Birthday attack is a statistical attack primarily used against which type of cryptographic function?",
+      "options": [
+        "Symmetric block ciphers",
+        "Asymmetric key exchange",
+        "Cryptographic hash functions",
+        "Stream ciphers"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A Birthday attack targets hash functions by attempting to find collisions (two different inputs producing the same hash) much faster than brute force, based on the birthday paradox.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 470,
+      "moduleId": 19,
+      "question": "Why is 'salt' added to passwords before hashing them?",
+      "options": [
+        "To compress the password size.",
+        "To defend against rainbow table and dictionary attacks.",
+        "To allow the password to be decrypted later.",
+        "To speed up the hashing process."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Adding a random value (salt) to a password before hashing ensures that identical passwords have different hashes, rendering pre-computed rainbow tables useless.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 471,
+      "moduleId": 19,
+      "question": "Which of the following is a classic example of a stream cipher?",
+      "options": [
+        "AES",
+        "DES",
+        "RC4",
+        "Blowfish"
+      ],
+      "correctAnswer": 2,
+      "explanation": "RC4 is a well-known software stream cipher used historically in WEP and SSL/TLS, encrypting data bit by bit, rather than in fixed blocks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 472,
+      "moduleId": 19,
+      "question": "Hiding a secret message within the pixels of an image file is an example of what technique?",
+      "options": [
+        "Cryptography",
+        "Steganography",
+        "Hashing",
+        "Obfuscation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Steganography is the art of hiding secret data within ordinary, non-secret files or messages to avoid detection.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 473,
+      "moduleId": 19,
+      "question": "The POODLE attack exploited a vulnerability in which cryptographic protocol?",
+      "options": [
+        "TLS 1.2",
+        "SSL 3.0",
+        "IPsec",
+        "SSH v2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Padding Oracle On Downgraded Legacy Encryption (POODLE) is a man-in-the-middle attack that exploits fallback mechanisms to force clients to use the vulnerable SSL 3.0 protocol.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 474,
+      "moduleId": 19,
+      "question": "The Heartbleed bug was a critical vulnerability found in which software library?",
+      "options": [
+        "GnuTLS",
+        "OpenSSL",
+        "BoringSSL",
+        "Windows CryptoAPI"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Heartbleed (CVE-2014-0160) was a flaw in the OpenSSL library's implementation of the TLS heartbeat extension, allowing attackers to read server memory.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 475,
+      "moduleId": 19,
+      "question": "Which advanced cryptographic concept allows computations to be performed on ciphertext without decrypting it first?",
+      "options": [
+        "Quantum Cryptography",
+        "Homomorphic Encryption",
+        "Elliptic Curve Cryptography",
+        "Post-quantum Cryptography"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Homomorphic encryption enables third parties (like cloud providers) to process encrypted data and return an encrypted result, preserving total privacy.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 476,
+      "moduleId": 19,
+      "question": "Which algorithm, theoretically executable on a powerful quantum computer, threatens modern asymmetric encryption like RSA?",
+      "options": [
+        "Grover's algorithm",
+        "Shor's algorithm",
+        "Dijkstra's algorithm",
+        "Euclidean algorithm"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Shor's algorithm is a quantum algorithm that can factor integers exponentially faster than classical algorithms, breaking RSA and ECC.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 477,
+      "moduleId": 19,
+      "question": "What is the primary advantage of Elliptic Curve Cryptography (ECC) over RSA?",
+      "options": [
+        "It uses symmetric keys instead of asymmetric.",
+        "It requires much shorter key lengths to provide the same level of security.",
+        "It is immune to quantum computing attacks.",
+        "It performs encryption faster without using mathematics."
+      ],
+      "correctAnswer": 1,
+      "explanation": "ECC provides the same level of cryptographic strength as RSA but with significantly smaller keys, saving bandwidth and processing power.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 478,
+      "moduleId": 19,
+      "question": "What is the effective key size of the Data Encryption Standard (DES)?",
+      "options": [
+        "56 bits",
+        "64 bits",
+        "128 bits",
+        "256 bits"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Although DES takes a 64-bit key, 8 bits are used for parity, making the effective cryptographic key size 56 bits (which is now considered insecure).",
+      "difficulty": "easy"
+    },
+    {
+      "id": 479,
+      "moduleId": 19,
+      "question": "How does 3DES (Triple DES) improve upon the original DES algorithm?",
+      "options": [
+        "It increases the block size to 128 bits.",
+        "It applies the DES algorithm three times consecutively using up to three different keys.",
+        "It uses an asymmetric approach.",
+        "It changes the core mathematical functions to AES."
+      ],
+      "correctAnswer": 1,
+      "explanation": "3DES applies the DES cipher three times in succession to each data block, effectively increasing the key size and security against brute force.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 480,
+      "moduleId": 19,
+      "question": "In which attack scenario does the attacker only possess a set of encrypted messages, with no knowledge of the plaintext or key?",
+      "options": [
+        "Chosen-plaintext attack",
+        "Ciphertext-only attack",
+        "Chosen-ciphertext attack",
+        "Dictionary attack"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Ciphertext-only attack (COA) is the most difficult attack model, as the cryptanalyst only has access to the encrypted ciphertext to work with.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 481,
+      "moduleId": 19,
+      "question": "If an attacker can provide specific ciphertext and observe the resulting decrypted plaintext, what attack model are they using?",
+      "options": [
+        "Ciphertext-only",
+        "Known-plaintext",
+        "Chosen-plaintext",
+        "Chosen-ciphertext"
+      ],
+      "correctAnswer": 3,
+      "explanation": "In a Chosen-ciphertext attack (CCA), the attacker can choose different ciphertexts and obtain their plaintexts to deduce the secret key.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 482,
+      "moduleId": 19,
+      "question": "Which attack makes Double DES (2DES) no more secure than single DES?",
+      "options": [
+        "Meet-in-the-middle attack",
+        "Man-in-the-middle attack",
+        "Replay attack",
+        "Birthday attack"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Meet-in-the-middle attack encrypts from one end and decrypts from the other, storing intermediate states. This drastically reduces the time complexity of breaking 2DES.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 483,
+      "moduleId": 19,
+      "question": "PGP (Pretty Good Privacy) relies on a decentralized trust model instead of a central Certificate Authority. What is this model called?",
+      "options": [
+        "Hierarchical Trust",
+        "Web of Trust",
+        "Ring of Trust",
+        "Distributed Ledger"
+      ],
+      "correctAnswer": 1,
+      "explanation": "PGP uses a 'Web of Trust' where users digitally sign each other's public keys to build a network of verified identities without a central CA.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 484,
+      "moduleId": 19,
+      "question": "In IPsec, which mode encrypts the entire IP packet (including the original IP headers) and encapsulates it in a new packet?",
+      "options": [
+        "Transport Mode",
+        "Tunnel Mode",
+        "ESP Mode",
+        "AH Mode"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Tunnel Mode encrypts the entire original IP packet and adds a new IP header, commonly used for VPN gateways over the public internet.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 485,
+      "moduleId": 19,
+      "question": "Which of the following is true regarding TLS and SSL?",
+      "options": [
+        "SSL is the modern, secure successor to TLS.",
+        "TLS is the modern, secure successor to SSL.",
+        "They are identical and just different marketing names.",
+        "SSL operates at Layer 3, while TLS operates at Layer 7."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transport Layer Security (TLS) was developed as an upgraded, more secure successor to Secure Sockets Layer (SSL), which is now obsolete and deprecated.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 486,
+      "moduleId": 20,
+      "question": "In the standard IoT architecture, which layer consists of sensors, actuators, and smart devices?",
+      "options": [
+        "The Cloud layer",
+        "The Application layer",
+        "The Edge (Device) layer",
+        "The Gateway layer"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Edge layer (or perception layer) includes the physical IoT devices, sensors, and actuators that interact with the environment.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 487,
+      "moduleId": 20,
+      "question": "Which lightweight publish-subscribe messaging protocol is widely used for communication between IoT devices?",
+      "options": [
+        "HTTP",
+        "MQTT",
+        "SMTP",
+        "BGP"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Message Queuing Telemetry Transport (MQTT) is a lightweight messaging protocol optimized for high-latency or unreliable networks, perfect for IoT.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 488,
+      "moduleId": 20,
+      "question": "Which search engine is specifically designed to locate internet-connected devices such as webcams, routers, and IoT devices?",
+      "options": [
+        "Google",
+        "DuckDuckGo",
+        "Shodan",
+        "Censys"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Shodan is a search engine that scans the internet for open ports and banners, making it a primary tool for finding exposed IoT systems.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 489,
+      "moduleId": 20,
+      "question": "The notorious Mirai botnet primarily propagated by exploiting what weakness in IoT devices?",
+      "options": [
+        "Zero-day remote code execution vulnerabilities in Linux.",
+        "Weak or factory default usernames and passwords.",
+        "Unencrypted MQTT traffic.",
+        "Buffer overflows in the web management interface."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mirai compromised hundreds of thousands of IoT devices by simply brute-forcing telnet and SSH using a list of hardcoded factory default credentials.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 490,
+      "moduleId": 20,
+      "question": "An attacker intercepts a wireless signal from a car key fob and later uses it to unlock the vehicle. If the system prevents simple replay attacks by requiring a new code each time, what attack might still bypass this?",
+      "options": [
+        "Jamming attack",
+        "Rolling code (RollJam) attack",
+        "Deauthentication attack",
+        "Evil Twin attack"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A RollJam attack works by jamming the vehicle's receiver while simultaneously recording the rolling code sent by the fob, saving it for later use.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 491,
+      "moduleId": 20,
+      "question": "In an IoT network, a single malicious node spoofs multiple fake identities to gain disproportionate influence over the network (e.g., in routing protocols). What attack is this?",
+      "options": [
+        "Sybil attack",
+        "Smurf attack",
+        "Sinkhole attack",
+        "Replay attack"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A Sybil attack involves one entity illegitimately claiming multiple identities to subvert reputation systems or routing in peer-to-peer or IoT networks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 492,
+      "moduleId": 20,
+      "question": "What does SCADA stand for in industrial control systems?",
+      "options": [
+        "Secure Computing and Data Architecture",
+        "Supervisory Control and Data Acquisition",
+        "System Control and Device Automation",
+        "Sequential Computation and Digital Analytics"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supervisory Control and Data Acquisition (SCADA) systems are used to monitor and control large-scale industrial processes.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 493,
+      "moduleId": 20,
+      "question": "In an OT (Operational Technology) environment, what hardware directly reads sensors and operates physical machinery (valves, motors)?",
+      "options": [
+        "HMI",
+        "PLC",
+        "Historian",
+        "RTU"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Programmable Logic Controller (PLC) is a ruggedized industrial computer used to control manufacturing processes by interfacing directly with hardware.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 494,
+      "moduleId": 20,
+      "question": "Which famous malware was specifically designed to sabotage Iranian nuclear centrifuges by altering PLC logic?",
+      "options": [
+        "WannaCry",
+        "NotPetya",
+        "Stuxnet",
+        "Triton"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Stuxnet was a highly sophisticated computer worm designed to target Siemens PLCs and cause physical destruction to uranium enrichment centrifuges.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 495,
+      "moduleId": 20,
+      "question": "What is the widely accepted architectural framework used for network segmentation and security in ICS/OT environments?",
+      "options": [
+        "The OSI Model",
+        "The Purdue Model",
+        "The MITRE ATT&CK Framework",
+        "The Zero Trust Architecture"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Purdue Enterprise Reference Architecture (Purdue Model) divides ICS and enterprise networks into distinct hierarchical zones to isolate sensitive control systems.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 496,
+      "moduleId": 20,
+      "question": "While IT prioritizes Confidentiality (CIA triad), Operational Technology (OT) security prioritizes which principle above all else?",
+      "options": [
+        "Integrity",
+        "Availability",
+        "Non-repudiation",
+        "Authorization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In OT systems, Availability is paramount. Stopping a production line or power grid for security reasons often has unacceptable safety and financial consequences.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 497,
+      "moduleId": 20,
+      "question": "What is a primary security flaw of the Modbus protocol, commonly used in industrial control systems?",
+      "options": [
+        "It requires a persistent internet connection.",
+        "It lacks built-in authentication and encryption.",
+        "It uses overly complex certificate management.",
+        "It can only transmit data over wireless networks."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Modbus was designed decades ago without security in mind. It transmits commands in plaintext and requires no authentication, allowing for easy spoofing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 498,
+      "moduleId": 20,
+      "question": "What component in an ICS environment provides a graphical dashboard for human operators to monitor and interact with the control processes?",
+      "options": [
+        "PLC",
+        "Historian",
+        "HMI",
+        "Engineering Workstation"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Human-Machine Interface (HMI) presents data from PLCs to operators visually and allows them to input commands to the system.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 499,
+      "moduleId": 20,
+      "question": "Which wireless protocol, often used for short-range low-power home automation (IoT), is vulnerable to replay attacks if frame counters are not implemented correctly?",
+      "options": [
+        "Wi-Fi",
+        "Zigbee",
+        "5G",
+        "LoRaWAN"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Zigbee (IEEE 802.15.4) is widely used in IoT smart home setups. Certain implementations are susceptible to sniffing and replay attacks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 500,
+      "moduleId": 20,
+      "question": "A security researcher downloads an IoT device's firmware and wants to extract the compressed file system from the binary image. Which tool is best suited for this?",
+      "options": [
+        "Wireshark",
+        "Binwalk",
+        "GDB",
+        "Metasploit"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Binwalk is a fast, easy-to-use tool for analyzing, reverse engineering, and extracting firmware images and embedded file systems.",
+      "difficulty": "medium"
+    }
+  ]
+}

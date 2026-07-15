@@ -1,0 +1,1404 @@
+{
+  "questions": [
+    {
+      "id": 201,
+      "moduleId": 1,
+      "question": "What is the primary difference between a white hat and a black hat hacker?",
+      "options": [
+        "Permission and intent",
+        "Tools used",
+        "Operating systems targeted",
+        "Skill level"
+      ],
+      "correctAnswer": 0,
+      "explanation": "White hat hackers have permission and positive intent, while black hat hackers operate maliciously without permission.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 202,
+      "moduleId": 1,
+      "question": "Which of the following phases of hacking involves maintaining a backdoor?",
+      "options": [
+        "Reconnaissance",
+        "Scanning",
+        "Maintaining Access",
+        "Covering Tracks"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Maintaining Access involves installing backdoors to ensure future access.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 203,
+      "moduleId": 1,
+      "question": "What does the CIA triad stand for in information security?",
+      "options": [
+        "Confidentiality, Integrity, Availability",
+        "Control, Integrity, Authentication",
+        "Confidentiality, Information, Authorization",
+        "Cyber, Intelligence, Analytics"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The CIA triad stands for Confidentiality, Integrity, and Availability.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 204,
+      "moduleId": 1,
+      "question": "Which attack aims to exhaust the resources of a target system?",
+      "options": [
+        "Phishing",
+        "Man-in-the-Middle",
+        "Denial of Service (DoS)",
+        "SQL Injection"
+      ],
+      "correctAnswer": 2,
+      "explanation": "DoS attacks aim to make a service unavailable by exhausting its resources.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 205,
+      "moduleId": 1,
+      "question": "Which legal framework protects the privacy of patient health information in the US?",
+      "options": [
+        "FISMA",
+        "HIPAA",
+        "PCI DSS",
+        "SOX"
+      ],
+      "correctAnswer": 1,
+      "explanation": "HIPAA protects healthcare and patient data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 206,
+      "moduleId": 1,
+      "question": "What is the primary goal of a hacktivist?",
+      "options": [
+        "Financial gain",
+        "Political or social change",
+        "Learning and exploring",
+        "Revenge against an employer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hacktivists hack for political or social causes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 207,
+      "moduleId": 1,
+      "question": "Which of the following describes an insider threat?",
+      "options": [
+        "A state-sponsored hacker",
+        "A disgruntled employee",
+        "A script kiddie",
+        "An advanced persistent threat (APT)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Insider threats come from within the organization, such as a disgruntled employee.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 208,
+      "moduleId": 1,
+      "question": "What is non-repudiation?",
+      "options": [
+        "Ensuring data is encrypted",
+        "Guaranteeing that the sender cannot deny having sent the message",
+        "Preventing unauthorized access",
+        "Ensuring data has not been altered"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Non-repudiation ensures a sender cannot deny sending a message.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 209,
+      "moduleId": 1,
+      "question": "What is the first phase of the ethical hacking process?",
+      "options": [
+        "Scanning",
+        "Footprinting",
+        "Gaining Access",
+        "Covering Tracks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Footprinting (or Reconnaissance) is the first phase.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 210,
+      "moduleId": 1,
+      "question": "Which threat actor has the highest level of skill and resources, often backed by a government?",
+      "options": [
+        "Script Kiddies",
+        "Organized Crime",
+        "State-Sponsored Actors (APTs)",
+        "Insider Threats"
+      ],
+      "correctAnswer": 2,
+      "explanation": "State-sponsored actors are highly skilled and well-funded.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 211,
+      "moduleId": 1,
+      "question": "What type of vulnerability involves the software failing to properly validate user input?",
+      "options": [
+        "Buffer overflow",
+        "Input validation flaw",
+        "Privilege escalation",
+        "Race condition"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Input validation flaws occur when input is not properly sanitized.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 212,
+      "moduleId": 1,
+      "question": "What is a 'Gray Hat' hacker?",
+      "options": [
+        "Someone who hacks legally for a company",
+        "Someone who hacks without permission but without malicious intent",
+        "Someone who writes malware for profit",
+        "Someone who only hacks government systems"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Gray hats hack without permission but generally do not have malicious intent, sometimes notifying the target.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 213,
+      "moduleId": 1,
+      "question": "What does 'defense in depth' mean?",
+      "options": [
+        "Using only strong encryption",
+        "Using multiple layers of security controls",
+        "Protecting the perimeter with a single strong firewall",
+        "Hiring multiple security teams"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Defense in depth involves layering multiple security measures.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 214,
+      "moduleId": 1,
+      "question": "Which cybersecurity element ensures that data is accessible when needed by authorized users?",
+      "options": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Authentication"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Availability ensures that authorized users have access when needed.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 215,
+      "moduleId": 1,
+      "question": "Which term describes a weakness in a system or its design?",
+      "options": [
+        "Threat",
+        "Risk",
+        "Vulnerability",
+        "Exploit"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A vulnerability is a weakness in a system.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 216,
+      "moduleId": 1,
+      "question": "What defines the scope of an ethical hacking engagement?",
+      "options": [
+        "The tools used",
+        "Rules of Engagement (RoE)",
+        "The final report",
+        "The vulnerability assessment"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Rules of Engagement (RoE) document defines the scope and rules of the test.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 217,
+      "moduleId": 1,
+      "question": "What is an exploit?",
+      "options": [
+        "A defensive tool",
+        "A script or technique used to take advantage of a vulnerability",
+        "A type of firewall",
+        "An antivirus signature"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An exploit is used to take advantage of a vulnerability to compromise a system.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 218,
+      "moduleId": 1,
+      "question": "What is the Payment Card Industry Data Security Standard (PCI DSS)?",
+      "options": [
+        "A standard for healthcare data",
+        "A standard for handling credit card information securely",
+        "A law regulating financial audits",
+        "A standard for cloud security"
+      ],
+      "correctAnswer": 1,
+      "explanation": "PCI DSS applies to entities that store, process, or transmit cardholder data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 219,
+      "moduleId": 1,
+      "question": "Which concept ensures that a user is who they claim to be?",
+      "options": [
+        "Authentication",
+        "Authorization",
+        "Accounting",
+        "Availability"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Authentication is the process of verifying identity.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 220,
+      "moduleId": 1,
+      "question": "Which of the following is considered a physical security threat?",
+      "options": [
+        "Phishing",
+        "Tailgating",
+        "SQL Injection",
+        "Cross-Site Scripting"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Tailgating involves physically following an authorized person into a restricted area.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 221,
+      "moduleId": 2,
+      "question": "Which of the following is an example of passive footprinting?",
+      "options": [
+        "Port scanning",
+        "Ping sweeps",
+        "Searching WHOIS records",
+        "Banner grabbing"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Searching WHOIS records does not involve direct interaction with the target's systems.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 222,
+      "moduleId": 2,
+      "question": "What tool is commonly used to find subdomains of a target organization?",
+      "options": [
+        "Nmap",
+        "Wireshark",
+        "Sublist3r",
+        "John the Ripper"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Sublist3r is a popular tool designed specifically for enumerating subdomains.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 223,
+      "moduleId": 2,
+      "question": "Which Google hacking operator restricts search results to a specific domain?",
+      "options": [
+        "inurl:",
+        "site:",
+        "filetype:",
+        "intitle:"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'site:' operator restricts searches to the specified domain.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 224,
+      "moduleId": 2,
+      "question": "What information does a WHOIS query provide?",
+      "options": [
+        "Open ports on a server",
+        "Domain registration details",
+        "Vulnerabilities in a web application",
+        "Network topology"
+      ],
+      "correctAnswer": 1,
+      "explanation": "WHOIS queries provide domain registration information, such as the registrar and contact details.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 225,
+      "moduleId": 2,
+      "question": "Which technique involves gathering information from public job postings?",
+      "options": [
+        "Social engineering",
+        "Active footprinting",
+        "Competitive intelligence",
+        "DNS zone transfer"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Reviewing job postings is a passive way to gather competitive intelligence about the technologies a company uses.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 226,
+      "moduleId": 2,
+      "question": "What does a DNS Zone Transfer (AXFR) do?",
+      "options": [
+        "Encrypts DNS traffic",
+        "Copies the entire DNS zone file from a primary server to a secondary server",
+        "Blocks malicious domain queries",
+        "Resolves IP addresses to MAC addresses"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An AXFR request transfers the complete zone file, often revealing all subdomains and hosts.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 227,
+      "moduleId": 2,
+      "question": "Which tool can be used to mirror an entire website for offline analysis?",
+      "options": [
+        "Burp Suite",
+        "HTTrack",
+        "Metasploit",
+        "Nessus"
+      ],
+      "correctAnswer": 1,
+      "explanation": "HTTrack is a website copier tool that allows offline browsing of a site.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 228,
+      "moduleId": 2,
+      "question": "What is the purpose of the 'filetype:' Google operator?",
+      "options": [
+        "To search within specific domains",
+        "To find files with a specific extension",
+        "To look for strings in URLs",
+        "To search for exact phrases"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'filetype:' operator filters results to include only specific file extensions (e.g., pdf, doc).",
+      "difficulty": "easy"
+    },
+    {
+      "id": 229,
+      "moduleId": 2,
+      "question": "What is the Shodan search engine primarily used for?",
+      "options": [
+        "Searching the dark web",
+        "Finding internet-connected devices and IoT endpoints",
+        "Performing reverse image searches",
+        "Finding academic papers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Shodan indexes internet-facing devices, services, and IoT devices.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 230,
+      "moduleId": 2,
+      "question": "Which social engineering technique involves digging through trash to find sensitive information?",
+      "options": [
+        "Shoulder surfing",
+        "Phishing",
+        "Dumpster diving",
+        "Tailgating"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Dumpster diving involves looking through garbage for discarded documents or sensitive materials.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 231,
+      "moduleId": 2,
+      "question": "Which record type in DNS maps a domain name to an IPv4 address?",
+      "options": [
+        "MX",
+        "CNAME",
+        "A",
+        "AAAA"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The 'A' record maps a domain to an IPv4 address.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 232,
+      "moduleId": 2,
+      "question": "Which DNS record type maps a domain name to an IPv6 address?",
+      "options": [
+        "A",
+        "AAAA",
+        "PTR",
+        "TXT"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'AAAA' record maps a domain to an IPv6 address.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 233,
+      "moduleId": 2,
+      "question": "What tool provides historical snapshots of websites?",
+      "options": [
+        "Google Dorks",
+        "Shodan",
+        "Wayback Machine",
+        "Netcraft"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Wayback Machine (archive.org) provides archived versions of websites over time.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 234,
+      "moduleId": 2,
+      "question": "What does the Maltego tool specialize in?",
+      "options": [
+        "Packet sniffing",
+        "Vulnerability scanning",
+        "Visualizing relationships between entities during reconnaissance",
+        "Exploiting web servers"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Maltego is used for visual link analysis and gathering open-source intelligence (OSINT).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 235,
+      "moduleId": 2,
+      "question": "What is OSRFramework?",
+      "options": [
+        "A set of tools for performing OSINT tasks such as username checking",
+        "A web vulnerability scanner",
+        "A password cracking framework",
+        "A network stress testing tool"
+      ],
+      "correctAnswer": 0,
+      "explanation": "OSRFramework is an OSINT toolset used for gathering information about users, domains, and more.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 236,
+      "moduleId": 2,
+      "question": "Which technique involves pinging all addresses in a subnet to find live hosts?",
+      "options": [
+        "Port scanning",
+        "Ping sweep",
+        "Traceroute",
+        "Banner grabbing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A ping sweep sends ICMP echo requests to a range of IPs to identify active hosts.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 237,
+      "moduleId": 2,
+      "question": "What information does a CNAME record hold?",
+      "options": [
+        "Mail server details",
+        "IPv4 address",
+        "An alias for another domain name",
+        "Text data for SPF"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A CNAME record aliases one domain name to another.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 238,
+      "moduleId": 2,
+      "question": "Which command-line tool is commonly used to query DNS information on Unix/Linux systems?",
+      "options": [
+        "ping",
+        "netstat",
+        "dig",
+        "ipconfig"
+      ],
+      "correctAnswer": 2,
+      "explanation": "'dig' is a flexible command-line tool for querying DNS name servers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 239,
+      "moduleId": 2,
+      "question": "What is active footprinting?",
+      "options": [
+        "Gathering information without interacting with the target",
+        "Interacting directly with the target to gather information",
+        "Searching public databases",
+        "Using the Wayback Machine"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Active footprinting involves direct interaction with the target, such as port scanning or banner grabbing.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 240,
+      "moduleId": 2,
+      "question": "Which tool can extract metadata from documents?",
+      "options": [
+        "FOCA",
+        "Nmap",
+        "Wireshark",
+        "Aircrack-ng"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOCA (Fingerprinting Organizations with Collected Archives) extracts hidden information and metadata from files.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 241,
+      "moduleId": 2,
+      "question": "What is 'competitive intelligence'?",
+      "options": [
+        "Stealing trade secrets",
+        "Gathering public information about competitors for strategic advantage",
+        "Hacking into a competitor's database",
+        "Deploying ransomware against a competitor"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Competitive intelligence is the legal and ethical gathering of public data about competitors.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 242,
+      "moduleId": 2,
+      "question": "Which Google dork finds pages that link back to a specific URL?",
+      "options": [
+        "link:",
+        "site:",
+        "inurl:",
+        "cache:"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The 'link:' operator searches for pages linking to the specified URL.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 243,
+      "moduleId": 2,
+      "question": "Which phase comes immediately after footprinting?",
+      "options": [
+        "Exploitation",
+        "Scanning Networks",
+        "Maintaining Access",
+        "Covering Tracks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Scanning Networks follows Footprinting in the hacking methodology.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 244,
+      "moduleId": 2,
+      "question": "What is the purpose of the 'Traceroute' command?",
+      "options": [
+        "To find open ports",
+        "To trace the path packets take to reach a destination",
+        "To resolve DNS names",
+        "To capture network traffic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Traceroute shows the hops (routers) packets take to reach their destination.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 245,
+      "moduleId": 2,
+      "question": "Which service typically runs on TCP port 43 and provides domain registration data?",
+      "options": [
+        "DNS",
+        "HTTP",
+        "WHOIS",
+        "FTP"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The WHOIS service runs on port 43.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 246,
+      "moduleId": 3,
+      "question": "Which Nmap scan type is also known as a stealth scan?",
+      "options": [
+        "TCP Connect Scan",
+        "SYN Scan",
+        "UDP Scan",
+        "Xmas Scan"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A SYN scan (half-open scan) does not complete the TCP handshake, making it stealthier.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 247,
+      "moduleId": 3,
+      "question": "What does an Nmap Xmas scan send to the target?",
+      "options": [
+        "SYN flag only",
+        "FIN, PSH, and URG flags",
+        "ACK flag only",
+        "RST flag only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An Xmas scan sets the FIN, PSH, and URG flags, 'lighting up' the packet like a Christmas tree.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 248,
+      "moduleId": 3,
+      "question": "Which port state in Nmap indicates that no response was received, and Nmap cannot determine if the port is open or filtered?",
+      "options": [
+        "Open",
+        "Closed",
+        "Filtered",
+        "Open|Filtered"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Open|Filtered is returned when Nmap receives no response (common in UDP scanning).",
+      "difficulty": "hard"
+    },
+    {
+      "id": 249,
+      "moduleId": 3,
+      "question": "What is the Nmap command to perform an OS detection scan?",
+      "options": [
+        "nmap -sS",
+        "nmap -O",
+        "nmap -sV",
+        "nmap -p"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The -O flag instructs Nmap to attempt OS fingerprinting.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 250,
+      "moduleId": 3,
+      "question": "What does a TCP Connect scan do?",
+      "options": [
+        "Sends only a SYN packet",
+        "Completes the three-way handshake",
+        "Sends a FIN packet",
+        "Sends UDP packets"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A TCP Connect scan (-sT) completes the full three-way handshake and is easily logged by the target.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 251,
+      "moduleId": 3,
+      "question": "Which tool is commonly used to craft custom network packets?",
+      "options": [
+        "Nmap",
+        "Hping3",
+        "Wireshark",
+        "Nessus"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hping3 is a command-line packet assembler and analyzer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 252,
+      "moduleId": 3,
+      "question": "What does banner grabbing achieve?",
+      "options": [
+        "Identifies open ports",
+        "Identifies the software and version running on a port",
+        "Captures passwords",
+        "Bypasses firewalls"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Banner grabbing reads the service banner to identify the running software version.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 253,
+      "moduleId": 3,
+      "question": "Which type of scan sends an ACK packet to the target?",
+      "options": [
+        "SYN scan",
+        "ACK scan",
+        "NULL scan",
+        "UDP scan"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An ACK scan sends an ACK packet and is used to map firewall rules.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 254,
+      "moduleId": 3,
+      "question": "How does an Idle Scan (-sI) hide the attacker's IP address?",
+      "options": [
+        "By using a proxy server",
+        "By using a zombie host to bounce the scan off",
+        "By spoofing the MAC address",
+        "By encrypting the packets"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An idle scan uses a 'zombie' host's predictable IP ID sequence to mask the attacker's IP.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 255,
+      "moduleId": 3,
+      "question": "What flag does Nmap use to perform service version detection?",
+      "options": [
+        "-sV",
+        "-O",
+        "-sC",
+        "-sU"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The -sV flag is used for probing open ports to determine service and version info.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 256,
+      "moduleId": 3,
+      "question": "Which response to a SYN scan indicates a closed port on the target?",
+      "options": [
+        "SYN/ACK",
+        "RST",
+        "No response",
+        "ICMP Unreachable"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A target sends an RST (Reset) packet if the port is closed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 257,
+      "moduleId": 3,
+      "question": "Which of the following is an automated vulnerability scanner?",
+      "options": [
+        "Nmap",
+        "Wireshark",
+        "Nessus",
+        "Netcat"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Nessus is a popular commercial vulnerability scanner.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 258,
+      "moduleId": 3,
+      "question": "What is the purpose of a proxy chain?",
+      "options": [
+        "To speed up scanning",
+        "To route traffic through multiple proxies to increase anonymity",
+        "To bypass local antivirus",
+        "To aggregate scan results"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Proxy chaining routes traffic through multiple proxies to hide the source IP.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 259,
+      "moduleId": 3,
+      "question": "What does a NULL scan send?",
+      "options": [
+        "All flags set",
+        "No flags set",
+        "Only the SYN flag",
+        "Only the ACK flag"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A NULL scan sends a TCP packet with zero flags set.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 260,
+      "moduleId": 3,
+      "question": "Which port does SSH typically run on?",
+      "options": [
+        "21",
+        "22",
+        "23",
+        "80"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SSH runs on TCP port 22 by default.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 261,
+      "moduleId": 3,
+      "question": "Which port does Telnet typically run on?",
+      "options": [
+        "21",
+        "22",
+        "23",
+        "25"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Telnet runs on TCP port 23.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 262,
+      "moduleId": 3,
+      "question": "How can an attacker evade an IDS during a network scan?",
+      "options": [
+        "By sending malformed packets",
+        "By fragmenting packets",
+        "By using a ping sweep",
+        "By scanning at maximum speed"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Packet fragmentation splits the TCP header across multiple packets, making it harder for IDS to assemble and detect.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 263,
+      "moduleId": 3,
+      "question": "What Nmap command runs the default set of scripts?",
+      "options": [
+        "-sC",
+        "-script=default",
+        "-A",
+        "Both -sC and -A"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Both -sC and -A (Aggressive scan, which implies -sC) run the default NSE scripts.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 264,
+      "moduleId": 3,
+      "question": "What is port knocking?",
+      "options": [
+        "A method of scanning ports slowly",
+        "A technique to open a closed port by sending a specific sequence of packets",
+        "A brute force attack on a port",
+        "A way to identify the OS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Port knocking involves sending connection attempts to a specific sequence of closed ports to dynamically open a firewall rule.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 265,
+      "moduleId": 3,
+      "question": "Which port does RDP typically use?",
+      "options": [
+        "3389",
+        "443",
+        "8080",
+        "1433"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Remote Desktop Protocol (RDP) uses port 3389.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 266,
+      "moduleId": 3,
+      "question": "What does TTL stand for in networking?",
+      "options": [
+        "Time to Live",
+        "Transfer to Layer",
+        "TCP Tracking Length",
+        "Total Transfer Limit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "TTL stands for Time to Live.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 267,
+      "moduleId": 3,
+      "question": "Which tool is known as the 'Swiss Army Knife' of networking?",
+      "options": [
+        "Netcat",
+        "Nmap",
+        "Ping",
+        "Traceroute"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Netcat is often called the Swiss Army Knife for its versatility in reading and writing data across network connections.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 268,
+      "moduleId": 3,
+      "question": "What is the primary difference between a vulnerability scan and a penetration test?",
+      "options": [
+        "A vulnerability scan exploits vulnerabilities, a pen test just finds them",
+        "A pen test involves active exploitation, a vulnerability scan only identifies potential issues",
+        "They are exactly the same",
+        "Vulnerability scans are manual, pen tests are automated"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Vulnerability scanning identifies flaws, while penetration testing seeks to actively exploit them.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 269,
+      "moduleId": 3,
+      "question": "Which protocol is typically used for Ping sweeps?",
+      "options": [
+        "TCP",
+        "UDP",
+        "ICMP",
+        "IGMP"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Ping uses ICMP Echo Request and Echo Reply messages.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 270,
+      "moduleId": 3,
+      "question": "What is the purpose of source routing?",
+      "options": [
+        "To let the sender specify the path a packet should take through the network",
+        "To automatically find the shortest path",
+        "To mask the IP address",
+        "To encrypt the packet route"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Source routing allows the sender of a packet to specify the route the packet takes through the network.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 271,
+      "moduleId": 4,
+      "question": "Which of the following enumeration techniques is used to extract information about SNMP devices?",
+      "options": [
+        "SNMP Walk",
+        "Nmap OS Fingerprinting",
+        "DNS Zone Transfer",
+        "SMB Null Session"
+      ],
+      "correctAnswer": 0,
+      "explanation": "SNMP Walk is used to query SNMP-enabled devices for their OID tree.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 272,
+      "moduleId": 4,
+      "question": "What port does SNMP typically use for querying agents?",
+      "options": [
+        "UDP 161",
+        "TCP 162",
+        "UDP 139",
+        "TCP 445"
+      ],
+      "correctAnswer": 0,
+      "explanation": "SNMP uses UDP port 161 for querying agents and UDP port 162 for traps.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 273,
+      "moduleId": 4,
+      "question": "Which tool is primarily used for enumerating Windows environments through null sessions?",
+      "options": [
+        "Enum4linux",
+        "Nmap",
+        "Wireshark",
+        "Burp Suite"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Enum4linux is a tool for enumerating information from Windows and Samba systems, including null sessions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 274,
+      "moduleId": 4,
+      "question": "Which port is associated with the LDAP protocol used for enumeration?",
+      "options": [
+        "TCP 389",
+        "UDP 53",
+        "TCP 80",
+        "TCP 443"
+      ],
+      "correctAnswer": 0,
+      "explanation": "LDAP operates on TCP port 389 by default.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 275,
+      "moduleId": 4,
+      "question": "What information can an attacker typically enumerate using a DNS zone transfer?",
+      "options": [
+        "All DNS records for a domain",
+        "Operating system versions",
+        "Active Directory users",
+        "SMB shares"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A zone transfer (AXFR) can expose all DNS records for a particular domain if misconfigured.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 276,
+      "moduleId": 4,
+      "question": "Which of the following is an SNMP Management Information Base (MIB)?",
+      "options": [
+        "A hierarchical namespace containing OIDs",
+        "A database of known vulnerabilities",
+        "A list of DNS records",
+        "An Active Directory schema"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The MIB is a hierarchical virtual database of network management information defined by Object Identifiers (OIDs).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 277,
+      "moduleId": 4,
+      "question": "What is the primary purpose of the 'snmpcheck' tool?",
+      "options": [
+        "To enumerate SNMP devices and extract information",
+        "To crack SNMP community strings",
+        "To spoof SNMP traps",
+        "To exploit SNMP v3 authentication"
+      ],
+      "correctAnswer": 0,
+      "explanation": "snmpcheck is an open-source tool used to enumerate SNMP devices and retrieve device information.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 278,
+      "moduleId": 4,
+      "question": "Which command is used in Linux to perform an SMB enumeration?",
+      "options": [
+        "smbclient",
+        "ftp",
+        "telnet",
+        "ssh"
+      ],
+      "correctAnswer": 0,
+      "explanation": "smbclient is a command-line tool used to access and enumerate SMB/CIFS resources on servers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 279,
+      "moduleId": 4,
+      "question": "What is a null session in the context of Windows enumeration?",
+      "options": [
+        "An unauthenticated connection to the IPC$ share",
+        "A TCP handshake with no payload",
+        "An empty ICMP echo request",
+        "A blank DNS response"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A null session occurs when an attacker connects to the hidden IPC$ share without providing a username or password.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 280,
+      "moduleId": 4,
+      "question": "Which port is commonly targeted for SMTP enumeration to discover valid user accounts?",
+      "options": [
+        "TCP 25",
+        "TCP 110",
+        "TCP 143",
+        "TCP 22"
+      ],
+      "correctAnswer": 0,
+      "explanation": "SMTP runs on TCP port 25 and can be enumerated using commands like VRFY and EXPN.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 281,
+      "moduleId": 4,
+      "question": "What SMTP command allows an attacker to verify if a specific user exists on the server?",
+      "options": [
+        "VRFY",
+        "HELO",
+        "RCPT",
+        "DATA"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The VRFY command asks the server to verify if a user exists, revealing valid email addresses.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 282,
+      "moduleId": 4,
+      "question": "Which Nmap script category is best suited for finding available shares on an SMB server?",
+      "options": [
+        "smb-enum-shares",
+        "http-enum",
+        "dns-brute",
+        "ftp-anon"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The smb-enum-shares script in Nmap enumerates SMB shares on a target server.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 283,
+      "moduleId": 4,
+      "question": "What is the default port for Global Catalog service in Active Directory?",
+      "options": [
+        "TCP 3268",
+        "TCP 389",
+        "TCP 88",
+        "TCP 53"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Global Catalog operates on TCP port 3268 (and 3269 for LDAPS).",
+      "difficulty": "hard"
+    },
+    {
+      "id": 284,
+      "moduleId": 4,
+      "question": "Which utility can be used to query DNS servers for specific record types like MX or NS?",
+      "options": [
+        "nslookup",
+        "ping",
+        "tracert",
+        "netstat"
+      ],
+      "correctAnswer": 0,
+      "explanation": "nslookup (and dig) can be used to query DNS servers for various resource records.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 285,
+      "moduleId": 4,
+      "question": "What kind of enumeration is possible over port 111?",
+      "options": [
+        "RPC enumeration",
+        "SNMP enumeration",
+        "SMB enumeration",
+        "LDAP enumeration"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Port 111 is used by the RPC bind (portmapper) service, which can be enumerated to find other RPC services.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 286,
+      "moduleId": 4,
+      "question": "Which tool can be used to enumerate NTP (Network Time Protocol) servers?",
+      "options": [
+        "ntptrace",
+        "snmpwalk",
+        "enum4linux",
+        "smbclient"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ntptrace determines where an NTP server gets its time, helping enumerate the NTP topology.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 287,
+      "moduleId": 4,
+      "question": "In SNMPv1 and v2c, what acts like a password to restrict access?",
+      "options": [
+        "Community string",
+        "OID",
+        "MIB",
+        "Authentication key"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Community strings act as clear-text passwords in SNMPv1 and v2c to restrict access to SNMP data.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 288,
+      "moduleId": 4,
+      "question": "Which of the following is a common tool for SMTP enumeration?",
+      "options": [
+        "smtp-user-enum",
+        "dirb",
+        "nikto",
+        "hydra"
+      ],
+      "correctAnswer": 0,
+      "explanation": "smtp-user-enum is a popular script for enumerating OS-level user accounts via SMTP.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 289,
+      "moduleId": 4,
+      "question": "What tool uses the EXPN command to enumerate mailing lists?",
+      "options": [
+        "smtp-user-enum",
+        "nmap",
+        "wireshark",
+        "tcpdump"
+      ],
+      "correctAnswer": 0,
+      "explanation": "smtp-user-enum can use VRFY, EXPN, and RCPT TO commands to enumerate users and mailing lists.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 290,
+      "moduleId": 4,
+      "question": "Which protocol uses port 5060 and can be enumerated to find VoIP extensions?",
+      "options": [
+        "SIP",
+        "RTP",
+        "H.323",
+        "MGCP"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Session Initiation Protocol (SIP) typically uses port 5060 for unencrypted signaling.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 291,
+      "moduleId": 4,
+      "question": "What is the purpose of enumerating IPsec via IKE-scan?",
+      "options": [
+        "To find VPN gateways and determine their configuration",
+        "To decrypt IPsec traffic",
+        "To inject malicious packets into a VPN",
+        "To spoof IP addresses"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ike-scan is used to discover, fingerprint, and test IPsec VPN servers.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 292,
+      "moduleId": 4,
+      "question": "Which port is targeted when enumerating the BGP routing protocol?",
+      "options": [
+        "TCP 179",
+        "UDP 520",
+        "TCP 22",
+        "UDP 161"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Border Gateway Protocol (BGP) operates over TCP port 179.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 293,
+      "moduleId": 4,
+      "question": "What does the command 'showmount -e' do?",
+      "options": [
+        "Enumerates NFS exports on a remote server",
+        "Displays mounted USB drives",
+        "Shows SMB shares",
+        "Lists active RPC services"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The 'showmount -e' command is used to list the NFS exports (shared directories) on a remote machine.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 294,
+      "moduleId": 4,
+      "question": "Which technique relies on connecting to a target over TCP port 135?",
+      "options": [
+        "MSRPC enumeration",
+        "SNMP enumeration",
+        "LDAP enumeration",
+        "NFS enumeration"
+      ],
+      "correctAnswer": 0,
+      "explanation": "TCP port 135 is used for Microsoft RPC endpoint mapper, a key target for MSRPC enumeration.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 295,
+      "moduleId": 4,
+      "question": "What type of enumeration attempts to gather lists of users, groups, and shares from a Windows domain?",
+      "options": [
+        "Active Directory enumeration",
+        "BGP enumeration",
+        "NTP enumeration",
+        "SIP enumeration"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Active Directory enumeration targets AD environments to extract users, groups, computers, and shares.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 296,
+      "moduleId": 5,
+      "question": "What is the primary goal of vulnerability scanning?",
+      "options": [
+        "To identify known security weaknesses in systems",
+        "To exploit systems",
+        "To perform network mapping",
+        "To intercept network traffic"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Vulnerability scanning aims to discover known vulnerabilities, missing patches, and misconfigurations.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 297,
+      "moduleId": 5,
+      "question": "Which metric provides a standardized score for the severity of a vulnerability?",
+      "options": [
+        "CVSS",
+        "CVE",
+        "CWE",
+        "CPE"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Common Vulnerability Scoring System (CVSS) provides a numerical score reflecting the severity of a vulnerability.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 298,
+      "moduleId": 5,
+      "question": "What does CVE stand for in vulnerability management?",
+      "options": [
+        "Common Vulnerabilities and Exposures",
+        "Critical Vulnerability Evaluation",
+        "Cybersecurity Vulnerability Enumeration",
+        "Common Virus and Exploit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CVE is a dictionary of publicly known information security vulnerabilities and exposures.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 299,
+      "moduleId": 5,
+      "question": "Which type of vulnerability scan is most likely to find local privilege escalation flaws?",
+      "options": [
+        "Authenticated scan",
+        "Unauthenticated scan",
+        "Passive scan",
+        "External scan"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An authenticated (credentialed) scan logs into the target to check local configurations and patches.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 300,
+      "moduleId": 5,
+      "question": "What is a false positive in a vulnerability scan?",
+      "options": [
+        "A reported vulnerability that does not actually exist",
+        "A missed vulnerability",
+        "A successfully exploited system",
+        "A verified security flaw"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A false positive occurs when the scanner flags a non-existent vulnerability.",
+      "difficulty": "easy"
+    }
+  ]
+}

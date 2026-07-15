@@ -1,0 +1,1404 @@
+{
+  "questions": [
+    {
+      "id": 301,
+      "moduleId": 5,
+      "question": "Which phase of the vulnerability management lifecycle involves deploying patches?",
+      "options": [
+        "Remediation",
+        "Assessment",
+        "Verification",
+        "Discovery"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Remediation phase involves fixing the discovered vulnerabilities, often through patching.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 302,
+      "moduleId": 5,
+      "question": "What characterizes an active vulnerability scan?",
+      "options": [
+        "It sends packets to the target and analyzes the responses",
+        "It only monitors network traffic passively",
+        "It reviews source code without execution",
+        "It relies on social engineering"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Active scanning interacts directly with targets by sending probes and analyzing responses to identify flaws.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 303,
+      "moduleId": 5,
+      "question": "Which database is maintained by MITRE to list common software weaknesses?",
+      "options": [
+        "CWE",
+        "CVE",
+        "NVD",
+        "OVAL"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Common Weakness Enumeration (CWE) is a list of software and hardware weakness types.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 304,
+      "moduleId": 5,
+      "question": "Which tool is an open-source vulnerability scanner primarily used for web applications?",
+      "options": [
+        "Nikto",
+        "Nmap",
+        "Wireshark",
+        "Metasploit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Nikto is a popular open-source web server scanner that identifies outdated software and configuration errors.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 305,
+      "moduleId": 5,
+      "question": "What is the National Vulnerability Database (NVD)?",
+      "options": [
+        "A U.S. government repository of standards-based vulnerability data",
+        "A tool for exploiting systems",
+        "A list of zero-day exploits",
+        "A commercial vulnerability scanner"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The NVD is the U.S. government repository that synchronizes with the CVE list and provides CVSS scores.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 306,
+      "moduleId": 5,
+      "question": "What is a false negative in vulnerability scanning?",
+      "options": [
+        "When the scanner fails to detect an actual vulnerability",
+        "When a vulnerability is correctly identified",
+        "When a non-existent vulnerability is reported",
+        "When a patch fails to apply"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A false negative is a dangerous scenario where a real vulnerability exists but is not detected by the scanner.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 307,
+      "moduleId": 5,
+      "question": "Which standard language is often used to structure and share vulnerability assessment data?",
+      "options": [
+        "OVAL",
+        "HTML",
+        "SQL",
+        "Python"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Open Vulnerability and Assessment Language (OVAL) is an international standard for assessing and reporting machine state.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 308,
+      "moduleId": 5,
+      "question": "What type of vulnerability assessment involves analyzing the application's source code without running it?",
+      "options": [
+        "Static Analysis (SAST)",
+        "Dynamic Analysis (DAST)",
+        "Active Scanning",
+        "Passive Scanning"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Static Application Security Testing (SAST) analyzes source code, bytecode, or binaries without execution.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 309,
+      "moduleId": 5,
+      "question": "Which CVSS v3.1 score range represents a 'Critical' severity?",
+      "options": [
+        "9.0 - 10.0",
+        "7.0 - 8.9",
+        "4.0 - 6.9",
+        "0.1 - 3.9"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In CVSS v3.1, scores from 9.0 to 10.0 are considered Critical.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 310,
+      "moduleId": 5,
+      "question": "In vulnerability management, what is risk acceptance?",
+      "options": [
+        "Deciding not to fix a vulnerability because the cost outweighs the risk",
+        "Patching all vulnerabilities immediately",
+        "Transferring the risk to a third party",
+        "Eliminating the source of the risk"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Risk acceptance occurs when management decides to acknowledge the risk without taking remedial action.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 311,
+      "moduleId": 5,
+      "question": "Which scanning technique observes network traffic to identify active systems, open ports, and vulnerabilities?",
+      "options": [
+        "Passive scanning",
+        "Active scanning",
+        "Credentialed scanning",
+        "Intrusive scanning"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Passive scanning relies on monitoring packet captures (e.g., using a sniffer) rather than sending active probes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 312,
+      "moduleId": 5,
+      "question": "Which of the following is a known commercial vulnerability scanner?",
+      "options": [
+        "Tenable Nessus",
+        "Wireshark",
+        "John the Ripper",
+        "Aircrack-ng"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Nessus, developed by Tenable, is a widely used commercial vulnerability scanner.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 313,
+      "moduleId": 5,
+      "question": "What is a zero-day vulnerability?",
+      "options": [
+        "A flaw unknown to the vendor with no available patch",
+        "A vulnerability that has existed for exactly one day",
+        "A misconfiguration with zero impact",
+        "A flaw that has been patched"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A zero-day vulnerability is a flaw that is actively exploited before the vendor has released a patch.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 314,
+      "moduleId": 6,
+      "question": "What is the first phase of system hacking according to CEH methodology?",
+      "options": [
+        "Gaining Access",
+        "Escalating Privileges",
+        "Maintaining Access",
+        "Clearing Tracks"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Gaining access is the first step in the system hacking phase, often achieved through password cracking or exploitation.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 315,
+      "moduleId": 6,
+      "question": "Which attack technique involves guessing passwords by trying every possible combination of characters?",
+      "options": [
+        "Brute-force attack",
+        "Dictionary attack",
+        "Rainbow table attack",
+        "Pass-the-Hash"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A brute-force attack systematically checks all possible combinations of characters until the correct one is found.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 316,
+      "moduleId": 6,
+      "question": "What does a rainbow table contain?",
+      "options": [
+        "Precomputed hashes for a set of passwords",
+        "Clear-text passwords and their associated users",
+        "Lists of commonly used passwords",
+        "Encrypted network traffic"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rainbow tables store precomputed hash chains, allowing attackers to rapidly crack password hashes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 317,
+      "moduleId": 6,
+      "question": "Which tool is a famous offline password cracker?",
+      "options": [
+        "John the Ripper",
+        "Hydra",
+        "Medusa",
+        "Nmap"
+      ],
+      "correctAnswer": 0,
+      "explanation": "John the Ripper is a popular and fast offline password cracker capable of detecting hash types automatically.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 318,
+      "moduleId": 6,
+      "question": "What is the purpose of the 'Pass-the-Hash' attack?",
+      "options": [
+        "Authenticating using a captured NTLM hash without knowing the plaintext password",
+        "Cracking a captured hash to find the password",
+        "Bypassing firewall rules using hashes",
+        "Injecting malicious hashes into a database"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Pass-the-Hash allows an attacker to authenticate to remote servers or services by using the underlying NTLM hash.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 319,
+      "moduleId": 6,
+      "question": "Where are Windows password hashes typically stored locally?",
+      "options": [
+        "SAM database",
+        "/etc/shadow",
+        "Active Directory NTDS.dit",
+        "Registry HKLM\\SOFTWARE"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Local user hashes are stored in the Security Account Manager (SAM) database in Windows.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 320,
+      "moduleId": 6,
+      "question": "What defense mechanism mitigates rainbow table attacks?",
+      "options": [
+        "Salting passwords",
+        "Using shorter passwords",
+        "Disabling account lockout",
+        "Using older hashing algorithms"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Salting adds unique random data to each password before hashing, rendering precomputed rainbow tables useless.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 321,
+      "moduleId": 6,
+      "question": "Which privilege escalation technique relies on a user running a program with higher privileges than they possess?",
+      "options": [
+        "Exploiting SUID/SGID binaries",
+        "Pass-the-Ticket",
+        "Kerberoasting",
+        "ARP spoofing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In Linux, SUID/SGID bits allow a binary to run with the permissions of its owner, which can be exploited if vulnerable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 322,
+      "moduleId": 6,
+      "question": "What is a rootkit?",
+      "options": [
+        "Malware designed to hide the existence of processes or programs from normal methods of detection",
+        "A tool for brute-forcing root passwords",
+        "A script that automates exploitation",
+        "A hardware device used to gain root access"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rootkits deeply embed into an OS to mask their presence and provide continued privileged access.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 323,
+      "moduleId": 6,
+      "question": "What is alternate data streams (ADS) in Windows?",
+      "options": [
+        "A feature of NTFS used by attackers to hide files",
+        "A backup protocol",
+        "A method for encrypting files",
+        "A network streaming service"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ADS is an NTFS feature that allows files to contain more than one stream of data, often abused to hide malicious payloads.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 324,
+      "moduleId": 6,
+      "question": "Which tool is primarily used to extract NTLM credentials and Kerberos tickets from memory in Windows?",
+      "options": [
+        "Mimikatz",
+        "Metasploit",
+        "Cain and Abel",
+        "Hydra"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Mimikatz is a post-exploitation tool widely known for extracting plaintext passwords, hashes, and tickets from LSASS memory.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 325,
+      "moduleId": 6,
+      "question": "What is the goal of clearing tracks?",
+      "options": [
+        "To evade detection and maintain unobserved access",
+        "To escalate privileges to root",
+        "To exploit the system",
+        "To crash the system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Clearing tracks involves modifying or deleting logs to cover evidence of the intrusion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 326,
+      "moduleId": 6,
+      "question": "Which Linux file stores user password hashes?",
+      "options": [
+        "/etc/shadow",
+        "/etc/passwd",
+        "/etc/hashes",
+        "/var/log/auth.log"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Modern Linux systems store user hashes securely in the /etc/shadow file, readable only by root.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 327,
+      "moduleId": 6,
+      "question": "What type of attack targets Kerberos service tickets to crack them offline?",
+      "options": [
+        "Kerberoasting",
+        "Pass-the-Hash",
+        "Silver Ticket",
+        "Golden Ticket"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Kerberoasting extracts TGS tickets for service accounts and cracks them offline to retrieve the service account's password.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 328,
+      "moduleId": 6,
+      "question": "What does the tool 'Hydra' primarily do?",
+      "options": [
+        "Performs online network login brute-force attacks",
+        "Extracts passwords from memory",
+        "Creates rainbow tables",
+        "Exploits buffer overflows"
+      ],
+      "correctAnswer": 0,
+      "explanation": "THC Hydra is a fast, parallelized network logon cracker supporting numerous protocols (SSH, FTP, HTTP, etc.).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 329,
+      "moduleId": 6,
+      "question": "Which of the following is a technique used to maintain access to a compromised system?",
+      "options": [
+        "Installing a backdoor",
+        "Port scanning",
+        "Vulnerability scanning",
+        "Packet sniffing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Backdoors are mechanisms inserted by an attacker to bypass normal authentication and maintain access.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 330,
+      "moduleId": 6,
+      "question": "What is a 'Golden Ticket' attack?",
+      "options": [
+        "Forging a Kerberos TGT to gain domain-wide access",
+        "Stealing a user's password hash",
+        "Bypassing a web application firewall",
+        "Exploiting a local privilege escalation flaw"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A Golden Ticket attack involves compromising the KRBTGT account hash to forge Ticket Granting Tickets (TGTs), giving full domain access.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 331,
+      "moduleId": 6,
+      "question": "What Windows command-line utility is often used to delete event logs to clear tracks?",
+      "options": [
+        "wevtutil",
+        "netstat",
+        "ipconfig",
+        "tasklist"
+      ],
+      "correctAnswer": 0,
+      "explanation": "'wevtutil cl' can be used by an administrator to clear specific Windows Event Logs.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 332,
+      "moduleId": 7,
+      "question": "What type of malware demands payment to restore access to encrypted files?",
+      "options": [
+        "Ransomware",
+        "Spyware",
+        "Adware",
+        "Worm"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ransomware encrypts the victim's data and demands a ransom for the decryption key.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 333,
+      "moduleId": 7,
+      "question": "Which malware characteristic defines a 'Worm'?",
+      "options": [
+        "Self-replication across networks without user interaction",
+        "Infecting a host file",
+        "Hiding in the boot sector",
+        "Recording keystrokes"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Worms are standalone programs that propagate themselves across networks by exploiting vulnerabilities.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 334,
+      "moduleId": 7,
+      "question": "What is a Trojan Horse?",
+      "options": [
+        "Malware disguised as legitimate software",
+        "A virus that infects macros",
+        "Malware that purely displays ads",
+        "A script that self-replicates"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A Trojan relies on social engineering to trick users into executing it, thinking it is benign.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 335,
+      "moduleId": 7,
+      "question": "What is the purpose of a crypter in malware development?",
+      "options": [
+        "To encrypt the malware payload to evade antivirus detection",
+        "To demand ransom from victims",
+        "To crack passwords",
+        "To intercept SSL traffic"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Crypters obscure the malicious code to make signature-based detection by antivirus software difficult.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 336,
+      "moduleId": 7,
+      "question": "Which type of virus infects the Master Boot Record (MBR)?",
+      "options": [
+        "Boot sector virus",
+        "Macro virus",
+        "Polymorphic virus",
+        "File infector virus"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A boot sector virus targets the MBR or the boot sector of a storage drive to execute during startup.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 337,
+      "moduleId": 7,
+      "question": "What is the distinguishing feature of polymorphic malware?",
+      "options": [
+        "It changes its code/signature with each infection",
+        "It steals credit card information",
+        "It demands a ransom",
+        "It works only on mobile devices"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Polymorphic malware uses mutation engines to change its code structure, avoiding signature-based detection while keeping its function intact.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 338,
+      "moduleId": 7,
+      "question": "What does a keylogger do?",
+      "options": [
+        "Records keystrokes made by a user",
+        "Deletes system logs",
+        "Encrypts the hard drive",
+        "Bypasses firewalls"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Keyloggers capture keyboard input to steal sensitive data like passwords and credit card numbers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 339,
+      "moduleId": 7,
+      "question": "Which term describes a network of compromised computers controlled by a central attacker?",
+      "options": [
+        "Botnet",
+        "Honeypot",
+        "Darknet",
+        "Intranet"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A Botnet consists of infected devices (bots) controlled by a Command and Control (C2) server.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 340,
+      "moduleId": 7,
+      "question": "What is a logic bomb?",
+      "options": [
+        "Malware triggered by a specific event or condition",
+        "Malware that spreads via email",
+        "A tool for DDoS attacks",
+        "A virus that infects PDFs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Logic bombs lay dormant until a specified condition is met (e.g., a specific date or an employee termination).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 341,
+      "moduleId": 7,
+      "question": "Which technique is used by malware to detect if it is running in a sandbox?",
+      "options": [
+        "Checking for hypervisor artifacts (e.g., MAC addresses, specific drivers)",
+        "Encrypting user files",
+        "Spreading via SMB",
+        "Changing the desktop wallpaper"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Malware often employs anti-VM and anti-analysis techniques to remain dormant in sandboxed environments.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 342,
+      "moduleId": 7,
+      "question": "What is static malware analysis?",
+      "options": [
+        "Analyzing the malware without executing it",
+        "Running the malware in a controlled environment",
+        "Capturing network traffic generated by malware",
+        "Monitoring registry changes caused by malware"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Static analysis involves examining the executable file, its strings, and structure without running the code.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 343,
+      "moduleId": 7,
+      "question": "What is dynamic malware analysis?",
+      "options": [
+        "Observing the malware's behavior while it executes",
+        "Disassembling the code",
+        "Checking the file hash against a database",
+        "Reviewing source code"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Dynamic analysis executes the malware in a sandbox to observe file modifications, network traffic, and process creation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 344,
+      "moduleId": 7,
+      "question": "What is the primary function of a Remote Access Trojan (RAT)?",
+      "options": [
+        "Providing an attacker with covert, interactive control over a system",
+        "Replicating itself to other hosts",
+        "Destroying the file system",
+        "Displaying pop-up ads"
+      ],
+      "correctAnswer": 0,
+      "explanation": "RATs give attackers a backdoor for administrative control over a victim's machine.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 345,
+      "moduleId": 7,
+      "question": "Which of the following describes fileless malware?",
+      "options": [
+        "Malware that operates entirely in memory without writing to the disk",
+        "Malware stored on a USB drive",
+        "Malware attached to a PDF",
+        "Malware hidden in the MBR"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Fileless malware leverages legitimate system tools (like PowerShell) and executes in RAM to evade traditional antivirus.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 346,
+      "moduleId": 7,
+      "question": "Which type of virus is written in a scripting language like VBA?",
+      "options": [
+        "Macro virus",
+        "Boot sector virus",
+        "Polymorphic virus",
+        "Stealth virus"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Macro viruses are embedded in documents (e.g., Word, Excel) and execute when the document is opened.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 347,
+      "moduleId": 7,
+      "question": "What is the purpose of malware obfuscation?",
+      "options": [
+        "To make the code difficult to reverse engineer or analyze",
+        "To increase execution speed",
+        "To compress the file size",
+        "To securely encrypt user data"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Obfuscation techniques (like packing or encoding) hide the true intent of the malware from analysts and security tools.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 348,
+      "moduleId": 7,
+      "question": "What does the term 'Command and Control' (C2) refer to in the context of malware?",
+      "options": [
+        "The infrastructure used by an attacker to issue commands to compromised systems",
+        "The local command prompt on the victim's machine",
+        "The antivirus server",
+        "A firewall configuration interface"
+      ],
+      "correctAnswer": 0,
+      "explanation": "C2 servers communicate with infected devices (bots or RATs) to send instructions and receive stolen data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 349,
+      "moduleId": 7,
+      "question": "Which tool is a famous disassembler and debugger used for reverse engineering malware?",
+      "options": [
+        "IDA Pro",
+        "Wireshark",
+        "Nmap",
+        "Metasploit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "IDA Pro is an industry-standard interactive disassembler widely used in reverse engineering.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 350,
+      "moduleId": 7,
+      "question": "What is a dropper in a malware attack?",
+      "options": [
+        "A program designed to install other malware payloads onto a target system",
+        "A script that deletes logs",
+        "A tool for cracking passwords",
+        "Malware that self-replicates"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A dropper's main function is to deliver and install the main payload, avoiding detection during the initial infection phase.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 351,
+      "moduleId": 8,
+      "question": "Which of the following techniques allows an attacker to capture traffic on a switched network by overloading the switch's CAM table?",
+      "options": [
+        "ARP spoofing",
+        "MAC flooding",
+        "DHCP starvation",
+        "DNS poisoning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MAC flooding involves sending numerous packets with fake MAC addresses to a switch, filling its CAM table and causing it to broadcast incoming traffic to all ports like a hub, which allows sniffing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 352,
+      "moduleId": 8,
+      "question": "What is the primary purpose of ARP spoofing?",
+      "options": [
+        "To flood the network with broadcasts",
+        "To associate the attacker's MAC address with the IP address of another host",
+        "To bypass firewall rules",
+        "To exhaust the DHCP scope"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ARP spoofing is a technique where an attacker sends fake ARP messages onto a LAN. Generally, the aim is to associate the attacker's MAC address with the IP address of another host, such as the default gateway, causing traffic meant for that IP address to be sent to the attacker instead.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 353,
+      "moduleId": 8,
+      "question": "Which tool is commonly used for passive sniffing on a network?",
+      "options": [
+        "Nmap",
+        "Wireshark",
+        "Metasploit",
+        "Aircrack-ng"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Wireshark is a widely used network protocol analyzer that allows for passive sniffing, which involves capturing traffic on a network without injecting any packets or altering the flow of data.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 354,
+      "moduleId": 8,
+      "question": "In a DHCP starvation attack, what does the attacker attempt to achieve?",
+      "options": [
+        "Exhaust all available IP addresses in the DHCP server's scope",
+        "Spoof the DHCP server to provide incorrect DNS information",
+        "Flood the network with DHCP discover messages to cause a DoS on switches",
+        "Bypass DHCP authentication mechanisms"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A DHCP starvation attack targets the DHCP server by broadcasting numerous DHCP requests with spoofed MAC addresses, exhausting all available IP addresses in the server's scope and causing a DoS for legitimate clients.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 355,
+      "moduleId": 9,
+      "question": "Which of the following social engineering techniques involves following an authorized person into a restricted area without their consent?",
+      "options": [
+        "Piggybacking",
+        "Tailgating",
+        "Shoulder surfing",
+        "Dumpster diving"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Tailgating involves an unauthorized person following an authorized person into a secure area without the authorized person's consent. Piggybacking is similar but occurs with the authorized person's consent.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 356,
+      "moduleId": 9,
+      "question": "An attacker calls a help desk claiming to be a senior executive who has forgotten their password. What type of social engineering attack is this?",
+      "options": [
+        "Phishing",
+        "Vishing",
+        "Pretexting",
+        "Baiting"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Pretexting involves creating a fabricated scenario (the pretext) to trick a victim into providing information or performing an action. The attacker impersonates someone with authority or a legitimate need for the information.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 357,
+      "moduleId": 9,
+      "question": "What is the primary difference between phishing and spear phishing?",
+      "options": [
+        "Phishing uses email, spear phishing uses SMS.",
+        "Phishing targets a broad audience, spear phishing targets specific individuals or groups.",
+        "Phishing contains malware, spear phishing only steals credentials.",
+        "Phishing is a physical attack, spear phishing is a digital attack."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Phishing is a broad-based attack targeting many individuals with generic messages. Spear phishing is a highly targeted attack tailored to a specific individual, organization, or group, often using personal information to increase credibility.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 358,
+      "moduleId": 9,
+      "question": "Leaving a malware-infected USB drive in a company parking lot is an example of which social engineering technique?",
+      "options": [
+        "Quid pro quo",
+        "Baiting",
+        "Tailgating",
+        "Dumpster diving"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Baiting involves leaving a physical device (like a USB drive) or offering a digital download containing malware in a place where a victim is likely to find it, relying on their curiosity to trigger the attack.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 359,
+      "moduleId": 10,
+      "question": "Which type of DoS attack exploits the TCP three-way handshake by sending a flood of requests without completing the connection?",
+      "options": [
+        "Smurf attack",
+        "SYN flood",
+        "UDP flood",
+        "Ping of Death"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A SYN flood attack exploits the TCP three-way handshake by sending a large number of SYN packets. The attacker never sends the final ACK, leaving the server's connections half-open until resources are exhausted.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 360,
+      "moduleId": 10,
+      "question": "In a Smurf attack, what does the attacker use to amplify the denial-of-service effect?",
+      "options": [
+        "TCP SYN packets",
+        "UDP echo requests to a broadcast address",
+        "ICMP echo requests to a broadcast address",
+        "Malformed IP fragments"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A Smurf attack involves sending ICMP echo requests (pings) to a network's broadcast address with the spoofed source IP of the victim. All hosts on the network reply to the victim, amplifying the attack.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 361,
+      "moduleId": 10,
+      "question": "What is the primary characteristic of a Distributed Denial-of-Service (DDoS) attack compared to a standard DoS attack?",
+      "options": [
+        "It uses more sophisticated malware.",
+        "It targets multiple servers simultaneously.",
+        "It originates from multiple compromised systems (botnet).",
+        "It only targets application layer vulnerabilities."
+      ],
+      "correctAnswer": 2,
+      "explanation": "A DDoS attack involves multiple compromised systems (often part of a botnet) attacking a single target simultaneously. This makes the attack harder to mitigate because the traffic originates from many different IP addresses.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 362,
+      "moduleId": 10,
+      "question": "Which of the following is an example of an application-layer (Layer 7) DoS attack?",
+      "options": [
+        "SYN flood",
+        "HTTP GET flood",
+        "ICMP flood",
+        "Teardrop attack"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An HTTP GET flood is an application-layer DoS attack where the attacker sends a massive number of HTTP GET requests for a specific resource, exhausting the web server's processing capabilities or connection limits.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 363,
+      "moduleId": 11,
+      "question": "What is the main objective of a session hijacking attack?",
+      "options": [
+        "To steal a user's password",
+        "To intercept and take over an active authenticated session",
+        "To crash the target application",
+        "To decrypt intercepted network traffic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Session hijacking involves taking over an active, authenticated session between a user and a system. The attacker uses the compromised session token to impersonate the user.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 364,
+      "moduleId": 11,
+      "question": "Which technique involves predicting a session ID based on its generation algorithm?",
+      "options": [
+        "Session fixation",
+        "Session sniffing",
+        "Session prediction",
+        "Cross-site scripting (XSS)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Session prediction occurs when an attacker can deduce or guess a valid session ID because the generation algorithm is weak or predictable (e.g., using sequential numbers or time-based values).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 365,
+      "moduleId": 11,
+      "question": "In a session fixation attack, what does the attacker do?",
+      "options": [
+        "Steals an existing session token using XSS",
+        "Predicts the session token generated by the server",
+        "Forces the victim's browser to use a session token known to the attacker",
+        "Sniffs the session token over an unencrypted connection"
+      ],
+      "correctAnswer": 2,
+      "explanation": "In session fixation, the attacker sets (fixes) the user's session ID to a known value before the user logs in. Once the user authenticates, the attacker can use the known session ID to access the user's account.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 366,
+      "moduleId": 11,
+      "question": "Which protocol can be used to prevent network-level session hijacking by encrypting the data in transit?",
+      "options": [
+        "HTTP",
+        "Telnet",
+        "IPsec",
+        "FTP"
+      ],
+      "correctAnswer": 2,
+      "explanation": "IPsec (Internet Protocol Security) can prevent network-level session hijacking by encrypting IP packets, ensuring confidentiality and integrity of the data in transit, making it difficult for an attacker to intercept or modify the session.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 367,
+      "moduleId": 12,
+      "question": "Which technique can be used to evade an Intrusion Detection System (IDS) by breaking an attack payload into smaller pieces?",
+      "options": [
+        "Spoofing",
+        "Fragmentation",
+        "Encryption",
+        "Obfuscation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Fragmentation involves breaking an attack payload into smaller IP fragments. If the IDS does not properly reassemble the fragments before inspection, the attack signature may go undetected.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 368,
+      "moduleId": 12,
+      "question": "What is the purpose of using a honeypot in network security?",
+      "options": [
+        "To act as a high-speed firewall",
+        "To encrypt internal network traffic",
+        "To lure attackers away from critical systems and study their tactics",
+        "To detect and prevent physical intrusions"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A honeypot is a decoy system designed to attract attackers. It helps organizations study attack patterns, identify vulnerabilities, and distract attackers from actual production systems.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 369,
+      "moduleId": 12,
+      "question": "Which firewall evasion technique involves altering the source IP address to make the traffic appear as if it is coming from a trusted internal host?",
+      "options": [
+        "Source routing",
+        "IP spoofing",
+        "MAC spoofing",
+        "Port scanning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "IP spoofing involves altering the source IP address in the packet header. By spoofing a trusted internal IP address, an attacker might bypass firewall rules that allow traffic from trusted hosts.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 370,
+      "moduleId": 12,
+      "question": "What is the primary difference between a stateful and a stateless firewall?",
+      "options": [
+        "Stateful firewalls only inspect layer 3 traffic.",
+        "Stateless firewalls keep track of active connections.",
+        "Stateful firewalls track the state of active network connections and make decisions based on context.",
+        "Stateless firewalls are generally slower and more secure."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Stateful firewalls monitor the state of active connections and use this context (e.g., whether a packet is part of an established connection) to make filtering decisions. Stateless firewalls inspect individual packets in isolation without context.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 371,
+      "moduleId": 13,
+      "question": "Which vulnerability occurs when a web server fails to properly sanitize user input before using it to access files on the filesystem?",
+      "options": [
+        "Cross-Site Scripting (XSS)",
+        "SQL Injection",
+        "Directory Traversal",
+        "Cross-Site Request Forgery (CSRF)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Directory Traversal (or path traversal) occurs when a web application allows users to access files outside of the intended web root directory by using dot-dot-slash (../) sequences or absolute file paths.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 372,
+      "moduleId": 13,
+      "question": "What is the primary goal of a web server footprinting attack?",
+      "options": [
+        "To crash the web server",
+        "To gather information about the server software, version, and operating system",
+        "To inject malicious scripts into the web application",
+        "To steal user session tokens"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Footprinting is the first step in an attack where the attacker gathers information about the target. For a web server, this includes identifying the server software, version, OS, and other configuration details to find potential vulnerabilities.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 373,
+      "moduleId": 13,
+      "question": "Which attack involves sending excessive HTTP requests to a web server to consume its resources and deny service to legitimate users?",
+      "options": [
+        "Ping of Death",
+        "HTTP Flood",
+        "SYN Flood",
+        "Teardrop"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An HTTP Flood is an application-layer DoS attack where the attacker sends a massive number of HTTP requests (GET or POST) to overwhelm the web server's ability to process them.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 374,
+      "moduleId": 13,
+      "question": "What is the purpose of HTTP response splitting?",
+      "options": [
+        "To split large files during download",
+        "To inject malicious HTTP headers into a response by exploiting unsanitized input",
+        "To divide server load among multiple load balancers",
+        "To fragment IP packets to evade an IDS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "HTTP response splitting occurs when an attacker uses CRLF (Carriage Return/Line Feed) injection to insert arbitrary HTTP headers into the server's response. This can lead to cache poisoning or XSS.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 375,
+      "moduleId": 13,
+      "question": "Which of the following is a common mitigation technique against directory traversal attacks?",
+      "options": [
+        "Using parameterized queries",
+        "Implementing input validation and normalizing file paths",
+        "Encrypting all web traffic",
+        "Disabling JavaScript in the browser"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mitigating directory traversal requires strict input validation, using whitelists for allowed file names, and normalizing paths (e.g., using canonicalization functions) before accessing the filesystem.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 376,
+      "moduleId": 13,
+      "question": "In the context of web server attacks, what does 'banner grabbing' refer to?",
+      "options": [
+        "Stealing ad banners from websites",
+        "Extracting information from the server's HTTP response headers to identify the server type and version",
+        "Intercepting user credentials during login",
+        "Exploiting vulnerabilities in web application logic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Banner grabbing is a technique used to gather information about a network service, such as a web server, by examining its response banners or headers, which often reveal the server software and version.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 377,
+      "moduleId": 13,
+      "question": "Which attack specifically targets the vulnerability in the IIS web server's processing of Unicode characters?",
+      "options": [
+        "IIS Unicode Exploit (Directory Traversal)",
+        "Apache Struts Exploit",
+        "Heartbleed",
+        "Shellshock"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The IIS Unicode Exploit (e.g., MS00-078) allowed attackers to bypass directory traversal protections by using overlong Unicode representations of the slash character, enabling them to execute commands outside the web root.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 378,
+      "moduleId": 13,
+      "question": "What is a Web Application Firewall (WAF) primarily designed to do?",
+      "options": [
+        "Filter layer 3 and 4 network traffic",
+        "Protect web applications by inspecting HTTP traffic and blocking malicious payloads",
+        "Encrypt all data stored on the database server",
+        "Provide VPN access for remote users"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A WAF specifically monitors and filters HTTP/HTTPS traffic between a web application and the Internet, identifying and blocking attacks like SQL injection, XSS, and other web-specific threats.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 379,
+      "moduleId": 13,
+      "question": "Which vulnerability involves an attacker uploading an executable script disguised as a harmless file, such as an image, to a web server?",
+      "options": [
+        "Unrestricted File Upload",
+        "Cross-Site Scripting (XSS)",
+        "SQL Injection",
+        "XML External Entity (XXE)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Unrestricted file upload vulnerabilities occur when a server allows users to upload files without properly validating their type, contents, or extension, allowing attackers to upload malicious scripts (e.g., a web shell).",
+      "difficulty": "medium"
+    },
+    {
+      "id": 380,
+      "moduleId": 13,
+      "question": "What is the purpose of 'Slowloris'?",
+      "options": [
+        "To slowly brute-force passwords",
+        "To perform a low-bandwidth DoS attack by keeping many HTTP connections open indefinitely",
+        "To gradually extract data from a database",
+        "To slowly scan ports to evade detection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Slowloris is a DoS tool that opens multiple connections to a target web server and keeps them open as long as possible by sending partial HTTP requests periodically, eventually exhausting the server's connection pool.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 381,
+      "moduleId": 13,
+      "question": "Which HTTP method is most commonly exploited to upload arbitrary files if it is improperly configured on a web server?",
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The PUT method is used to upload a file to a specific URI. If left enabled and unauthenticated on a web server, attackers can use it to upload malicious files directly.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 382,
+      "moduleId": 13,
+      "question": "What is a common defense against DNS rebinding attacks on a web server?",
+      "options": [
+        "Using HTTPS only",
+        "Validating the Host header in HTTP requests",
+        "Implementing a WAF",
+        "Using parameterized queries"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Validating the Host header ensures that the application only responds to requests meant for its actual domain names, preventing an attacker from using DNS rebinding to force the victim's browser to send requests to internal IPs with a different Host header.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 383,
+      "moduleId": 13,
+      "question": "Which vulnerability allows an attacker to include a remote file into a vulnerable PHP script?",
+      "options": [
+        "Local File Inclusion (LFI)",
+        "Remote File Inclusion (RFI)",
+        "Cross-Site Scripting (XSS)",
+        "SQL Injection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Remote File Inclusion (RFI) occurs when a web application (often PHP) dynamically includes external files or scripts based on user input without validation, allowing the attacker to execute code from a remote server.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 384,
+      "moduleId": 13,
+      "question": "Which misconfiguration might expose sensitive server configuration details, such as the path to the web root?",
+      "options": [
+        "Disabled directory listing",
+        "Verbose error messages",
+        "Enabling HTTPS",
+        "Using strong passwords"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Verbose error messages can inadvertently reveal sensitive information about the server's environment, such as file paths, database structure, or software versions, aiding an attacker in further exploitation.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 385,
+      "moduleId": 13,
+      "question": "What is the primary function of a reverse proxy in web server architecture?",
+      "options": [
+        "To filter outgoing traffic from internal users",
+        "To sit in front of web servers and distribute incoming client requests",
+        "To encrypt internal network traffic",
+        "To block all ICMP traffic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A reverse proxy sits between the internet and internal web servers. It handles incoming requests, often providing load balancing, caching, and an additional layer of security by hiding the backend servers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 386,
+      "moduleId": 13,
+      "question": "Which attack exploits the TRACE HTTP method to bypass HttpOnly flags on cookies?",
+      "options": [
+        "Cross-Site Tracing (XST)",
+        "Cross-Site Scripting (XSS)",
+        "Cross-Site Request Forgery (CSRF)",
+        "HTTP Parameter Pollution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cross-Site Tracing (XST) uses the TRACE HTTP method and an XSS vulnerability to read the HTTP headers returned by the server, potentially exposing cookies that have the HttpOnly flag set.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 387,
+      "moduleId": 13,
+      "question": "What is 'cache poisoning' in the context of web servers?",
+      "options": [
+        "Corrupting the server's RAM",
+        "Manipulating a web cache to serve malicious content to other users",
+        "Flooding the cache with junk data to cause a DoS",
+        "Stealing session IDs stored in the browser's cache"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cache poisoning involves exploiting vulnerabilities (like HTTP response splitting) to inject malicious content into a web server's cache, which is then served to other users requesting the same resource.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 388,
+      "moduleId": 14,
+      "question": "What is the defining characteristic of a Cross-Site Scripting (XSS) attack?",
+      "options": [
+        "Injecting SQL commands into a database query",
+        "Executing malicious scripts in a victim's browser",
+        "Forcing a victim's browser to send unauthorized requests",
+        "Exploiting buffer overflows in a web application"
+      ],
+      "correctAnswer": 1,
+      "explanation": "XSS occurs when an application includes untrusted data in a web page without proper validation or escaping, allowing the attacker to execute malicious scripts (typically JavaScript) in the victim's browser.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 389,
+      "moduleId": 14,
+      "question": "Which type of XSS attack is persistent and stored on the target server?",
+      "options": [
+        "Reflected XSS",
+        "Stored XSS",
+        "DOM-based XSS",
+        "Blind XSS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Stored XSS (or persistent XSS) occurs when malicious input is permanently stored on the target server (e.g., in a database or forum post) and is served to users when they view the affected page.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 390,
+      "moduleId": 14,
+      "question": "How does Cross-Site Request Forgery (CSRF) differ from XSS?",
+      "options": [
+        "CSRF steals data, XSS executes code.",
+        "CSRF requires the user to be authenticated, XSS does not.",
+        "CSRF exploits the user's trust in a site, while XSS exploits the site's trust in user input.",
+        "CSRF exploits the site's trust in the user's browser, while XSS exploits the user's trust in the site."
+      ],
+      "correctAnswer": 3,
+      "explanation": "CSRF exploits a web application's trust in an authenticated user's browser by tricking the browser into sending unauthorized commands. XSS exploits the user's trust in the application by injecting malicious scripts.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 391,
+      "moduleId": 14,
+      "question": "Which defense mechanism is most effective against CSRF attacks?",
+      "options": [
+        "Input validation",
+        "Anti-CSRF tokens",
+        "Using HTTPS",
+        "Setting the HttpOnly flag on cookies"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Anti-CSRF tokens (or synchronizer tokens) are unpredictable, session-specific values included in state-changing requests. The server verifies the token to ensure the request was intentionally made by the user.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 392,
+      "moduleId": 14,
+      "question": "What vulnerability arises when a web application uses input to select a class or code to load and execute without proper validation?",
+      "options": [
+        "Insecure Direct Object Reference (IDOR)",
+        "Insecure Deserialization",
+        "Remote Code Execution (RCE)",
+        "Server-Side Request Forgery (SSRF)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Remote Code Execution (RCE) can occur when an application dynamically evaluates code or commands based on user input, allowing an attacker to execute arbitrary commands on the server.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 393,
+      "moduleId": 14,
+      "question": "What does an Insecure Direct Object Reference (IDOR) vulnerability allow an attacker to do?",
+      "options": [
+        "Execute SQL commands",
+        "Access objects or data belonging to other users by manipulating parameters",
+        "Inject malicious JavaScript",
+        "Bypass authentication mechanisms"
+      ],
+      "correctAnswer": 1,
+      "explanation": "IDOR occurs when an application provides direct access to objects based on user-supplied input (like a database ID or file name) without verifying authorization, allowing attackers to access other users' data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 394,
+      "moduleId": 14,
+      "question": "Which attack involves an attacker tricking a server into making HTTP requests to internal or external systems?",
+      "options": [
+        "Cross-Site Request Forgery (CSRF)",
+        "Server-Side Request Forgery (SSRF)",
+        "Cross-Site Scripting (XSS)",
+        "XML External Entity (XXE)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In SSRF, the attacker forces the vulnerable server to make requests to internal resources (which are normally inaccessible from the outside) or to external systems, potentially exposing sensitive data or bypassing firewalls.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 395,
+      "moduleId": 14,
+      "question": "What is the primary risk associated with Insecure Deserialization?",
+      "options": [
+        "XSS attacks",
+        "Denial of Service",
+        "Remote Code Execution",
+        "Directory Traversal"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Insecure deserialization occurs when untrusted data is used to abuse the logic of an application, instantiate objects, and execute code, often leading to Remote Code Execution (RCE).",
+      "difficulty": "hard"
+    },
+    {
+      "id": 396,
+      "moduleId": 14,
+      "question": "Which vulnerability is exploited when an application parses XML input containing references to external entities?",
+      "options": [
+        "XML External Entity (XXE)",
+        "Cross-Site Scripting (XSS)",
+        "SQL Injection",
+        "LDAP Injection"
+      ],
+      "correctAnswer": 0,
+      "explanation": "XXE attacks exploit weakly configured XML parsers. By including external entity references in XML input, an attacker can read local files, perform SSRF, or cause a denial of service.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 397,
+      "moduleId": 14,
+      "question": "What is the purpose of the 'HttpOnly' flag for a cookie?",
+      "options": [
+        "To ensure the cookie is only sent over HTTPS",
+        "To prevent client-side scripts from accessing the cookie",
+        "To encrypt the cookie's contents",
+        "To limit the cookie's lifespan"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The HttpOnly flag prevents client-side scripts (like JavaScript) from accessing the cookie. This helps mitigate the risk of session hijacking via Cross-Site Scripting (XSS) attacks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 398,
+      "moduleId": 14,
+      "question": "What does the 'Secure' flag on a cookie indicate?",
+      "options": [
+        "The cookie is encrypted.",
+        "The cookie cannot be read by JavaScript.",
+        "The cookie should only be transmitted over a secure (HTTPS) connection.",
+        "The cookie is signed to prevent tampering."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Secure flag directs the browser to only send the cookie over encrypted (HTTPS) connections, protecting it from being intercepted in plain text over unencrypted networks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 399,
+      "moduleId": 14,
+      "question": "Which attack involves submitting multiple HTTP parameters with the same name to manipulate the application's logic?",
+      "options": [
+        "HTTP Parameter Pollution",
+        "Cross-Site Scripting",
+        "Parameter Tampering",
+        "Clickjacking"
+      ],
+      "correctAnswer": 0,
+      "explanation": "HTTP Parameter Pollution (HPP) involves injecting multiple parameters with the same name into an HTTP request. Depending on how the application handles the duplicates, it may bypass input validation or alter application logic.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 400,
+      "moduleId": 14,
+      "question": "What is the goal of a Clickjacking attack?",
+      "options": [
+        "To steal user passwords via keyloggers",
+        "To trick a user into clicking on something different from what they perceive, potentially performing actions on another site",
+        "To flood a website with clicks to cause a DoS",
+        "To inject malicious scripts into a web page"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Clickjacking (UI redressing) uses transparent layers or iframes to overlay malicious elements on top of legitimate ones. The user thinks they are clicking on the legitimate page but is actually clicking on the hidden, malicious layer.",
+      "difficulty": "medium"
+    }
+  ]
+}

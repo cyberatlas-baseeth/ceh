@@ -14,13 +14,19 @@ async function loadData() {
     modulesData = mod.default || mod;
   }
   if (!questionsData) {
-    const [q1, q2] = await Promise.all([
+    const [q1, q2, q3, q4, q5] = await Promise.all([
       import('./data/questions_1.json'),
-      import('./data/questions_2.json')
+      import('./data/questions_2.json'),
+      import('./data/questions_3.json'),
+      import('./data/questions_4.json'),
+      import('./data/questions_5.json')
     ]);
     const d1 = q1.default || q1;
     const d2 = q2.default || q2;
-    questionsData = { questions: [...d1.questions, ...d2.questions] };
+    const d3 = q3.default || q3;
+    const d4 = q4.default || q4;
+    const d5 = q5.default || q5;
+    questionsData = { questions: [...d1.questions, ...d2.questions, ...d3.questions, ...d4.questions, ...d5.questions] };
   }
 }
 
