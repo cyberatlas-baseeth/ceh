@@ -2,8 +2,35 @@
 import './style.css';
 import { icon } from './icons.js';
 
+
+// ==============================
+// Theme Logic
+// ==============================
+function initTheme() {
+  const savedTheme = localStorage.getItem('ceh_theme') || 'light';
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+}
+initTheme();
+
+window.toggleTheme = function() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  if (newTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+  localStorage.setItem('ceh_theme', newTheme);
+  renderApp(); // Re-render to update the icon
+};
+
 // ==============================
 // Data Loading
+
 // ==============================
 let modulesData = null;
 let questionsData = null;
@@ -141,6 +168,9 @@ function renderNavbar(activeRoute) {
             ${l.label}
           </a>
         `).join('')}
+        <button onclick="window.toggleTheme()" style="background:transparent;border:none;cursor:pointer;color:var(--text-tertiary);margin-left:var(--space-md);padding:4px;" aria-label="Toggle Theme">
+          ${document.documentElement.getAttribute('data-theme') === 'dark' ? icon('sun', 20) : icon('moon', 20)}
+        </button>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
         ${icon('menu', 22)}
@@ -154,6 +184,9 @@ function renderNavbar(activeRoute) {
           ${l.label}
         </a>
       `).join('')}
+      <button onclick="window.toggleTheme()" style="background:transparent;border:none;cursor:pointer;color:var(--text-primary);padding:12px 16px;text-align:left;display:flex;align-items:center;gap:var(--space-sm);width:100%;font-family:inherit;font-size:0.95rem;">
+        ${document.documentElement.getAttribute('data-theme') === 'dark' ? icon('sun', 18) + ' Light Mode' : icon('moon', 18) + ' Dark Mode'}
+      </button>
     </div>
   `;
 }
