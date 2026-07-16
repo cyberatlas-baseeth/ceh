@@ -610,7 +610,7 @@ function renderStudyModule(moduleId) {
             <div class="topic-card" id="topic-${i}">
               <div class="topic-content">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-                  <span style="background:var(--accent-primary);color:var(--bg-base);padding:2px 8px;border-radius:12px;font-size:0.8rem;font-weight:bold;">Topic ${i + 1}</span>
+                  <span style="background:var(--accent-primary);color:var(--bg-primary);padding:2px 8px;border-radius:12px;font-size:0.8rem;font-weight:bold;">Topic ${i + 1}</span>
                   ${isCompleted ? `<span style="color:var(--success);">${icon('check-circle', 16)}</span>` : ''}
                 </div>
                 <h3>${t.title}</h3>
