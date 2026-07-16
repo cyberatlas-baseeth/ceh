@@ -800,9 +800,7 @@ function renderQuizQuestion() {
 
   return `
     <div class="main-content">
-      <a class="back-link" href="javascript:history.back()" style="margin-bottom:var(--space-md)">
-        ${icon('arrow-left', 16)} Pause & Return
-      </a>
+      
       <div class="quiz-container">
         <!-- Quiz Header -->
         <div class="quiz-header">
@@ -812,8 +810,13 @@ function renderQuizQuestion() {
               <div class="progress-bar" style="width:${progressPct}%"></div>
             </div>
           </div>
-          <div class="quiz-timer" id="quizTimer">
-            ${icon('clock', 16)} ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}
+          <div style="display:flex; align-items:center; gap:var(--space-md);">
+            <div class="quiz-timer" id="quizTimer">
+              ${icon('clock', 16)} ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}
+            </div>
+            <button class="btn" onclick="window.location.hash='/modules'" style="padding:6px 12px; font-size:0.85rem; background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); font-weight:bold; display:flex; align-items:center; gap:4px;">
+              ${icon('arrow-left', 14)} Pause & Exit
+            </button>
           </div>
         </div>
 
