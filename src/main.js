@@ -88,6 +88,27 @@ const storage = {
     p.readTopics[moduleId][topicIndex] = !p.readTopics[moduleId][topicIndex];
     this.set('progress', p);
   },
+  
+  resetModuleTopics(moduleId) {
+    const p = this.getProgress();
+    if (p.readTopics[moduleId]) {
+      p.readTopics[moduleId] = {};
+      this.set('progress', p);
+    }
+  },
+  resetModuleQuiz(moduleId) {
+    const progress = this.getProgress();
+    if (questionsData) {
+      const moduleQuestions = questionsData.questions.filter(q => q.moduleId === moduleId);
+      moduleQuestions.forEach(q => {
+        delete progress.completed[q.id];
+      });
+      // Also filter out any quizResults that were specifically for this module
+      progress.quizResults = progress.quizResults.filter(r => !r.modules || !r.modules.includes(moduleId) || r.modules.length > 1);
+      this.set('progress', progress);
+    }
+  },
+
   getTopicStats(moduleId) {
     const p = this.getProgress();
     const read = p.readTopics[moduleId] || {};
@@ -544,7 +565,18 @@ function renderModuleDetail(moduleId) {
         </div>
       </div>
 
+      
+      <div style="display:flex; justify-content:center; gap:var(--space-md); margin-top:var(--space-xl); margin-bottom:var(--space-lg);">
+        <button class="btn btn-secondary" onclick="window.resetStudyProgress(${m.id})" style="font-size:0.8rem; padding:6px 12px">
+          ${icon('refresh-cw', 14)} Reset Study
+        </button>
+        <button class="btn btn-secondary" onclick="window.resetQuizProgress(${m.id})" style="font-size:0.8rem; padding:6px 12px; color:var(--error); border-color:var(--error-bg)">
+          ${icon('refresh-cw', 14)} Reset Quiz
+        </button>
+      </div>
+      
       <div class="module-split-container">
+
         <!-- Study Material Card -->
         <a class="module-choice-card" href="#/study/${m.id}" style="text-decoration:none;">
           <div class="icon-wrapper">${icon('book-open', 32)}</div>
@@ -917,6 +949,21 @@ window.toggleTopicComplete = function(moduleId, topicIndex) {
   const progressText = document.querySelector('.main-content > div:nth-child(2) > div > span');
   if (progressText && progressText.innerText.includes('completed')) {
     progressText.innerText = `${tStats.readCount} of ${tStats.total} completed`;
+  }
+};
+
+
+window.resetStudyProgress = function(moduleId) {
+  if (confirm('Are you sure you want to reset your reading progress for this module? This cannot be undone.')) {
+    storage.resetModuleTopics(moduleId);
+    renderApp();
+  }
+};
+
+window.resetQuizProgress = function(moduleId) {
+  if (confirm('Are you sure you want to reset your quiz progress for this module? This cannot be undone.')) {
+    storage.resetModuleQuiz(moduleId);
+    renderApp();
   }
 };
 
