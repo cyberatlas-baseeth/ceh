@@ -779,7 +779,10 @@ function renderQuiz() {
           selectedOption: null,
           answered: false,
           title: `Module ${moduleId}: ${m ? m.title : ''}`,
-          startTime: Date.now()
+          startTime: Date.now(),
+          lastResumeTime: Date.now(),
+          totalElapsedMs: 0,
+          paused: false
         };
         return renderQuizQuestion();
       }
@@ -793,7 +796,8 @@ function renderQuizQuestion() {
   const total = quizState.questions.length;
   const current = quizState.currentIndex + 1;
   const progressPct = Math.round((current / total) * 100);
-  const elapsed = Math.floor((Date.now() - quizState.startTime) / 1000);
+  const elapsedMs = quizState.totalElapsedMs + (quizState.paused ? 0 : (Date.now() - quizState.lastResumeTime));
+  const elapsed = Math.floor(elapsedMs / 1000);
   const minutes = Math.floor(elapsed / 60);
   const seconds = elapsed % 60;
   const letters = ['A', 'B', 'C', 'D'];
@@ -887,7 +891,8 @@ function startQuizTimer() {
   quizTimerInterval = setInterval(() => {
     const timerEl = document.getElementById('quizTimer');
     if (timerEl && quizState && quizState.active) {
-      const elapsed = Math.floor((Date.now() - quizState.startTime) / 1000);
+      const elapsedMs = quizState.totalElapsedMs + (quizState.paused ? 0 : (Date.now() - quizState.lastResumeTime));
+  const elapsed = Math.floor(elapsedMs / 1000);
       const minutes = Math.floor(elapsed / 60);
       const seconds = elapsed % 60;
       timerEl.innerHTML = `${icon('clock', 16)} ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
@@ -1037,7 +1042,10 @@ window.startQuiz = function() {
     selectedOption: null,
     answered: false,
     title,
-    startTime: Date.now()
+    startTime: Date.now(),
+          lastResumeTime: Date.now(),
+          totalElapsedMs: 0,
+          paused: false
   };
 
   renderApp();
@@ -1099,7 +1107,8 @@ window.endQuiz = function() {
 
 function finishQuiz() {
   if (quizTimerInterval) clearInterval(quizTimerInterval);
-  const elapsed = Math.floor((Date.now() - quizState.startTime) / 1000);
+  const elapsedMs = quizState.totalElapsedMs + (quizState.paused ? 0 : (Date.now() - quizState.lastResumeTime));
+  const elapsed = Math.floor(elapsedMs / 1000);
   const correctCount = quizState.answers.filter(a => a.correct).length;
   const skippedCount = quizState.answers.filter(a => a.skipped).length;
   const totalQuestions = quizState.questions.length;
@@ -1248,6 +1257,21 @@ function shuffleArray(arr) {
 async function renderApp() {
   const app = document.getElementById('app');
   const { path, parts } = getRoute();
+
+  if (quizState && quizState.active) {
+    if (parts[0] !== 'quiz') {
+      if (!quizState.paused) {
+        quizState.paused = true;
+        quizState.totalElapsedMs = quizState.totalElapsedMs || 0;
+        quizState.totalElapsedMs += (Date.now() - (quizState.lastResumeTime || quizState.startTime));
+      }
+    } else {
+      if (quizState.paused) {
+        quizState.paused = false;
+        quizState.lastResumeTime = Date.now();
+      }
+    }
+  }
 
   // Show loading if data not ready
   if (!modulesData || !questionsData) {
