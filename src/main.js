@@ -444,7 +444,9 @@ function renderModules() {
       <div class="card-grid" id="moduleGrid">
         ${filteredModules.map(m => {
           const stats = storage.getModuleStats(m.id);
+          const tStats = storage.getTopicStats(m.id);
           const progressPct = stats.total ? Math.round((stats.answered / stats.total) * 100) : 0;
+          const readPct = tStats.total ? Math.round((tStats.readCount / tStats.total) * 100) : 0;
           const iconName = moduleIcons[m.icon] || 'shield';
           return `
             <div class="card card-clickable module-card" data-module="${m.id}" data-title="${m.title.toLowerCase()}" onclick="window.location.hash='/module/${m.id}'">
@@ -456,14 +458,28 @@ function renderModules() {
                 </div>
               </div>
               <div class="module-card-desc">${m.description}</div>
-              <div class="module-card-footer">
-                <div style="flex:1">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar" style="width:${progressPct}%"></div>
+              <div class="module-card-footer" style="flex-direction:column; align-items:flex-start; gap:var(--space-md); padding-top:var(--space-sm);">
+                
+                <div style="width:100%">
+                  <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-tertiary); margin-bottom:4px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">
+                    <span>Study Progress</span>
+                    <span>${tStats.readCount}/${tStats.total} topics</span>
                   </div>
-                  <div class="progress-text">${stats.answered}/${stats.total} questions · ${progressPct}%</div>
+                  <div class="progress-bar-container" style="height:6px; margin-top:0">
+                    <div class="progress-bar-fill" style="width:${readPct}%;"></div>
+                  </div>
                 </div>
-                <span style="color:var(--text-tertiary);margin-left:var(--space-md)">${icon('chevron-right', 16)}</span>
+
+                <div style="width:100%">
+                  <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-tertiary); margin-bottom:4px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">
+                    <span>Quiz Progress</span>
+                    <span>${stats.answered}/${stats.total} qs</span>
+                  </div>
+                  <div class="progress-bar-container" style="height:6px; margin-top:0">
+                    <div class="progress-bar-fill" style="width:${progressPct}%; background:#ef4444"></div>
+                  </div>
+                </div>
+
               </div>
             </div>
           `;
