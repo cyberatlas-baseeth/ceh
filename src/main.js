@@ -746,10 +746,25 @@ function renderQuizSetup() {
 }
 
 function renderQuiz() {
+  const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
+  const moduleParam = params.get('module');
+
+  if (quizState && quizState.active) {
+    // If they try to start a new specific module quiz but they already have an active one
+    if (moduleParam && quizState.moduleId !== parseInt(moduleParam)) {
+      if (confirm('You have an active quiz for another module. Do you want to abandon it and start a new one?')) {
+        quizState = null;
+      } else {
+        // Return to the previous screen since they cancelled
+        setTimeout(() => history.back(), 0);
+        return '<div class="main-content"><div class="loading-spinner"><div class="spinner"></div></div></div>';
+      }
+    } else {
+      return renderQuizQuestion();
+    }
+  }
+
   if (!quizState || !quizState.active) {
-    // Check URL params for direct module quiz
-    const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
-    const moduleParam = params.get('module');
     if (moduleParam) {
       const moduleId = parseInt(moduleParam);
       const questions = questionsData.questions.filter(q => q.moduleId === moduleId);
@@ -757,6 +772,7 @@ function renderQuiz() {
         const m = modulesData.modules.find(mod => mod.id === moduleId);
         quizState = {
           active: true,
+          moduleId: moduleId, // Store moduleId for tracking
           questions: shuffleArray([...questions]),
           currentIndex: 0,
           answers: [],
@@ -770,7 +786,6 @@ function renderQuiz() {
     }
     return renderQuizSetup();
   }
-  return renderQuizQuestion();
 }
 
 function renderQuizQuestion() {
@@ -785,6 +800,9 @@ function renderQuizQuestion() {
 
   return `
     <div class="main-content">
+      <a class="back-link" href="javascript:history.back()" style="margin-bottom:var(--space-md)">
+        ${icon('arrow-left', 16)} Pause & Return
+      </a>
       <div class="quiz-container">
         <!-- Quiz Header -->
         <div class="quiz-header">
